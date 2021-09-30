@@ -1,2 +1,0 @@
-# zyooo.github.io
-myblog
