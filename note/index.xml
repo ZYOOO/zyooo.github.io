@@ -38,7 +38,6 @@ Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
 写一篇文章 hugo new post/hello.md
 git 令牌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
 生成public文件夹 hugo &amp;ndash;theme=m10c &amp;ndash;baseUrl=&amp;quot;https://zyooo.github.io/&amp;rdquo; &amp;ndash;buildDrafts
-hugo &amp;ndash;theme=m10c &amp;ndash;baseUrl=&amp;quot;http://zyooo.github.io/&amp;rdquo;
 每一次添加东西先生成然后commit push</description>
     </item>
     
@@ -48,7 +47,7 @@ hugo &amp;ndash;theme=m10c &amp;ndash;baseUrl=&amp;quot;http://zyooo.github.io/&
       <pubDate>Wed, 29 Sep 2021 19:08:46 +0800</pubDate>
       
       <guid>https://zyooo.github.io/note/note/</guid>
-      <description>2021.09.29 wrap</description>
+      <description>2021.09.29       pharmacy	n.药房,药店;药剂学;配药学 flatter vt.奉承;自命不凡,使显得更漂亮 tactic	n.策略,手段; 战术,兵法   pilgrim	n.朝圣者,香客;清教徒前辈移民 wrap vt.包裹,缠绕 n.披肩,围巾 rivalry n.竞争,敌对   glacier	n.冰川，冰河 prosper	vi.繁荣,兴旺,发达 thrift	n.节约,节俭; 海石竹   cholesterol n.胆固醇 gauge n.测量仪器,宽度,口径; vt.判断,测量,估算 endure vt.忍耐,忍受 vi.持续,延续,持久   asylum n.(政治)避难,庇护 corporal n.下士.adj.肉体的,身体的 delude vt.欺骗哄骗   incentive n.激励,动力,奖励 corporate adj.公司的 ; 团体的 contrast n.差异,悬殊;截然不同的实物; vt.对照,对比. vi.有明显差异   formulate vt.规划,策划,构想;确切表达 collaboration n.</description>
     </item>
     
   </channel>
