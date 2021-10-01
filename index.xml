@@ -6,10 +6,19 @@
     <description>Recent content on Ray</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 30 Sep 2021 20:28:12 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 01 Oct 2021 10:05:28 +0800</lastBuildDate>
     
 	<atom:link href="https://zyooo.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Note1</title>
+      <link>https://zyooo.github.io/note/note1/</link>
+      <pubDate>Fri, 01 Oct 2021 10:05:28 +0800</pubDate>
+      
+      <guid>https://zyooo.github.io/note/note1/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Tt</title>
