@@ -6,10 +6,23 @@
     <description>Recent content in Notes on Ray</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 01 Oct 2021 10:05:28 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 08 Oct 2021 14:23:01 +0800</lastBuildDate>
     
 	<atom:link href="https://zyooo.github.io/note/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>BigTalkDesignPattenNote</title>
+      <link>https://zyooo.github.io/note/bigtalkdesignpattennote/</link>
+      <pubDate>Fri, 08 Oct 2021 14:23:01 +0800</pubDate>
+      
+      <guid>https://zyooo.github.io/note/bigtalkdesignpattennote/</guid>
+      <description>大话设计模式读书笔记 1.简单工厂模式 用一个单独的类来做创照实例的过程，这就是工厂
+public class OperationFactory{ public static Operation createOperate(string operate){ Operation oper = null; switch(operate){ case &amp;quot;+&amp;quot;: oper = new OperationAdd(); break; case &amp;quot;-&amp;quot;: oper = new OperationSub(); break; case &amp;quot;*&amp;quot;: oper = new OperationMul(); break; case &amp;quot;/&amp;quot;: oper = new OperationMul(); break; } return oper; } } Operation oper; oper = OperationFactory.createOperate(&amp;quot;+&amp;quot;); oper.NumberA = 1; oper.NumberB = 2; double result = oper.GetResult(); *UML类图 UML类图图示样例
+类图 类图分为三层
+第一层显示类的名称，如果是抽象类，则就用斜体显示。
+第二层是类的特性，通常就是字段和属性。</description>
+    </item>
     
     <item>
       <title>Note1</title>
