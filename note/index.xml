@@ -39,7 +39,10 @@ Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
 git 令牌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
 生成public文件夹 hugo &amp;ndash;theme=m10c &amp;ndash;baseUrl=&amp;quot;https://zyooo.github.io/&amp;rdquo; &amp;ndash;buildDrafts
 每一次添加东西先生成然后commit push
-git操作 </description>
+git操作 到public目录下
+git add .
+git commit -m&amp;rdquo; &amp;quot;
+git push origin main</description>
     </item>
     
     <item>
