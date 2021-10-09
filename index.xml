@@ -6,10 +6,28 @@
     <description>Recent content on Ray</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 09 Oct 2021 11:49:46 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 09 Oct 2021 12:28:42 +0800</lastBuildDate>
     
 	<atom:link href="https://zyooo.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Ideal2021JavaWeb项目配置</title>
+      <link>https://zyooo.github.io/note/ideal2021javaweb%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Sat, 09 Oct 2021 12:28:42 +0800</pubDate>
+      
+      <guid>https://zyooo.github.io/note/ideal2021javaweb%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE/</guid>
+      <description>Itellidea2021版本中web项目的配置
+右键项目名称，选择Add Frameworks Support，勾选Web Application，OK。
+添加Tomcat
+点右上角
+或者菜单栏中Run中的Edit Configurations
+这个自己配置
+回到打开project structure –&amp;gt; Modules
+选择添加library
+添加Tomcat包之后选择web，勾选下方的SourceRoots，这样才能直接new servlet
+注意重启idea后这个勾会没打上，所以要自己打上</description>
+    </item>
     
     <item>
       <title>Windows下redi Server秒退</title>
