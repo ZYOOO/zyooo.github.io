@@ -60,7 +60,7 @@ value：
   </head>
   <body>
     <header class="app-header">
-      <a href="https://zyooo.github.io/"><img class="app-header-avatar" src="/avatar.jpg" alt="Ray" /></a>
+      <a href="https://zyooo.github.io"><img class="app-header-avatar" src="/avatar.jpg" alt="Ray" /></a>
       <h1>Ray</h1>
       <nav class="app-header-menu">
           <a class="app-header-menu-item" href="/note/">NOTE</a>
@@ -104,7 +104,7 @@ value：
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          2 min read
+          4 min read
         </div>
       </div>
     </header>
@@ -320,6 +320,209 @@ appendonly no（关闭aof） &ndash;&gt; appendonly yes （开启aof）</p>
 maxheap 314572800
 </code></pre><p>再次启动正常</p>
 <h2 id="jedis">Jedis</h2>
+<pre><code>Java客户端 Jedis
+    * Jedis: 一款java操作redis数据库的工具.
+    * 使用步骤：
+        1. 下载jedis的jar包
+        2. 使用
+            //1. 获取连接
+            Jedis jedis = new Jedis(&quot;localhost&quot;,6379);
+            //2. 操作
+            jedis.set(&quot;username&quot;,&quot;zhangsan&quot;);
+            //3. 关闭连接
+            jedis.close();
+    * Jedis操作各种redis中的数据结构
+        1) 字符串类型 string
+            set
+            get
+			
+             //1. 获取连接
+            Jedis jedis = new Jedis();//如果使用空参构造，默认值 &quot;localhost&quot;,6379端口
+            //2. 操作
+            //存储
+            jedis.set(&quot;username&quot;,&quot;zhangsan&quot;);
+            //获取
+            String username = jedis.get(&quot;username&quot;);
+            System.out.println(username);
+	
+            //可以使用setex()方法存储可以指定过期时间的 key value
+            jedis.setex(&quot;activecode&quot;,20,&quot;hehe&quot;);//将activecode：hehe键值对存入redis，并且20秒后自动删除该键值对
+	
+            //3. 关闭连接
+            jedis.close();
+
+        2) 哈希类型 hash ： map格式  
+            hset
+            hget
+            hgetAll
+            //1. 获取连接
+            Jedis jedis = new Jedis();//如果使用空参构造，默认值 &quot;localhost&quot;,6379端口
+            //2. 操作
+            // 存储hash
+            jedis.hset(&quot;user&quot;,&quot;name&quot;,&quot;lisi&quot;);
+            jedis.hset(&quot;user&quot;,&quot;age&quot;,&quot;23&quot;);
+            jedis.hset(&quot;user&quot;,&quot;gender&quot;,&quot;female&quot;);
+	
+            // 获取hash
+            String name = jedis.hget(&quot;user&quot;, &quot;name&quot;);
+            System.out.println(name);
+</code></pre>
+<p>​</p>
+<pre><code>            // 获取hash的所有map中的数据
+            Map&lt;String, String&gt; user = jedis.hgetAll(&quot;user&quot;);
+	
+            // keyset
+            Set&lt;String&gt; keySet = user.keySet();
+            for (String key : keySet) {
+                //获取value
+                String value = user.get(key);
+                System.out.println(key + &quot;:&quot; + value);
+            }
+	
+            //3. 关闭连接
+            jedis.close();
+
+
+        3) 列表类型 list ： linkedlist格式。支持重复元素
+            lpush / rpush
+            lpop / rpop
+            lrange start end : 范围获取
+			
+             //1. 获取连接
+            Jedis jedis = new Jedis();//如果使用空参构造，默认值 &quot;localhost&quot;,6379端口
+            //2. 操作
+            // list 存储
+            jedis.lpush(&quot;mylist&quot;,&quot;a&quot;,&quot;b&quot;,&quot;c&quot;);//从左边存
+            jedis.rpush(&quot;mylist&quot;,&quot;a&quot;,&quot;b&quot;,&quot;c&quot;);//从右边存
+	
+            // list 范围获取
+            List&lt;String&gt; mylist = jedis.lrange(&quot;mylist&quot;, 0, -1);
+            System.out.println(mylist);
+	        
+            // list 弹出
+            String element1 = jedis.lpop(&quot;mylist&quot;);//c
+            System.out.println(element1);
+	
+            String element2 = jedis.rpop(&quot;mylist&quot;);//c
+            System.out.println(element2);
+	
+            // list 范围获取
+            List&lt;String&gt; mylist2 = jedis.lrange(&quot;mylist&quot;, 0, -1);
+            System.out.println(mylist2);
+	
+            //3. 关闭连接
+            jedis.close();
+
+
+        4) 集合类型 set  ： 不允许重复元素
+            sadd
+            smembers:获取所有元素
+
+            //1. 获取连接
+            Jedis jedis = new Jedis();//如果使用空参构造，默认值 &quot;localhost&quot;,6379端口
+            //2. 操作
+</code></pre>
+<p>​</p>
+<pre><code>            // set 存储
+            jedis.sadd(&quot;myset&quot;,&quot;java&quot;,&quot;php&quot;,&quot;c++&quot;);
+	
+            // set 获取
+            Set&lt;String&gt; myset = jedis.smembers(&quot;myset&quot;);
+            System.out.println(myset);
+	
+            //3. 关闭连接
+            jedis.close();
+        5) 有序集合类型 sortedset：不允许重复元素，且元素有顺序
+            zadd
+            zrange
+
+            //1. 获取连接
+            Jedis jedis = new Jedis();//如果使用空参构造，默认值 &quot;localhost&quot;,6379端口
+            //2. 操作
+            // sortedset 存储
+            jedis.zadd(&quot;mysortedset&quot;,3,&quot;亚瑟&quot;);
+            jedis.zadd(&quot;mysortedset&quot;,30,&quot;后裔&quot;);
+            jedis.zadd(&quot;mysortedset&quot;,55,&quot;孙悟空&quot;);
+	
+            // sortedset 获取
+            Set&lt;String&gt; mysortedset = jedis.zrange(&quot;mysortedset&quot;, 0, -1);
+	
+            System.out.println(mysortedset);
+</code></pre>
+<p>​</p>
+<pre><code>            //3. 关闭连接
+            jedis.close();
+</code></pre>
+<p>​</p>
+<pre><code>    * jedis连接池： JedisPool
+        * 使用：
+            1. 创建JedisPool连接池对象
+            2. 调用方法 getResource()方法获取Jedis连接
+                //0.创建一个配置对象
+                JedisPoolConfig config = new JedisPoolConfig();
+                config.setMaxTotal(50);
+                config.setMaxIdle(10);
+		
+                //1.创建Jedis连接池对象
+                JedisPool jedisPool = new JedisPool(config,&quot;localhost&quot;,6379);
+		
+                //2.获取连接
+                Jedis jedis = jedisPool.getResource();
+                //3. 使用
+                jedis.set(&quot;hehe&quot;,&quot;heihei&quot;);
+</code></pre>
+<p>​</p>
+<pre><code>                //4. 关闭 归还到连接池中
+                jedis.close();
+		
+        * 连接池工具类
+            public class JedisPoolUtils {
+
+                private static JedisPool jedisPool;
+			
+                static{
+                    //读取配置文件
+                    InputStream is = JedisPoolUtils.class.getClassLoader().getResourceAsStream(&quot;jedis.properties&quot;);
+                    //创建Properties对象
+                    Properties pro = new Properties();
+                    //关联文件
+                    try {
+                        pro.load(is);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    //获取数据，设置到JedisPoolConfig中
+                    JedisPoolConfig config = new JedisPoolConfig();
+                    config.setMaxTotal(Integer.parseInt(pro.getProperty(&quot;maxTotal&quot;)));
+                    config.setMaxIdle(Integer.parseInt(pro.getProperty(&quot;maxIdle&quot;)));
+			
+                    //初始化JedisPool
+                    jedisPool = new JedisPool(config,pro.getProperty(&quot;host&quot;),Integer.parseInt(pro.getProperty(&quot;port&quot;)));
+</code></pre>
+<p>​			
+​</p>
+<pre><code>                }
+</code></pre>
+<p>​</p>
+<pre><code>                /**
+                 * 获取连接方法
+                 */
+                public static Jedis getJedis(){
+                    return jedisPool.getResource();
+                }
+            }
+</code></pre>
+<h2 id="案例">案例：</h2>
+<pre><code>案例需求：
+    1. 提供index.html页面，页面中有一个省份 下拉列表
+    2. 当 页面加载完成后 发送ajax请求，加载所有省份
+
+
+* 注意：使用redis缓存一些不经常发生变化的数据。
+    * 数据库的数据一旦发生改变，则需要更新缓存。
+        * 数据库的表执行 增删改的相关操作，需要将redis缓存数据情况，再次存入
+        * 在service对应的增删改方法中，将redis数据删除。
+</code></pre>
 
     </div>
     <div class="post-footer">

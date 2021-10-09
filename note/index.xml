@@ -6,23 +6,10 @@
     <description>Recent content in Notes on Ray</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 09 Oct 2021 11:27:25 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 08 Oct 2021 14:23:01 +0800</lastBuildDate>
     
 	<atom:link href="https://zyooo.github.io/note/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Bugs</title>
-      <link>https://zyooo.github.io/note/bugs/</link>
-      <pubDate>Sat, 09 Oct 2021 11:27:25 +0800</pubDate>
-      
-      <guid>https://zyooo.github.io/note/bugs/</guid>
-      <description>学习中遇到的一些bug Windows下redi-server.exe秒退 遇到个问题： 在第一次正常启动之后，配置完conf里的save，再次开启server秒退。
-错误信息：QForkMasterInit: system error caught. error code=0x000005af, message=VirtualAllocEx failed.: unknown error
-**原因：**未设置redis最大内存
-**解决：**在conf中最下面加入
-maxmemory 268435456 maxheap 314572800 再次启动正常</description>
-    </item>
     
     <item>
       <title>BigTalkDesignPattenNote</title>
