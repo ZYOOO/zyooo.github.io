@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bugs on Ray</title>
+    <link>https://zyooo.github.io/bugs/</link>
+    <description>Recent content in Bugs on Ray</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 09 Oct 2021 11:49:46 +0800</lastBuildDate>
+    
+	<atom:link href="https://zyooo.github.io/bugs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Windows下redi Server</title>
+      <link>https://zyooo.github.io/bugs/windows%E4%B8%8Bredi-server.exe%E7%A7%92%E9%80%80/</link>
+      <pubDate>Sat, 09 Oct 2021 11:49:46 +0800</pubDate>
+      
+      <guid>https://zyooo.github.io/bugs/windows%E4%B8%8Bredi-server.exe%E7%A7%92%E9%80%80/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

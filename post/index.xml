@@ -6,19 +6,10 @@
     <description>Recent content in Posts on Ray</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 30 Sep 2021 20:28:12 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 30 Sep 2021 17:16:46 +0800</lastBuildDate>
     
 	<atom:link href="https://zyooo.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Tt</title>
-      <link>https://zyooo.github.io/post/tt/</link>
-      <pubDate>Thu, 30 Sep 2021 20:28:12 +0800</pubDate>
-      
-      <guid>https://zyooo.github.io/post/tt/</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>Project</title>
@@ -31,15 +22,6 @@
 分阶段去学习的:
 ​	MySQL强化 java进阶 项目 设计模式 计算机网络 Linux
    任务  途径 每个部分都要写博客记录技术要点     java  先跟着黑马web看完把项目案例做完, 然后转向后端框架的学习   算法  算法第四版配上PTA使用, 后期刷LeetCode和面试题   项目  在项目中去学习MySQL进阶和Linux常用指令集   JVM  看书   计网  看书   设计模式  看书    </description>
-    </item>
-    
-    <item>
-      <title>Test</title>
-      <link>https://zyooo.github.io/post/test/</link>
-      <pubDate>Wed, 29 Sep 2021 17:20:19 +0800</pubDate>
-      
-      <guid>https://zyooo.github.io/post/test/</guid>
-      <description>post测试</description>
     </item>
     
   </channel>

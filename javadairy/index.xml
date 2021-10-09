@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>JavaDairies on Ray</title>
+    <link>https://zyooo.github.io/javadairy/</link>
+    <description>Recent content in JavaDairies on Ray</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 09 Oct 2021 11:46:30 +0800</lastBuildDate>
+    
+	<atom:link href="https://zyooo.github.io/javadairy/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Redis&amp;Jedis</title>
+      <link>https://zyooo.github.io/javadairy/redisjedis/</link>
+      <pubDate>Sat, 09 Oct 2021 11:46:30 +0800</pubDate>
+      
+      <guid>https://zyooo.github.io/javadairy/redisjedis/</guid>
+      <description>redis&amp;amp;Jedis redis 概念：一款高性能的NOSQL系列的非关系型数据库
+关系型数据库：MySQL、Oracle…
+​	使用表单存储数据，数据之间有关联关系，数据存储在硬盘的文件上
+非关系型数据库(NOSQL): redis, hbase…
+​	使用键值对去存储数据，数据之间没有关联关系，数据存储在内存中
+两种数据库并非对立而是互补，关系型用来做数据库，NOSQL用于做缓存、秒杀任务队列、网站访问统计等
+去https://redis.io官网下载的只有Linux系统的redis，先用着黑马的Windows绿色版本，等后边部署Linux的时候再使用
+key，value； 其中key都是字符串，value有5种不同的数据结构
+value：
+​	1.字符串类型string
+​	2.哈希类型hash：map格式
+​	3.列表类型list： linkedlist格式
+​	4.集合类型set
+​	5.有序集合类型sortedset
+**命令操作 ** (更多详细的操作在redis官网文档中有)
+字符串类型 string
+1. 存储： set key value 127.0.0.1:6379&amp;gt; set username zhangsan OK 2. 获取： get key 127.0.0.1:6379&amp;gt; get username &amp;quot;zhangsan&amp;quot; 3. 删除： del key 127.0.0.1:6379&amp;gt; del age (integer) 1  哈希类型 hash
+  存储： hset key field value 127.0.0.1:6379&amp;gt; hset myhash username lisi (integer) 1 127.</description>
+    </item>
+    
+  </channel>
+</rss>
