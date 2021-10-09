@@ -13,10 +13,18 @@
     
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Windows下redi Server"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:description" content="Windows下redi-server.exe秒退 遇到个问题： 在第一次正常启动之后，配置完conf里的save，再次开启server秒退。
+错误信息：QForkMasterInit: system error caught. error code=0x000005af, message=VirtualAllocEx failed.: unknown error
+**原因：**未设置redis最大内存
+**解决：**在conf中最下面加入
+maxmemory 268435456 maxheap 314572800 再次启动正常"/>
 
     <meta property="og:title" content="Windows下redi Server" />
-<meta property="og:description" content="" />
+<meta property="og:description" content="Windows下redi-server.exe秒退 遇到个问题： 在第一次正常启动之后，配置完conf里的save，再次开启server秒退。
+错误信息：QForkMasterInit: system error caught. error code=0x000005af, message=VirtualAllocEx failed.: unknown error
+**原因：**未设置redis最大内存
+**解决：**在conf中最下面加入
+maxmemory 268435456 maxheap 314572800 再次启动正常" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://zyooo.github.io/bugs/windows%E4%B8%8Bredi-server.exe%E7%A7%92%E9%80%80/" />
 <meta property="article:published_time" content="2021-10-09T11:49:46+08:00" />
@@ -36,6 +44,9 @@
              - 
           
           <a class="app-header-menu-item" href="/javadairy/">JavaDairy</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/bugs/">Bugs</a>
       </nav>
       <p>What everyonne you can do,just do it.</p>
       <div class="app-header-social">
@@ -67,12 +78,20 @@
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          0 min read
+          1 min read
         </div>
       </div>
     </header>
     <div class="post-content">
-      
+      <h2 id="windows下redi-serverexe秒退">Windows下redi-server.exe秒退</h2>
+<p><strong>遇到个问题：</strong> 在第一次正常启动之后，配置完conf里的save，再次开启server秒退。</p>
+<p>错误信息：QForkMasterInit: system error caught. error code=0x000005af, message=VirtualAllocEx failed.: unknown error</p>
+<p>**原因：**未设置redis最大内存</p>
+<p>**解决：**在conf中最下面加入</p>
+<pre><code>maxmemory 268435456
+maxheap 314572800
+</code></pre><p>再次启动正常</p>
+
     </div>
     <div class="post-footer">
       

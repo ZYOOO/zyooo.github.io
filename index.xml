@@ -17,7 +17,11 @@
       <pubDate>Sat, 09 Oct 2021 11:49:46 +0800</pubDate>
       
       <guid>https://zyooo.github.io/bugs/windows%E4%B8%8Bredi-server.exe%E7%A7%92%E9%80%80/</guid>
-      <description></description>
+      <description>Windows下redi-server.exe秒退 遇到个问题： 在第一次正常启动之后，配置完conf里的save，再次开启server秒退。
+错误信息：QForkMasterInit: system error caught. error code=0x000005af, message=VirtualAllocEx failed.: unknown error
+**原因：**未设置redis最大内存
+**解决：**在conf中最下面加入
+maxmemory 268435456 maxheap 314572800 再次启动正常</description>
     </item>
     
     <item>
@@ -69,45 +73,6 @@ class Solution { public String destCity(List&amp;lt;List&amp;lt;String&amp;gt;&a
 **原因：**未设置redis最大内存
 **解决：**在conf中最下面加入
 maxmemory 268435456 maxheap 314572800 再次启动正常</description>
-    </item>
-    
-    <item>
-      <title>JavaWebDairy</title>
-      <link>https://zyooo.github.io/note/javawebdairy/</link>
-      <pubDate>Sat, 09 Oct 2021 08:41:34 +0800</pubDate>
-      
-      <guid>https://zyooo.github.io/note/javawebdairy/</guid>
-      <description>JavaWebDairy 前面有很多笔记没有去做，但是看黑马的笔记也可以，后期遇到再补吧。
-redis 概念：一款高性能的NOSQL系列的非关系型数据库
-关系型数据库：MySQL、Oracle…
-​	使用表单存储数据，数据之间有关联关系，数据存储在硬盘的文件上
-非关系型数据库(NOSQL): redis, hbase…
-​	使用键值对去存储数据，数据之间没有关联关系，数据存储在内存中
-两种数据库并非对立而是互补，关系型用来做数据库，NOSQL用于做缓存、秒杀任务队列、网站访问统计等
-去https://redis.io官网下载的只有Linux系统的redis，先用着黑马的Windows绿色版本，等后边部署Linux的时候再使用
-key，value； 其中key都是字符串，value有5种不同的数据结构
-value：
-​	1.字符串类型string
-​	2.哈希类型hash：map格式
-​	3.列表类型list： linkedlist格式
-​	4.集合类型set
-​	5.有序集合类型sortedset
-**命令操作 ** (更多详细的操作在redis官网文档中有)
-字符串类型 string
-1. 存储： set key value 127.0.0.1:6379&amp;gt; set username zhangsan OK 2. 获取： get key 127.0.0.1:6379&amp;gt; get username &amp;quot;zhangsan&amp;quot; 3. 删除： del key 127.0.0.1:6379&amp;gt; del age (integer) 1  哈希类型 hash
-  存储： hset key field value 127.</description>
-    </item>
-    
-    <item>
-      <title>LeetCodeDairy</title>
-      <link>https://zyooo.github.io/note/leetcodedairy/</link>
-      <pubDate>Fri, 08 Oct 2021 20:46:46 +0800</pubDate>
-      
-      <guid>https://zyooo.github.io/note/leetcodedairy/</guid>
-      <description>LeetCodeDairy 1.旅行终点站 简单 2021.10.08 给你一份旅游线路图，该线路图中的旅行线路用数组 paths 表示，其中 paths[i] = [cityAi, cityBi] 表示该线路将会从 cityAi 直接前往 cityBi 。请你找出这次旅行的终点站，即没有任何可以通往其他城市的线路的城市。题目数据保证线路图会形成一条不存在循环的线路，因此恰有一个旅行终点站。
-解题的思路就是遍历一遍paths，取cityB，第二重遍历取cityA，当第二重遍历的cityA等于第一重遍历的cityB时说明这条路线是有出路的，反之当第二重遍历结束后依然没有对应的cityA，说明此时第一重遍历的cityB即为终点。
-但是实现方式过于单一，没有去向其他更快捷的方式，导致速度太慢，参考官方题解当中，利用哈希表HashSet去储存一组需要遍历的量，提高速度。
-class Solution { public String destCity(List&amp;lt;List&amp;lt;String&amp;gt;&amp;gt; paths) { for(int i=0; i&amp;lt;paths.size(); i++){ for(int j=0; j&amp;lt;paths.size(); j++){ if(i!=j &amp;amp;&amp;amp; paths.get(i).get(1).equals(paths.get(j).get(0))){ break; }else if(j==paths.size()-1){ return paths.get(i).get(1); } } } return &amp;#34;&amp;#34;; } } //官方题解 class Solution { public String destCity(List&amp;lt;List&amp;lt;String&amp;gt;&amp;gt; paths) { Set&amp;lt;String&amp;gt; citiesA = new HashSet&amp;lt;String&amp;gt;(); for (List&amp;lt;String&amp;gt; path : paths) { citiesA.add(path.get(0)); } for (List&amp;lt;String&amp;gt; path : paths) { if (!</description>
     </item>
     
     <item>
@@ -177,15 +142,6 @@ git push origin main</description>
       
       <guid>https://zyooo.github.io/note/note/</guid>
       <description>2021.09.27      flatter vt.奉承;自命不凡,使显得更漂亮   thrift n.节约,节俭; 海石竹   contrast n.差异,悬殊;截然不同的实物; vt.对照,对比. vi.有明显差异   pharmacy n.药房,药店;药剂学;配药学   pilgrim n.朝圣者,香客;清教徒前辈移民   glacier n.冰川，冰河   cholesterol n.胆固醇   asylum n.(政治)避难,庇护   corporal n.下士.adj.肉体的,身体的   gauge n.测量仪器,宽度,口径; vt.判断,测量,估算   prosper vi.繁荣,兴旺,发达   surgery n.外科手术;手术室;应诊时间   contingent 依情况而定的,n.代表团   corporate adj.公司的 ; 团体的   collaboration n.</description>
-    </item>
-    
-    <item>
-      <title>Test</title>
-      <link>https://zyooo.github.io/heima/test/</link>
-      <pubDate>Wed, 29 Sep 2021 18:45:50 +0800</pubDate>
-      
-      <guid>https://zyooo.github.io/heima/test/</guid>
-      <description>黑马视频里的笔记</description>
     </item>
     
   </channel>
