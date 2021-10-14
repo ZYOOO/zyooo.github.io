@@ -37,7 +37,7 @@ mvn -v
 错误信息：QForkMasterInit: system error caught. error code=0x000005af, message=VirtualAllocEx failed.: unknown error
 **原因：**未设置redis最大内存
 **解决：**在conf中最下面加入
-maxmemory 268435456 maxheap 314572800 再次启动正常</description>
+maxmemory 268435456 maxheap 314572800 再次启动正常 在目录下打开cmd 输入 redis-server.exe redis.windows.conf</description>
     </item>
     
   </channel>
