@@ -212,6 +212,94 @@ private void btnOk_Click(Object sender,EvenArgs e){
 <p>只有当子类可以替换掉父类，软件单位的功能不受到影响时，父类才能真正被复用，而子类也能够在父类的基础上添加新的行为，也就是因为这个才使得使用父类类型的模块在无需修改的情况下就可以扩展。</p>
 <p>例如企鹅不能继承鸟类，虽然在生物学上企鹅是鸟类，但是在这说，企鹅不能飞，而鸟类指可以飞的，企鹅不能替换掉鸟类，所以不能继承。</p>
 <h2 id="6装饰模式">6.装饰模式</h2>
+<p><strong>装饰模式，动态地给一个对象添加一些额外的职责，就增加功能来说，装饰模式比生成子类更为灵活。</strong></p>
+<p><img src="https://i.loli.net/2021/10/14/wOahjmX9GV8ZiYc.jpg" alt="8b8618c25fa595dfe3ef000d8dba91e"></p>
+<p><img src="https://i.loli.net/2021/10/14/pY8Gy4vnVegC7DI.jpg" alt="8125ccd8f32ad823fd1d3e5dc56d70f"></p>
+<pre><code>//Person类 ConcreteComponent
+
+class Preson{
+	public Person(){}
+	private string name;
+	public Person(string name){
+		this.name = name;
+	}
+	public virtual void Show(){
+		Console.WriteLine(&quot;装扮的{0}&quot;,name);
+	}
+}
+</code></pre><pre><code>//服饰类(Decorate)
+
+class Finery : Person{
+	protected Person component;
+	//打扮
+	public void Decorate (Person component){
+		this.component = component;
+	}
+	public override void Show(){
+		if(component != null){
+			component.Show();
+		}
+	}
+}
+</code></pre><pre><code>//具体服饰类 (ConcreteDecorator)
+
+class TShirts : Finery{
+	public override void Show(){
+		Console.Write(&quot;大T恤&quot;);
+		base.Show();
+	}
+}
+class BigTrouser : Finery{
+	public override void Show(){
+		Console.Write(&quot;垮裤&quot;);
+		base.Show();
+	}
+}
+.....
+
+</code></pre><pre><code>static void Main(string[] args){
+	Person xc = new Person(&quot;小菜&quot;);
+	Console.WriteLine(&quot;\n第一种装扮:&quot;);
+	
+	Sneakers pqx = new Sneakers();
+	BigTrouser kk = new BigTrouser();
+	TShirts dtx = new TShirts();
+	
+	pqx.Decorate(xc);
+	kk.Decorate(pqx);
+	dtx.Decorate(kk);
+	dtx.show;
+	
+	Console.WriteLine(&quot;\n第二种装扮&quot;);
+	
+	LeatherShoes px = new LeatherShoes();
+	Tie ld = new Tie();
+	Suit xz = new Suit();
+	
+	px.Decorate(xc);
+	ld.Decorate(px);
+	xz.Decorate(ld);
+	xz.Show();
+	
+	Console.Read();
+}
+</code></pre><p>装饰模式是为已有功能动态地添加更多功能的一种方式,系统需要新的功能的时候,是向旧的类中添加新的代码,这些代码通常装饰了原有类的核心职责或主要行为,例如要添加领带ld,也保留了原来的小菜xc和皮鞋px.</p>
+<p><strong>有效地把类的核心职责和装饰功能区分开了，而且可以去除相关类中重复的装饰逻辑</strong></p>
+<h2 id="7代理模式">7.代理模式</h2>
+<p><strong>代理模式，为其他对象提供一种代理以控制对这个对象的访问</strong></p>
+<p><img src="https://i.loli.net/2021/10/14/BIaoJKk197A6Fec.jpg" alt="f1ddfd24be4c0687ac682c58e3e708a"></p>
+<p>![f1ddfd24be4c0687ac682c58e3e708a](<a href="https://i.loli.net/2021/10/14/BIaoJKk197A6Fec.jpg">https://i.loli.net/2021/10/14/BIaoJKk197A6Fec.jpg</a></p>
+<p><img src="https://i.loli.net/2021/10/14/mFfQbhlxtdekACN.jpg" alt="b9099e122c0362ffa3f0cb9b490ec06"></p>
+<p><img src="https://i.loli.net/2021/10/14/TpjixSEchnWwYFI.jpg" alt="7543a771966034a8c88a89123fdb878"></p>
+<p>//案例</p>
+<p><img src="https://i.loli.net/2021/10/14/YjDke6bKTJsiofg.jpg" alt="1ec145ef1a8126aca82166d307dd0e1"></p>
+<p><img src="https://i.loli.net/2021/10/14/3IqVQNMnY7pUltH.jpg" alt="d94db0e86b7312c76368e3738f245e2"></p>
+<p><img src="https://i.loli.net/2021/10/14/r8tADLTXngYzvGM.jpg" alt="4e222ddc7cc87d471ab3464d98cdbe3"></p>
+<p><strong>1，远程代理，也就是为了一个对象在不同的地址空间提供局部代表。这样可以隐藏一个对象存在于不同地址空间的试试。</strong></p>
+<p><strong>2，虚拟代理，是根据需要创建开销很大的对象。通过它来存放实例化需要很长时间的真实对象</strong></p>
+<p><strong>3，安全代理，用来控制真实对象访问时的权限</strong></p>
+<p><strong>4，智能指引，是指当调用真实的对象时，代理处理另外一些事。</strong></p>
+<h2 id="8工厂方法模式">8.工厂方法模式</h2>
 
     </div>
     <div class="post-footer">
