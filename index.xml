@@ -6,10 +6,71 @@
     <description>Recent content on Ray</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 13 Oct 2021 11:03:43 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 17 Oct 2021 19:29:27 +0800</lastBuildDate>
     
 	<atom:link href="https://zyooo.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Nginx</title>
+      <link>https://zyooo.github.io/javadairy/nginx/</link>
+      <pubDate>Sun, 17 Oct 2021 19:29:27 +0800</pubDate>
+      
+      <guid>https://zyooo.github.io/javadairy/nginx/</guid>
+      <description>*Nginx* *1.**课程目标* 目标1：掌握Nginx的安装
+目标2：掌握Nginx的静态网站部署
+目标3：理解Nginx的反向代理与负载均衡，能够配置反向代理与负载均衡
+*2.Nginx的安装与启动* *2.1什么是Nginx* Nginx 是一款高性能的 http 服务器/反向代理服务器及电子邮件（IMAP/POP3）代理服务器。由俄罗斯的程序设计师伊戈尔·西索夫（Igor Sysoev）所开发，官方测试 nginx 能够支支撑 5 万并发链接，并且 cpu、内存等资源消耗却非常低，运行非常稳定。
+*Nginx 应用场景：*
+1、http 服务器。Nginx 是一个 http 服务可以独立提供 http 服务。可以做网页静态服务器。
+2、虚拟主机。可以实现在一台服务器虚拟出多个网站。例如个人网站使用的虚拟主机。
+3、反向代理，负载均衡。当网站的访问量达到一定程度后，单台服务器不能满足用户的请求时，需要用多台服务器集群可以使用 nginx 做反向代理。并且多台服务器可以平均分担负载，不会因为某台服务器负载高宕机而某台服务器闲置的情况。
+*2.2 Nginx在Linux下的安装* 重新准备一台虚拟机作为服务器。比如IP地址为192.168.177.129
+*2.2.1环境准备* （1）需要安装 gcc 的环境【此步省略】
+yum install gcc-c++
+（2）第三方的开发包。
+n *PCRE*
+PCRE(Perl Compatible Regular Expressions)是一个 Perl 库，包括 perl 兼容的正则表达式库。nginx 的 http 模块使用 pcre 来解析正则表达式，所以需要在 linux 上安装 pcre 库。
+yum install -y pcre pcre-devel
+注：pcre-devel 是使用 pcre 开发的一个二次开发库。nginx 也需要此库。</description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>https://zyooo.github.io/note/linux/</link>
+      <pubDate>Sun, 17 Oct 2021 09:12:25 +0800</pubDate>
+      
+      <guid>https://zyooo.github.io/note/linux/</guid>
+      <description>Linux学习 输入ifconfig 查询ip地址,以后用于远程连接,我的192.168.122.128,使用CRT去远程连接服务器.
+常用命令 文件里有文档可以查
+cd
+pwd
+li
+li -a
+li -l == ll
+按tab可以补文件名称
+cd .. 退回上一级
+cd - 放回上一次的目录
+mkdir 加上-p可以创建多级目录
+rmdir 只能删除空文件
+cat 查看全部
+more 空格满屏 回车一行
+less 上下键翻动 q退出
+tail -f 动态查看实时监控
+cp (copy) cp 文件名 粘贴的路径,可改名
+mv (move)
+./ 当前目录 ../上一级目录
+rm 删除文件 回复y或者n
+rm -r 删除文件夹
+rm -rf 删除且不询问
+rm -f * 删除所有文件
+rm -f / root目录下所有文件*
+tar 打包或者解压
+【find】命令
+find指令用于查找符合条件的文件
+示例：
+find / -name “ins*” 查找文件名称是以ins开头的文件</description>
+    </item>
     
     <item>
       <title>travel</title>

@@ -6,10 +6,47 @@
     <description>Recent content in Notes on Ray</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 09 Oct 2021 12:28:42 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 17 Oct 2021 09:12:25 +0800</lastBuildDate>
     
 	<atom:link href="https://zyooo.github.io/note/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Linux</title>
+      <link>https://zyooo.github.io/note/linux/</link>
+      <pubDate>Sun, 17 Oct 2021 09:12:25 +0800</pubDate>
+      
+      <guid>https://zyooo.github.io/note/linux/</guid>
+      <description>Linux学习 输入ifconfig 查询ip地址,以后用于远程连接,我的192.168.122.128,使用CRT去远程连接服务器.
+常用命令 文件里有文档可以查
+cd
+pwd
+li
+li -a
+li -l == ll
+按tab可以补文件名称
+cd .. 退回上一级
+cd - 放回上一次的目录
+mkdir 加上-p可以创建多级目录
+rmdir 只能删除空文件
+cat 查看全部
+more 空格满屏 回车一行
+less 上下键翻动 q退出
+tail -f 动态查看实时监控
+cp (copy) cp 文件名 粘贴的路径,可改名
+mv (move)
+./ 当前目录 ../上一级目录
+rm 删除文件 回复y或者n
+rm -r 删除文件夹
+rm -rf 删除且不询问
+rm -f * 删除所有文件
+rm -f / root目录下所有文件*
+tar 打包或者解压
+【find】命令
+find指令用于查找符合条件的文件
+示例：
+find / -name “ins*” 查找文件名称是以ins开头的文件</description>
+    </item>
     
     <item>
       <title>Ideal2021JavaWeb项目配置</title>

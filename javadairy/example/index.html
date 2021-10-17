@@ -26,7 +26,7 @@
   </head>
   <body>
     <header class="app-header">
-      <a href="https://zyooo.github.io"><img class="app-header-avatar" src="/avatar.jpg" alt="Ray" /></a>
+      <a href="https://zyooo.github.io/"><img class="app-header-avatar" src="/avatar.jpg" alt="Ray" /></a>
       <h1>Ray</h1>
       <nav class="app-header-menu">
           <a class="app-header-menu-item" href="/note/">NOTE</a>
@@ -169,6 +169,14 @@
 <h3 id="分类数据缓存优化">分类数据缓存优化</h3>
 <p>使用redis缓存</p>
 <p><img src="https://i.loli.net/2021/10/14/ivsprEYImJyT6GA.png" alt="image-20211014130855827"></p>
+<h2 id="旅游线路分类">旅游线路分类</h2>
+<p>点击了不同的分类之后,将来看到的旅游路线不一样。通过分析数据库表结构，发现旅游线路表和分类表是多对一的关系。</p>
+<p><img src="https://i.loli.net/2021/10/16/9ZBRFk8w6xGztad.png" alt="image-20211016162556093"></p>
+<p>redis中查询score(cid)   页面得到cid 通过location.search  获取cid: split切割获得cid</p>
+<p><img src="https://i.loli.net/2021/10/16/otlUTwSVDYuvEhF.png" alt="image-20211016164429237"></p>
+<p>创建PageBean, RouteServlet RouteService RouteDao</p>
+<h2 id="旅游线路名称查询">旅游线路名称查询</h2>
+<p>给搜索按钮绑定单击事件,获取输入框内容传递参数.</p>
 
     </div>
     <div class="post-footer">
