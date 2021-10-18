@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Notes on Ray</title>
-    <link>https://zyooo.github.io/note/</link>
+    <link>https:zyooo.github.io/note/</link>
     <description>Recent content in Notes on Ray</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 17 Oct 2021 09:12:25 +0800</lastBuildDate>
     
-	<atom:link href="https://zyooo.github.io/note/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https:zyooo.github.io/note/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Linux</title>
-      <link>https://zyooo.github.io/note/linux/</link>
+      <link>https:zyooo.github.io/note/linux/</link>
       <pubDate>Sun, 17 Oct 2021 09:12:25 +0800</pubDate>
       
-      <guid>https://zyooo.github.io/note/linux/</guid>
+      <guid>https:zyooo.github.io/note/linux/</guid>
       <description>Linux学习 输入ifconfig 查询ip地址,以后用于远程连接,我的192.168.122.128,使用CRT去远程连接服务器.
 常用命令 文件里有文档可以查
 cd
@@ -50,10 +50,10 @@ find / -name “ins*” 查找文件名称是以ins开头的文件</description>
     
     <item>
       <title>Ideal2021JavaWeb项目配置</title>
-      <link>https://zyooo.github.io/note/ideal2021javaweb%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE/</link>
+      <link>https:zyooo.github.io/note/ideal2021javaweb%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE/</link>
       <pubDate>Sat, 09 Oct 2021 12:28:42 +0800</pubDate>
       
-      <guid>https://zyooo.github.io/note/ideal2021javaweb%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE/</guid>
+      <guid>https:zyooo.github.io/note/ideal2021javaweb%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE/</guid>
       <description>Itellidea2021版本中web项目的配置
 右键项目名称，选择Add Frameworks Support，勾选Web Application，OK。
 添加Tomcat
@@ -68,10 +68,10 @@ find / -name “ins*” 查找文件名称是以ins开头的文件</description>
     
     <item>
       <title>BigTalkDesignPattenNote</title>
-      <link>https://zyooo.github.io/note/bigtalkdesignpattennote/</link>
+      <link>https:zyooo.github.io/note/bigtalkdesignpattennote/</link>
       <pubDate>Fri, 08 Oct 2021 14:23:01 +0800</pubDate>
       
-      <guid>https://zyooo.github.io/note/bigtalkdesignpattennote/</guid>
+      <guid>https:zyooo.github.io/note/bigtalkdesignpattennote/</guid>
       <description>大话设计模式读书笔记 1.简单工厂模式 用一个单独的类来做创照实例的过程，这就是工厂
 public class OperationFactory{ public static Operation createOperate(string operate){ Operation oper = null; switch(operate){ case &amp;quot;+&amp;quot;: oper = new OperationAdd(); break; case &amp;quot;-&amp;quot;: oper = new OperationSub(); break; case &amp;quot;*&amp;quot;: oper = new OperationMul(); break; case &amp;quot;/&amp;quot;: oper = new OperationMul(); break; } return oper; } } Operation oper; oper = OperationFactory.createOperate(&amp;quot;+&amp;quot;); oper.NumberA = 1; oper.NumberB = 2; double result = oper.GetResult(); *UML类图 UML类图图示样例
 类图 类图分为三层
@@ -81,19 +81,19 @@ public class OperationFactory{ public static Operation createOperate(string oper
     
     <item>
       <title>如何添加右键可选在此处打开命令行窗口</title>
-      <link>https://zyooo.github.io/note/note1/</link>
+      <link>https:zyooo.github.io/note/note1/</link>
       <pubDate>Fri, 01 Oct 2021 10:05:28 +0800</pubDate>
       
-      <guid>https://zyooo.github.io/note/note1/</guid>
+      <guid>https:zyooo.github.io/note/note1/</guid>
       <description>如何添加右键可选在此处打开命令行窗口 1.win+r 输入 regedit 回车打开注册表 2.切换到HKEY_CLASSES_ROOT\Directory\Background\shell\ 右键shell，新建项 “OpenCMDHere” 并在该项下，右击新建项 “command” 直接点击OpenCMDHere将OpenCMDHere中的默认改为 在此处打开命令窗口 右键 新建字符串名，名字为Icon将值改为cmd.exe 创建 OpenCMDHere 的图片 3.修改command最终的默认值 输入 cmd.exe /s /k pushd \&amp;quot;%V\&amp;quot; </description>
     </item>
     
     <item>
       <title>Blog搭建和我的信息</title>
-      <link>https://zyooo.github.io/note/blog%E6%90%AD%E5%BB%BA%E5%92%8C%E6%88%91%E7%9A%84%E4%BF%A1%E6%81%AF/</link>
+      <link>https:zyooo.github.io/note/blog%E6%90%AD%E5%BB%BA%E5%92%8C%E6%88%91%E7%9A%84%E4%BF%A1%E6%81%AF/</link>
       <pubDate>Thu, 30 Sep 2021 10:03:39 +0800</pubDate>
       
-      <guid>https://zyooo.github.io/note/blog%E6%90%AD%E5%BB%BA%E5%92%8C%E6%88%91%E7%9A%84%E4%BF%A1%E6%81%AF/</guid>
+      <guid>https:zyooo.github.io/note/blog%E6%90%AD%E5%BB%BA%E5%92%8C%E6%88%91%E7%9A%84%E4%BF%A1%E6%81%AF/</guid>
       <description>blog搭建和我的信息 现在已经安装好了hugo 在cmd中输入 hugo version可以查询
 创建启动 hugo new site [path] [flags] 创建
 这里是新创建了一个hugo new site F:\myblog blog
@@ -115,11 +115,11 @@ git push origin main</description>
     
     <item>
       <title>Vocabulary</title>
-      <link>https://zyooo.github.io/note/note/</link>
+      <link>https:zyooo.github.io/note/note/</link>
       <pubDate>Wed, 29 Sep 2021 19:08:46 +0800</pubDate>
       
-      <guid>https://zyooo.github.io/note/note/</guid>
-      <description>2021.09.27     flatter vt.奉承;自命不凡,使显得更漂亮     thrift n.节约,节俭; 海石竹   contrast n.差异,悬殊;截然不同的实物; vt.对照,对比. vi.有明显差异   pharmacy n.药房,药店;药剂学;配药学   pilgrim n.朝圣者,香客;清教徒前辈移民   glacier n.冰川，冰河   cholesterol n.胆固醇   asylum n.(政治)避难,庇护   corporal n.下士.adj.肉体的,身体的   gauge n.测量仪器,宽度,口径; vt.判断,测量,估算   prosper vi.繁荣,兴旺,发达   surgery n.外科手术;手术室;应诊时间   contingent 依情况而定的,n.代表团   corporate adj.公司的 ; 团体的   collaboration n.</description>
+      <guid>https:zyooo.github.io/note/note/</guid>
+      <description>2021.09.27           flatter vt.奉承;自命不凡,使显得更漂亮   thrift n.节约,节俭; 海石竹   contrast n.差异,悬殊;截然不同的实物; vt.对照,对比. vi.有明显差异   pharmacy n.药房,药店;药剂学;配药学   pilgrim n.朝圣者,香客;清教徒前辈移民   glacier n.冰川，冰河   cholesterol n.胆固醇   asylum n.(政治)避难,庇护   corporal n.下士.adj.肉体的,身体的   gauge n.测量仪器,宽度,口径; vt.判断,测量,估算   prosper vi.繁荣,兴旺,发达   surgery n.外科手术;手术室;应诊时间   contingent 依情况而定的,n.代表团   corporate adj.公司的 ; 团体的   collaboration n.</description>
     </item>
     
   </channel>

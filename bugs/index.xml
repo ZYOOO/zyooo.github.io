@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Bugs on Ray</title>
-    <link>https://zyooo.github.io/bugs/</link>
+    <link>https:zyooo.github.io/bugs/</link>
     <description>Recent content in Bugs on Ray</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 10 Oct 2021 09:41:38 +0800</lastBuildDate>
     
-	<atom:link href="https://zyooo.github.io/bugs/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https:zyooo.github.io/bugs/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Cmd中mvn_compile出现的问题</title>
-      <link>https://zyooo.github.io/bugs/cmd%E4%B8%ADmvn_compile%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+      <link>https:zyooo.github.io/bugs/cmd%E4%B8%ADmvn_compile%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/</link>
       <pubDate>Sun, 10 Oct 2021 09:41:38 +0800</pubDate>
       
-      <guid>https://zyooo.github.io/bugs/cmd%E4%B8%ADmvn_compile%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+      <guid>https:zyooo.github.io/bugs/cmd%E4%B8%ADmvn_compile%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
       <description>在cmd上运行mvn compile时出现编译错误
 No compiler is provided in this environment. Perhaps you are running on a JRE rather than a JDK?
 输入mvn -v查看
@@ -29,10 +29,10 @@ mvn -v
     
     <item>
       <title>Windows下redis-Server秒退</title>
-      <link>https://zyooo.github.io/bugs/windows%E4%B8%8Bredi-server.exe%E7%A7%92%E9%80%80/</link>
+      <link>https:zyooo.github.io/bugs/windows%E4%B8%8Bredi-server.exe%E7%A7%92%E9%80%80/</link>
       <pubDate>Sat, 09 Oct 2021 11:49:46 +0800</pubDate>
       
-      <guid>https://zyooo.github.io/bugs/windows%E4%B8%8Bredi-server.exe%E7%A7%92%E9%80%80/</guid>
+      <guid>https:zyooo.github.io/bugs/windows%E4%B8%8Bredi-server.exe%E7%A7%92%E9%80%80/</guid>
       <description>Windows下redi-server.exe秒退 遇到个问题： 在第一次正常启动之后，配置完conf里的save，再次开启server秒退。
 错误信息：QForkMasterInit: system error caught. error code=0x000005af, message=VirtualAllocEx failed.: unknown error
 **原因：**未设置redis最大内存

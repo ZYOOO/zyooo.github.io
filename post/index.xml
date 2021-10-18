@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Ray</title>
-    <link>https://zyooo.github.io/post/</link>
+    <link>https:zyooo.github.io/post/</link>
     <description>Recent content in Posts on Ray</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 30 Sep 2021 17:16:46 +0800</lastBuildDate>
     
-	<atom:link href="https://zyooo.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https:zyooo.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Project</title>
-      <link>https://zyooo.github.io/post/project/</link>
+      <link>https:zyooo.github.io/post/project/</link>
       <pubDate>Thu, 30 Sep 2021 17:16:46 +0800</pubDate>
       
-      <guid>https://zyooo.github.io/post/project/</guid>
+      <guid>https:zyooo.github.io/post/project/</guid>
       <description>web尽快过完一遍,直接进入后端框架的学习,做一些SSM框架的东西 基础: 算法, 计网TCP/IP HTTP UDP 等协议, 操作系统, MySQL, 设计模式, Linux基础命令 java: 复习多线程Thread,Runnable, Callable, 池化技术,JVM MySQL的进阶 重点查看索引,事务这方面 《自顶向下计算机网络》《图解HTTP》《mysql技术内幕InnoDB储存引擎》 Redis也要学习 《Redis设计与实现(第二版)》 《大话设计模式》 《鸟哥的Linux私房菜》 《java核心技术卷一》《深入理解java虚拟机》(2,3,6,7章) 《实战java高并发程序设计》《java并发编程的艺术》 每天都需要学习的:
 ​	java后端知识, CET6, 算法
 分阶段去学习的:
