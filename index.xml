@@ -6,10 +6,20 @@
     <description>Recent content on Ray</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 17 Oct 2021 19:29:27 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 20 Oct 2021 12:25:53 +0800</lastBuildDate>
     
 	<atom:link href="https://zyooo.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>OralEnglish</title>
+      <link>https://zyooo.github.io/note/oralenglish/</link>
+      <pubDate>Wed, 20 Oct 2021 12:25:53 +0800</pubDate>
+      
+      <guid>https://zyooo.github.io/note/oralenglish/</guid>
+      <description>Day 1 Success means different things for different people, some may equate it with fame, some with wealth and still some with accomplishments. For me, it means fulfilling one&amp;rsquo;s dreams. Whatever your dreams are, you have a goal and then focus all your attention on it.
+Dreams bring you hope and happiness. In the process of struggling of it, you cry, sweat, complain or even purse,but the joy of harvesting makes you forget all the pains and troubles you have gone through.</description>
+    </item>
     
     <item>
       <title>Nginx</title>
