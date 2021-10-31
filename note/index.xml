@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Notes on Ray</title>
     <link>https://zyooo.github.io/note/</link>
     <description>Recent content in Notes on Ray</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 20 Oct 2021 12:25:53 +0800</lastBuildDate>
-    
-	<atom:link href="https://zyooo.github.io/note/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 20 Oct 2021 12:25:53 +0800</lastBuildDate><atom:link href="https://zyooo.github.io/note/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>OralEnglish</title>
       <link>https://zyooo.github.io/note/oralenglish/</link>

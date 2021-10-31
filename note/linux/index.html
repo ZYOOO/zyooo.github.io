@@ -1,17 +1,126 @@
-<!doctype html>
-<html lang="en-us">
-  <head>
-    <title>Linux // Ray</title>
-    <link rel="shortcut icon" href="/favicon.ico" />
-    <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.70.0" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="author" content="Ray" />
-    <meta name="description" content="" />
-    <link rel="stylesheet" href="https://zyooo.github.io/css/main.min.88e7083eff65effb7485b6e6f38d10afbec25093a6fac42d734ce9024d3defbd.css" />
+<!DOCTYPE html>
+<html lang="en" dir="auto">
 
-    
-    <meta name="twitter:card" content="summary"/>
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Linux | Ray</title>
+<meta name="keywords" content="" />
+<meta name="description" content="Linux学习 输入ifconfig 查询ip地址,以后用于远程连接,我的192.168.122.128,使用CRT去远程连接服务器.
+常用命令 文件里有文档可以查
+cd
+pwd
+li
+li -a
+li -l == ll
+按tab可以补文件名称
+cd .. 退回上一级
+cd - 放回上一次的目录
+mkdir 加上-p可以创建多级目录
+rmdir 只能删除空文件
+cat 查看全部
+more 空格满屏 回车一行
+less 上下键翻动 q退出
+tail -f 动态查看实时监控
+cp (copy) cp 文件名 粘贴的路径,可改名
+mv (move)
+./ 当前目录 ../上一级目录
+rm 删除文件 回复y或者n
+rm -r 删除文件夹
+rm -rf 删除且不询问
+rm -f * 删除所有文件
+rm -f / root目录下所有文件*
+tar 打包或者解压
+【find】命令
+find指令用于查找符合条件的文件
+示例：
+find / -name “ins*” 查找文件名称是以ins开头的文件">
+<meta name="author" content="Ray">
+<link rel="canonical" href="https://zyooo.github.io/note/linux/" />
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.61dfb3f0b4cda95d2ccb867f9a3b244ce5d23e12492bcc3c277df594c7bc1adf.css" integrity="sha256-Yd&#43;z8LTNqV0sy4Z/mjskTOXSPhJJK8w8J331lMe8Gt8=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://zyooo.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://zyooo.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://zyooo.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://zyooo.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://zyooo.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.70.0" />
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Linux" />
+<meta property="og:description" content="Linux学习 输入ifconfig 查询ip地址,以后用于远程连接,我的192.168.122.128,使用CRT去远程连接服务器.
+常用命令 文件里有文档可以查
+cd
+pwd
+li
+li -a
+li -l == ll
+按tab可以补文件名称
+cd .. 退回上一级
+cd - 放回上一次的目录
+mkdir 加上-p可以创建多级目录
+rmdir 只能删除空文件
+cat 查看全部
+more 空格满屏 回车一行
+less 上下键翻动 q退出
+tail -f 动态查看实时监控
+cp (copy) cp 文件名 粘贴的路径,可改名
+mv (move)
+./ 当前目录 ../上一级目录
+rm 删除文件 回复y或者n
+rm -r 删除文件夹
+rm -rf 删除且不询问
+rm -f * 删除所有文件
+rm -f / root目录下所有文件*
+tar 打包或者解压
+【find】命令
+find指令用于查找符合条件的文件
+示例：
+find / -name “ins*” 查找文件名称是以ins开头的文件" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://zyooo.github.io/note/linux/" /><meta property="article:section" content="note" />
+<meta property="article:published_time" content="2021-10-17T09:12:25&#43;08:00" />
+<meta property="article:modified_time" content="2021-10-17T09:12:25&#43;08:00" />
+
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Linux"/>
 <meta name="twitter:description" content="Linux学习 输入ifconfig 查询ip地址,以后用于远程连接,我的192.168.122.128,使用CRT去远程连接服务器.
 常用命令 文件里有文档可以查
@@ -43,97 +152,134 @@ find指令用于查找符合条件的文件
 示例：
 find / -name “ins*” 查找文件名称是以ins开头的文件"/>
 
-    <meta property="og:title" content="Linux" />
-<meta property="og:description" content="Linux学习 输入ifconfig 查询ip地址,以后用于远程连接,我的192.168.122.128,使用CRT去远程连接服务器.
-常用命令 文件里有文档可以查
-cd
-pwd
-li
-li -a
-li -l == ll
-按tab可以补文件名称
-cd .. 退回上一级
-cd - 放回上一次的目录
-mkdir 加上-p可以创建多级目录
-rmdir 只能删除空文件
-cat 查看全部
-more 空格满屏 回车一行
-less 上下键翻动 q退出
-tail -f 动态查看实时监控
-cp (copy) cp 文件名 粘贴的路径,可改名
-mv (move)
-./ 当前目录 ../上一级目录
-rm 删除文件 回复y或者n
-rm -r 删除文件夹
-rm -rf 删除且不询问
-rm -f * 删除所有文件
-rm -f / root目录下所有文件*
-tar 打包或者解压
-【find】命令
-find指令用于查找符合条件的文件
-示例：
-find / -name “ins*” 查找文件名称是以ins开头的文件" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://zyooo.github.io/note/linux/" />
-<meta property="article:published_time" content="2021-10-17T09:12:25+08:00" />
-<meta property="article:modified_time" content="2021-10-17T09:12:25+08:00" />
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "Linux",
+      "item": "https://zyooo.github.io/note/linux/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Linux",
+  "name": "Linux",
+  "description": "Linux学习 输入ifconfig 查询ip地址,以后用于远程连接,我的192.168.122.128,使用CRT去远程连接服务器.\n常用命令 文件里有文档可以查\ncd\npwd\nli\nli -a\nli -l == ll\n按tab可以补文件名称\ncd .. 退回上一级\ncd - 放回上一次的目录\nmkdir 加上-p可以创建多级目录\nrmdir 只能删除空文件\ncat 查看全部\nmore 空格满屏 回车一行\nless 上下键翻动 q退出\ntail -f 动态查看实时监控\ncp (copy) cp 文件名 粘贴的路径,可改名\nmv (move)\n./ 当前目录 ../上一级目录\nrm 删除文件 回复y或者n\nrm -r 删除文件夹\nrm -rf 删除且不询问\nrm -f * 删除所有文件\nrm -f / root目录下所有文件*\ntar 打包或者解压\n【find】命令\nfind指令用于查找符合条件的文件\n示例：\nfind / -name “ins*” 查找文件名称是以ins开头的文件",
+  "keywords": [
+    
+  ],
+  "articleBody": "Linux学习 输入ifconfig 查询ip地址,以后用于远程连接,我的192.168.122.128,使用CRT去远程连接服务器.\n常用命令 文件里有文档可以查\ncd\npwd\nli\nli -a\nli -l == ll\n按tab可以补文件名称\ncd .. 退回上一级\ncd - 放回上一次的目录\nmkdir 加上-p可以创建多级目录\nrmdir 只能删除空文件\ncat 查看全部\nmore 空格满屏 回车一行\nless 上下键翻动 q退出\ntail -f 动态查看实时监控\ncp (copy) cp 文件名 粘贴的路径,可改名\nmv (move)\n./ 当前目录 ../上一级目录\nrm 删除文件 回复y或者n\nrm -r 删除文件夹\nrm -rf 删除且不询问\nrm -f * 删除所有文件\nrm -f / root目录下所有文件*\ntar 打包或者解压\n【find】命令\nfind指令用于查找符合条件的文件\n示例：\nfind / -name “ins*” 查找文件名称是以ins开头的文件\nfind / -name “ins*” –ls\nfind / –user itcast –ls 查找用户itcast的文件\nfind / –user itcast –type d –ls 查找用户itcast的目录\nfind /-perm -777 –type d-ls 查找权限是777的文件\n【grep】命令\n查找文件里符合条件的字符串。\n用法: grep [选项]… PATTERN [FILE]…示例：\ngrep lang anaconda-ks.cfg 在文件中查找lang\ngrep lang anaconda-ks.cfg –color 高亮显示\n【touch】\n创建一个空文件\n* touch a.txt\n【clear/ crtl + L】\n清屏\nVi和Vim编辑器 1． *Vim**编辑器：* 在Linux下一般使用vi编辑器来编辑文件。vi既可以查看文件也可以编辑文件。三种模式：命令行、插入、底行模式。\n切换到命令行模式：按Esc键；\n切换到插入模式：按 i 、o、a键；\ni 在当前位置前插入\nI 在当前行首插入\na 在当前位置后插入\nA 在当前行尾插入\no 在当前行之后插入一行\nO 在当前行之前插入一行\n切换到底行模式：按 :（冒号）；更多详细用法，查询文档《Vim命令合集.docx》和《vi使用方法详细介绍.docx》\n打开文件：vim file\n退出：esc à :q\n修改文件：输入i进入插入模式\n保存并退出：escà:wq\n不保存退出：escà:q!\n三种进入插入模式：\ni:在当前的光标所在处插入\no:在当前光标所在的行的下一行插入\na:在光标所在的下一个字符插入\n快捷键：\ndd – 快速删除一行\nyy - 复制当前行\nnyy - 从当前行向后复制几行\np - 粘贴\nR – 替换\n2． *重定向输出****和**»*  重定向输出，覆盖原有内容；» 重定向输出，又追加功能；示例：\ncat /etc/passwd  a.txt 将输出定向到a.txt中\ncat /etc/passwd » a.txt 输出并且追加\nifconfig  ifconfig.txt\n3． *系统管理命令* ps 正在运行的某个进程的状态\nps –ef 查看所有进程\nps –ef | grep ssh 查找某一进程\nkill 2868 杀掉2868编号的进程\nkill -9 2868 强制杀死进程\n4． *管道* | 管道是Linux命令中重要的一个概念，其作用是将一个命令的输出用作另一个命令的输入。示例\nls –help | more 分页查询帮助信息\nps –ef | grep java 查询名称中包含java的进程\nifconfig | more\ncat index.html | more\nps –ef | grep aio\n一、 *Linux**的权限命令* 1． *文件权限*    属主（user） 属组（group） *其他用户*           r w x r w x r w x   4 2 1 4 2 1 4 2 1    r:对文件是指可读取内容 对目录是可以ls\nw:对文件是指可修改文件内容，对目录 是指可以在其中创建或删除子节点(目录或文件)\nx:对文件是指是否可以运行这个文件，对目录是指是否可以cd进入这个目录\n2． Linux三种文件类型： 普通文件： 包括文本文件、数据文件、可执行的二进制程序文件等。\n目录文件： Linux系统把目录看成是一种特殊的文件，利用它构成文件系统的树型结构。\n设备文件： Linux系统把每一个设备都看成是一个文件\n3． 文件类型标识 普通文件（-）目录（d）符号链接（l）\n* 进入etc可以查看，相当于快捷方式字符设备文件（c）块设备文件（s）套接字（s）命名管道（p）\n4．文件权限管理： ​\tchmod 变更文件或目录的权限。\nchmod 755 a.txt\nchmod u=rwx,g=rx,o=rx a.txt\n二、Linux上常用网络操作 1．主机名配置 hostname 查看主机名\nhostname xxx 修改主机名 重启后无效\n如果想要永久生效，可以修改/etc/sysconfig/network文件\n2．IP地址配置 ifconfig 查看(修改)ip地址(重启后无效)\nifconfig eth0 192.168.12.22 修改ip地址\n如果想要永久生效\n修改 /etc/sysconfig/network-scripts/ifcfg-eth0文件\nDEVICE=eth0 #网卡名称 BOOTPROTO=static #获取ip的方式(static/dhcp/bootp/none)\nHWADDR=00:0C:29:B5:B2:69 #MAC地址 IPADDR=12.168.177.129 #IP地址 NETMASK=255.255.255.0 #子网掩码 NETWORK=192.168.177.0 #网络地址 BROADCAST=192.168.0.255 #广播地址 NBOOT=yes # 系统启动时是否设置此网络接口，设置为yes时，系统启动时激活此设备。\n3． 域名映射 /etc/hosts文件用于在通过主机名进行访问时做ip地址解析之用,相当于windows系统的C:\\Windows\\System32\\drivers\\etc\\hosts文件的功能\n4．网络服务管理 service network status 查看指定服务的状态\nservice network stop 停止指定服务\nservice network start 启动指定服务\nservice network restart 重启指定服务\nservice –status–all 查看系统中所有后台服务\nnetstat –nltp 查看系统中网络进程的端口监听情况\n防火墙设置\n防火墙根据配置文件/etc/sysconfig/iptables来控制本机的”出”、”入”网络访问行为。\nservice iptables status 查看防火墙状态\nservice iptables stop 关闭防火墙\nservice iptables start 启动防火墙\nchkconfig iptables off 禁止防火墙自启\n三、Linux上软件安装 l Linux上的软件安装有以下几种常见方式介绍\n\\1. 二进制发布包\n软件已经针对具体平台编译打包发布，只要解压，修改配置即可\n\\2. RPM包\n软件已经按照redhat的包管理工具规范RPM进行打包发布，需要获取到相应的软件RPM发布包，然后用RPM命令进行安装\n\\3. Yum在线安装\n软件已经以RPM规范打包，但发布在了网络上的一些服务器上，可用yum在线安装服务器上的rpm软件，并且会自动解决软件安装过程中的库依赖问题\n\\4. 源码编译安装\n软件以源码工程的形式发布，需要获取到源码工程后用相应开发工具进行编译打包部署。\nl 上传与下载工具介绍\n\\1. FileZilla\n\\2. lrzsz\n我们可以使用yum安装方式安装 yum install lrzsz\n注意：必须有网络\n可以在crt中设置上传与下载目录\n上传：\n下载\n1． 在Linux上安装JDK: 【步骤一】：上传JDK到Linux的服务器.\n* 上传JDK\n* 卸载open-JDK\njava –version\nrpm -qa | grep java\nrpm -e –nodeps java-1.6.0-openjdk-1.6.0.35-1.13.7.1.el6_6.i686\nrpm -e –nodeps java-1.7.0-openjdk-1.7.0.79-2.5.5.4.el6.i686\n【步骤二】：在Linux服务器上安装JDK.\n* 通常将软件安装到/usr/local\n* 直接解压就可以\ntar –xvf jdk.tar.gz -C 目标路径\n【步骤三】：配置JDK的环境变量.\n配置环境变量：\n① vi /etc/profile\n② 在末尾行添加\n​\t#set java environment\n​\tJAVA_HOME=/usr/local/jdk/jdk1.7.0_71\n​\tCLASSPATH=.:$JAVA_HOME/lib.tools.jar\n​\tPATH=$JAVA_HOME/bin:$PATH\n​\texport JAVA_HOME CLASSPATH PATH\n保存退出\n③source /etc/profile 使更改的配置立即生效\n2． 在Linux上安装Mysql: 【步骤一】：将mysql的安装文件上传到Linux的服务器.\n将mysql的tar解压\n将系统自带的mysql卸载\n【步骤二】：安装MYSQL服务端\n下面的提示是告诉我们root用户的密码第一次是随机生成的，它保存在/root/.mysql_secret中，第一次登录需要修改root密码\nserver端安装不上的原因:本来自带的mysql-lib未删除.\n# yum list | grep mysql 查询 # yum remove mysql-libs 然后就能安装上了 安装autoconf库 yum -y install autoconf 数据初始化 /usr/bin/mysql_install_db --user=mysql 在启动mysql /usr/bin/mysqladmin -u root password 'new-password'设置新密码 【步骤三】：安装MYSQL客户端\n查看生成的root密码\n报错:原因是没有启动mysql服务\n需要开启mysql服务\n执行下面操作报错，原因是第一次操作mysql必须修改root用户的密码\n设置root用户的密码\nl Mysql****服务加入到系统服务并自动启动操作：\nchkconfig –add mysql\n自动启动：\nchkconfig mysql on\n查询列表：\nchkconfig\nl 关于mysql远程访问设置\n在linux中很多软件的端口都被”防火墙”限止，我们需要将防火墙关闭\n防火墙打开3306端口\n/sbin/iptables -I INPUT -p tcp –dport 3306 -j ACCEPT\n/etc/rc.d/init.d/iptables save\n/etc/init.d/iptables status\n学习阶段我们也可以直接将防火墙关闭\nservice iptables stop;\n3．在Linux上安装tomcat: 1.Tomcat上传到linux上\n2.将上传的tomcat解压\n3.在tomcat/bin目录下执行 startup.sh（注意防火墙）\n4.查看目标 tomcat/logs/catalina.out\n1． *在**Linux上安装redis* 【步骤一】安装gcc-c++\nredis是C语言开发，安装redis需要先将官网下载的源码进行编译，编译依赖gcc环境。\n输入命令:\nyum install gcc-c++\n              ​\t输入y确认下载\n输入y确认安装\n              安装 gcc 成功！\n              【步骤二】安装redis\n\\1. 下载redis\nwget http://download.redis.io/releases/redis-3.0.4.tar.gz\n\\2. 解压\ntar -xzvf redis-3.0.4.tar.gz\n\\3. 编译安装、\n切换至程序目录，并执行make命令编译：\ncd redis-3.0.4\nmake\n执行安装命令\nmake PREFIX=/usr/local/redis install\nmake install安装完成后，会在/usr/local/bin目录下生成下面几个可执行文件，它们的作用分别是：\nredis-server：Redis服务器端启动程序\nredis-cli：Redis客户端操作工具。也可以用telnet根据其纯文本协议来操作\nredis-benchmark：Redis性能测试工具\nredis-check-aof：数据修复工具\nredis-check-dump：检查导出工具\n【步骤三】配置redis\n\\1. 复制配置文件到/usr/local/redis/bin目录：\ncd redis-3.0.4\ncp redis.conf /usr/local/redis/bin\n【步骤四】启动redis\n\\1. 进入redis/bin目录\ncd redis/bin\n启动redis服务端\n./redis-server redis.conf\n\\2. 克隆新窗口，启动redis客户端\n./redis-cli\n2． *部署**项目到Linux* \\1. 修改pom配置\n在pom.xml中添加​\t修改jdk版本1.7\n​\n\\2. 修改项目\n​\t2.1 druid.properties\n\\3. 将war包上\n​\t2.2 header.html\n1.3 route_de2.3 route_detail.html\n\\4. 将war包上传到\n\\3. 使用package命令打包\n\\4. 将travel.war上传到tomcat中的webapps目录\n\\5. 重启tomcat\n\\6. 导出本地mysql数据，并导入linux中的mysql\n Failed to execute goal org.apache.maven.plugins:maven-war-plugin:2.2:war (default-war) on project travel: Execution default-war of goal org.apache.maven.plugins:maven-war-plugin:2.2:war failed: Unable to load the mojo 'war' in the plugin 'org.apache.maven.plugins:maven-war-plugin:2.2' due to an API incompatibility: org.codehaus.plexus.component.repository.exception.ComponentLookupException: Cannot access defaults field of Properties 报错,在pom.xml中添加下列代码之后就能打包了     org.apache.maven.plugins maven-war-plugin 3.3.1      org.apache.maven.plugins maven-war-plugin 3.3.1    ",
+  "wordCount" : "708",
+  "inLanguage": "en",
+  "datePublished": "2021-10-17T09:12:25+08:00",
+  "dateModified": "2021-10-17T09:12:25+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "Ray"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://zyooo.github.io/note/linux/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Ray",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://zyooo.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
 
-  </head>
-  <body>
-    <header class="app-header">
-      <a href="https://zyooo.github.io"><img class="app-header-avatar" src="/avatar.jpg" alt="Ray" /></a>
-      <h1>Ray</h1>
-      <nav class="app-header-menu">
-          <a class="app-header-menu-item" href="/note/">NOTE</a>
-             - 
-          
-          <a class="app-header-menu-item" href="/leetcodedairy/">LeetCodeDairy</a>
-             - 
-          
-          <a class="app-header-menu-item" href="/bugs/">Bugs</a>
-             - 
-          
-          <a class="app-header-menu-item" href="/javadairy/">JavaDairy</a>
-      </nav>
-      <p>What everyonne you can do,just do it.</p>
-      <div class="app-header-social">
-        
-          <a href="https://github.com/zyooo" target="_blank" rel="noreferrer noopener">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
-  <title>My Github</title>
-  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-</svg>
-          </a>
-        
-      </div>
-    </header>
-    <main class="app-container">
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class ="post-title">Linux</h1>
-      <div class="post-meta">
-        <div>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
-  <title>calendar</title>
-  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
-</svg>
-          Oct 17, 2021
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://zyooo.github.io" accesskey="h" title="Ray (Alt + H)">Ray</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
         </div>
-        <div>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
-  <title>clock</title>
-  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
-</svg>
-          4 min read
-        </div>
-      </div>
-    </header>
-    <div class="post-content">
-      <h1 id="linux学习">Linux学习</h1>
+        <ul id="menu">
+            <li>
+                <a href="https://zyooo.github.io/note/" title="NOTE">
+                    <span>NOTE</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://zyooo.github.io/leetcodedairy/" title="LeetCodeDairy">
+                    <span>LeetCodeDairy</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://zyooo.github.io/bugs/" title="Bugs">
+                    <span>Bugs</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://zyooo.github.io/javadairy/" title="JavaDairy">
+                    <span>JavaDairy</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      Linux<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+    </h1>
+    <div class="post-meta"><span title='2021-10-17 09:12:25 +0800 CST'>October 17, 2021</span>&nbsp;·&nbsp;Ray
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="linux学习">Linux学习<a hidden class="anchor" aria-hidden="true" href="#linux学习">#</a></h1>
 <p>输入ifconfig 查询ip地址,以后用于远程连接,我的192.168.122.128,使用CRT去远程连接服务器.</p>
-<h2 id="常用命令">常用命令</h2>
+<h2 id="常用命令">常用命令<a hidden class="anchor" aria-hidden="true" href="#常用命令">#</a></h2>
 <p>文件里有文档可以查</p>
 <p><strong>cd</strong></p>
 <p><strong>pwd</strong></p>
@@ -158,7 +304,8 @@ find / -name “ins*” 查找文件名称是以ins开头的文件" />
 <p><strong>rm -f * 删除所有文件</strong></p>
 <p><em><em>rm -f /</em> root目录下所有文件</em>*</p>
 <p><strong>tar  打包或者解压</strong></p>
-<p><img src="https://i.loli.net/2021/10/17/vlfiUWw8JVzMF1Y.png" alt="image-20211017094124374"></p>
+<p><img loading="lazy" src="https://i.loli.net/2021/10/17/vlfiUWw8JVzMF1Y.png" alt="image-20211017094124374"  />
+</p>
 <p><strong>【find】命令</strong></p>
 <p>find指令用于查找符合条件的文件</p>
 <p>示例：</p>
@@ -172,16 +319,19 @@ find / -name “ins*” 查找文件名称是以ins开头的文件" />
 <p>用法: grep [选项]&hellip; PATTERN [FILE]&hellip;示例：</p>
 <p>grep lang anaconda-ks.cfg  在文件中查找lang</p>
 <p>grep lang anaconda-ks.cfg –color 高亮显示</p>
-<p><img src="https://i.loli.net/2021/10/17/CZV4kvQNtzW6cl3.jpg" alt="img"></p>
-<p><img src="https://i.loli.net/2021/10/17/dF9vgZAnQrLMRGo.jpg" alt="img"></p>
-<p><img src="https://i.loli.net/2021/10/17/NRqaSmY9dMA7svy.jpg" alt="img"></p>
+<p><img loading="lazy" src="https://i.loli.net/2021/10/17/CZV4kvQNtzW6cl3.jpg" alt="img"  />
+</p>
+<p><img loading="lazy" src="https://i.loli.net/2021/10/17/dF9vgZAnQrLMRGo.jpg" alt="img"  />
+</p>
+<p><img loading="lazy" src="https://i.loli.net/2021/10/17/NRqaSmY9dMA7svy.jpg" alt="img"  />
+</p>
 <p><strong>【touch】</strong></p>
 <p>创建一个空文件</p>
 <p>* touch a.txt</p>
 <p><strong>【clear/ crtl + L】</strong></p>
 <p>清屏</p>
-<h2 id="vi和vim编辑器">Vi和Vim编辑器</h2>
-<h2 id="1-vim编辑器"><strong>1．</strong> <em><strong>*Vim*</strong></em><em><strong>*编辑器：*</strong></em></h2>
+<h2 id="vi和vim编辑器">Vi和Vim编辑器<a hidden class="anchor" aria-hidden="true" href="#vi和vim编辑器">#</a></h2>
+<h2 id="1-vim编辑器"><strong>1．</strong> <em><strong>*Vim*</strong></em><em><strong>*编辑器：*</strong></em><a hidden class="anchor" aria-hidden="true" href="#1-vim编辑器">#</a></h2>
 <p>在Linux下一般使用vi编辑器来编辑文件。vi既可以查看文件也可以编辑文件。三种模式：命令行、插入、底行模式。</p>
 <p>切换到命令行模式：按Esc键；</p>
 <p>切换到插入模式：按 i 、o、a键；</p>
@@ -207,28 +357,30 @@ find / -name “ins*” 查找文件名称是以ins开头的文件" />
 <p>nyy - 从当前行向后复制几行</p>
 <p>p - 粘贴</p>
 <p>R – 替换</p>
-<h2 id="2-重定向输出和"><strong>2．</strong> <em><strong>*重定向输出*</strong></em><em><strong>*&gt;*</strong></em><em><strong>*和*</strong></em><em><strong>*&raquo;*</strong></em></h2>
+<h2 id="2-重定向输出和"><strong>2．</strong> <em><strong>*重定向输出*</strong></em><em><strong>*&gt;*</strong></em><em><strong>*和*</strong></em><em><strong>*&raquo;*</strong></em><a hidden class="anchor" aria-hidden="true" href="#2-重定向输出和">#</a></h2>
 <p>&gt;  重定向输出，覆盖原有内容；&raquo; 重定向输出，又追加功能；示例：</p>
 <p>cat /etc/passwd &gt; a.txt  将输出定向到a.txt中</p>
 <p>cat /etc/passwd &raquo; a.txt  输出并且追加</p>
 <p>ifconfig &gt; ifconfig.txt</p>
-<h2 id="3-系统管理命令"><strong>3．</strong> <em><strong>*系统管理命令*</strong></em></h2>
+<h2 id="3-系统管理命令"><strong>3．</strong> <em><strong>*系统管理命令*</strong></em><a hidden class="anchor" aria-hidden="true" href="#3-系统管理命令">#</a></h2>
 <p>ps 正在运行的某个进程的状态</p>
 <p>ps –ef  查看所有进程</p>
 <p>ps –ef | grep ssh 查找某一进程</p>
 <p>kill 2868  杀掉2868编号的进程</p>
 <p>kill -9 2868  强制杀死进程</p>
-<h2 id="4-管道--"><strong>4．</strong> <em><strong>*管道*</strong></em>  |</h2>
+<h2 id="4-管道--"><strong>4．</strong> <em><strong>*管道*</strong></em>  |<a hidden class="anchor" aria-hidden="true" href="#4-管道--">#</a></h2>
 <p>管道是Linux命令中重要的一个概念，其作用是将一个命令的输出用作另一个命令的输入。示例</p>
 <p>ls &ndash;help | more  分页查询帮助信息</p>
 <p>ps –ef | grep java  查询名称中包含java的进程</p>
 <p>ifconfig | more</p>
 <p>cat index.html | more</p>
 <p>ps –ef | grep aio</p>
-<h1 id="一-linux的权限命令"><strong>一、</strong> <em><strong>*Linux*</strong></em><em><strong>*的权限命令*</strong></em></h1>
-<h2 id="1-文件权限"><strong>1．</strong> <em><strong>*文件权限*</strong></em></h2>
-<p><img src="https://i.loli.net/2021/10/17/yDOh3Lq1XWvw6jn.jpg" alt="img"></p>
-<p><img src="https://i.loli.net/2021/10/17/wsumHAktePjMgDi.png" alt="image-20211017101039595"></p>
+<h1 id="一-linux的权限命令"><strong>一、</strong> <em><strong>*Linux*</strong></em><em><strong>*的权限命令*</strong></em><a hidden class="anchor" aria-hidden="true" href="#一-linux的权限命令">#</a></h1>
+<h2 id="1-文件权限"><strong>1．</strong> <em><strong>*文件权限*</strong></em><a hidden class="anchor" aria-hidden="true" href="#1-文件权限">#</a></h2>
+<p><img loading="lazy" src="https://i.loli.net/2021/10/17/yDOh3Lq1XWvw6jn.jpg" alt="img"  />
+</p>
+<p><img loading="lazy" src="https://i.loli.net/2021/10/17/wsumHAktePjMgDi.png" alt="image-20211017101039595"  />
+</p>
 <table>
 <thead>
 <tr>
@@ -271,23 +423,23 @@ find / -name “ins*” 查找文件名称是以ins开头的文件" />
 <p>r:对文件是指可读取内容 对目录是可以ls</p>
 <p>w:对文件是指可修改文件内容，对目录 是指可以在其中创建或删除子节点(目录或文件)</p>
 <p>x:对文件是指是否可以运行这个文件，对目录是指是否可以cd进入这个目录</p>
-<h2 id="2-linux三种文件类型"><strong>2．</strong> Linux三种文件类型：</h2>
+<h2 id="2-linux三种文件类型"><strong>2．</strong> Linux三种文件类型：<a hidden class="anchor" aria-hidden="true" href="#2-linux三种文件类型">#</a></h2>
 <p>普通文件： 包括文本文件、数据文件、可执行的二进制程序文件等。</p>
 <p>目录文件： Linux系统把目录看成是一种特殊的文件，利用它构成文件系统的树型结构。</p>
 <p>设备文件： Linux系统把每一个设备都看成是一个文件</p>
-<h2 id="3-文件类型标识"><strong>3．</strong> 文件类型标识</h2>
+<h2 id="3-文件类型标识"><strong>3．</strong> 文件类型标识<a hidden class="anchor" aria-hidden="true" href="#3-文件类型标识">#</a></h2>
 <p>普通文件（-）目录（d）符号链接（l）</p>
 <p>* 进入etc可以查看，相当于快捷方式字符设备文件（c）块设备文件（s）套接字（s）命名管道（p）</p>
-<h2 id="4文件权限管理">4．文件权限管理：</h2>
+<h2 id="4文件权限管理">4．文件权限管理：<a hidden class="anchor" aria-hidden="true" href="#4文件权限管理">#</a></h2>
 <p>​	chmod 变更文件或目录的权限。</p>
 <p>chmod 755 a.txt</p>
 <p>chmod u=rwx,g=rx,o=rx a.txt</p>
-<h1 id="二linux上常用网络操作">二、Linux上常用网络操作</h1>
-<h2 id="1主机名配置">1．主机名配置</h2>
+<h1 id="二linux上常用网络操作">二、Linux上常用网络操作<a hidden class="anchor" aria-hidden="true" href="#二linux上常用网络操作">#</a></h1>
+<h2 id="1主机名配置">1．主机名配置<a hidden class="anchor" aria-hidden="true" href="#1主机名配置">#</a></h2>
 <p>hostname 查看主机名</p>
 <p>hostname xxx 修改主机名 重启后无效</p>
 <p>如果想要永久生效，可以修改/etc/sysconfig/network文件</p>
-<h2 id="2ip地址配置">2．IP地址配置</h2>
+<h2 id="2ip地址配置">2．IP地址配置<a hidden class="anchor" aria-hidden="true" href="#2ip地址配置">#</a></h2>
 <p>ifconfig 查看(修改)ip地址(重启后无效)</p>
 <p>ifconfig eth0 192.168.12.22 修改ip地址</p>
 <p>如果想要永久生效</p>
@@ -300,10 +452,11 @@ NETMASK=255.255.255.0 #子网掩码
 NETWORK=192.168.177.0 #网络地址
 BROADCAST=192.168.0.255 #广播地址
 NBOOT=yes # 系统启动时是否设置此网络接口，设置为yes时，系统启动时激活此设备。</p>
-<h2 id="3-域名映射"><strong>3．</strong> 域名映射</h2>
+<h2 id="3-域名映射"><strong>3．</strong> 域名映射<a hidden class="anchor" aria-hidden="true" href="#3-域名映射">#</a></h2>
 <p>/etc/hosts文件用于在通过主机名进行访问时做ip地址解析之用,相当于windows系统的C:\Windows\System32\drivers\etc\hosts文件的功能</p>
-<p><img src="https://i.loli.net/2021/10/17/H8Z7iCofhbxgavc.jpg" alt="img"></p>
-<h2 id="4网络服务管理">4．网络服务管理</h2>
+<p><img loading="lazy" src="https://i.loli.net/2021/10/17/H8Z7iCofhbxgavc.jpg" alt="img"  />
+</p>
+<h2 id="4网络服务管理">4．网络服务管理<a hidden class="anchor" aria-hidden="true" href="#4网络服务管理">#</a></h2>
 <p>service network status 查看指定服务的状态</p>
 <p>service network stop 停止指定服务</p>
 <p>service network start 启动指定服务</p>
@@ -316,7 +469,7 @@ NBOOT=yes # 系统启动时是否设置此网络接口，设置为yes时，系�
 <p>service iptables stop 关闭防火墙</p>
 <p>service iptables start 启动防火墙</p>
 <p>chkconfig  iptables off 禁止防火墙自启</p>
-<h1 id="三linux上软件安装">三、Linux上软件安装</h1>
+<h1 id="三linux上软件安装">三、Linux上软件安装<a hidden class="anchor" aria-hidden="true" href="#三linux上软件安装">#</a></h1>
 <p>l Linux上的软件安装有以下几种常见方式介绍</p>
 <p>\1. 二进制发布包</p>
 <p>软件已经针对具体平台编译打包发布，只要解压，修改配置即可</p>
@@ -328,18 +481,23 @@ NBOOT=yes # 系统启动时是否设置此网络接口，设置为yes时，系�
 <p>软件以源码工程的形式发布，需要获取到源码工程后用相应开发工具进行编译打包部署。</p>
 <p>l 上传与下载工具介绍</p>
 <p>\1. FileZilla</p>
-<p><img src="https://i.loli.net/2021/10/22/znoXadAywsfJHlV.jpg" alt="img"></p>
-<p><img src="https://i.loli.net/2021/10/17/Lo4qdvez3jcri59.jpg" alt="img"></p>
+<p><img loading="lazy" src="https://i.loli.net/2021/10/22/znoXadAywsfJHlV.jpg" alt="img"  />
+</p>
+<p><img loading="lazy" src="https://i.loli.net/2021/10/17/Lo4qdvez3jcri59.jpg" alt="img"  />
+</p>
 <p>\2. lrzsz</p>
 <p>我们可以使用yum安装方式安装 yum install lrzsz</p>
 <p>注意：必须有网络</p>
 <p>可以在crt中设置上传与下载目录</p>
-<p><img src="https://i.loli.net/2021/10/17/YX5btgJcV1BAs62.jpg" alt="img"></p>
+<p><img loading="lazy" src="https://i.loli.net/2021/10/17/YX5btgJcV1BAs62.jpg" alt="img"  />
+</p>
 <p>上传：</p>
-<p><img src="https://i.loli.net/2021/10/17/dgnhluHJCVzb1vW.jpg" alt="img"></p>
+<p><img loading="lazy" src="https://i.loli.net/2021/10/17/dgnhluHJCVzb1vW.jpg" alt="img"  />
+</p>
 <p>下载</p>
-<p><img src="https://i.loli.net/2021/10/17/FZH7dGX2aKIW6sj.jpg" alt="img"></p>
-<h2 id="1-在linux上安装jdk"><strong>1．</strong> 在Linux上安装JDK:</h2>
+<p><img loading="lazy" src="https://i.loli.net/2021/10/17/FZH7dGX2aKIW6sj.jpg" alt="img"  />
+</p>
+<h2 id="1-在linux上安装jdk"><strong>1．</strong> 在Linux上安装JDK:<a hidden class="anchor" aria-hidden="true" href="#1-在linux上安装jdk">#</a></h2>
 <p>【步骤一】：上传JDK到Linux的服务器.</p>
 <p>* 上传JDK</p>
 <p>* 卸载open-JDK</p>
@@ -351,7 +509,8 @@ NBOOT=yes # 系统启动时是否设置此网络接口，设置为yes时，系�
 <p>* 通常将软件安装到/usr/local</p>
 <p>* 直接解压就可以</p>
 <p>tar –xvf  jdk.tar.gz  -C 目标路径</p>
-<p><img src="https://i.loli.net/2021/10/17/eBwyZVhuQfizpMA.jpg" alt="img"></p>
+<p><img loading="lazy" src="https://i.loli.net/2021/10/17/eBwyZVhuQfizpMA.jpg" alt="img"  />
+</p>
 <p>【步骤三】：配置JDK的环境变量.</p>
 <p>配置环境变量：</p>
 <p>① vi /etc/profile</p>
@@ -363,18 +522,24 @@ NBOOT=yes # 系统启动时是否设置此网络接口，设置为yes时，系�
 <p>​	export JAVA_HOME CLASSPATH PATH</p>
 <p>保存退出</p>
 <p>③source /etc/profile  使更改的配置立即生效</p>
-<h2 id="2-在linux上安装mysql"><strong>2．</strong> 在Linux上安装Mysql:</h2>
+<h2 id="2-在linux上安装mysql"><strong>2．</strong> 在Linux上安装Mysql:<a hidden class="anchor" aria-hidden="true" href="#2-在linux上安装mysql">#</a></h2>
 <p>【步骤一】：将mysql的安装文件上传到Linux的服务器.</p>
-<p><img src="https://i.loli.net/2021/10/17/QIkxmy7tHFZjvGK.jpg" alt="img"></p>
+<p><img loading="lazy" src="https://i.loli.net/2021/10/17/QIkxmy7tHFZjvGK.jpg" alt="img"  />
+</p>
 <p>将mysql的tar解压</p>
-<p><img src="https://i.loli.net/2021/10/17/69vy7YJFIiDLORA.jpg" alt="img"></p>
+<p><img loading="lazy" src="https://i.loli.net/2021/10/17/69vy7YJFIiDLORA.jpg" alt="img"  />
+</p>
 <p>将系统自带的mysql卸载</p>
-<p><img src="https://i.loli.net/2021/10/17/6Z84xCvSVTwikUY.jpg" alt="img"></p>
-<p><img src="https://i.loli.net/2021/10/17/VYOMU4qiPJ6nDxv.jpg" alt="img"></p>
+<p><img loading="lazy" src="https://i.loli.net/2021/10/17/6Z84xCvSVTwikUY.jpg" alt="img"  />
+</p>
+<p><img loading="lazy" src="https://i.loli.net/2021/10/17/VYOMU4qiPJ6nDxv.jpg" alt="img"  />
+</p>
 <p>【步骤二】：安装MYSQL服务端</p>
-<p><img src="https://i.loli.net/2021/10/17/wyao7OdcIeGAfbS.jpg" alt="img"></p>
+<p><img loading="lazy" src="https://i.loli.net/2021/10/17/wyao7OdcIeGAfbS.jpg" alt="img"  />
+</p>
 <p>下面的提示是告诉我们root用户的密码第一次是随机生成的，它保存在/root/.mysql_secret中，第一次登录需要修改root密码</p>
-<p><img src="https://i.loli.net/2021/10/17/YLnicHDZPeXGKWf.jpg" alt="img"></p>
+<p><img loading="lazy" src="https://i.loli.net/2021/10/17/YLnicHDZPeXGKWf.jpg" alt="img"  />
+</p>
 <p><strong>server端安装不上的原因</strong>:本来自带的mysql-lib未删除.</p>
 <pre><code>#  yum list | grep mysql
 查询
@@ -387,17 +552,23 @@ yum -y install autoconf
 在启动mysql
 /usr/bin/mysqladmin -u root password 'new-password'设置新密码
 </code></pre><p>【步骤三】：安装MYSQL客户端</p>
-<p><img src="https://i.loli.net/2021/10/17/BLKSXEpedgmQoi9.jpg" alt="img"></p>
+<p><img loading="lazy" src="https://i.loli.net/2021/10/17/BLKSXEpedgmQoi9.jpg" alt="img"  />
+</p>
 <p>查看生成的root密码</p>
-<p><img src="https://i.loli.net/2021/10/17/coP7ZHWVxERuDAa.jpg" alt="img"></p>
-<p><img src="https://i.loli.net/2021/10/17/y9FYlz3gDdRbIa6.jpg" alt="img"></p>
+<p><img loading="lazy" src="https://i.loli.net/2021/10/17/coP7ZHWVxERuDAa.jpg" alt="img"  />
+</p>
+<p><img loading="lazy" src="https://i.loli.net/2021/10/17/y9FYlz3gDdRbIa6.jpg" alt="img"  />
+</p>
 <p>报错:原因是没有启动mysql服务</p>
 <p>需要开启mysql服务</p>
-<p><img src="https://i.loli.net/2021/10/17/GlqQVjzErRkYXBn.jpg" alt="img"></p>
+<p><img loading="lazy" src="https://i.loli.net/2021/10/17/GlqQVjzErRkYXBn.jpg" alt="img"  />
+</p>
 <p>执行下面操作报错，原因是第一次操作mysql必须修改root用户的密码</p>
-<p><img src="https://i.loli.net/2021/10/17/6OfiWGvEZT5Bpgd.jpg" alt="img"></p>
+<p><img loading="lazy" src="https://i.loli.net/2021/10/17/6OfiWGvEZT5Bpgd.jpg" alt="img"  />
+</p>
 <p>设置root用户的密码</p>
-<p><img src="https://i.loli.net/2021/10/17/fEjWprAcXvgU2oh.jpg" alt="img"></p>
+<p><img loading="lazy" src="https://i.loli.net/2021/10/17/fEjWprAcXvgU2oh.jpg" alt="img"  />
+</p>
 <p>l <strong>Mysql****服务加入到系统服务并自动启动操作：</strong></p>
 <p>chkconfig &ndash;add mysql</p>
 <p>自动启动：</p>
@@ -405,7 +576,8 @@ yum -y install autoconf
 <p>查询列表：</p>
 <p>chkconfig</p>
 <p>l 关于mysql远程访问设置</p>
-<p><img src="https://i.loli.net/2021/10/17/y6c2aVTmbLUpu7N.jpg" alt="img"></p>
+<p><img loading="lazy" src="https://i.loli.net/2021/10/17/y6c2aVTmbLUpu7N.jpg" alt="img"  />
+</p>
 <p>在linux中很多软件的端口都被”防火墙”限止，我们需要将防火墙关闭</p>
 <p>防火墙打开3306端口</p>
 <p>/sbin/iptables -I INPUT -p tcp &ndash;dport 3306 -j ACCEPT</p>
@@ -413,12 +585,12 @@ yum -y install autoconf
 <p>/etc/init.d/iptables status</p>
 <p>学习阶段我们也可以直接将防火墙关闭</p>
 <p>service iptables stop;</p>
-<h2 id="3在linux上安装tomcat">3．在Linux上安装tomcat:</h2>
+<h2 id="3在linux上安装tomcat">3．在Linux上安装tomcat:<a hidden class="anchor" aria-hidden="true" href="#3在linux上安装tomcat">#</a></h2>
 <p>1.Tomcat上传到linux上</p>
 <p>2.将上传的tomcat解压</p>
 <p>3.在tomcat/bin目录下执行 startup.sh（注意防火墙）</p>
 <p>4.查看目标 tomcat/logs/catalina.out</p>
-<h2 id="1-在linux上安装redis"><strong>1．</strong> <em><strong>*在*</strong></em><em><strong>*Linux上安装redis*</strong></em></h2>
+<h2 id="1-在linux上安装redis"><strong>1．</strong> <em><strong>*在*</strong></em><em><strong>*Linux上安装redis*</strong></em><a hidden class="anchor" aria-hidden="true" href="#1-在linux上安装redis">#</a></h2>
 <p>【步骤一】安装gcc-c++</p>
 <p>redis是C语言开发，安装redis需要先将官网下载的源码进行编译，编译依赖gcc环境。</p>
 <p>输入命令:</p>
@@ -433,12 +605,14 @@ yum -y install autoconf
 <tbody>
 <tr>
 <td></td>
-<td><img src="https://i.loli.net/2021/10/17/2D4Hrwlbd63S9AO.jpg" alt="img"></td>
+<td><img loading="lazy" src="https://i.loli.net/2021/10/17/2D4Hrwlbd63S9AO.jpg" alt="img"  />
+</td>
 </tr>
 </tbody>
 </table>
 <p>​	输入y确认下载</p>
-<p><img src="https://i.loli.net/2021/10/17/J6LbTMfjdEBPwYI.jpg" alt="img"></p>
+<p><img loading="lazy" src="https://i.loli.net/2021/10/17/J6LbTMfjdEBPwYI.jpg" alt="img"  />
+</p>
 <p>输入y确认安装</p>
 <table>
 <thead>
@@ -450,7 +624,8 @@ yum -y install autoconf
 <tbody>
 <tr>
 <td></td>
-<td><img src="https://i.loli.net/2021/10/17/yizHQM1uK3gLtsS.jpg" alt="img"></td>
+<td><img loading="lazy" src="https://i.loli.net/2021/10/17/yizHQM1uK3gLtsS.jpg" alt="img"  />
+</td>
 </tr>
 </tbody>
 </table>
@@ -465,7 +640,8 @@ yum -y install autoconf
 <tbody>
 <tr>
 <td></td>
-<td><img src="https://i.loli.net/2021/10/17/a6CtrEXLWSqmDZM.jpg" alt="img"></td>
+<td><img loading="lazy" src="https://i.loli.net/2021/10/17/a6CtrEXLWSqmDZM.jpg" alt="img"  />
+</td>
 </tr>
 </tbody>
 </table>
@@ -497,25 +673,30 @@ yum -y install autoconf
 <p>./redis-server redis.conf</p>
 <p>\2. 克隆新窗口，启动redis客户端</p>
 <p>./redis-cli</p>
-<h2 id="2-部署项目到linux"><strong>2．</strong> <em><strong>*部署*</strong></em><em><strong>*项目到Linux*</strong></em></h2>
+<h2 id="2-部署项目到linux"><strong>2．</strong> <em><strong>*部署*</strong></em><em><strong>*项目到Linux*</strong></em><a hidden class="anchor" aria-hidden="true" href="#2-部署项目到linux">#</a></h2>
 <p>\1. 修改pom配置</p>
 <p>在pom.xml中添加<!-- raw HTML omitted --></p>
-<p><img src="https://i.loli.net/2021/10/17/PuCZkfL1jYSJI4B.jpg" alt="img"></p>
+<p><img loading="lazy" src="https://i.loli.net/2021/10/17/PuCZkfL1jYSJI4B.jpg" alt="img"  />
+</p>
 <p>​	修改jdk版本1.7</p>
 <p>​</p>
 <p>\2. 修改项目</p>
 <p>​	2.1 druid.properties</p>
-<p><img src="https://i.loli.net/2021/10/17/b7S9jNBw5QgH4En.jpg" alt="img"></p>
+<p><img loading="lazy" src="https://i.loli.net/2021/10/17/b7S9jNBw5QgH4En.jpg" alt="img"  />
+</p>
 <p>\3. 将war包上</p>
 <p>​	2.2 header.html</p>
-<p><img src="https://i.loli.net/2021/10/17/fwE2YoLsClWzVOp.jpg" alt="img"></p>
-<p>1.3 route_de<img src="https://i.loli.net/2021/10/17/bS8ojceFTnprHYx.jpg" alt="img">2.3 route_detail.html</p>
+<p><img loading="lazy" src="https://i.loli.net/2021/10/17/fwE2YoLsClWzVOp.jpg" alt="img"  />
+</p>
+<p>1.3 route_de<img loading="lazy" src="https://i.loli.net/2021/10/17/bS8ojceFTnprHYx.jpg" alt="img"  />
+2.3 route_detail.html</p>
 <p>\4. 将war包上传到</p>
 <p>\3. 使用package命令打包</p>
-<p><img src="https://i.loli.net/2021/10/17/aeHcuRCDMNG1ZYy.jpg" alt="img"></p>
+<p><img loading="lazy" src="https://i.loli.net/2021/10/17/aeHcuRCDMNG1ZYy.jpg" alt="img"  />
+</p>
 <p>\4. 将travel.war上传到tomcat中的webapps目录</p>
 <p>\5. 重启tomcat</p>
-<p>\6. 到出本地mysql数据，并导入linux中的mysql</p>
+<p>\6. 导出本地mysql数据，并导入linux中的mysql</p>
 <pre><code> Failed to execute goal org.apache.maven.plugins:maven-war-plugin:2.2:war (default-war) on project travel: Execution default-war of goal org.apache.maven.plugins:maven-war-plugin:2.2:war failed: Unable to load the mojo 'war' in the plugin 'org.apache.maven.plugins:maven-war-plugin:2.2' due to an API incompatibility: org.codehaus.plexus.component.repository.exception.ComponentLookupException: Cannot access defaults field of Properties
  
  报错,在pom.xml中添加下列代码之后就能打包了
@@ -541,12 +722,82 @@ yum -y install autoconf
   &lt;/build&gt;
 
 </code></pre>
-    </div>
-    <div class="post-footer">
-      
-    </div>
-  </article>
 
+  </div>
+
+  <footer class="post-footer">
+  </footer>
+</article>
     </main>
-  </body>
+    
+<footer class="footer">
+    <span>&copy; 2021 <a href="https://zyooo.github.io">Ray</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
 </html>
