@@ -9,17 +9,17 @@
 <meta name="keywords" content="" />
 <meta name="description" content="LeetCodeDairies - Ray">
 <meta name="author" content="Ray">
-<link rel="canonical" href="https://zyooo.github.io/leetcodedairy/" />
+<link rel="canonical" href="https://zyooo.io/leetcodedairy/" />
 <link crossorigin="anonymous" href="/assets/css/stylesheet.min.61dfb3f0b4cda95d2ccb867f9a3b244ce5d23e12492bcc3c277df594c7bc1adf.css" integrity="sha256-Yd&#43;z8LTNqV0sy4Z/mjskTOXSPhJJK8w8J331lMe8Gt8=" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://zyooo.github.io/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://zyooo.github.io/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://zyooo.github.io/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://zyooo.github.io/apple-touch-icon.png">
-<link rel="mask-icon" href="https://zyooo.github.io/safari-pinned-tab.svg">
+<link rel="icon" href="https://zyooo.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://zyooo.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://zyooo.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://zyooo.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://zyooo.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
 <meta name="generator" content="Hugo 0.70.0" />
-<link rel="alternate" type="application/rss+xml" href="https://zyooo.github.io/leetcodedairy/index.xml">
+<link rel="alternate" type="application/rss+xml" href="https://zyooo.io/leetcodedairy/index.xml">
 <noscript>
     <style>
         #theme-toggle,
@@ -59,7 +59,7 @@
 </noscript><meta property="og:title" content="LeetCodeDairies" />
 <meta property="og:description" content="What everyonne you can do,just do it." />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://zyooo.github.io/leetcodedairy/" />
+<meta property="og:url" content="https://zyooo.io/leetcodedairy/" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="LeetCodeDairies"/>
@@ -75,7 +75,7 @@
       "@type": "ListItem",
       "position":  2 ,
       "name": "LeetCodeDairies",
-      "item": "https://zyooo.github.io/leetcodedairy/"
+      "item": "https://zyooo.io/leetcodedairy/"
     }
   ]
 }
@@ -97,7 +97,7 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://zyooo.github.io" accesskey="h" title="Ray (Alt + H)">Ray</a>
+            <a href="https://zyooo.io" accesskey="h" title="Ray (Alt + H)">Ray</a>
             <span class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -123,22 +123,22 @@
         </div>
         <ul id="menu">
             <li>
-                <a href="https://zyooo.github.io/note/" title="NOTE">
+                <a href="https://zyooo.io/note/" title="NOTE">
                     <span>NOTE</span>
                 </a>
             </li>
             <li>
-                <a href="https://zyooo.github.io/leetcodedairy/" title="LeetCodeDairy">
+                <a href="https://zyooo.io/leetcodedairy/" title="LeetCodeDairy">
                     <span class="active">LeetCodeDairy</span>
                 </a>
             </li>
             <li>
-                <a href="https://zyooo.github.io/bugs/" title="Bugs">
+                <a href="https://zyooo.io/bugs/" title="Bugs">
                     <span>Bugs</span>
                 </a>
             </li>
             <li>
-                <a href="https://zyooo.github.io/javadairy/" title="JavaDairy">
+                <a href="https://zyooo.io/javadairy/" title="JavaDairy">
                     <span>JavaDairy</span>
                 </a>
             </li>
@@ -149,6 +149,19 @@
 <header class="page-header">
   <h1>LeetCodeDairies</h1>
 </header>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Day4-2021-11-04<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>两个数组的交集 给定两个数组，编写一个函数来计算它们的交集。 示例 1： 输入：nums1 = [1,2,2,1], nums2 = [2,2] 输出：[2,2] 示例 2: 输入：nums1 = [4,9,5], nums2 = [9,4,9,8,4] 输出：[4,9] 说明： 输出结果中每个元素出现的次数，应与元素在两个数组中出现次数的最小值一致。 我们可以不考虑输出结果的顺序。 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/intersection-of-two-arrays-ii 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。 我的思路是先把一个数组存入hashmap中,用值来当key,value为这个数组中这个数字的出现次数,然后遍历第二个数组,当map中有这个值存在而且value大于0,就将这个值加入到list中,最后再将list转化为int[],但是不能直接转换成int[],只能直接转换成Integer[],所以就采用了遍历赋值的方法.
+class Solution { public int[] intersect(int[] nums1, int[] nums2) { Map&lt;Integer,Integer&gt; map = new HashMap&lt;&gt;(); List&lt;Integer&gt; list = new ArrayList&lt;&gt;(); for (int x : nums1) { if(map.containsKey(x)){ map.put(x,map.get(x)&#43;1); }else{ map.put(x,1); } } for(int x : nums2){ if(map.get(x) != null &amp;&amp; map.get(x) &gt; 0){ list....</p>
+  </section>
+  <footer class="entry-footer"><span title='2021-11-04 20:40:11 +0800 CST'>November 4, 2021</span>&nbsp;·&nbsp;Ray</footer>
+  <a class="entry-link" aria-label="post link to Day4-2021-11-04" href="https://zyooo.io/leetcodedairy/20211104/"></a>
+</article>
 
 <article class="post-entry"> 
   <header class="entry-header">
@@ -163,7 +176,7 @@
 class Solution { public void merge(int[] nums1, int m, int[] nums2, int n) { //从尾部开始比谁大再放入tail指向的nums1中值  int p1 = m-1; int p2 = n-1; int tail = m&#43;n-1; while(p2 &gt;= 0 || p1 &gt;= 0){ //m个已经全部放完,剩下的全部放nums2  if(p1 == -1){ nums1[tail--] = nums2[p2--]; }else if(p2 == -1){ nums1[tail--] = nums1[p1--]; }else if(nums2[p2] &gt;= nums1[p1]){ nums1[tail--] = nums2[p2--]; }else{ nums1[tail--] = nums1[p1--]; } } } } 两数之和 给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target 的那 两个 整数，并返回它们的数组下标。 你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。 你可以按任意顺序返回答案。 示例 1： 输入：nums = [2,7,11,15], target = 9 输出：[0,1] 解释：因为 nums[0] &#43; nums[1] == 9 ，返回 [0, 1] 。 来源：力扣（LeetCode） 链接：https://leetcode-cn....</p>
   </section>
   <footer class="entry-footer"><span title='2021-11-03 19:59:17 +0800 CST'>November 3, 2021</span>&nbsp;·&nbsp;Ray</footer>
-  <a class="entry-link" aria-label="post link to Day3-2021-11-03" href="https://zyooo.github.io/leetcodedairy/20211103/"></a>
+  <a class="entry-link" aria-label="post link to Day3-2021-11-03" href="https://zyooo.io/leetcodedairy/20211103/"></a>
 </article>
 
 <article class="post-entry"> 
@@ -178,7 +191,7 @@ class Solution { public void merge(int[] nums1, int m, int[] nums2, int n) { //�
 class Solution { public int maxSubArray(int[] nums) { int index = 0; int lastCount = 0; int maxCount = 0; for(int currentNum : nums){ int currentCount; if(index == 0){ index&#43;&#43;; currentCount = currentNum; lastCount = currentCount; maxCount = currentCount; }else{ if(lastCount &lt; 0){ currentCount = currentNum; maxCount = (maxCount &gt; currentCount) ? maxCount : currentCount; lastCount = currentCount; }else{ currentCount = currentNum &#43; lastCount; maxCount = (maxCount &gt; currentCount) ?...</p>
   </section>
   <footer class="entry-footer"><span title='2021-10-31 21:22:51 +0800 CST'>October 31, 2021</span>&nbsp;·&nbsp;Ray</footer>
-  <a class="entry-link" aria-label="post link to Day2-2021-10-31" href="https://zyooo.github.io/leetcodedairy/20211031/"></a>
+  <a class="entry-link" aria-label="post link to Day2-2021-10-31" href="https://zyooo.io/leetcodedairy/20211031/"></a>
 </article>
 
 <article class="post-entry"> 
@@ -193,12 +206,12 @@ class Solution { public int maxSubArray(int[] nums) { int index = 0; int lastCou
 class Solution { public String destCity(List&lt;List&lt;String&gt;&gt; paths) { for(int i=0; i&lt;paths.size(); i&#43;&#43;){ for(int j=0; j&lt;paths.size(); j&#43;&#43;){ if(i!=j &amp;&amp; paths.get(i).get(1).equals(paths.get(j).get(0))){ break; }else if(j==paths.size()-1){ return paths.get(i).get(1); } } } return &#34;&#34;; } } //官方题解 class Solution { public String destCity(List&lt;List&lt;String&gt;&gt; paths) { Set&lt;String&gt; citiesA = new HashSet&lt;String&gt;(); for (List&lt;String&gt; path : paths) { citiesA.add(path.get(0)); } for (List&lt;String&gt; path : paths) { if (!...</p>
   </section>
   <footer class="entry-footer"><span title='2021-10-09 11:35:50 +0800 CST'>October 9, 2021</span>&nbsp;·&nbsp;Ray</footer>
-  <a class="entry-link" aria-label="post link to 2021.10.08" href="https://zyooo.github.io/leetcodedairy/20211008/"></a>
+  <a class="entry-link" aria-label="post link to 2021.10.08" href="https://zyooo.io/leetcodedairy/20211008/"></a>
 </article>
     </main>
     
 <footer class="footer">
-    <span>&copy; 2021 <a href="https://zyooo.github.io">Ray</a></span>
+    <span>&copy; 2021 <a href="https://zyooo.io">Ray</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
