@@ -6,7 +6,21 @@
     <description>Recent content in Bugs on Ray</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 10 Oct 2021 09:41:38 +0800</lastBuildDate><atom:link href="https://zyooo.io/bugs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 10 Nov 2021 17:16:39 +0800</lastBuildDate><atom:link href="https://zyooo.io/bugs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tomcat</title>
+      <link>https://zyooo.io/bugs/tomcat/</link>
+      <pubDate>Wed, 10 Nov 2021 17:16:39 +0800</pubDate>
+      
+      <guid>https://zyooo.io/bugs/tomcat/</guid>
+      <description>修改Tomcat的默认端口和启动项目 修改默认端口 1.首先查看80端口是否被占用
+netstat -lntp | grep 80 2.进入tomcat安装目录下的conf文件夹修改server.xml文件
+将端口修改为80
+但是这个时候输入netstat -lntp | grep 80 查看发现只监听了 127.0.0.1:80 没有打开:::80,也就是0.0.0.0:80
+导致外部无法访问80端口,最后重启了云服务器之后在查看发现可以了.
+修改默认启动项目 在host下面添加 context的内容,docBase就是项目路径名称,默认的绝对路径是上面配置的name和appBase</description>
+    </item>
+    
     <item>
       <title>Cmd中mvn_compile出现的问题</title>
       <link>https://zyooo.io/bugs/cmd%E4%B8%ADmvn_compile%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/</link>

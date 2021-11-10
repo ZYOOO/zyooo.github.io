@@ -5,12 +5,19 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>Bugs | Ray</title>
+<title>Tomcat | Ray</title>
 <meta name="keywords" content="" />
-<meta name="description" content="Bugs - Ray">
+<meta name="description" content="修改Tomcat的默认端口和启动项目 修改默认端口 1.首先查看80端口是否被占用
+netstat -lntp | grep 80 2.进入tomcat安装目录下的conf文件夹修改server.xml文件
+将端口修改为80
+但是这个时候输入netstat -lntp | grep 80 查看发现只监听了 127.0.0.1:80 没有打开:::80,也就是0.0.0.0:80
+导致外部无法访问80端口,最后重启了云服务器之后在查看发现可以了.
+修改默认启动项目 在host下面添加 context的内容,docBase就是项目路径名称,默认的绝对路径是上面配置的name和appBase">
 <meta name="author" content="Ray">
-<link rel="canonical" href="https://zyooo.io/bugs/" />
+<link rel="canonical" href="https://zyooo.io/bugs/tomcat/" />
 <link crossorigin="anonymous" href="/assets/css/stylesheet.min.61dfb3f0b4cda95d2ccb867f9a3b244ce5d23e12492bcc3c277df594c7bc1adf.css" integrity="sha256-Yd&#43;z8LTNqV0sy4Z/mjskTOXSPhJJK8w8J331lMe8Gt8=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
+    onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="https://zyooo.io/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://zyooo.io/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://zyooo.io/favicon-32x32.png">
@@ -19,7 +26,6 @@
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
 <meta name="generator" content="Hugo 0.70.0" />
-<link rel="alternate" type="application/rss+xml" href="https://zyooo.io/bugs/index.xml">
 <noscript>
     <style>
         #theme-toggle,
@@ -56,14 +62,26 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="Bugs" />
-<meta property="og:description" content="What everyonne you can do,just do it." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://zyooo.io/bugs/" />
+</noscript><meta property="og:title" content="Tomcat" />
+<meta property="og:description" content="修改Tomcat的默认端口和启动项目 修改默认端口 1.首先查看80端口是否被占用
+netstat -lntp | grep 80 2.进入tomcat安装目录下的conf文件夹修改server.xml文件
+将端口修改为80
+但是这个时候输入netstat -lntp | grep 80 查看发现只监听了 127.0.0.1:80 没有打开:::80,也就是0.0.0.0:80
+导致外部无法访问80端口,最后重启了云服务器之后在查看发现可以了.
+修改默认启动项目 在host下面添加 context的内容,docBase就是项目路径名称,默认的绝对路径是上面配置的name和appBase" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://zyooo.io/bugs/tomcat/" /><meta property="article:section" content="Bugs" />
+<meta property="article:published_time" content="2021-11-10T17:16:39&#43;08:00" />
+<meta property="article:modified_time" content="2021-11-10T17:16:39&#43;08:00" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Bugs"/>
-<meta name="twitter:description" content="What everyonne you can do,just do it."/>
+<meta name="twitter:title" content="Tomcat"/>
+<meta name="twitter:description" content="修改Tomcat的默认端口和启动项目 修改默认端口 1.首先查看80端口是否被占用
+netstat -lntp | grep 80 2.进入tomcat安装目录下的conf文件夹修改server.xml文件
+将端口修改为80
+但是这个时候输入netstat -lntp | grep 80 查看发现只监听了 127.0.0.1:80 没有打开:::80,也就是0.0.0.0:80
+导致外部无法访问80端口,最后重启了云服务器之后在查看发现可以了.
+修改默认启动项目 在host下面添加 context的内容,docBase就是项目路径名称,默认的绝对路径是上面配置的name和appBase"/>
 
 
 <script type="application/ld+json">
@@ -73,16 +91,49 @@
   "itemListElement": [, 
     {
       "@type": "ListItem",
-      "position":  2 ,
-      "name": "Bugs",
-      "item": "https://zyooo.io/bugs/"
+      "position":  3 ,
+      "name": "Tomcat",
+      "item": "https://zyooo.io/bugs/tomcat/"
     }
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Tomcat",
+  "name": "Tomcat",
+  "description": "修改Tomcat的默认端口和启动项目 修改默认端口 1.首先查看80端口是否被占用\nnetstat -lntp | grep 80 2.进入tomcat安装目录下的conf文件夹修改server.xml文件\n将端口修改为80\n但是这个时候输入netstat -lntp | grep 80 查看发现只监听了 127.0.0.1:80 没有打开:::80,也就是0.0.0.0:80\n导致外部无法访问80端口,最后重启了云服务器之后在查看发现可以了.\n修改默认启动项目 在host下面添加 context的内容,docBase就是项目路径名称,默认的绝对路径是上面配置的name和appBase",
+  "keywords": [
+    
+  ],
+  "articleBody": "修改Tomcat的默认端口和启动项目 修改默认端口 1.首先查看80端口是否被占用\nnetstat -lntp | grep 80 2.进入tomcat安装目录下的conf文件夹修改server.xml文件\n将端口修改为80\n但是这个时候输入netstat -lntp | grep 80 查看发现只监听了 127.0.0.1:80 没有打开:::80,也就是0.0.0.0:80\n导致外部无法访问80端口,最后重启了云服务器之后在查看发现可以了.\n修改默认启动项目 在host下面添加 context的内容,docBase就是项目路径名称,默认的绝对路径是上面配置的name和appBase\n",
+  "wordCount" : "22",
+  "inLanguage": "en",
+  "datePublished": "2021-11-10T17:16:39+08:00",
+  "dateModified": "2021-11-10T17:16:39+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "Ray"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://zyooo.io/bugs/tomcat/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Ray",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://zyooo.io/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
 
-<body class="list" id="top">
+<body class="" id="top">
 <script>
     if (localStorage.getItem("pref-theme") === "dark") {
         document.body.classList.add('dark');
@@ -134,7 +185,7 @@
             </li>
             <li>
                 <a href="https://zyooo.io/bugs/" title="Bugs">
-                    <span class="active">Bugs</span>
+                    <span>Bugs</span>
                 </a>
             </li>
             <li>
@@ -145,61 +196,38 @@
         </ul>
     </nav>
 </header>
-<main class="main"> 
-<header class="page-header">
-  <h1>Bugs</h1>
-</header>
+<main class="main">
 
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Tomcat<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>修改Tomcat的默认端口和启动项目 修改默认端口 1.首先查看80端口是否被占用
-netstat -lntp | grep 80 2.进入tomcat安装目录下的conf文件夹修改server.xml文件
-将端口修改为80
-但是这个时候输入netstat -lntp | grep 80 查看发现只监听了 127.0.0.1:80 没有打开:::80,也就是0.0.0.0:80
-导致外部无法访问80端口,最后重启了云服务器之后在查看发现可以了.
-修改默认启动项目 在host下面添加 context的内容,docBase就是项目路径名称,默认的绝对路径是上面配置的name和appBase</p>
-  </section>
-  <footer class="entry-footer"><span title='2021-11-10 17:16:39 +0800 CST'>November 10, 2021</span>&nbsp;·&nbsp;Ray</footer>
-  <a class="entry-link" aria-label="post link to Tomcat" href="https://zyooo.io/bugs/tomcat/"></a>
-</article>
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      Tomcat<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+    </h1>
+    <div class="post-meta"><span title='2021-11-10 17:16:39 +0800 CST'>November 10, 2021</span>&nbsp;·&nbsp;Ray
 
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Cmd中mvn_compile出现的问题<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>在cmd上运行mvn compile时出现编译错误
-No compiler is provided in this environment. Perhaps you are running on a JRE rather than a JDK?
-输入mvn -v查看
-查看环境变量
-将JAVA_HOME路径修改为jdk的
-重启cmd输入java -version检查是否配置成功
-mvn -v
-再次编译,成功</p>
-  </section>
-  <footer class="entry-footer"><span title='2021-10-10 09:41:38 +0800 CST'>October 10, 2021</span>&nbsp;·&nbsp;Ray</footer>
-  <a class="entry-link" aria-label="post link to Cmd中mvn_compile出现的问题" href="https://zyooo.io/bugs/cmd%E4%B8%ADmvn_compile%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/"></a>
-</article>
+</div>
+  </header> 
+  <div class="post-content"><h2 id="修改tomcat的默认端口和启动项目">修改Tomcat的默认端口和启动项目<a hidden class="anchor" aria-hidden="true" href="#修改tomcat的默认端口和启动项目">#</a></h2>
+<h3 id="修改默认端口">修改默认端口<a hidden class="anchor" aria-hidden="true" href="#修改默认端口">#</a></h3>
+<p>1.首先查看80端口是否被占用</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">netstat <span style="color:#f92672">-</span>lntp <span style="color:#f92672">|</span> grep 80
+</code></pre></div><p>2.进入tomcat安装目录下的conf文件夹修改server.xml文件</p>
+<p>将端口修改为80</p>
+<p><img loading="lazy" src="https://i.loli.net/2021/11/10/jzU1WfCoY3kuy4S.png" alt="image-20211110215912362"  />
+</p>
+<p>但是这个时候输入netstat -lntp | grep 80 查看发现只监听了 127.0.0.1:80 没有打开:::80,也就是0.0.0.0:80</p>
+<p>导致外部无法访问80端口,最后重启了云服务器之后在查看发现可以了.</p>
+<h3 id="修改默认启动项目">修改默认启动项目<a hidden class="anchor" aria-hidden="true" href="#修改默认启动项目">#</a></h3>
+<p>在host下面添加 context的内容,docBase就是项目路径名称,默认的绝对路径是上面配置的name和appBase</p>
+<p><img loading="lazy" src="https://i.loli.net/2021/11/10/hpOXobgnI8VUPAY.png" alt="image-20211110220143155"  />
+</p>
 
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Windows下redis-Server秒退<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>Windows下redi-server.exe秒退 遇到个问题： 在第一次正常启动之后，配置完conf里的save，再次开启server秒退。
-错误信息：QForkMasterInit: system error caught. error code=0x000005af, message=VirtualAllocEx failed.: unknown error
-**原因：**未设置redis最大内存
-**解决：**在conf中最下面加入
-maxmemory 268435456 maxheap 314572800 再次启动正常 在目录下打开cmd 输入 redis-server.exe redis.windows.conf</p>
-  </section>
-  <footer class="entry-footer"><span title='2021-10-09 11:49:46 +0800 CST'>October 9, 2021</span>&nbsp;·&nbsp;Ray</footer>
-  <a class="entry-link" aria-label="post link to Windows下redis-Server秒退" href="https://zyooo.io/bugs/windows%E4%B8%8Bredi-server.exe%E7%A7%92%E9%80%80/"></a>
+
+  </div>
+
+  <footer class="post-footer">
+  </footer>
 </article>
     </main>
     
