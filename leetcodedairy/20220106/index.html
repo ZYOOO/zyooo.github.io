@@ -5,11 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>Day11 | Ray</title>
+<title>Day11 | JoyBoy</title>
 <meta name="keywords" content="" />
 <meta name="description" content="15.三数之和 穷举,确定了第一个数字之后, 剩下两个数字就是 target = target - nums[i] 的twoSum问题
 func twoSumTarget2(nums []int, start, target int) [][]int { var ans [][]int //sort.Ints(nums)  lo, hi := start, len(nums)-1 for lo &lt; hi { sum := nums[lo] &#43; nums[hi] left, right := nums[lo], nums[hi] if sum &lt; target { for lo &lt; hi &amp;&amp; nums[lo] == left { //跳过重复项,保证答案唯一  lo&#43;&#43; } } else if sum &gt; target { for lo &lt; hi &amp;&amp; nums[hi] == right { hi-- } } else { ans = append(ans, []int{nums[lo], nums[hi]}) for lo &lt; hi &amp;&amp; nums[lo] == left { lo&#43;&#43; } for lo &lt; hi &amp;&amp; nums[hi] == right { hi-- } } } return ans } func threeSumTarget(nums []int, target int) [][]int { sort.">
-<meta name="author" content="Ray">
+<meta name="author" content="JoyBoy">
 <link rel="canonical" href="https://zyooo.github.io/leetcodedairy/20220106/" />
 <link crossorigin="anonymous" href="/assets/css/stylesheet.min.61dfb3f0b4cda95d2ccb867f9a3b244ce5d23e12492bcc3c277df594c7bc1adf.css" integrity="sha256-Yd&#43;z8LTNqV0sy4Z/mjskTOXSPhJJK8w8J331lMe8Gt8=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
@@ -103,7 +103,7 @@ func twoSumTarget2(nums []int, start, target int) [][]int { var ans [][]int //so
   "dateModified": "2022-01-06T11:18:06+08:00",
   "author":{
     "@type": "Person",
-    "name": "Ray"
+    "name": "JoyBoy"
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
@@ -111,7 +111,7 @@ func twoSumTarget2(nums []int, start, target int) [][]int { var ans [][]int //so
   },
   "publisher": {
     "@type": "Organization",
-    "name": "Ray",
+    "name": "JoyBoy",
     "logo": {
       "@type": "ImageObject",
       "url": "https://zyooo.github.io/favicon.ico"
@@ -136,7 +136,7 @@ func twoSumTarget2(nums []int, start, target int) [][]int { var ans [][]int //so
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://zyooo.github.io/" accesskey="h" title="Ray (Alt + H)">Ray</a>
+            <a href="https://zyooo.github.io/" accesskey="h" title="JoyBoy (Alt + H)">JoyBoy</a>
             <span class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -197,7 +197,7 @@ func twoSumTarget2(nums []int, start, target int) [][]int { var ans [][]int //so
     <h1 class="post-title">
       Day11<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
     </h1>
-    <div class="post-meta"><span title='2022-01-06 11:18:06 +0800 CST'>January 6, 2022</span>&nbsp;·&nbsp;Ray
+    <div class="post-meta"><span title='2022-01-06 11:18:06 +0800 CST'>January 6, 2022</span>&nbsp;·&nbsp;JoyBoy
 
 </div>
   </header> 
@@ -276,7 +276,7 @@ func twoSumTarget2(nums []int, start, target int) [][]int { var ans [][]int //so
     </main>
     
 <footer class="footer">
-    <span>&copy; 2022 <a href="https://zyooo.github.io/">Ray</a></span>
+    <span>&copy; 2022 <a href="https://zyooo.github.io/">JoyBoy</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

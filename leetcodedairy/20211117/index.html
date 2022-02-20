@@ -5,12 +5,12 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>Day7-2021-11-17 | Ray</title>
+<title>Day7-2021-11-17 | JoyBoy</title>
 <meta name="keywords" content="" />
 <meta name="description" content="318.最大单词长度乘积 给定一个字符串数组 words，找到 length(word[i]) * length(word[j]) 的最大值，并且这两个单词不含有公共字母。你可以认为每个单词只包含小写字母。如果不存在这样的两个单词，返回 0。 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/maximum-product-of-word-lengths 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处. 本来以为简简单单，结果发现看漏了题目中不含有公共字母的两个单词。然后感觉难度暴增，最后也是成功写出了屎一般的代码，11%&#43;6%。看了题解之后学到了新的东西，思路其实差不多，最优的时间复杂度也是要O(n²)，但是在比较是否出现公共字母的时候，不想用int[26]去表示一个字符串出现过的字母，那样子空间和时间都花费很多，最后看了题解发现可以用掩码去解决，就是用一个int的低26位表示，效果和数组一样，而且比较只需要&amp;运算就能算出，快太多了。
 官方题解是将mask（掩码）作为map的key，length作为map的val，然后再去双重遍历keySet得出最大的答案。按照这个思路做了之后，还是不够快，最后去看高速度的题解，才发现有更快的方法！真是厉害，直接不用map，用于words长度相等的一个int[]去存放掩码，然后通过对应的数组下标可以直接得到words[i].length()空间上更加节省了，同时因为是有顺序去二重遍历的，所以一重循环i&lt;words.length-1，而二重循环的ｊ的开始是ｉ＋１，因为在在前面ｉ的遍历中已经和当前ｊ匹配过了，所以无需再匹配了。
 class Solution { public int maxProduct(String[] words) { int ans = 0; //words中每个string对应的掩码  int[] masks = new int[words.length]; for(int i = 0; i &lt; words.length; i&#43;&#43;){ for(char c : words[i].toCharArray()) masks[i] |= 1&lt;&lt;(c-&#39;a&#39;); } //二重遍历  for(int i = 0; i &lt; words.length-1; i&#43;&#43;){ for(int j = i&#43;1; j &lt; words.length; j&#43;&#43;){ //字符串无公共字母  if((masks[i] &amp; masks[j]) == 0) ans = Math.">
-<meta name="author" content="Ray">
+<meta name="author" content="JoyBoy">
 <link rel="canonical" href="https://zyooo.github.io/leetcodedairy/20211117/" />
 <link crossorigin="anonymous" href="/assets/css/stylesheet.min.61dfb3f0b4cda95d2ccb867f9a3b244ce5d23e12492bcc3c277df594c7bc1adf.css" integrity="sha256-Yd&#43;z8LTNqV0sy4Z/mjskTOXSPhJJK8w8J331lMe8Gt8=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
@@ -106,7 +106,7 @@ class Solution { public int maxProduct(String[] words) { int ans = 0; //words中
   "dateModified": "2021-11-17T12:15:12+08:00",
   "author":{
     "@type": "Person",
-    "name": "Ray"
+    "name": "JoyBoy"
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
@@ -114,7 +114,7 @@ class Solution { public int maxProduct(String[] words) { int ans = 0; //words中
   },
   "publisher": {
     "@type": "Organization",
-    "name": "Ray",
+    "name": "JoyBoy",
     "logo": {
       "@type": "ImageObject",
       "url": "https://zyooo.github.io/favicon.ico"
@@ -139,7 +139,7 @@ class Solution { public int maxProduct(String[] words) { int ans = 0; //words中
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://zyooo.github.io/" accesskey="h" title="Ray (Alt + H)">Ray</a>
+            <a href="https://zyooo.github.io/" accesskey="h" title="JoyBoy (Alt + H)">JoyBoy</a>
             <span class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -200,7 +200,7 @@ class Solution { public int maxProduct(String[] words) { int ans = 0; //words中
     <h1 class="post-title">
       Day7-2021-11-17<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
     </h1>
-    <div class="post-meta"><span title='2021-11-17 12:15:12 +0800 CST'>November 17, 2021</span>&nbsp;·&nbsp;Ray
+    <div class="post-meta"><span title='2021-11-17 12:15:12 +0800 CST'>November 17, 2021</span>&nbsp;·&nbsp;JoyBoy
 
 </div>
   </header> 
@@ -241,7 +241,7 @@ class Solution { public int maxProduct(String[] words) { int ans = 0; //words中
     </main>
     
 <footer class="footer">
-    <span>&copy; 2022 <a href="https://zyooo.github.io/">Ray</a></span>
+    <span>&copy; 2022 <a href="https://zyooo.github.io/">JoyBoy</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

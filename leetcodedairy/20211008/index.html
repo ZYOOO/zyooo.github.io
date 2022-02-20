@@ -5,13 +5,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>2021.10.08 | Ray</title>
+<title>2021.10.08 | JoyBoy</title>
 <meta name="keywords" content="" />
 <meta name="description" content="1.旅行终点站 简单 2021.10.08 给你一份旅游线路图，该线路图中的旅行线路用数组 paths 表示，其中 paths[i] = [cityAi, cityBi] 表示该线路将会从 cityAi 直接前往 cityBi 。请你找出这次旅行的终点站，即没有任何可以通往其他城市的线路的城市。题目数据保证线路图会形成一条不存在循环的线路，因此恰有一个旅行终点站。
 解题的思路就是遍历一遍paths，取cityB，第二重遍历取cityA，当第二重遍历的cityA等于第一重遍历的cityB时说明这条路线是有出路的，反之当第二重遍历结束后依然没有对应的cityA，说明此时第一重遍历的cityB即为终点。
 但是实现方式过于单一，没有去向其他更快捷的方式，导致速度太慢，参考官方题解当中，利用哈希表HashSet去储存一组需要遍历的量，提高速度。
 class Solution { public String destCity(List&lt;List&lt;String&gt;&gt; paths) { for(int i=0; i&lt;paths.size(); i&#43;&#43;){ for(int j=0; j&lt;paths.size(); j&#43;&#43;){ if(i!=j &amp;&amp; paths.get(i).get(1).equals(paths.get(j).get(0))){ break; }else if(j==paths.size()-1){ return paths.get(i).get(1); } } } return &#34;&#34;; } } //官方题解 class Solution { public String destCity(List&lt;List&lt;String&gt;&gt; paths) { Set&lt;String&gt; citiesA = new HashSet&lt;String&gt;(); for (List&lt;String&gt; path : paths) { citiesA.add(path.get(0)); } for (List&lt;String&gt; path : paths) { if (!">
-<meta name="author" content="Ray">
+<meta name="author" content="JoyBoy">
 <link rel="canonical" href="https://zyooo.github.io/leetcodedairy/20211008/" />
 <link crossorigin="anonymous" href="/assets/css/stylesheet.min.61dfb3f0b4cda95d2ccb867f9a3b244ce5d23e12492bcc3c277df594c7bc1adf.css" integrity="sha256-Yd&#43;z8LTNqV0sy4Z/mjskTOXSPhJJK8w8J331lMe8Gt8=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
@@ -109,7 +109,7 @@ class Solution { public String destCity(List&lt;List&lt;String&gt;&gt; paths) { 
   "dateModified": "2021-10-09T11:35:50+08:00",
   "author":{
     "@type": "Person",
-    "name": "Ray"
+    "name": "JoyBoy"
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
@@ -117,7 +117,7 @@ class Solution { public String destCity(List&lt;List&lt;String&gt;&gt; paths) { 
   },
   "publisher": {
     "@type": "Organization",
-    "name": "Ray",
+    "name": "JoyBoy",
     "logo": {
       "@type": "ImageObject",
       "url": "https://zyooo.github.io/favicon.ico"
@@ -142,7 +142,7 @@ class Solution { public String destCity(List&lt;List&lt;String&gt;&gt; paths) { 
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://zyooo.github.io/" accesskey="h" title="Ray (Alt + H)">Ray</a>
+            <a href="https://zyooo.github.io/" accesskey="h" title="JoyBoy (Alt + H)">JoyBoy</a>
             <span class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -203,7 +203,7 @@ class Solution { public String destCity(List&lt;List&lt;String&gt;&gt; paths) { 
     <h1 class="post-title">
       2021.10.08<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
     </h1>
-    <div class="post-meta"><span title='2021-10-09 11:35:50 +0800 CST'>October 9, 2021</span>&nbsp;·&nbsp;Ray
+    <div class="post-meta"><span title='2021-10-09 11:35:50 +0800 CST'>October 9, 2021</span>&nbsp;·&nbsp;JoyBoy
 
 </div>
   </header> 
@@ -266,7 +266,7 @@ class Solution { public String destCity(List&lt;List&lt;String&gt;&gt; paths) { 
     </main>
     
 <footer class="footer">
-    <span>&copy; 2022 <a href="https://zyooo.github.io/">Ray</a></span>
+    <span>&copy; 2022 <a href="https://zyooo.github.io/">JoyBoy</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

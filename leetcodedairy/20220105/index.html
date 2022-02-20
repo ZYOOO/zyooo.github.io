@@ -5,12 +5,12 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>Day10 | Ray</title>
+<title>Day10 | JoyBoy</title>
 <meta name="keywords" content="" />
 <meta name="description" content="1576.替换所有的问号 func modifyString(s string) string { data := []byte(s) for i := 0; i &lt; len(data); i&#43;&#43; { if data[i] == &#39;?&#39; { for b := byte(&#39;a&#39;); b &lt;= &#39;c&#39;; b&#43;&#43; { if !(i &gt; 0 &amp;&amp; data[i-1] == b || i &lt; len(data)-1 &amp;&amp; data[i&#43;1] == b) { data[i] = b break } } } } return string(data[:]) } 一个点在于, 实际上只需要遍历三个字母,就可以找到适合的答案, 还有就是里面那个 if 语句很好的解决了i=0 和
 i = length-1的问题.
 []byte和string之间的转化方式 res := []byte( s ) string(res)">
-<meta name="author" content="Ray">
+<meta name="author" content="JoyBoy">
 <link rel="canonical" href="https://zyooo.github.io/leetcodedairy/20220105/" />
 <link crossorigin="anonymous" href="/assets/css/stylesheet.min.61dfb3f0b4cda95d2ccb867f9a3b244ce5d23e12492bcc3c277df594c7bc1adf.css" integrity="sha256-Yd&#43;z8LTNqV0sy4Z/mjskTOXSPhJJK8w8J331lMe8Gt8=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
@@ -106,7 +106,7 @@ i = length-1的问题.
   "dateModified": "2022-01-05T07:49:09+08:00",
   "author":{
     "@type": "Person",
-    "name": "Ray"
+    "name": "JoyBoy"
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
@@ -114,7 +114,7 @@ i = length-1的问题.
   },
   "publisher": {
     "@type": "Organization",
-    "name": "Ray",
+    "name": "JoyBoy",
     "logo": {
       "@type": "ImageObject",
       "url": "https://zyooo.github.io/favicon.ico"
@@ -139,7 +139,7 @@ i = length-1的问题.
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://zyooo.github.io/" accesskey="h" title="Ray (Alt + H)">Ray</a>
+            <a href="https://zyooo.github.io/" accesskey="h" title="JoyBoy (Alt + H)">JoyBoy</a>
             <span class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -200,7 +200,7 @@ i = length-1的问题.
     <h1 class="post-title">
       Day10<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
     </h1>
-    <div class="post-meta"><span title='2022-01-05 07:49:09 +0800 CST'>January 5, 2022</span>&nbsp;·&nbsp;Ray
+    <div class="post-meta"><span title='2022-01-05 07:49:09 +0800 CST'>January 5, 2022</span>&nbsp;·&nbsp;JoyBoy
 
 </div>
   </header> 
@@ -300,7 +300,7 @@ i = length-1的问题.
     </main>
     
 <footer class="footer">
-    <span>&copy; 2022 <a href="https://zyooo.github.io/">Ray</a></span>
+    <span>&copy; 2022 <a href="https://zyooo.github.io/">JoyBoy</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

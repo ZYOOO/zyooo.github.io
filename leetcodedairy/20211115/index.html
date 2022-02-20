@@ -5,13 +5,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>Day6-2021-11-15 | Ray</title>
+<title>Day6-2021-11-15 | JoyBoy</title>
 <meta name="keywords" content="" />
 <meta name="description" content="319.灯泡开关 @脑筋急转弯
 初始时有 n 个灯泡处于关闭状态。第一轮，你将会打开所有灯泡。接下来的第二轮，你将会每两个灯泡关闭一个。 第三轮，你每三个灯泡就切换一个灯泡的开关（即，打开变关闭，关闭变打开）。第 i 轮，你每 i 个灯泡就切换一个灯泡的开关。直到第 n 轮，你只需要切换最后一个灯泡的开关。 找出并返回 n 轮后有多少个亮着的灯泡。 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/bulb-switcher 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。 最开始模拟了整个过程,结果测试例子给个99999999,直接超出内存限制,感觉事情并不简单.
 题解:
 class Solution { public int bulbSwitch(int n) { return (int) Math.sqrt(n); } } /* 影响第x位灯泡的因素是他的约数 例如6, 约数为1,2,3,6 第一轮即点亮所有,2是关闭,3是点亮,最后6会关闭,所以有偶数个约数的位的灯泡最后都是关闭 所以只有奇数个约数的位最后才会被点亮,即为完全平方数 例如4,约数为1,2,4 n个数中,完全平方数的数量刚好为sqrt(n)向下取整 例如n=9,其中1,4,9为平方数,数量为sqrt(9) = 3 1&lt;= x² &lt;= n 1&lt;= x &lt;= sqrt(n) */ ">
-<meta name="author" content="Ray">
+<meta name="author" content="JoyBoy">
 <link rel="canonical" href="https://zyooo.github.io/leetcodedairy/20211115/" />
 <link crossorigin="anonymous" href="/assets/css/stylesheet.min.61dfb3f0b4cda95d2ccb867f9a3b244ce5d23e12492bcc3c277df594c7bc1adf.css" integrity="sha256-Yd&#43;z8LTNqV0sy4Z/mjskTOXSPhJJK8w8J331lMe8Gt8=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
@@ -109,7 +109,7 @@ class Solution { public int bulbSwitch(int n) { return (int) Math.sqrt(n); } } /
   "dateModified": "2021-11-15T10:58:22+08:00",
   "author":{
     "@type": "Person",
-    "name": "Ray"
+    "name": "JoyBoy"
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
@@ -117,7 +117,7 @@ class Solution { public int bulbSwitch(int n) { return (int) Math.sqrt(n); } } /
   },
   "publisher": {
     "@type": "Organization",
-    "name": "Ray",
+    "name": "JoyBoy",
     "logo": {
       "@type": "ImageObject",
       "url": "https://zyooo.github.io/favicon.ico"
@@ -142,7 +142,7 @@ class Solution { public int bulbSwitch(int n) { return (int) Math.sqrt(n); } } /
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://zyooo.github.io/" accesskey="h" title="Ray (Alt + H)">Ray</a>
+            <a href="https://zyooo.github.io/" accesskey="h" title="JoyBoy (Alt + H)">JoyBoy</a>
             <span class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -203,7 +203,7 @@ class Solution { public int bulbSwitch(int n) { return (int) Math.sqrt(n); } } /
     <h1 class="post-title">
       Day6-2021-11-15<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
     </h1>
-    <div class="post-meta"><span title='2021-11-15 10:58:22 +0800 CST'>November 15, 2021</span>&nbsp;·&nbsp;Ray
+    <div class="post-meta"><span title='2021-11-15 10:58:22 +0800 CST'>November 15, 2021</span>&nbsp;·&nbsp;JoyBoy
 
 </div>
   </header> 
@@ -245,7 +245,7 @@ class Solution { public int bulbSwitch(int n) { return (int) Math.sqrt(n); } } /
     </main>
     
 <footer class="footer">
-    <span>&copy; 2022 <a href="https://zyooo.github.io/">Ray</a></span>
+    <span>&copy; 2022 <a href="https://zyooo.github.io/">JoyBoy</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

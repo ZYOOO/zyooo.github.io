@@ -5,13 +5,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>20220208 | Ray</title>
+<title>20220208 | JoyBoy</title>
 <meta name="keywords" content="" />
 <meta name="description" content="1001.网格照明 hard 2022.02.08 数据规模太大了, 原本想着硬模拟的后来还是放弃了
 打算用map去存储行列和两个对角的情况, 但是又不知道怎么去表示同一条对角
 官方题解:
 func gridIllumination(n int, lamps, queries [][]int) []int { type pair struct{ x, y int } points := map[pair]bool{} row := map[int]int{} col := map[int]int{} diagonal := map[int]int{} antiDiagonal := map[int]int{} for _, lamp := range lamps { r, c := lamp[0], lamp[1] p := pair{r, c} if points[p] { continue } points[p] = true row[r]&#43;&#43; col[c]&#43;&#43; //用这个来表示哪条对角, 妙啊  diagonal[r-c]&#43;&#43; antiDiagonal[r&#43;c]&#43;&#43; } ans := make([]int, len(queries)) for i, query := range queries { r, c := query[0], query[1] if row[r] &gt; 0 || col[c] &gt; 0 || diagonal[r-c] &gt; 0 || antiDiagonal[r&#43;c] &gt; 0 { ans[i] = 1 } for x := r - 1; x &lt;= r&#43;1; x&#43;&#43; { for y := c - 1; y &lt;= c&#43;1; y&#43;&#43; { if x &lt; 0 || y &lt; 0 || x &gt;= n || y &gt;= n || !">
-<meta name="author" content="Ray">
+<meta name="author" content="JoyBoy">
 <link rel="canonical" href="https://zyooo.github.io/leetcodedairy/20220208/" />
 <link crossorigin="anonymous" href="/assets/css/stylesheet.min.61dfb3f0b4cda95d2ccb867f9a3b244ce5d23e12492bcc3c277df594c7bc1adf.css" integrity="sha256-Yd&#43;z8LTNqV0sy4Z/mjskTOXSPhJJK8w8J331lMe8Gt8=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
@@ -109,7 +109,7 @@ func gridIllumination(n int, lamps, queries [][]int) []int { type pair struct{ x
   "dateModified": "2022-02-20T20:07:20+08:00",
   "author":{
     "@type": "Person",
-    "name": "Ray"
+    "name": "JoyBoy"
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
@@ -117,7 +117,7 @@ func gridIllumination(n int, lamps, queries [][]int) []int { type pair struct{ x
   },
   "publisher": {
     "@type": "Organization",
-    "name": "Ray",
+    "name": "JoyBoy",
     "logo": {
       "@type": "ImageObject",
       "url": "https://zyooo.github.io/favicon.ico"
@@ -142,7 +142,7 @@ func gridIllumination(n int, lamps, queries [][]int) []int { type pair struct{ x
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://zyooo.github.io/" accesskey="h" title="Ray (Alt + H)">Ray</a>
+            <a href="https://zyooo.github.io/" accesskey="h" title="JoyBoy (Alt + H)">JoyBoy</a>
             <span class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -203,7 +203,7 @@ func gridIllumination(n int, lamps, queries [][]int) []int { type pair struct{ x
     <h1 class="post-title">
       20220208<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
     </h1>
-    <div class="post-meta"><span title='2022-02-20 20:07:20 +0800 CST'>February 20, 2022</span>&nbsp;·&nbsp;Ray
+    <div class="post-meta"><span title='2022-02-20 20:07:20 +0800 CST'>February 20, 2022</span>&nbsp;·&nbsp;JoyBoy
 
 </div>
   </header> 
@@ -288,7 +288,7 @@ func gridIllumination(n int, lamps, queries [][]int) []int { type pair struct{ x
     </main>
     
 <footer class="footer">
-    <span>&copy; 2022 <a href="https://zyooo.github.io/">Ray</a></span>
+    <span>&copy; 2022 <a href="https://zyooo.github.io/">JoyBoy</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
