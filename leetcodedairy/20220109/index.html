@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Day14 | Ray</title>
+<meta name="keywords" content="" />
+<meta name="description" content="田忌赛马,打不过就送人头 代码逻辑
+n := len(nums1) sort.Ints(nums1) //田忌的马 sort.Ints(nums2) //齐王的马  for i := n-1; i &gt;= 0; i-- { if nums1[i] &gt; nums2[i] { //比得过跟他比  } else { //比不过,换的垫底的来送人头  } } int[] advantageCount(int[] nums1, int[] nums2) { int n = nums1.length; // 给 nums2 降序排序  PriorityQueue&lt;int[]&gt; maxpq = new PriorityQueue&lt;&gt;( (int[] pair1, int[] pair2) -&gt; { return pair2[1] - pair1[1]; //比较方式  } ); for (int i = 0; i &lt; n; i&#43;&#43;) { maxpq.">
+<meta name="author" content="Ray">
+<link rel="canonical" href="https://zyooo.github.io/leetcodedairy/20220109/" />
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.61dfb3f0b4cda95d2ccb867f9a3b244ce5d23e12492bcc3c277df594c7bc1adf.css" integrity="sha256-Yd&#43;z8LTNqV0sy4Z/mjskTOXSPhJJK8w8J331lMe8Gt8=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://zyooo.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://zyooo.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://zyooo.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://zyooo.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://zyooo.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.70.0" />
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Day14" />
+<meta property="og:description" content="田忌赛马,打不过就送人头 代码逻辑
+n := len(nums1) sort.Ints(nums1) //田忌的马 sort.Ints(nums2) //齐王的马  for i := n-1; i &gt;= 0; i-- { if nums1[i] &gt; nums2[i] { //比得过跟他比  } else { //比不过,换的垫底的来送人头  } } int[] advantageCount(int[] nums1, int[] nums2) { int n = nums1.length; // 给 nums2 降序排序  PriorityQueue&lt;int[]&gt; maxpq = new PriorityQueue&lt;&gt;( (int[] pair1, int[] pair2) -&gt; { return pair2[1] - pair1[1]; //比较方式  } ); for (int i = 0; i &lt; n; i&#43;&#43;) { maxpq." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://zyooo.github.io/leetcodedairy/20220109/" /><meta property="article:section" content="LeetCodeDairy" />
+<meta property="article:published_time" content="2022-01-09T20:34:58&#43;08:00" />
+<meta property="article:modified_time" content="2022-01-09T20:34:58&#43;08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Day14"/>
+<meta name="twitter:description" content="田忌赛马,打不过就送人头 代码逻辑
+n := len(nums1) sort.Ints(nums1) //田忌的马 sort.Ints(nums2) //齐王的马  for i := n-1; i &gt;= 0; i-- { if nums1[i] &gt; nums2[i] { //比得过跟他比  } else { //比不过,换的垫底的来送人头  } } int[] advantageCount(int[] nums1, int[] nums2) { int n = nums1.length; // 给 nums2 降序排序  PriorityQueue&lt;int[]&gt; maxpq = new PriorityQueue&lt;&gt;( (int[] pair1, int[] pair2) -&gt; { return pair2[1] - pair1[1]; //比较方式  } ); for (int i = 0; i &lt; n; i&#43;&#43;) { maxpq."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Day14",
+      "item": "https://zyooo.github.io/leetcodedairy/20220109/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Day14",
+  "name": "Day14",
+  "description": "田忌赛马,打不过就送人头 代码逻辑\nn := len(nums1) sort.Ints(nums1) //田忌的马 sort.Ints(nums2) //齐王的马  for i := n-1; i \u0026gt;= 0; i-- { if nums1[i] \u0026gt; nums2[i] { //比得过跟他比  } else { //比不过,换的垫底的来送人头  } } int[] advantageCount(int[] nums1, int[] nums2) { int n = nums1.length; // 给 nums2 降序排序  PriorityQueue\u0026lt;int[]\u0026gt; maxpq = new PriorityQueue\u0026lt;\u0026gt;( (int[] pair1, int[] pair2) -\u0026gt; { return pair2[1] - pair1[1]; //比较方式  } ); for (int i = 0; i \u0026lt; n; i++) { maxpq.",
+  "keywords": [
+    
+  ],
+  "articleBody": "田忌赛马,打不过就送人头 代码逻辑\nn := len(nums1) sort.Ints(nums1) //田忌的马 sort.Ints(nums2) //齐王的马  for i := n-1; i = 0; i-- { if nums1[i]  nums2[i] { //比得过跟他比  } else { //比不过,换的垫底的来送人头  } } int[] advantageCount(int[] nums1, int[] nums2) { int n = nums1.length; // 给 nums2 降序排序  PriorityQueueint[] maxpq = new PriorityQueue( (int[] pair1, int[] pair2) - { return pair2[1] - pair1[1]; //比较方式  } ); for (int i = 0; i n; i++) { maxpq.offer(new int[]{i, nums2[i]}); } // 给 nums1 升序排序  Arrays.sort(nums1); // nums1[left] 是最小值，nums1[right] 是最大值  int left = 0, right = n - 1; int[] res = new int[n]; while (!maxpq.isEmpty()) { int[] pair = maxpq.poll(); // maxval 是 nums2 中的最大值，i 是对应索引  int i = pair[0], maxval = pair[1]; if (maxval nums1[right]) { // 如果 nums1[right] 能胜过 maxval，那就自己上  res[i] = nums1[right]; right--; } else { // 否则用最小值混一下，养精蓄锐  res[i] = nums1[left]; left++; } } return res; } go的话不用优先队列,用二维数组的排序试一试\n二维数组排序 sort.Slice(arr, func(i, j int) bool { return arr[i][1]  arr[j][1] //按照每行的第一个元素排序, 降序,  }) func advantageCount(nums1, nums2 []int) []int { sort.Ints(nums1) var arr [][]int res := make([]int, len(nums1)) left, right := 0, len(nums1)-1 for i, v := range nums2 { tmp := []int{i, v} arr = append(arr, tmp) } sort.Slice(arr, func(i, j int) bool { return arr[i][1]  arr[j][1] //按照每行的第一个元素排序  }) for i := 0; i nums1); i++ { if arr[i][1] nums1[right] { res[arr[i][0]] = nums1[right] right-- } else { res[arr[i][0]] = nums1[left] left++ } } return res } 接雨水问题 思路: water[i] = min( l_max , r_max) - height[i]\n暴力: 每次求出两边最大值 O(N^2) O(1)\nint trap(vectorint\u0026 height) { int n = height.size(); int res = 0; for (int i = 1; i n - 1; i++) { int l_max = 0, r_max = 0; // 找右边最高的柱子  for (int j = i; j n; j++) r_max = max(r_max, height[j]); // 找左边最高的柱子  for (int j = i; j = 0; j--) l_max = max(l_max, height[j]); // 如果自己就是最高的话，  // l_max == r_max == height[i]  res += min(l_max, r_max) - height[i]; } return res; } 备忘录 : 提前求出l_max, r_max 数组 O(N) O(N)\nint trap(vectorint\u0026 height) { if (height.empty()) return 0; int n = height.size(); int res = 0; // 数组充当备忘录  vectorint l_max(n), r_max(n); // 初始化 base case  l_max[0] = height[0]; r_max[n - 1] = height[n - 1]; // 从左向右计算 l_max  for (int i = 1; i n; i++) l_max[i] = max(height[i], l_max[i - 1]); // 从右向左计算 r_max  for (int i = n - 2; i = 0; i--) r_max[i] = max(height[i], r_max[i + 1]); // 计算答案  for (int i = 1; i n - 1; i++) res += min(l_max[i], r_max[i]) - height[i]; return res; } 双指针: O(N) O(1)\nfunc trap(height []int) int { if len(height) == 0 { return 0 } n := len(height) res, left, right := 0, 0, n-1 lMax, rMax := height[0], height[n-1] for left  right { lMax = int(math.Max(float64(lMax),float64(height[left]))) rMax = int(math.Max(float64(rMax),float64(height[right]))) if lMax rMax { res += lMax - height[left] left++ } else { res += rMax - height[right] right-- } } return res } r_max是不是右边最大的并没所谓,只要 l_max 最长回文子串 核心思想: 从中间开始向两边扩散来判断回文串, 为了解决abba偶数问题,传入两个参数l,r\nfor 0  i s){ 找到以 s[i] / s[i]和s[i+1](要防止数组越界) 为中心的回文串 更新答案 } func longestPalindrome(s string) string { res := \"\" for i := 0; i s); i++ { //以s[i]为中心的最长回文子串  s1 := palindrome(s, i, i) //以s[i]和s[i+1]为中心得最长回文子串  s2 := palindrome(s, i, i+1) //res = longest(res,s1,s2)  if len(res) s1) { res = s1 } if len(res) s2) { res = s2 } } return res } func palindrome(s string, l, r int) string { //防止索引越界  for l = 0 \u0026\u0026 r s) \u0026\u0026 s[l] == s[r] { l-- r++ } sb := []byte(s) //返回以s[l] 和 s[r]为中心的最长回文串  //返回的索引应是l+1 ~ r-1 因为切片是到x - 1,所以这里到r 不包含r  return string(sb[l+1 : r]) } 也可以用动态规划,但是动态规划空间复杂度O(N^2) 这个只需要O(1)\n",
+  "wordCount" : "624",
+  "inLanguage": "en",
+  "datePublished": "2022-01-09T20:34:58+08:00",
+  "dateModified": "2022-01-09T20:34:58+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "Ray"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://zyooo.github.io/leetcodedairy/20220109/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Ray",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://zyooo.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://zyooo.github.io/" accesskey="h" title="Ray (Alt + H)">Ray</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://zyooo.github.io/note/" title="NOTE">
+                    <span>NOTE</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://zyooo.github.io/leetcodedairy/" title="LeetCodeDairy">
+                    <span>LeetCodeDairy</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://zyooo.github.io/bugs/" title="Bugs">
+                    <span>Bugs</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://zyooo.github.io/javadairy/" title="JavaDairy">
+                    <span>JavaDairy</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://zyooo.github.io/golangdairy/" title="GolangDairy">
+                    <span>GolangDairy</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      Day14<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+    </h1>
+    <div class="post-meta"><span title='2022-01-09 20:34:58 +0800 CST'>January 9, 2022</span>&nbsp;·&nbsp;Ray
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="田忌赛马打不过就送人头">田忌赛马,打不过就送人头<a hidden class="anchor" aria-hidden="true" href="#田忌赛马打不过就送人头">#</a></h1>
+<p>代码逻辑</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Go" data-lang="Go"><span style="color:#a6e22e">n</span> <span style="color:#f92672">:=</span> len(<span style="color:#a6e22e">nums1</span>)
+<span style="color:#a6e22e">sort</span>.<span style="color:#a6e22e">Ints</span>(<span style="color:#a6e22e">nums1</span>) <span style="color:#75715e">//田忌的马
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">sort</span>.<span style="color:#a6e22e">Ints</span>(<span style="color:#a6e22e">nums2</span>) <span style="color:#75715e">//齐王的马
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">n</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">--</span> {
+  <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">nums1</span>[<span style="color:#a6e22e">i</span>] &gt; <span style="color:#a6e22e">nums2</span>[<span style="color:#a6e22e">i</span>] {
+    <span style="color:#75715e">//比得过跟他比  
+</span><span style="color:#75715e"></span>  } <span style="color:#66d9ef">else</span> {
+    <span style="color:#75715e">//比不过,换的垫底的来送人头
+</span><span style="color:#75715e"></span>  }
+}
+<span style="color:#66d9ef">int</span>[] <span style="color:#a6e22e">advantageCount</span>(<span style="color:#66d9ef">int</span>[] <span style="color:#a6e22e">nums1</span>, <span style="color:#66d9ef">int</span>[] <span style="color:#a6e22e">nums2</span>) {
+    <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">n</span> = <span style="color:#a6e22e">nums1</span>.<span style="color:#a6e22e">length</span>;
+    <span style="color:#75715e">// 给 nums2 降序排序
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">PriorityQueue</span>&lt;<span style="color:#66d9ef">int</span>[]&gt; <span style="color:#a6e22e">maxpq</span> = <span style="color:#a6e22e">new</span> <span style="color:#a6e22e">PriorityQueue</span>&lt;&gt;(
+        (<span style="color:#66d9ef">int</span>[] <span style="color:#a6e22e">pair1</span>, <span style="color:#66d9ef">int</span>[] <span style="color:#a6e22e">pair2</span>) <span style="color:#f92672">-</span>&gt; { 
+            <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">pair2</span>[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">-</span> <span style="color:#a6e22e">pair1</span>[<span style="color:#ae81ff">1</span>];  <span style="color:#75715e">//比较方式
+</span><span style="color:#75715e"></span>        }
+    );
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">i</span> = <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#a6e22e">n</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+        <span style="color:#a6e22e">maxpq</span>.<span style="color:#a6e22e">offer</span>(<span style="color:#a6e22e">new</span> <span style="color:#66d9ef">int</span>[]{<span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">nums2</span>[<span style="color:#a6e22e">i</span>]});
+    }
+    <span style="color:#75715e">// 给 nums1 升序排序
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">Arrays</span>.<span style="color:#a6e22e">sort</span>(<span style="color:#a6e22e">nums1</span>);
+
+    <span style="color:#75715e">// nums1[left] 是最小值，nums1[right] 是最大值
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">left</span> = <span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">right</span> = <span style="color:#a6e22e">n</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>;
+    <span style="color:#66d9ef">int</span>[] <span style="color:#a6e22e">res</span> = <span style="color:#a6e22e">new</span> <span style="color:#66d9ef">int</span>[<span style="color:#a6e22e">n</span>];
+
+    <span style="color:#a6e22e">while</span> (!<span style="color:#a6e22e">maxpq</span>.<span style="color:#a6e22e">isEmpty</span>()) {
+        <span style="color:#66d9ef">int</span>[] <span style="color:#a6e22e">pair</span> = <span style="color:#a6e22e">maxpq</span>.<span style="color:#a6e22e">poll</span>();
+        <span style="color:#75715e">// maxval 是 nums2 中的最大值，i 是对应索引
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">i</span> = <span style="color:#a6e22e">pair</span>[<span style="color:#ae81ff">0</span>], <span style="color:#a6e22e">maxval</span> = <span style="color:#a6e22e">pair</span>[<span style="color:#ae81ff">1</span>];
+        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">maxval</span> &lt; <span style="color:#a6e22e">nums1</span>[<span style="color:#a6e22e">right</span>]) {
+            <span style="color:#75715e">// 如果 nums1[right] 能胜过 maxval，那就自己上
+</span><span style="color:#75715e"></span>            <span style="color:#a6e22e">res</span>[<span style="color:#a6e22e">i</span>] = <span style="color:#a6e22e">nums1</span>[<span style="color:#a6e22e">right</span>];
+            <span style="color:#a6e22e">right</span><span style="color:#f92672">--</span>;
+        } <span style="color:#66d9ef">else</span> {
+            <span style="color:#75715e">// 否则用最小值混一下，养精蓄锐
+</span><span style="color:#75715e"></span>            <span style="color:#a6e22e">res</span>[<span style="color:#a6e22e">i</span>] = <span style="color:#a6e22e">nums1</span>[<span style="color:#a6e22e">left</span>];
+            <span style="color:#a6e22e">left</span><span style="color:#f92672">++</span>;
+        }
+    }
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">res</span>;
+}
+</code></pre></div><p>go的话不用优先队列,用二维数组的排序试一试</p>
+<h2 id="二维数组排序">二维数组排序<a hidden class="anchor" aria-hidden="true" href="#二维数组排序">#</a></h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Go" data-lang="Go"><span style="color:#a6e22e">sort</span>.<span style="color:#a6e22e">Slice</span>(<span style="color:#a6e22e">arr</span>, <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">j</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">bool</span> {
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>][<span style="color:#ae81ff">1</span>] &gt; <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">j</span>][<span style="color:#ae81ff">1</span>] <span style="color:#75715e">//按照每行的第一个元素排序,&gt; 降序, &lt; 升序
+</span><span style="color:#75715e"></span>  })
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">advantageCount</span>(<span style="color:#a6e22e">nums1</span>, <span style="color:#a6e22e">nums2</span> []<span style="color:#66d9ef">int</span>) []<span style="color:#66d9ef">int</span> {
+  <span style="color:#a6e22e">sort</span>.<span style="color:#a6e22e">Ints</span>(<span style="color:#a6e22e">nums1</span>)
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">arr</span> [][]<span style="color:#66d9ef">int</span>
+  <span style="color:#a6e22e">res</span> <span style="color:#f92672">:=</span> make([]<span style="color:#66d9ef">int</span>, len(<span style="color:#a6e22e">nums1</span>))
+  <span style="color:#a6e22e">left</span>, <span style="color:#a6e22e">right</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>, len(<span style="color:#a6e22e">nums1</span>)<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
+  <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">v</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">nums2</span> {
+    <span style="color:#a6e22e">tmp</span> <span style="color:#f92672">:=</span> []<span style="color:#66d9ef">int</span>{<span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">v</span>}
+    <span style="color:#a6e22e">arr</span> = append(<span style="color:#a6e22e">arr</span>, <span style="color:#a6e22e">tmp</span>)
+  }
+  <span style="color:#a6e22e">sort</span>.<span style="color:#a6e22e">Slice</span>(<span style="color:#a6e22e">arr</span>, <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">j</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">bool</span> {
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>][<span style="color:#ae81ff">1</span>] &gt; <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">j</span>][<span style="color:#ae81ff">1</span>] <span style="color:#75715e">//按照每行的第一个元素排序
+</span><span style="color:#75715e"></span>  })
+  <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; len(<span style="color:#a6e22e">nums1</span>); <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>][<span style="color:#ae81ff">1</span>] &lt; <span style="color:#a6e22e">nums1</span>[<span style="color:#a6e22e">right</span>] {
+      <span style="color:#a6e22e">res</span>[<span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>][<span style="color:#ae81ff">0</span>]] = <span style="color:#a6e22e">nums1</span>[<span style="color:#a6e22e">right</span>]
+      <span style="color:#a6e22e">right</span><span style="color:#f92672">--</span>
+    } <span style="color:#66d9ef">else</span> {
+      <span style="color:#a6e22e">res</span>[<span style="color:#a6e22e">arr</span>[<span style="color:#a6e22e">i</span>][<span style="color:#ae81ff">0</span>]] = <span style="color:#a6e22e">nums1</span>[<span style="color:#a6e22e">left</span>]
+      <span style="color:#a6e22e">left</span><span style="color:#f92672">++</span>
+    }
+  }
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">res</span>
+}
+</code></pre></div><h1 id="接雨水问题">接雨水问题<a hidden class="anchor" aria-hidden="true" href="#接雨水问题">#</a></h1>
+<p><img loading="lazy" src="https://s2.loli.net/2022/01/09/iOAQmCXJhZdc9GD.png" alt="image-20220109204026793"  />
+</p>
+<p>思路: water[i] = min( l_max , r_max) - height[i]</p>
+<p>暴力:  每次求出两边最大值 O(N^2) O(1)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Go" data-lang="Go"><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">trap</span>(<span style="color:#a6e22e">vector</span>&lt;<span style="color:#66d9ef">int</span>&gt;<span style="color:#f92672">&amp;</span> <span style="color:#a6e22e">height</span>) {
+    <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">n</span> = <span style="color:#a6e22e">height</span>.<span style="color:#a6e22e">size</span>();
+    <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">res</span> = <span style="color:#ae81ff">0</span>;
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">i</span> = <span style="color:#ae81ff">1</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#a6e22e">n</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+        <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">l_max</span> = <span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">r_max</span> = <span style="color:#ae81ff">0</span>;
+        <span style="color:#75715e">// 找右边最高的柱子
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">j</span> = <span style="color:#a6e22e">i</span>; <span style="color:#a6e22e">j</span> &lt; <span style="color:#a6e22e">n</span>; <span style="color:#a6e22e">j</span><span style="color:#f92672">++</span>)
+            <span style="color:#a6e22e">r_max</span> = <span style="color:#a6e22e">max</span>(<span style="color:#a6e22e">r_max</span>, <span style="color:#a6e22e">height</span>[<span style="color:#a6e22e">j</span>]);
+        <span style="color:#75715e">// 找左边最高的柱子
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">j</span> = <span style="color:#a6e22e">i</span>; <span style="color:#a6e22e">j</span> <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">j</span><span style="color:#f92672">--</span>)
+            <span style="color:#a6e22e">l_max</span> = <span style="color:#a6e22e">max</span>(<span style="color:#a6e22e">l_max</span>, <span style="color:#a6e22e">height</span>[<span style="color:#a6e22e">j</span>]);
+        <span style="color:#75715e">// 如果自己就是最高的话，
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">// l_max == r_max == height[i]
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">res</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">min</span>(<span style="color:#a6e22e">l_max</span>, <span style="color:#a6e22e">r_max</span>) <span style="color:#f92672">-</span> <span style="color:#a6e22e">height</span>[<span style="color:#a6e22e">i</span>];
+    }
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">res</span>;
+}
+</code></pre></div><p>备忘录 :  提前求出l_max, r_max 数组 O(N) O(N)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Go" data-lang="Go"><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">trap</span>(<span style="color:#a6e22e">vector</span>&lt;<span style="color:#66d9ef">int</span>&gt;<span style="color:#f92672">&amp;</span> <span style="color:#a6e22e">height</span>) {
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">height</span>.<span style="color:#a6e22e">empty</span>()) <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+    <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">n</span> = <span style="color:#a6e22e">height</span>.<span style="color:#a6e22e">size</span>();
+    <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">res</span> = <span style="color:#ae81ff">0</span>;
+    <span style="color:#75715e">// 数组充当备忘录
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">vector</span>&lt;<span style="color:#66d9ef">int</span>&gt; <span style="color:#a6e22e">l_max</span>(<span style="color:#a6e22e">n</span>), <span style="color:#a6e22e">r_max</span>(<span style="color:#a6e22e">n</span>);
+    <span style="color:#75715e">// 初始化 base case
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">l_max</span>[<span style="color:#ae81ff">0</span>] = <span style="color:#a6e22e">height</span>[<span style="color:#ae81ff">0</span>];
+    <span style="color:#a6e22e">r_max</span>[<span style="color:#a6e22e">n</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>] = <span style="color:#a6e22e">height</span>[<span style="color:#a6e22e">n</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>];
+    <span style="color:#75715e">// 从左向右计算 l_max
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">i</span> = <span style="color:#ae81ff">1</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#a6e22e">n</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>)
+        <span style="color:#a6e22e">l_max</span>[<span style="color:#a6e22e">i</span>] = <span style="color:#a6e22e">max</span>(<span style="color:#a6e22e">height</span>[<span style="color:#a6e22e">i</span>], <span style="color:#a6e22e">l_max</span>[<span style="color:#a6e22e">i</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>]);
+    <span style="color:#75715e">// 从右向左计算 r_max
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">i</span> = <span style="color:#a6e22e">n</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">--</span>) 
+        <span style="color:#a6e22e">r_max</span>[<span style="color:#a6e22e">i</span>] = <span style="color:#a6e22e">max</span>(<span style="color:#a6e22e">height</span>[<span style="color:#a6e22e">i</span>], <span style="color:#a6e22e">r_max</span>[<span style="color:#a6e22e">i</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>]);
+    <span style="color:#75715e">// 计算答案
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">i</span> = <span style="color:#ae81ff">1</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#a6e22e">n</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) 
+        <span style="color:#a6e22e">res</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">min</span>(<span style="color:#a6e22e">l_max</span>[<span style="color:#a6e22e">i</span>], <span style="color:#a6e22e">r_max</span>[<span style="color:#a6e22e">i</span>]) <span style="color:#f92672">-</span> <span style="color:#a6e22e">height</span>[<span style="color:#a6e22e">i</span>];
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">res</span>;
+}
+</code></pre></div><p>双指针:  O(N) O(1)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Go" data-lang="Go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">trap</span>(<span style="color:#a6e22e">height</span> []<span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">int</span> {
+  <span style="color:#66d9ef">if</span> len(<span style="color:#a6e22e">height</span>) <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> {
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
+  }
+  <span style="color:#a6e22e">n</span> <span style="color:#f92672">:=</span> len(<span style="color:#a6e22e">height</span>)
+  <span style="color:#a6e22e">res</span>, <span style="color:#a6e22e">left</span>, <span style="color:#a6e22e">right</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">n</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
+  <span style="color:#a6e22e">lMax</span>, <span style="color:#a6e22e">rMax</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">height</span>[<span style="color:#ae81ff">0</span>], <span style="color:#a6e22e">height</span>[<span style="color:#a6e22e">n</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
+  <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">left</span> <span style="color:#f92672">&lt;=</span> <span style="color:#a6e22e">right</span> {
+    <span style="color:#a6e22e">lMax</span> = int(<span style="color:#a6e22e">math</span>.<span style="color:#a6e22e">Max</span>(float64(<span style="color:#a6e22e">lMax</span>),float64(<span style="color:#a6e22e">height</span>[<span style="color:#a6e22e">left</span>])))
+    <span style="color:#a6e22e">rMax</span> = int(<span style="color:#a6e22e">math</span>.<span style="color:#a6e22e">Max</span>(float64(<span style="color:#a6e22e">rMax</span>),float64(<span style="color:#a6e22e">height</span>[<span style="color:#a6e22e">right</span>])))
+    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">lMax</span> &lt; <span style="color:#a6e22e">rMax</span> {
+      <span style="color:#a6e22e">res</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">lMax</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">height</span>[<span style="color:#a6e22e">left</span>]
+      <span style="color:#a6e22e">left</span><span style="color:#f92672">++</span>
+    } <span style="color:#66d9ef">else</span> {
+      <span style="color:#a6e22e">res</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">rMax</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">height</span>[<span style="color:#a6e22e">right</span>]
+      <span style="color:#a6e22e">right</span><span style="color:#f92672">--</span>
+    }
+  }
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">res</span>
+}
+</code></pre></div><p><img loading="lazy" src="https://s2.loli.net/2022/01/09/SG6VmXONedlEhJn.png" alt="image-20220109203948861"  />
+</p>
+<p>r_max是不是右边最大的并没所谓,只要 l_max &lt; r_max 就行了</p>
+<h1 id="最长回文子串">最长回文子串<a hidden class="anchor" aria-hidden="true" href="#最长回文子串">#</a></h1>
+<p><strong>核心思想: 从中间开始向两边扩散来判断回文串, 为了解决abba偶数问题,传入两个参数l,r</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Go" data-lang="Go"><span style="color:#66d9ef">for</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&lt;=</span> <span style="color:#a6e22e">i</span> &lt; len(<span style="color:#a6e22e">s</span>){
+  <span style="color:#a6e22e">找到以</span> <span style="color:#a6e22e">s</span>[<span style="color:#a6e22e">i</span>] <span style="color:#f92672">/</span> <span style="color:#a6e22e">s</span>[<span style="color:#a6e22e">i</span>]<span style="color:#a6e22e">和s</span>[<span style="color:#a6e22e">i</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>](<span style="color:#a6e22e">要防止数组越界</span>) <span style="color:#a6e22e">为中心的回文串</span>
+  <span style="color:#a6e22e">更新答案</span>
+}
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">longestPalindrome</span>(<span style="color:#a6e22e">s</span> <span style="color:#66d9ef">string</span>) <span style="color:#66d9ef">string</span> {
+  <span style="color:#a6e22e">res</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;&#34;</span>
+  <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; len(<span style="color:#a6e22e">s</span>); <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+    <span style="color:#75715e">//以s[i]为中心的最长回文子串
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">s1</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">palindrome</span>(<span style="color:#a6e22e">s</span>, <span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">i</span>)
+    <span style="color:#75715e">//以s[i]和s[i+1]为中心得最长回文子串
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">s2</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">palindrome</span>(<span style="color:#a6e22e">s</span>, <span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">i</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)
+    <span style="color:#75715e">//res = longest(res,s1,s2)
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> len(<span style="color:#a6e22e">res</span>) &lt; len(<span style="color:#a6e22e">s1</span>) {
+      <span style="color:#a6e22e">res</span> = <span style="color:#a6e22e">s1</span>
+    }
+    <span style="color:#66d9ef">if</span> len(<span style="color:#a6e22e">res</span>) &lt; len(<span style="color:#a6e22e">s2</span>) {
+      <span style="color:#a6e22e">res</span> = <span style="color:#a6e22e">s2</span>
+    }
+  }
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">res</span>
+}
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">palindrome</span>(<span style="color:#a6e22e">s</span> <span style="color:#66d9ef">string</span>, <span style="color:#a6e22e">l</span>, <span style="color:#a6e22e">r</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">string</span> {
+  <span style="color:#75715e">//防止索引越界
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">l</span> <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">r</span> &lt; len(<span style="color:#a6e22e">s</span>) <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">s</span>[<span style="color:#a6e22e">l</span>] <span style="color:#f92672">==</span> <span style="color:#a6e22e">s</span>[<span style="color:#a6e22e">r</span>] {
+    <span style="color:#a6e22e">l</span><span style="color:#f92672">--</span>
+    <span style="color:#a6e22e">r</span><span style="color:#f92672">++</span>
+  }
+  <span style="color:#a6e22e">sb</span> <span style="color:#f92672">:=</span> []byte(<span style="color:#a6e22e">s</span>)
+  <span style="color:#75715e">//返回以s[l] 和 s[r]为中心的最长回文串
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">//返回的索引应是l+1 ~ r-1 因为切片是到x - 1,所以这里到r 不包含r
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">return</span> string(<span style="color:#a6e22e">sb</span>[<span style="color:#a6e22e">l</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span> : <span style="color:#a6e22e">r</span>])
+}
+</code></pre></div><p>也可以用动态规划,但是动态规划空间复杂度O(N^2) 这个只需要O(1)</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="https://zyooo.github.io/">Ray</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

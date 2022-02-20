@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Day11 | Ray</title>
+<meta name="keywords" content="" />
+<meta name="description" content="15.三数之和 穷举,确定了第一个数字之后, 剩下两个数字就是 target = target - nums[i] 的twoSum问题
+func twoSumTarget2(nums []int, start, target int) [][]int { var ans [][]int //sort.Ints(nums)  lo, hi := start, len(nums)-1 for lo &lt; hi { sum := nums[lo] &#43; nums[hi] left, right := nums[lo], nums[hi] if sum &lt; target { for lo &lt; hi &amp;&amp; nums[lo] == left { //跳过重复项,保证答案唯一  lo&#43;&#43; } } else if sum &gt; target { for lo &lt; hi &amp;&amp; nums[hi] == right { hi-- } } else { ans = append(ans, []int{nums[lo], nums[hi]}) for lo &lt; hi &amp;&amp; nums[lo] == left { lo&#43;&#43; } for lo &lt; hi &amp;&amp; nums[hi] == right { hi-- } } } return ans } func threeSumTarget(nums []int, target int) [][]int { sort.">
+<meta name="author" content="Ray">
+<link rel="canonical" href="https://zyooo.github.io/leetcodedairy/20220106/" />
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.61dfb3f0b4cda95d2ccb867f9a3b244ce5d23e12492bcc3c277df594c7bc1adf.css" integrity="sha256-Yd&#43;z8LTNqV0sy4Z/mjskTOXSPhJJK8w8J331lMe8Gt8=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://zyooo.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://zyooo.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://zyooo.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://zyooo.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://zyooo.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.70.0" />
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Day11" />
+<meta property="og:description" content="15.三数之和 穷举,确定了第一个数字之后, 剩下两个数字就是 target = target - nums[i] 的twoSum问题
+func twoSumTarget2(nums []int, start, target int) [][]int { var ans [][]int //sort.Ints(nums)  lo, hi := start, len(nums)-1 for lo &lt; hi { sum := nums[lo] &#43; nums[hi] left, right := nums[lo], nums[hi] if sum &lt; target { for lo &lt; hi &amp;&amp; nums[lo] == left { //跳过重复项,保证答案唯一  lo&#43;&#43; } } else if sum &gt; target { for lo &lt; hi &amp;&amp; nums[hi] == right { hi-- } } else { ans = append(ans, []int{nums[lo], nums[hi]}) for lo &lt; hi &amp;&amp; nums[lo] == left { lo&#43;&#43; } for lo &lt; hi &amp;&amp; nums[hi] == right { hi-- } } } return ans } func threeSumTarget(nums []int, target int) [][]int { sort." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://zyooo.github.io/leetcodedairy/20220106/" /><meta property="article:section" content="LeetCodeDairy" />
+<meta property="article:published_time" content="2022-01-06T11:18:06&#43;08:00" />
+<meta property="article:modified_time" content="2022-01-06T11:18:06&#43;08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Day11"/>
+<meta name="twitter:description" content="15.三数之和 穷举,确定了第一个数字之后, 剩下两个数字就是 target = target - nums[i] 的twoSum问题
+func twoSumTarget2(nums []int, start, target int) [][]int { var ans [][]int //sort.Ints(nums)  lo, hi := start, len(nums)-1 for lo &lt; hi { sum := nums[lo] &#43; nums[hi] left, right := nums[lo], nums[hi] if sum &lt; target { for lo &lt; hi &amp;&amp; nums[lo] == left { //跳过重复项,保证答案唯一  lo&#43;&#43; } } else if sum &gt; target { for lo &lt; hi &amp;&amp; nums[hi] == right { hi-- } } else { ans = append(ans, []int{nums[lo], nums[hi]}) for lo &lt; hi &amp;&amp; nums[lo] == left { lo&#43;&#43; } for lo &lt; hi &amp;&amp; nums[hi] == right { hi-- } } } return ans } func threeSumTarget(nums []int, target int) [][]int { sort."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Day11",
+      "item": "https://zyooo.github.io/leetcodedairy/20220106/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Day11",
+  "name": "Day11",
+  "description": "15.三数之和 穷举,确定了第一个数字之后, 剩下两个数字就是 target = target - nums[i] 的twoSum问题\nfunc twoSumTarget2(nums []int, start, target int) [][]int { var ans [][]int //sort.Ints(nums)  lo, hi := start, len(nums)-1 for lo \u0026lt; hi { sum := nums[lo] + nums[hi] left, right := nums[lo], nums[hi] if sum \u0026lt; target { for lo \u0026lt; hi \u0026amp;\u0026amp; nums[lo] == left { //跳过重复项,保证答案唯一  lo++ } } else if sum \u0026gt; target { for lo \u0026lt; hi \u0026amp;\u0026amp; nums[hi] == right { hi-- } } else { ans = append(ans, []int{nums[lo], nums[hi]}) for lo \u0026lt; hi \u0026amp;\u0026amp; nums[lo] == left { lo++ } for lo \u0026lt; hi \u0026amp;\u0026amp; nums[hi] == right { hi-- } } } return ans } func threeSumTarget(nums []int, target int) [][]int { sort.",
+  "keywords": [
+    
+  ],
+  "articleBody": "15.三数之和 穷举,确定了第一个数字之后, 剩下两个数字就是 target = target - nums[i] 的twoSum问题\nfunc twoSumTarget2(nums []int, start, target int) [][]int { var ans [][]int //sort.Ints(nums)  lo, hi := start, len(nums)-1 for lo hi { sum := nums[lo] + nums[hi] left, right := nums[lo], nums[hi] if sum target { for lo hi \u0026\u0026 nums[lo] == left { //跳过重复项,保证答案唯一  lo++ } } else if sum  target { for lo hi \u0026\u0026 nums[hi] == right { hi-- } } else { ans = append(ans, []int{nums[lo], nums[hi]}) for lo hi \u0026\u0026 nums[lo] == left { lo++ } for lo hi \u0026\u0026 nums[hi] == right { hi-- } } } return ans } func threeSumTarget(nums []int, target int) [][]int { sort.Ints(nums) var ans [][]int for i := 0; i nums); i++ { tuples := twoSumTarget2(nums, i+1, target-nums[i]) //存在二元组,就加上nums[i]成为三元组  for j := 0; j tuples); j++ { tuples[j] = append(tuples[j], nums[i]) ans = append(ans, tuples[j]) } //跳过第一个数字重复的情况,避免出现重复结果  for i nums)-1 \u0026\u0026 nums[i] == nums[i+1] { i++ } } return ans } 71.简化路径 func simplifyPath(path string) string { stack := []string{} for _, name := range strings.Split(path, \"/\") { if name == \"..\" { if len(stack)  0 { stack = stack[:len(stack)-1] } } else if name != \"\" \u0026\u0026 name != \".\" { stack = append(stack, name) } } return \"/\" + strings.Join(stack, \"/\") } ",
+  "wordCount" : "225",
+  "inLanguage": "en",
+  "datePublished": "2022-01-06T11:18:06+08:00",
+  "dateModified": "2022-01-06T11:18:06+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "Ray"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://zyooo.github.io/leetcodedairy/20220106/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Ray",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://zyooo.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://zyooo.github.io/" accesskey="h" title="Ray (Alt + H)">Ray</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://zyooo.github.io/note/" title="NOTE">
+                    <span>NOTE</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://zyooo.github.io/leetcodedairy/" title="LeetCodeDairy">
+                    <span>LeetCodeDairy</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://zyooo.github.io/bugs/" title="Bugs">
+                    <span>Bugs</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://zyooo.github.io/javadairy/" title="JavaDairy">
+                    <span>JavaDairy</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://zyooo.github.io/golangdairy/" title="GolangDairy">
+                    <span>GolangDairy</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      Day11<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+    </h1>
+    <div class="post-meta"><span title='2022-01-06 11:18:06 +0800 CST'>January 6, 2022</span>&nbsp;·&nbsp;Ray
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="15三数之和">15.三数之和<a hidden class="anchor" aria-hidden="true" href="#15三数之和">#</a></h1>
+<p><img loading="lazy" src="https://s2.loli.net/2022/01/06/PYwRCcyt5rI74Bd.png" alt="image-20220106165502365"  />
+</p>
+<p>穷举,确定了第一个数字之后, 剩下两个数字就是 target = target - nums[i] 的twoSum问题</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Go" data-lang="Go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">twoSumTarget2</span>(<span style="color:#a6e22e">nums</span> []<span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">start</span>, <span style="color:#a6e22e">target</span> <span style="color:#66d9ef">int</span>) [][]<span style="color:#66d9ef">int</span> {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">ans</span> [][]<span style="color:#66d9ef">int</span>
+  <span style="color:#75715e">//sort.Ints(nums)
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">lo</span>, <span style="color:#a6e22e">hi</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">start</span>, len(<span style="color:#a6e22e">nums</span>)<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>
+  <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">lo</span> &lt; <span style="color:#a6e22e">hi</span> {
+    <span style="color:#a6e22e">sum</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">nums</span>[<span style="color:#a6e22e">lo</span>] <span style="color:#f92672">+</span> <span style="color:#a6e22e">nums</span>[<span style="color:#a6e22e">hi</span>]
+    <span style="color:#a6e22e">left</span>, <span style="color:#a6e22e">right</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">nums</span>[<span style="color:#a6e22e">lo</span>], <span style="color:#a6e22e">nums</span>[<span style="color:#a6e22e">hi</span>]
+    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">sum</span> &lt; <span style="color:#a6e22e">target</span> {
+      <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">lo</span> &lt; <span style="color:#a6e22e">hi</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">nums</span>[<span style="color:#a6e22e">lo</span>] <span style="color:#f92672">==</span> <span style="color:#a6e22e">left</span> { <span style="color:#75715e">//跳过重复项,保证答案唯一
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">lo</span><span style="color:#f92672">++</span>
+      }
+    } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">sum</span> &gt; <span style="color:#a6e22e">target</span> {
+      <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">lo</span> &lt; <span style="color:#a6e22e">hi</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">nums</span>[<span style="color:#a6e22e">hi</span>] <span style="color:#f92672">==</span> <span style="color:#a6e22e">right</span> {
+        <span style="color:#a6e22e">hi</span><span style="color:#f92672">--</span>
+      }
+    } <span style="color:#66d9ef">else</span> {
+      <span style="color:#a6e22e">ans</span> = append(<span style="color:#a6e22e">ans</span>, []<span style="color:#66d9ef">int</span>{<span style="color:#a6e22e">nums</span>[<span style="color:#a6e22e">lo</span>], <span style="color:#a6e22e">nums</span>[<span style="color:#a6e22e">hi</span>]})
+      <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">lo</span> &lt; <span style="color:#a6e22e">hi</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">nums</span>[<span style="color:#a6e22e">lo</span>] <span style="color:#f92672">==</span> <span style="color:#a6e22e">left</span> {
+        <span style="color:#a6e22e">lo</span><span style="color:#f92672">++</span>
+      }
+      <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">lo</span> &lt; <span style="color:#a6e22e">hi</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">nums</span>[<span style="color:#a6e22e">hi</span>] <span style="color:#f92672">==</span> <span style="color:#a6e22e">right</span> {
+        <span style="color:#a6e22e">hi</span><span style="color:#f92672">--</span>
+      }
+    }
+  }
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">ans</span>
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">threeSumTarget</span>(<span style="color:#a6e22e">nums</span> []<span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">target</span> <span style="color:#66d9ef">int</span>) [][]<span style="color:#66d9ef">int</span> {
+  <span style="color:#a6e22e">sort</span>.<span style="color:#a6e22e">Ints</span>(<span style="color:#a6e22e">nums</span>)
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">ans</span> [][]<span style="color:#66d9ef">int</span>
+  <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; len(<span style="color:#a6e22e">nums</span>); <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+    <span style="color:#a6e22e">tuples</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">twoSumTarget2</span>(<span style="color:#a6e22e">nums</span>, <span style="color:#a6e22e">i</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">target</span><span style="color:#f92672">-</span><span style="color:#a6e22e">nums</span>[<span style="color:#a6e22e">i</span>])
+    <span style="color:#75715e">//存在二元组,就加上nums[i]成为三元组
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">j</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">j</span> &lt; len(<span style="color:#a6e22e">tuples</span>); <span style="color:#a6e22e">j</span><span style="color:#f92672">++</span> {
+      <span style="color:#a6e22e">tuples</span>[<span style="color:#a6e22e">j</span>] = append(<span style="color:#a6e22e">tuples</span>[<span style="color:#a6e22e">j</span>], <span style="color:#a6e22e">nums</span>[<span style="color:#a6e22e">i</span>])
+      <span style="color:#a6e22e">ans</span> = append(<span style="color:#a6e22e">ans</span>, <span style="color:#a6e22e">tuples</span>[<span style="color:#a6e22e">j</span>])
+    }
+    <span style="color:#75715e">//跳过第一个数字重复的情况,避免出现重复结果
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> &lt; len(<span style="color:#a6e22e">nums</span>)<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">nums</span>[<span style="color:#a6e22e">i</span>] <span style="color:#f92672">==</span> <span style="color:#a6e22e">nums</span>[<span style="color:#a6e22e">i</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>] {
+      <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>
+    }
+  }
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">ans</span>
+}
+</code></pre></div><h1 id="71简化路径">71.简化路径<a hidden class="anchor" aria-hidden="true" href="#71简化路径">#</a></h1>
+<p><img loading="lazy" src="https://s2.loli.net/2022/01/06/sRfirE76AFLJvTQ.png" alt="image-20220106165610926"  />
+</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">simplifyPath</span>(<span style="color:#a6e22e">path</span> <span style="color:#66d9ef">string</span>) <span style="color:#66d9ef">string</span> {
+    <span style="color:#a6e22e">stack</span> <span style="color:#f92672">:=</span> []<span style="color:#66d9ef">string</span>{}
+    <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">name</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">strings</span>.<span style="color:#a6e22e">Split</span>(<span style="color:#a6e22e">path</span>, <span style="color:#e6db74">&#34;/&#34;</span>) {
+        <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">name</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;..&#34;</span> {
+            <span style="color:#66d9ef">if</span> len(<span style="color:#a6e22e">stack</span>) &gt; <span style="color:#ae81ff">0</span> {
+                <span style="color:#a6e22e">stack</span> = <span style="color:#a6e22e">stack</span>[:len(<span style="color:#a6e22e">stack</span>)<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
+            }
+        } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">name</span> <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#34;&#34;</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">name</span> <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#34;.&#34;</span> {
+            <span style="color:#a6e22e">stack</span> = append(<span style="color:#a6e22e">stack</span>, <span style="color:#a6e22e">name</span>)
+        }
+    }
+    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;/&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">strings</span>.<span style="color:#a6e22e">Join</span>(<span style="color:#a6e22e">stack</span>, <span style="color:#e6db74">&#34;/&#34;</span>)
+}
+</code></pre></div>
+
+  </div>
+
+  <footer class="post-footer">
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="https://zyooo.github.io/">Ray</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

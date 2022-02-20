@@ -6,7 +6,93 @@
     <description>Recent content in LeetCodeDairies on Ray</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 17 Nov 2021 12:15:12 +0800</lastBuildDate><atom:link href="https://zyooo.github.io/leetcodedairy/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 20 Feb 2022 20:07:20 +0800</lastBuildDate><atom:link href="https://zyooo.github.io/leetcodedairy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>20220208</title>
+      <link>https://zyooo.github.io/leetcodedairy/20220208/</link>
+      <pubDate>Sun, 20 Feb 2022 20:07:20 +0800</pubDate>
+      
+      <guid>https://zyooo.github.io/leetcodedairy/20220208/</guid>
+      <description>1001.网格照明 hard 2022.02.08 数据规模太大了, 原本想着硬模拟的后来还是放弃了
+打算用map去存储行列和两个对角的情况, 但是又不知道怎么去表示同一条对角
+官方题解:
+func gridIllumination(n int, lamps, queries [][]int) []int { type pair struct{ x, y int } points := map[pair]bool{} row := map[int]int{} col := map[int]int{} diagonal := map[int]int{} antiDiagonal := map[int]int{} for _, lamp := range lamps { r, c := lamp[0], lamp[1] p := pair{r, c} if points[p] { continue } points[p] = true row[r]++ col[c]++ //用这个来表示哪条对角, 妙啊  diagonal[r-c]++ antiDiagonal[r+c]++ } ans := make([]int, len(queries)) for i, query := range queries { r, c := query[0], query[1] if row[r] &amp;gt; 0 || col[c] &amp;gt; 0 || diagonal[r-c] &amp;gt; 0 || antiDiagonal[r+c] &amp;gt; 0 { ans[i] = 1 } for x := r - 1; x &amp;lt;= r+1; x++ { for y := c - 1; y &amp;lt;= c+1; y++ { if x &amp;lt; 0 || y &amp;lt; 0 || x &amp;gt;= n || y &amp;gt;= n || !</description>
+    </item>
+    
+    <item>
+      <title>Day14</title>
+      <link>https://zyooo.github.io/leetcodedairy/20220109/</link>
+      <pubDate>Sun, 09 Jan 2022 20:34:58 +0800</pubDate>
+      
+      <guid>https://zyooo.github.io/leetcodedairy/20220109/</guid>
+      <description>田忌赛马,打不过就送人头 代码逻辑
+n := len(nums1) sort.Ints(nums1) //田忌的马 sort.Ints(nums2) //齐王的马  for i := n-1; i &amp;gt;= 0; i-- { if nums1[i] &amp;gt; nums2[i] { //比得过跟他比  } else { //比不过,换的垫底的来送人头  } } int[] advantageCount(int[] nums1, int[] nums2) { int n = nums1.length; // 给 nums2 降序排序  PriorityQueue&amp;lt;int[]&amp;gt; maxpq = new PriorityQueue&amp;lt;&amp;gt;( (int[] pair1, int[] pair2) -&amp;gt; { return pair2[1] - pair1[1]; //比较方式  } ); for (int i = 0; i &amp;lt; n; i++) { maxpq.</description>
+    </item>
+    
+    <item>
+      <title>Day13</title>
+      <link>https://zyooo.github.io/leetcodedairy/20220108/</link>
+      <pubDate>Sun, 09 Jan 2022 20:34:54 +0800</pubDate>
+      
+      <guid>https://zyooo.github.io/leetcodedairy/20220108/</guid>
+      <description>滑动窗口问题 int left = 0, right = 0 for right &amp;lt; len(s) { //增大窗口  window.add(s[right]) right++ for window needs shrink{ window.remove(s[left]) left++ } } O(N)
+框架 //滑动窗口算法框架 func slidingWindow(s, t string) { need := make(map[string]int) window := make(map[string]int) for _,c := range t{ need[string(c)]++ } left,right,valid := 0,0,0 for right &amp;lt; len(s) { //c是将移入窗口的字符  c := s[right] //右移窗口  right++ //对窗口内数据的一系列更新  ... //debug输出的位置  fmt.Printf(&amp;#34;window: [%d,%d)\n&amp;#34;,left,right) //判断左侧窗口是否要收缩  for window needs shrink{ //d 是将移出窗口的字符  d := s[left] //左移窗口  left++ //进行窗口内数据的一系列更新  .</description>
+    </item>
+    
+    <item>
+      <title>Day12</title>
+      <link>https://zyooo.github.io/leetcodedairy/20220107/</link>
+      <pubDate>Sun, 09 Jan 2022 20:34:51 +0800</pubDate>
+      
+      <guid>https://zyooo.github.io/leetcodedairy/20220107/</guid>
+      <description>二分搜索 //搜素左侧边界 func left_bound(nums []int, target int){ if len(nums) == 0 { return -1 } left, right := 0,len(nums) for left &amp;lt; right{ mid := left + (right - left) / 2 if nums[mid] == target{ //找到target时,收缩右侧边界  right = mid }else if nums[mid] &amp;lt; target{ left = mid + 1 }else if nums[mid] &amp;gt; target{ right = mid } } return left } // nums = [1,2,3,3,3,5,7,] target = 3 return 2 //搜索右侧边界 func right_bound(nums int[], target int){ if len(nums) == 0 { return -1 } left, right := 0,len(nums) for left &amp;lt; right{ mid := left + (right - left) / 2 if nums[mid] == target{ //找到target时,收缩左侧边界  left = mid + 1 }else if nums[mid] &amp;lt; target{ left = mid + 1 }else if nums[mid] &amp;gt; target{ right = mid } } return left } // nums = [1,2,3,3,3,5,7,] target = 3 return 4 技巧: 从题目中抽象出一个自变量x , 一个关于x的函数f(x), 以及一个目标值 target , 同时还要满足以下条件 : 1.</description>
+    </item>
+    
+    <item>
+      <title>Day11</title>
+      <link>https://zyooo.github.io/leetcodedairy/20220106/</link>
+      <pubDate>Thu, 06 Jan 2022 11:18:06 +0800</pubDate>
+      
+      <guid>https://zyooo.github.io/leetcodedairy/20220106/</guid>
+      <description>15.三数之和 穷举,确定了第一个数字之后, 剩下两个数字就是 target = target - nums[i] 的twoSum问题
+func twoSumTarget2(nums []int, start, target int) [][]int { var ans [][]int //sort.Ints(nums)  lo, hi := start, len(nums)-1 for lo &amp;lt; hi { sum := nums[lo] + nums[hi] left, right := nums[lo], nums[hi] if sum &amp;lt; target { for lo &amp;lt; hi &amp;amp;&amp;amp; nums[lo] == left { //跳过重复项,保证答案唯一  lo++ } } else if sum &amp;gt; target { for lo &amp;lt; hi &amp;amp;&amp;amp; nums[hi] == right { hi-- } } else { ans = append(ans, []int{nums[lo], nums[hi]}) for lo &amp;lt; hi &amp;amp;&amp;amp; nums[lo] == left { lo++ } for lo &amp;lt; hi &amp;amp;&amp;amp; nums[hi] == right { hi-- } } } return ans } func threeSumTarget(nums []int, target int) [][]int { sort.</description>
+    </item>
+    
+    <item>
+      <title>Day10</title>
+      <link>https://zyooo.github.io/leetcodedairy/20220105/</link>
+      <pubDate>Wed, 05 Jan 2022 07:49:09 +0800</pubDate>
+      
+      <guid>https://zyooo.github.io/leetcodedairy/20220105/</guid>
+      <description>1576.替换所有的问号 func modifyString(s string) string { data := []byte(s) for i := 0; i &amp;lt; len(data); i++ { if data[i] == &amp;#39;?&amp;#39; { for b := byte(&amp;#39;a&amp;#39;); b &amp;lt;= &amp;#39;c&amp;#39;; b++ { if !(i &amp;gt; 0 &amp;amp;&amp;amp; data[i-1] == b || i &amp;lt; len(data)-1 &amp;amp;&amp;amp; data[i+1] == b) { data[i] = b break } } } } return string(data[:]) } 一个点在于, 实际上只需要遍历三个字母,就可以找到适合的答案, 还有就是里面那个 if 语句很好的解决了i=0 和
+i = length-1的问题.
+[]byte和string之间的转化方式 res := []byte( s ) string(res)</description>
+    </item>
+    
+    <item>
+      <title>Day9</title>
+      <link>https://zyooo.github.io/leetcodedairy/20220104/</link>
+      <pubDate>Tue, 04 Jan 2022 07:46:10 +0800</pubDate>
+      
+      <guid>https://zyooo.github.io/leetcodedairy/20220104/</guid>
+      <description>19.删除链表的倒数第N个节点 /** * Definition for singly-linked list. * type ListNode struct { * Val int * Next *ListNode * } */ func removeNthFromEnd(head *ListNode, n int) *ListNode { dummy := new(ListNode) dummy.Next = head x := findFromEnd(dummy,n+1) //找到倒数第n+1个然后将倒数第n个删除  x.Next = x.Next.Next return dummy.Next } func findFromEnd(head *ListNode,k int) *ListNode{ p1,p2 := head,head for i := 0; i &amp;lt; k; i++{ p1 = p1.Next } for p1 != nil{ p1 = p1.</description>
+    </item>
+    
+    <item>
+      <title>Day8</title>
+      <link>https://zyooo.github.io/leetcodedairy/20220103/</link>
+      <pubDate>Mon, 03 Jan 2022 18:29:12 +0800</pubDate>
+      
+      <guid>https://zyooo.github.io/leetcodedairy/20220103/</guid>
+      <description>1185.一周中的第几天 难度简单92
+给你一个日期，请你设计一个算法来判断它是对应一周中的哪一天。
+输入为三个整数：day、month 和 year，分别表示日、月、年。
+您返回的结果必须是这几个值中的一个 {&amp;quot;Sunday&amp;quot;, &amp;quot;Monday&amp;quot;, &amp;quot;Tuesday&amp;quot;, &amp;quot;Wednesday&amp;quot;, &amp;quot;Thursday&amp;quot;, &amp;quot;Friday&amp;quot;, &amp;quot;Saturday&amp;quot;}。
+用了一个公式： W = (D + 2 * M + 3 * (M + 1) \ 5 + Y + Y \ 4 - Y \ 100 + Y \ 400+1) Mod 7
+但是一月和二月要用13,14表示。
+class Solution { public String dayOfTheWeek(int day, int month, int year) { String[] days = {&amp;#34;Sunday&amp;#34;,&amp;#34;Monday&amp;#34;,&amp;#34;Tuesday&amp;#34;,&amp;#34;Wednesday&amp;#34;,&amp;#34;Thursday&amp;#34;,&amp;#34;Friday&amp;#34;,&amp;#34;Saturday&amp;#34;}; if(month == 1){ month = 13; year--; }else if(month == 2){ month = 14; year --; } //W = (D + 2 * M + 3 * (M + 1) \ 5 + Y + Y \ 4 - Y \ 100 + Y \ 400+1) Mod 7  return days[(day + 2 * month + 3 * (month + 1) / 5 + year + year / 4 - year / 100 + year / 400 + 1) % 7]; } } 23.</description>
+    </item>
+    
     <item>
       <title>Day7-2021-11-17</title>
       <link>https://zyooo.github.io/leetcodedairy/20211117/</link>
