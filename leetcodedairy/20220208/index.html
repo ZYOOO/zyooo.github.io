@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>20220208 | JoyBoy</title>
+<title>2022-02-08 | JoyBoy</title>
 <meta name="keywords" content="" />
 <meta name="description" content="1001.网格照明 hard 2022.02.08 数据规模太大了, 原本想着硬模拟的后来还是放弃了
 打算用map去存储行列和两个对角的情况, 但是又不知道怎么去表示同一条对角
@@ -60,7 +60,7 @@ func gridIllumination(n int, lamps, queries [][]int) []int { type pair struct{ x
         }
 
     </style>
-</noscript><meta property="og:title" content="20220208" />
+</noscript><meta property="og:title" content="2022-02-08" />
 <meta property="og:description" content="1001.网格照明 hard 2022.02.08 数据规模太大了, 原本想着硬模拟的后来还是放弃了
 打算用map去存储行列和两个对角的情况, 但是又不知道怎么去表示同一条对角
 官方题解:
@@ -71,7 +71,7 @@ func gridIllumination(n int, lamps, queries [][]int) []int { type pair struct{ x
 <meta property="article:modified_time" content="2022-02-20T20:07:20&#43;08:00" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="20220208"/>
+<meta name="twitter:title" content="2022-02-08"/>
 <meta name="twitter:description" content="1001.网格照明 hard 2022.02.08 数据规模太大了, 原本想着硬模拟的后来还是放弃了
 打算用map去存储行列和两个对角的情况, 但是又不知道怎么去表示同一条对角
 官方题解:
@@ -86,7 +86,7 @@ func gridIllumination(n int, lamps, queries [][]int) []int { type pair struct{ x
     {
       "@type": "ListItem",
       "position":  2 ,
-      "name": "20220208",
+      "name": "2022-02-08",
       "item": "https://zyooo.github.io/leetcodedairy/20220208/"
     }
   ]
@@ -96,8 +96,8 @@ func gridIllumination(n int, lamps, queries [][]int) []int { type pair struct{ x
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "20220208",
-  "name": "20220208",
+  "headline": "2022-02-08",
+  "name": "2022-02-08",
   "description": "1001.网格照明 hard 2022.02.08 数据规模太大了, 原本想着硬模拟的后来还是放弃了\n打算用map去存储行列和两个对角的情况, 但是又不知道怎么去表示同一条对角\n官方题解:\nfunc gridIllumination(n int, lamps, queries [][]int) []int { type pair struct{ x, y int } points := map[pair]bool{} row := map[int]int{} col := map[int]int{} diagonal := map[int]int{} antiDiagonal := map[int]int{} for _, lamp := range lamps { r, c := lamp[0], lamp[1] p := pair{r, c} if points[p] { continue } points[p] = true row[r]++ col[c]++ //用这个来表示哪条对角, 妙啊  diagonal[r-c]++ antiDiagonal[r+c]++ } ans := make([]int, len(queries)) for i, query := range queries { r, c := query[0], query[1] if row[r] \u0026gt; 0 || col[c] \u0026gt; 0 || diagonal[r-c] \u0026gt; 0 || antiDiagonal[r+c] \u0026gt; 0 { ans[i] = 1 } for x := r - 1; x \u0026lt;= r+1; x++ { for y := c - 1; y \u0026lt;= c+1; y++ { if x \u0026lt; 0 || y \u0026lt; 0 || x \u0026gt;= n || y \u0026gt;= n || !",
   "keywords": [
     
@@ -201,7 +201,7 @@ func gridIllumination(n int, lamps, queries [][]int) []int { type pair struct{ x
   <header class="post-header">
     
     <h1 class="post-title">
-      20220208<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+      2022-02-08<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
     </h1>
     <div class="post-meta"><span title='2022-02-20 20:07:20 +0800 CST'>February 20, 2022</span>&nbsp;·&nbsp;JoyBoy
 

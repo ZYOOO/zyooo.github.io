@@ -157,7 +157,22 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>20220208<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+    <h2>2022-02-25<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>开始是直接遍历的方法得到数字, 后来想着如果是严格按照一个形式的话, 那么 一个复数中只会出现一个 ‘&#43;’
+并且将虚部和实部分割, 可以利用这个去直接得到abcd, 不过不知道底层代码, 估计速度也是差不多的
+代码: 100% 100%
+func complexNumberMultiply(num1 string, num2 string) string { a,b := parse(num1) c,d := parse(num2) return fmt.Sprintf(&#34;%v&#43;%vi&#34;,(a*c-b*d),(a*d&#43;b*c)) } func parse (num string)(int,int){ a,b := 0,0 i,fa,fb := 0,1,1 flag := true n := len(num) if num[0] == &#39;-&#39; { fa = -1 i = 1 } for ;i &lt; n; i&#43;&#43;{ if num[i] &gt;= &#39;0&#39; &amp;&amp; num[i] &lt;= &#39;9&#39;{ if flag { a = a*10 &#43; int(num[i] - &#39;0&#39;) } else { b = b*10 &#43; int(num[i] - &#39;0&#39;) } } if num[i] == &#39;&#43;&#39; { flag = false } else if num[i] == &#39;-&#39; { flag = false fb = -1 } } return a*fa,b*fb } 代码:100% 94%...</p>
+  </section>
+  <footer class="entry-footer"><span title='2022-02-25 21:54:42 +0800 CST'>February 25, 2022</span>&nbsp;·&nbsp;JoyBoy</footer>
+  <a class="entry-link" aria-label="post link to 2022-02-25" href="https://zyooo.github.io/leetcodedairy/20220224/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>2022-02-08<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
     </h2>
   </header>
   <section class="entry-content">
@@ -167,7 +182,7 @@
 func gridIllumination(n int, lamps, queries [][]int) []int { type pair struct{ x, y int } points := map[pair]bool{} row := map[int]int{} col := map[int]int{} diagonal := map[int]int{} antiDiagonal := map[int]int{} for _, lamp := range lamps { r, c := lamp[0], lamp[1] p := pair{r, c} if points[p] { continue } points[p] = true row[r]&#43;&#43; col[c]&#43;&#43; //用这个来表示哪条对角, 妙啊  diagonal[r-c]&#43;&#43; antiDiagonal[r&#43;c]&#43;&#43; } ans := make([]int, len(queries)) for i, query := range queries { r, c := query[0], query[1] if row[r] &gt; 0 || col[c] &gt; 0 || diagonal[r-c] &gt; 0 || antiDiagonal[r&#43;c] &gt; 0 { ans[i] = 1 } for x := r - 1; x &lt;= r&#43;1; x&#43;&#43; { for y := c - 1; y &lt;= c&#43;1; y&#43;&#43; { if x &lt; 0 || y &lt; 0 || x &gt;= n || y &gt;= n || !...</p>
   </section>
   <footer class="entry-footer"><span title='2022-02-20 20:07:20 +0800 CST'>February 20, 2022</span>&nbsp;·&nbsp;JoyBoy</footer>
-  <a class="entry-link" aria-label="post link to 20220208" href="https://zyooo.github.io/leetcodedairy/20220208/"></a>
+  <a class="entry-link" aria-label="post link to 2022-02-08" href="https://zyooo.github.io/leetcodedairy/20220208/"></a>
 </article>
 
 <article class="post-entry"> 
@@ -185,7 +200,7 @@ n := len(nums1) sort.Ints(nums1) //田忌的马 sort.Ints(nums2) //齐王的马 
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Day13<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+    <h2>2022-01-09<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
     </h2>
   </header>
   <section class="entry-content">
@@ -193,24 +208,24 @@ n := len(nums1) sort.Ints(nums1) //田忌的马 sort.Ints(nums2) //齐王的马 
 框架 //滑动窗口算法框架 func slidingWindow(s, t string) { need := make(map[string]int) window := make(map[string]int) for _,c := range t{ need[string(c)]&#43;&#43; } left,right,valid := 0,0,0 for right &lt; len(s) { //c是将移入窗口的字符  c := s[right] //右移窗口  right&#43;&#43; //对窗口内数据的一系列更新  ... //debug输出的位置  fmt.Printf(&#34;window: [%d,%d)\n&#34;,left,right) //判断左侧窗口是否要收缩  for window needs shrink{ //d 是将移出窗口的字符  d := s[left] //左移窗口  left&#43;&#43; //进行窗口内数据的一系列更新  ....</p>
   </section>
   <footer class="entry-footer"><span title='2022-01-09 20:34:54 +0800 CST'>January 9, 2022</span>&nbsp;·&nbsp;JoyBoy</footer>
-  <a class="entry-link" aria-label="post link to Day13" href="https://zyooo.github.io/leetcodedairy/20220108/"></a>
+  <a class="entry-link" aria-label="post link to 2022-01-09" href="https://zyooo.github.io/leetcodedairy/20220108/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Day12<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+    <h2>2022-01-09<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
     </h2>
   </header>
   <section class="entry-content">
     <p>二分搜索 //搜素左侧边界 func left_bound(nums []int, target int){ if len(nums) == 0 { return -1 } left, right := 0,len(nums) for left &lt; right{ mid := left &#43; (right - left) / 2 if nums[mid] == target{ //找到target时,收缩右侧边界  right = mid }else if nums[mid] &lt; target{ left = mid &#43; 1 }else if nums[mid] &gt; target{ right = mid } } return left } // nums = [1,2,3,3,3,5,7,] target = 3 return 2 //搜索右侧边界 func right_bound(nums int[], target int){ if len(nums) == 0 { return -1 } left, right := 0,len(nums) for left &lt; right{ mid := left &#43; (right - left) / 2 if nums[mid] == target{ //找到target时,收缩左侧边界  left = mid &#43; 1 }else if nums[mid] &lt; target{ left = mid &#43; 1 }else if nums[mid] &gt; target{ right = mid } } return left } // nums = [1,2,3,3,3,5,7,] target = 3 return 4 技巧: 从题目中抽象出一个自变量x , 一个关于x的函数f(x), 以及一个目标值 target , 同时还要满足以下条件 : 1....</p>
   </section>
   <footer class="entry-footer"><span title='2022-01-09 20:34:51 +0800 CST'>January 9, 2022</span>&nbsp;·&nbsp;JoyBoy</footer>
-  <a class="entry-link" aria-label="post link to Day12" href="https://zyooo.github.io/leetcodedairy/20220107/"></a>
+  <a class="entry-link" aria-label="post link to 2022-01-09" href="https://zyooo.github.io/leetcodedairy/20220107/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Day11<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+    <h2>2022-01-06<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
     </h2>
   </header>
   <section class="entry-content">
@@ -218,12 +233,12 @@ n := len(nums1) sort.Ints(nums1) //田忌的马 sort.Ints(nums2) //齐王的马 
 func twoSumTarget2(nums []int, start, target int) [][]int { var ans [][]int //sort.Ints(nums)  lo, hi := start, len(nums)-1 for lo &lt; hi { sum := nums[lo] &#43; nums[hi] left, right := nums[lo], nums[hi] if sum &lt; target { for lo &lt; hi &amp;&amp; nums[lo] == left { //跳过重复项,保证答案唯一  lo&#43;&#43; } } else if sum &gt; target { for lo &lt; hi &amp;&amp; nums[hi] == right { hi-- } } else { ans = append(ans, []int{nums[lo], nums[hi]}) for lo &lt; hi &amp;&amp; nums[lo] == left { lo&#43;&#43; } for lo &lt; hi &amp;&amp; nums[hi] == right { hi-- } } } return ans } func threeSumTarget(nums []int, target int) [][]int { sort....</p>
   </section>
   <footer class="entry-footer"><span title='2022-01-06 11:18:06 +0800 CST'>January 6, 2022</span>&nbsp;·&nbsp;JoyBoy</footer>
-  <a class="entry-link" aria-label="post link to Day11" href="https://zyooo.github.io/leetcodedairy/20220106/"></a>
+  <a class="entry-link" aria-label="post link to 2022-01-06" href="https://zyooo.github.io/leetcodedairy/20220106/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Day10<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+    <h2>2022-01-05<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
     </h2>
   </header>
   <section class="entry-content">
@@ -232,24 +247,24 @@ i = length-1的问题.
 []byte和string之间的转化方式 res := []byte( s ) string(res)...</p>
   </section>
   <footer class="entry-footer"><span title='2022-01-05 07:49:09 +0800 CST'>January 5, 2022</span>&nbsp;·&nbsp;JoyBoy</footer>
-  <a class="entry-link" aria-label="post link to Day10" href="https://zyooo.github.io/leetcodedairy/20220105/"></a>
+  <a class="entry-link" aria-label="post link to 2022-01-05" href="https://zyooo.github.io/leetcodedairy/20220105/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Day9<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+    <h2>2022-01-04<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
     </h2>
   </header>
   <section class="entry-content">
     <p>19.删除链表的倒数第N个节点 /** * Definition for singly-linked list. * type ListNode struct { * Val int * Next *ListNode * } */ func removeNthFromEnd(head *ListNode, n int) *ListNode { dummy := new(ListNode) dummy.Next = head x := findFromEnd(dummy,n&#43;1) //找到倒数第n&#43;1个然后将倒数第n个删除  x.Next = x.Next.Next return dummy.Next } func findFromEnd(head *ListNode,k int) *ListNode{ p1,p2 := head,head for i := 0; i &lt; k; i&#43;&#43;{ p1 = p1.Next } for p1 != nil{ p1 = p1....</p>
   </section>
   <footer class="entry-footer"><span title='2022-01-04 07:46:10 +0800 CST'>January 4, 2022</span>&nbsp;·&nbsp;JoyBoy</footer>
-  <a class="entry-link" aria-label="post link to Day9" href="https://zyooo.github.io/leetcodedairy/20220104/"></a>
+  <a class="entry-link" aria-label="post link to 2022-01-04" href="https://zyooo.github.io/leetcodedairy/20220104/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Day8<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+    <h2>2022-01-03<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
     </h2>
   </header>
   <section class="entry-content">
@@ -262,12 +277,12 @@ i = length-1的问题.
 class Solution { public String dayOfTheWeek(int day, int month, int year) { String[] days = {&#34;Sunday&#34;,&#34;Monday&#34;,&#34;Tuesday&#34;,&#34;Wednesday&#34;,&#34;Thursday&#34;,&#34;Friday&#34;,&#34;Saturday&#34;}; if(month == 1){ month = 13; year--; }else if(month == 2){ month = 14; year --; } //W = (D &#43; 2 * M &#43; 3 * (M &#43; 1) \ 5 &#43; Y &#43; Y \ 4 - Y \ 100 &#43; Y \ 400&#43;1) Mod 7  return days[(day &#43; 2 * month &#43; 3 * (month &#43; 1) / 5 &#43; year &#43; year / 4 - year / 100 &#43; year / 400 &#43; 1) % 7]; } } 23....</p>
   </section>
   <footer class="entry-footer"><span title='2022-01-03 18:29:12 +0800 CST'>January 3, 2022</span>&nbsp;·&nbsp;JoyBoy</footer>
-  <a class="entry-link" aria-label="post link to Day8" href="https://zyooo.github.io/leetcodedairy/20220103/"></a>
+  <a class="entry-link" aria-label="post link to 2022-01-03" href="https://zyooo.github.io/leetcodedairy/20220103/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Day7-2021-11-17<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+    <h2>2021-11-17<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
     </h2>
   </header>
   <section class="entry-content">
@@ -276,22 +291,7 @@ class Solution { public String dayOfTheWeek(int day, int month, int year) { Stri
 class Solution { public int maxProduct(String[] words) { int ans = 0; //words中每个string对应的掩码  int[] masks = new int[words.length]; for(int i = 0; i &lt; words.length; i&#43;&#43;){ for(char c : words[i].toCharArray()) masks[i] |= 1&lt;&lt;(c-&#39;a&#39;); } //二重遍历  for(int i = 0; i &lt; words.length-1; i&#43;&#43;){ for(int j = i&#43;1; j &lt; words.length; j&#43;&#43;){ //字符串无公共字母  if((masks[i] &amp; masks[j]) == 0) ans = Math....</p>
   </section>
   <footer class="entry-footer"><span title='2021-11-17 12:15:12 +0800 CST'>November 17, 2021</span>&nbsp;·&nbsp;JoyBoy</footer>
-  <a class="entry-link" aria-label="post link to Day7-2021-11-17" href="https://zyooo.github.io/leetcodedairy/20211117/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Day6-2021-11-15<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>319.灯泡开关 @脑筋急转弯
-初始时有 n 个灯泡处于关闭状态。第一轮，你将会打开所有灯泡。接下来的第二轮，你将会每两个灯泡关闭一个。 第三轮，你每三个灯泡就切换一个灯泡的开关（即，打开变关闭，关闭变打开）。第 i 轮，你每 i 个灯泡就切换一个灯泡的开关。直到第 n 轮，你只需要切换最后一个灯泡的开关。 找出并返回 n 轮后有多少个亮着的灯泡。 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/bulb-switcher 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。 最开始模拟了整个过程,结果测试例子给个99999999,直接超出内存限制,感觉事情并不简单.
-题解:
-class Solution { public int bulbSwitch(int n) { return (int) Math.sqrt(n); } } /* 影响第x位灯泡的因素是他的约数 例如6, 约数为1,2,3,6 第一轮即点亮所有,2是关闭,3是点亮,最后6会关闭,所以有偶数个约数的位的灯泡最后都是关闭 所以只有奇数个约数的位最后才会被点亮,即为完全平方数 例如4,约数为1,2,4 n个数中,完全平方数的数量刚好为sqrt(n)向下取整 例如n=9,其中1,4,9为平方数,数量为sqrt(9) = 3 1&lt;= x² &lt;= n 1&lt;= x &lt;= sqrt(n) */ </p>
-  </section>
-  <footer class="entry-footer"><span title='2021-11-15 10:58:22 +0800 CST'>November 15, 2021</span>&nbsp;·&nbsp;JoyBoy</footer>
-  <a class="entry-link" aria-label="post link to Day6-2021-11-15" href="https://zyooo.github.io/leetcodedairy/20211115/"></a>
+  <a class="entry-link" aria-label="post link to 2021-11-17" href="https://zyooo.github.io/leetcodedairy/20211117/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

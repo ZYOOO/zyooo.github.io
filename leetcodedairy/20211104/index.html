@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>Day4-2021-11-04 | JoyBoy</title>
+<title>2021-11-04 | JoyBoy</title>
 <meta name="keywords" content="" />
 <meta name="description" content="两个数组的交集 给定两个数组，编写一个函数来计算它们的交集。 示例 1： 输入：nums1 = [1,2,2,1], nums2 = [2,2] 输出：[2,2] 示例 2: 输入：nums1 = [4,9,5], nums2 = [9,4,9,8,4] 输出：[4,9] 说明： 输出结果中每个元素出现的次数，应与元素在两个数组中出现次数的最小值一致。 我们可以不考虑输出结果的顺序。 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/intersection-of-two-arrays-ii 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。 我的思路是先把一个数组存入hashmap中,用值来当key,value为这个数组中这个数字的出现次数,然后遍历第二个数组,当map中有这个值存在而且value大于0,就将这个值加入到list中,最后再将list转化为int[],但是不能直接转换成int[],只能直接转换成Integer[],所以就采用了遍历赋值的方法.
 class Solution { public int[] intersect(int[] nums1, int[] nums2) { Map&lt;Integer,Integer&gt; map = new HashMap&lt;&gt;(); List&lt;Integer&gt; list = new ArrayList&lt;&gt;(); for (int x : nums1) { if(map.containsKey(x)){ map.put(x,map.get(x)&#43;1); }else{ map.put(x,1); } } for(int x : nums2){ if(map.get(x) != null &amp;&amp; map.get(x) &gt; 0){ list.">
@@ -58,7 +58,7 @@ class Solution { public int[] intersect(int[] nums1, int[] nums2) { Map&lt;Integ
         }
 
     </style>
-</noscript><meta property="og:title" content="Day4-2021-11-04" />
+</noscript><meta property="og:title" content="2021-11-04" />
 <meta property="og:description" content="两个数组的交集 给定两个数组，编写一个函数来计算它们的交集。 示例 1： 输入：nums1 = [1,2,2,1], nums2 = [2,2] 输出：[2,2] 示例 2: 输入：nums1 = [4,9,5], nums2 = [9,4,9,8,4] 输出：[4,9] 说明： 输出结果中每个元素出现的次数，应与元素在两个数组中出现次数的最小值一致。 我们可以不考虑输出结果的顺序。 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/intersection-of-two-arrays-ii 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。 我的思路是先把一个数组存入hashmap中,用值来当key,value为这个数组中这个数字的出现次数,然后遍历第二个数组,当map中有这个值存在而且value大于0,就将这个值加入到list中,最后再将list转化为int[],但是不能直接转换成int[],只能直接转换成Integer[],所以就采用了遍历赋值的方法.
 class Solution { public int[] intersect(int[] nums1, int[] nums2) { Map&lt;Integer,Integer&gt; map = new HashMap&lt;&gt;(); List&lt;Integer&gt; list = new ArrayList&lt;&gt;(); for (int x : nums1) { if(map.containsKey(x)){ map.put(x,map.get(x)&#43;1); }else{ map.put(x,1); } } for(int x : nums2){ if(map.get(x) != null &amp;&amp; map.get(x) &gt; 0){ list." />
 <meta property="og:type" content="article" />
@@ -67,7 +67,7 @@ class Solution { public int[] intersect(int[] nums1, int[] nums2) { Map&lt;Integ
 <meta property="article:modified_time" content="2021-11-04T20:40:11&#43;08:00" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Day4-2021-11-04"/>
+<meta name="twitter:title" content="2021-11-04"/>
 <meta name="twitter:description" content="两个数组的交集 给定两个数组，编写一个函数来计算它们的交集。 示例 1： 输入：nums1 = [1,2,2,1], nums2 = [2,2] 输出：[2,2] 示例 2: 输入：nums1 = [4,9,5], nums2 = [9,4,9,8,4] 输出：[4,9] 说明： 输出结果中每个元素出现的次数，应与元素在两个数组中出现次数的最小值一致。 我们可以不考虑输出结果的顺序。 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/intersection-of-two-arrays-ii 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。 我的思路是先把一个数组存入hashmap中,用值来当key,value为这个数组中这个数字的出现次数,然后遍历第二个数组,当map中有这个值存在而且value大于0,就将这个值加入到list中,最后再将list转化为int[],但是不能直接转换成int[],只能直接转换成Integer[],所以就采用了遍历赋值的方法.
 class Solution { public int[] intersect(int[] nums1, int[] nums2) { Map&lt;Integer,Integer&gt; map = new HashMap&lt;&gt;(); List&lt;Integer&gt; list = new ArrayList&lt;&gt;(); for (int x : nums1) { if(map.containsKey(x)){ map.put(x,map.get(x)&#43;1); }else{ map.put(x,1); } } for(int x : nums2){ if(map.get(x) != null &amp;&amp; map.get(x) &gt; 0){ list."/>
 
@@ -80,7 +80,7 @@ class Solution { public int[] intersect(int[] nums1, int[] nums2) { Map&lt;Integ
     {
       "@type": "ListItem",
       "position":  2 ,
-      "name": "Day4-2021-11-04",
+      "name": "2021-11-04",
       "item": "https://zyooo.github.io/leetcodedairy/20211104/"
     }
   ]
@@ -90,8 +90,8 @@ class Solution { public int[] intersect(int[] nums1, int[] nums2) { Map&lt;Integ
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Day4-2021-11-04",
-  "name": "Day4-2021-11-04",
+  "headline": "2021-11-04",
+  "name": "2021-11-04",
   "description": "两个数组的交集 给定两个数组，编写一个函数来计算它们的交集。 示例 1： 输入：nums1 = [1,2,2,1], nums2 = [2,2] 输出：[2,2] 示例 2: 输入：nums1 = [4,9,5], nums2 = [9,4,9,8,4] 输出：[4,9] 说明： 输出结果中每个元素出现的次数，应与元素在两个数组中出现次数的最小值一致。 我们可以不考虑输出结果的顺序。 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/intersection-of-two-arrays-ii 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。 我的思路是先把一个数组存入hashmap中,用值来当key,value为这个数组中这个数字的出现次数,然后遍历第二个数组,当map中有这个值存在而且value大于0,就将这个值加入到list中,最后再将list转化为int[],但是不能直接转换成int[],只能直接转换成Integer[],所以就采用了遍历赋值的方法.\nclass Solution { public int[] intersect(int[] nums1, int[] nums2) { Map\u0026lt;Integer,Integer\u0026gt; map = new HashMap\u0026lt;\u0026gt;(); List\u0026lt;Integer\u0026gt; list = new ArrayList\u0026lt;\u0026gt;(); for (int x : nums1) { if(map.containsKey(x)){ map.put(x,map.get(x)+1); }else{ map.put(x,1); } } for(int x : nums2){ if(map.get(x) != null \u0026amp;\u0026amp; map.get(x) \u0026gt; 0){ list.",
   "keywords": [
     
@@ -195,7 +195,7 @@ class Solution { public int[] intersect(int[] nums1, int[] nums2) { Map&lt;Integ
   <header class="post-header">
     
     <h1 class="post-title">
-      Day4-2021-11-04<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+      2021-11-04<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
     </h1>
     <div class="post-meta"><span title='2021-11-04 20:40:11 +0800 CST'>November 4, 2021</span>&nbsp;·&nbsp;JoyBoy
 

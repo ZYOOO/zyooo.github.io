@@ -157,7 +157,22 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Day5-2021-11-05<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+    <h2>Day6-2021-11-15<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>319.灯泡开关 @脑筋急转弯
+初始时有 n 个灯泡处于关闭状态。第一轮，你将会打开所有灯泡。接下来的第二轮，你将会每两个灯泡关闭一个。 第三轮，你每三个灯泡就切换一个灯泡的开关（即，打开变关闭，关闭变打开）。第 i 轮，你每 i 个灯泡就切换一个灯泡的开关。直到第 n 轮，你只需要切换最后一个灯泡的开关。 找出并返回 n 轮后有多少个亮着的灯泡。 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/bulb-switcher 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。 最开始模拟了整个过程,结果测试例子给个99999999,直接超出内存限制,感觉事情并不简单.
+题解:
+class Solution { public int bulbSwitch(int n) { return (int) Math.sqrt(n); } } /* 影响第x位灯泡的因素是他的约数 例如6, 约数为1,2,3,6 第一轮即点亮所有,2是关闭,3是点亮,最后6会关闭,所以有偶数个约数的位的灯泡最后都是关闭 所以只有奇数个约数的位最后才会被点亮,即为完全平方数 例如4,约数为1,2,4 n个数中,完全平方数的数量刚好为sqrt(n)向下取整 例如n=9,其中1,4,9为平方数,数量为sqrt(9) = 3 1&lt;= x² &lt;= n 1&lt;= x &lt;= sqrt(n) */ </p>
+  </section>
+  <footer class="entry-footer"><span title='2021-11-15 10:58:22 +0800 CST'>November 15, 2021</span>&nbsp;·&nbsp;JoyBoy</footer>
+  <a class="entry-link" aria-label="post link to Day6-2021-11-15" href="https://zyooo.github.io/leetcodedairy/20211115/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>2021-11-05<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
     </h2>
   </header>
   <section class="entry-content">
@@ -165,12 +180,12 @@
 class Solution { public int[][] matrixReshape(int[][] mat, int r, int c) { if(r*c != mat.length*mat[0].length){ return mat; } int[] arr = new int[r*c]; int index = 0; for(int i = 0; i &lt; mat....</p>
   </section>
   <footer class="entry-footer"><span title='2021-11-05 12:21:38 +0800 CST'>November 5, 2021</span>&nbsp;·&nbsp;JoyBoy</footer>
-  <a class="entry-link" aria-label="post link to Day5-2021-11-05" href="https://zyooo.github.io/leetcodedairy/20211105/"></a>
+  <a class="entry-link" aria-label="post link to 2021-11-05" href="https://zyooo.github.io/leetcodedairy/20211105/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Day4-2021-11-04<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+    <h2>2021-11-04<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
     </h2>
   </header>
   <section class="entry-content">
@@ -178,12 +193,12 @@ class Solution { public int[][] matrixReshape(int[][] mat, int r, int c) { if(r*
 class Solution { public int[] intersect(int[] nums1, int[] nums2) { Map&lt;Integer,Integer&gt; map = new HashMap&lt;&gt;(); List&lt;Integer&gt; list = new ArrayList&lt;&gt;(); for (int x : nums1) { if(map.containsKey(x)){ map.put(x,map.get(x)&#43;1); }else{ map.put(x,1); } } for(int x : nums2){ if(map.get(x) != null &amp;&amp; map.get(x) &gt; 0){ list....</p>
   </section>
   <footer class="entry-footer"><span title='2021-11-04 20:40:11 +0800 CST'>November 4, 2021</span>&nbsp;·&nbsp;JoyBoy</footer>
-  <a class="entry-link" aria-label="post link to Day4-2021-11-04" href="https://zyooo.github.io/leetcodedairy/20211104/"></a>
+  <a class="entry-link" aria-label="post link to 2021-11-04" href="https://zyooo.github.io/leetcodedairy/20211104/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Day3-2021-11-03<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+    <h2>2021-11-03<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
     </h2>
   </header>
   <section class="entry-content">
@@ -194,12 +209,12 @@ class Solution { public int[] intersect(int[] nums1, int[] nums2) { Map&lt;Integ
 class Solution { public void merge(int[] nums1, int m, int[] nums2, int n) { //从尾部开始比谁大再放入tail指向的nums1中值  int p1 = m-1; int p2 = n-1; int tail = m&#43;n-1; while(p2 &gt;= 0 || p1 &gt;= 0){ //m个已经全部放完,剩下的全部放nums2  if(p1 == -1){ nums1[tail--] = nums2[p2--]; }else if(p2 == -1){ nums1[tail--] = nums1[p1--]; }else if(nums2[p2] &gt;= nums1[p1]){ nums1[tail--] = nums2[p2--]; }else{ nums1[tail--] = nums1[p1--]; } } } } 两数之和 给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target 的那 两个 整数，并返回它们的数组下标。 你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。 你可以按任意顺序返回答案。 示例 1： 输入：nums = [2,7,11,15], target = 9 输出：[0,1] 解释：因为 nums[0] &#43; nums[1] == 9 ，返回 [0, 1] 。 来源：力扣（LeetCode） 链接：https://leetcode-cn....</p>
   </section>
   <footer class="entry-footer"><span title='2021-11-03 19:59:17 +0800 CST'>November 3, 2021</span>&nbsp;·&nbsp;JoyBoy</footer>
-  <a class="entry-link" aria-label="post link to Day3-2021-11-03" href="https://zyooo.github.io/leetcodedairy/20211103/"></a>
+  <a class="entry-link" aria-label="post link to 2021-11-03" href="https://zyooo.github.io/leetcodedairy/20211103/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Day2-2021-10-31<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+    <h2>2021-10-31<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
     </h2>
   </header>
   <section class="entry-content">
@@ -209,7 +224,7 @@ class Solution { public void merge(int[] nums1, int m, int[] nums2, int n) { //�
 class Solution { public int maxSubArray(int[] nums) { int index = 0; int lastCount = 0; int maxCount = 0; for(int currentNum : nums){ int currentCount; if(index == 0){ index&#43;&#43;; currentCount = currentNum; lastCount = currentCount; maxCount = currentCount; }else{ if(lastCount &lt; 0){ currentCount = currentNum; maxCount = (maxCount &gt; currentCount) ? maxCount : currentCount; lastCount = currentCount; }else{ currentCount = currentNum &#43; lastCount; maxCount = (maxCount &gt; currentCount) ?...</p>
   </section>
   <footer class="entry-footer"><span title='2021-10-31 21:22:51 +0800 CST'>October 31, 2021</span>&nbsp;·&nbsp;JoyBoy</footer>
-  <a class="entry-link" aria-label="post link to Day2-2021-10-31" href="https://zyooo.github.io/leetcodedairy/20211031/"></a>
+  <a class="entry-link" aria-label="post link to 2021-10-31" href="https://zyooo.github.io/leetcodedairy/20211031/"></a>
 </article>
 
 <article class="post-entry"> 

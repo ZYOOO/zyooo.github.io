@@ -6,9 +6,21 @@
     <description>Recent content on JoyBoy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 20 Feb 2022 20:07:20 +0800</lastBuildDate><atom:link href="https://zyooo.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 25 Feb 2022 21:54:42 +0800</lastBuildDate><atom:link href="https://zyooo.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>20220208</title>
+      <title>2022-02-25</title>
+      <link>https://zyooo.github.io/leetcodedairy/20220224/</link>
+      <pubDate>Fri, 25 Feb 2022 21:54:42 +0800</pubDate>
+      
+      <guid>https://zyooo.github.io/leetcodedairy/20220224/</guid>
+      <description>开始是直接遍历的方法得到数字, 后来想着如果是严格按照一个形式的话, 那么 一个复数中只会出现一个 &amp;lsquo;+&amp;rsquo;
+并且将虚部和实部分割, 可以利用这个去直接得到abcd, 不过不知道底层代码, 估计速度也是差不多的
+代码: 100% 100%
+func complexNumberMultiply(num1 string, num2 string) string { a,b := parse(num1) c,d := parse(num2) return fmt.Sprintf(&amp;#34;%v+%vi&amp;#34;,(a*c-b*d),(a*d+b*c)) } func parse (num string)(int,int){ a,b := 0,0 i,fa,fb := 0,1,1 flag := true n := len(num) if num[0] == &amp;#39;-&amp;#39; { fa = -1 i = 1 } for ;i &amp;lt; n; i++{ if num[i] &amp;gt;= &amp;#39;0&amp;#39; &amp;amp;&amp;amp; num[i] &amp;lt;= &amp;#39;9&amp;#39;{ if flag { a = a*10 + int(num[i] - &amp;#39;0&amp;#39;) } else { b = b*10 + int(num[i] - &amp;#39;0&amp;#39;) } } if num[i] == &amp;#39;+&amp;#39; { flag = false } else if num[i] == &amp;#39;-&amp;#39; { flag = false fb = -1 } } return a*fa,b*fb } 代码:100% 94%</description>
+    </item>
+    
+    <item>
+      <title>2022-02-08</title>
       <link>https://zyooo.github.io/leetcodedairy/20220208/</link>
       <pubDate>Sun, 20 Feb 2022 20:07:20 +0800</pubDate>
       
@@ -30,7 +42,7 @@ n := len(nums1) sort.Ints(nums1) //田忌的马 sort.Ints(nums2) //齐王的马 
     </item>
     
     <item>
-      <title>Day13</title>
+      <title>2022-01-09</title>
       <link>https://zyooo.github.io/leetcodedairy/20220108/</link>
       <pubDate>Sun, 09 Jan 2022 20:34:54 +0800</pubDate>
       
@@ -40,7 +52,7 @@ n := len(nums1) sort.Ints(nums1) //田忌的马 sort.Ints(nums2) //齐王的马 
     </item>
     
     <item>
-      <title>Day12</title>
+      <title>2022-01-09</title>
       <link>https://zyooo.github.io/leetcodedairy/20220107/</link>
       <pubDate>Sun, 09 Jan 2022 20:34:51 +0800</pubDate>
       
@@ -49,7 +61,7 @@ n := len(nums1) sort.Ints(nums1) //田忌的马 sort.Ints(nums2) //齐王的马 
     </item>
     
     <item>
-      <title>Day11</title>
+      <title>2022-01-06</title>
       <link>https://zyooo.github.io/leetcodedairy/20220106/</link>
       <pubDate>Thu, 06 Jan 2022 11:18:06 +0800</pubDate>
       
@@ -59,7 +71,7 @@ func twoSumTarget2(nums []int, start, target int) [][]int { var ans [][]int //so
     </item>
     
     <item>
-      <title>Day10</title>
+      <title>2022-01-05</title>
       <link>https://zyooo.github.io/leetcodedairy/20220105/</link>
       <pubDate>Wed, 05 Jan 2022 07:49:09 +0800</pubDate>
       
@@ -70,7 +82,7 @@ i = length-1的问题.
     </item>
     
     <item>
-      <title>Day9</title>
+      <title>2022-01-04</title>
       <link>https://zyooo.github.io/leetcodedairy/20220104/</link>
       <pubDate>Tue, 04 Jan 2022 07:46:10 +0800</pubDate>
       
@@ -79,7 +91,7 @@ i = length-1的问题.
     </item>
     
     <item>
-      <title>Day8</title>
+      <title>2022-01-03</title>
       <link>https://zyooo.github.io/leetcodedairy/20220103/</link>
       <pubDate>Mon, 03 Jan 2022 18:29:12 +0800</pubDate>
       
@@ -125,7 +137,7 @@ PlanB All in plan A.</description>
     </item>
     
     <item>
-      <title>Day7-2021-11-17</title>
+      <title>2021-11-17</title>
       <link>https://zyooo.github.io/leetcodedairy/20211117/</link>
       <pubDate>Wed, 17 Nov 2021 12:15:12 +0800</pubDate>
       
@@ -162,7 +174,7 @@ netstat -lntp | grep 80 2.进入tomcat安装目录下的conf文件夹修改serve
     </item>
     
     <item>
-      <title>Day5-2021-11-05</title>
+      <title>2021-11-05</title>
       <link>https://zyooo.github.io/leetcodedairy/20211105/</link>
       <pubDate>Fri, 05 Nov 2021 12:21:38 +0800</pubDate>
       
@@ -172,7 +184,7 @@ class Solution { public int[][] matrixReshape(int[][] mat, int r, int c) { if(r*
     </item>
     
     <item>
-      <title>Day4-2021-11-04</title>
+      <title>2021-11-04</title>
       <link>https://zyooo.github.io/leetcodedairy/20211104/</link>
       <pubDate>Thu, 04 Nov 2021 20:40:11 +0800</pubDate>
       
@@ -182,7 +194,7 @@ class Solution { public int[] intersect(int[] nums1, int[] nums2) { Map&amp;lt;I
     </item>
     
     <item>
-      <title>Day3-2021-11-03</title>
+      <title>2021-11-03</title>
       <link>https://zyooo.github.io/leetcodedairy/20211103/</link>
       <pubDate>Wed, 03 Nov 2021 19:59:17 +0800</pubDate>
       
@@ -195,7 +207,7 @@ class Solution { public void merge(int[] nums1, int m, int[] nums2, int n) { //�
     </item>
     
     <item>
-      <title>Day2-2021-10-31</title>
+      <title>2021-10-31</title>
       <link>https://zyooo.github.io/leetcodedairy/20211031/</link>
       <pubDate>Sun, 31 Oct 2021 21:22:51 +0800</pubDate>
       
