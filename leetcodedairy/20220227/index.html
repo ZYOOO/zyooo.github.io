@@ -5,18 +5,12 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>Cmd中mvn_compile出现的问题 | JoyBoy</title>
+<title>第282场周赛T3 | JoyBoy</title>
 <meta name="keywords" content="" />
-<meta name="description" content="在cmd上运行mvn compile时出现编译错误
-No compiler is provided in this environment. Perhaps you are running on a JRE rather than a JDK?
-输入mvn -v查看
-查看环境变量
-将JAVA_HOME路径修改为jdk的
-重启cmd输入java -version检查是否配置成功
-mvn -v
-再次编译,成功">
+<meta name="description" content="这道题用O(N^2)的解法会超时, 所以要想办法降低时间复杂度, 所以使用二分法, 但是这里二分的不是time数组, 而是时间, 而时间的区间如何取定呢, 先把time升序排序, 然后最短的可能是1s, 最长的时间可能是time[0] * totoalTrips, 所以就可以采用二分法了
+func minimumTime(time []int, totalTrips int) int64 { sort.Ints(time) var left,right int64 = 1,int64(time[0]*totalTrips) n := len(time) for left &lt; right { var tmp int64= 0 mid := left &#43; (right-left)&gt;&gt;1 for i := 0; i &lt; n &amp;&amp; int64(time[i]) &lt;= mid; i&#43;&#43; { tmp &#43;= mid/int64(time[i]) } //左搜索, 右收缩  if tmp &gt;= int64(totalTrips) { right = mid } else { left = mid&#43;1 } } return left } ">
 <meta name="author" content="JoyBoy">
-<link rel="canonical" href="https://zyooo.github.io/bugs/cmd%E4%B8%ADmvn_compile%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/" />
+<link rel="canonical" href="https://zyooo.github.io/leetcodedairy/20220227/" />
 <link crossorigin="anonymous" href="/assets/css/stylesheet.min.61dfb3f0b4cda95d2ccb867f9a3b244ce5d23e12492bcc3c277df594c7bc1adf.css" integrity="sha256-Yd&#43;z8LTNqV0sy4Z/mjskTOXSPhJJK8w8J331lMe8Gt8=" rel="preload stylesheet" as="style">
 <script defer crossorigin="anonymous" src="/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
     onload="hljs.initHighlightingOnLoad();"></script>
@@ -64,30 +58,18 @@ mvn -v
         }
 
     </style>
-</noscript><meta property="og:title" content="Cmd中mvn_compile出现的问题" />
-<meta property="og:description" content="在cmd上运行mvn compile时出现编译错误
-No compiler is provided in this environment. Perhaps you are running on a JRE rather than a JDK?
-输入mvn -v查看
-查看环境变量
-将JAVA_HOME路径修改为jdk的
-重启cmd输入java -version检查是否配置成功
-mvn -v
-再次编译,成功" />
+</noscript><meta property="og:title" content="第282场周赛T3" />
+<meta property="og:description" content="这道题用O(N^2)的解法会超时, 所以要想办法降低时间复杂度, 所以使用二分法, 但是这里二分的不是time数组, 而是时间, 而时间的区间如何取定呢, 先把time升序排序, 然后最短的可能是1s, 最长的时间可能是time[0] * totoalTrips, 所以就可以采用二分法了
+func minimumTime(time []int, totalTrips int) int64 { sort.Ints(time) var left,right int64 = 1,int64(time[0]*totalTrips) n := len(time) for left &lt; right { var tmp int64= 0 mid := left &#43; (right-left)&gt;&gt;1 for i := 0; i &lt; n &amp;&amp; int64(time[i]) &lt;= mid; i&#43;&#43; { tmp &#43;= mid/int64(time[i]) } //左搜索, 右收缩  if tmp &gt;= int64(totalTrips) { right = mid } else { left = mid&#43;1 } } return left } " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://zyooo.github.io/bugs/cmd%E4%B8%ADmvn_compile%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/" /><meta property="article:section" content="Bugs" />
-<meta property="article:published_time" content="2021-10-10T09:41:38&#43;08:00" />
-<meta property="article:modified_time" content="2021-10-10T09:41:38&#43;08:00" />
+<meta property="og:url" content="https://zyooo.github.io/leetcodedairy/20220227/" /><meta property="article:section" content="LeetCodeDairy" />
+<meta property="article:published_time" content="2022-02-27T17:28:07&#43;08:00" />
+<meta property="article:modified_time" content="2022-02-27T17:28:07&#43;08:00" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Cmd中mvn_compile出现的问题"/>
-<meta name="twitter:description" content="在cmd上运行mvn compile时出现编译错误
-No compiler is provided in this environment. Perhaps you are running on a JRE rather than a JDK?
-输入mvn -v查看
-查看环境变量
-将JAVA_HOME路径修改为jdk的
-重启cmd输入java -version检查是否配置成功
-mvn -v
-再次编译,成功"/>
+<meta name="twitter:title" content="第282场周赛T3"/>
+<meta name="twitter:description" content="这道题用O(N^2)的解法会超时, 所以要想办法降低时间复杂度, 所以使用二分法, 但是这里二分的不是time数组, 而是时间, 而时间的区间如何取定呢, 先把time升序排序, 然后最短的可能是1s, 最长的时间可能是time[0] * totoalTrips, 所以就可以采用二分法了
+func minimumTime(time []int, totalTrips int) int64 { sort.Ints(time) var left,right int64 = 1,int64(time[0]*totalTrips) n := len(time) for left &lt; right { var tmp int64= 0 mid := left &#43; (right-left)&gt;&gt;1 for i := 0; i &lt; n &amp;&amp; int64(time[i]) &lt;= mid; i&#43;&#43; { tmp &#43;= mid/int64(time[i]) } //左搜索, 右收缩  if tmp &gt;= int64(totalTrips) { right = mid } else { left = mid&#43;1 } } return left } "/>
 
 
 <script type="application/ld+json">
@@ -98,8 +80,8 @@ mvn -v
     {
       "@type": "ListItem",
       "position":  3 ,
-      "name": "Cmd中mvn_compile出现的问题",
-      "item": "https://zyooo.github.io/bugs/cmd%E4%B8%ADmvn_compile%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/"
+      "name": "第282场周赛T3",
+      "item": "https://zyooo.github.io/leetcodedairy/20220227/"
     }
   ]
 }
@@ -108,24 +90,24 @@ mvn -v
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Cmd中mvn_compile出现的问题",
-  "name": "Cmd中mvn_compile出现的问题",
-  "description": "在cmd上运行mvn compile时出现编译错误\nNo compiler is provided in this environment. Perhaps you are running on a JRE rather than a JDK?\n输入mvn -v查看\n查看环境变量\n将JAVA_HOME路径修改为jdk的\n重启cmd输入java -version检查是否配置成功\nmvn -v\n再次编译,成功",
+  "headline": "第282场周赛T3",
+  "name": "第282场周赛T3",
+  "description": "这道题用O(N^2)的解法会超时, 所以要想办法降低时间复杂度, 所以使用二分法, 但是这里二分的不是time数组, 而是时间, 而时间的区间如何取定呢, 先把time升序排序, 然后最短的可能是1s, 最长的时间可能是time[0] * totoalTrips, 所以就可以采用二分法了\nfunc minimumTime(time []int, totalTrips int) int64 { sort.Ints(time) var left,right int64 = 1,int64(time[0]*totalTrips) n := len(time) for left \u0026lt; right { var tmp int64= 0 mid := left + (right-left)\u0026gt;\u0026gt;1 for i := 0; i \u0026lt; n \u0026amp;\u0026amp; int64(time[i]) \u0026lt;= mid; i++ { tmp += mid/int64(time[i]) } //左搜索, 右收缩  if tmp \u0026gt;= int64(totalTrips) { right = mid } else { left = mid+1 } } return left } ",
   "keywords": [
     
   ],
-  "articleBody": "在cmd上运行mvn compile时出现编译错误\nNo compiler is provided in this environment. Perhaps you are running on a JRE rather than a JDK?\n输入mvn -v查看\n查看环境变量\n将JAVA_HOME路径修改为jdk的\n重启cmd输入java -version检查是否配置成功\nmvn -v\n再次编译,成功\n",
-  "wordCount" : "29",
+  "articleBody": "这道题用O(N^2)的解法会超时, 所以要想办法降低时间复杂度, 所以使用二分法, 但是这里二分的不是time数组, 而是时间, 而时间的区间如何取定呢, 先把time升序排序, 然后最短的可能是1s, 最长的时间可能是time[0] * totoalTrips, 所以就可以采用二分法了\nfunc minimumTime(time []int, totalTrips int) int64 { sort.Ints(time) var left,right int64 = 1,int64(time[0]*totalTrips) n := len(time) for left right { var tmp int64= 0 mid := left + (right-left)1 for i := 0; i n \u0026\u0026 int64(time[i])  mid; i++ { tmp += mid/int64(time[i]) } //左搜索, 右收缩  if tmp = int64(totalTrips) { right = mid } else { left = mid+1 } } return left } ",
+  "wordCount" : "80",
   "inLanguage": "en",
-  "datePublished": "2021-10-10T09:41:38+08:00",
-  "dateModified": "2021-10-10T09:41:38+08:00",
+  "datePublished": "2022-02-27T17:28:07+08:00",
+  "dateModified": "2022-02-27T17:28:07+08:00",
   "author":{
     "@type": "Person",
     "name": "JoyBoy"
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://zyooo.github.io/bugs/cmd%E4%B8%ADmvn_compile%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/"
+    "@id": "https://zyooo.github.io/leetcodedairy/20220227/"
   },
   "publisher": {
     "@type": "Organization",
@@ -213,33 +195,35 @@ mvn -v
   <header class="post-header">
     
     <h1 class="post-title">
-      Cmd中mvn_compile出现的问题<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+      第282场周赛T3<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
     </h1>
-    <div class="post-meta"><span title='2021-10-10 09:41:38 +0800 CST'>October 10, 2021</span>&nbsp;·&nbsp;JoyBoy
+    <div class="post-meta"><span title='2022-02-27 17:28:07 +0800 CST'>February 27, 2022</span>&nbsp;·&nbsp;JoyBoy
 
 </div>
   </header> 
-  <div class="post-content"><p>在cmd上运行mvn compile时出现编译错误</p>
-<p>No compiler is provided in this environment. Perhaps you are running on a JRE rather than a JDK?</p>
-<p>输入mvn -v查看</p>
-<p><img loading="lazy" src="https://i.loli.net/2021/10/10/r2DvgKkZqV9zWIM.png" alt="image-20211010094312986"  />
+  <div class="post-content"><p><img loading="lazy" src="https://secure2.wostatic.cn/static/hBeHLE3DFqVhXLBN3oHk8v/image.png" alt="img"  />
 </p>
-<p>查看环境变量</p>
-<p><img loading="lazy" src="https://i.loli.net/2021/10/10/SL8TVwqAkflpGtj.png" alt="image-20211010094353318"  />
-</p>
-<p>将JAVA_HOME路径修改为jdk的</p>
-<p><img loading="lazy" src="https://i.loli.net/2021/10/10/8SAHEKGB5yjkXJi.png" alt="image-20211010094549132"  />
-</p>
-<p>重启cmd输入java -version检查是否配置成功</p>
-<p><img loading="lazy" src="https://i.loli.net/2021/10/10/md67JpaTRlcL1ND.png" alt="image-20211010094625868"  />
-</p>
-<p>mvn -v</p>
-<p><img loading="lazy" src="https://i.loli.net/2021/10/10/BfOosz354SDZmFE.png" alt="image-20211010094654413"  />
-</p>
-<p>再次编译,成功</p>
-<p><img loading="lazy" src="https://i.loli.net/2021/10/10/geHFQpdL17zhPtv.png" alt="image-20211010094811522"  />
-</p>
-
+<p>这道题用O(N^2)的解法会超时, 所以要想办法降低时间复杂度, 所以使用二分法, 但是这里二分的不是time数组, 而是时间, 而时间的区间如何取定呢, 先把time升序排序, 然后最短的可能是1s, 最长的时间可能是time[0] * totoalTrips, 所以就可以采用二分法了</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Go" data-lang="Go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">minimumTime</span>(<span style="color:#a6e22e">time</span> []<span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">totalTrips</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">int64</span> {
+    <span style="color:#a6e22e">sort</span>.<span style="color:#a6e22e">Ints</span>(<span style="color:#a6e22e">time</span>)
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">left</span>,<span style="color:#a6e22e">right</span> <span style="color:#66d9ef">int64</span> = <span style="color:#ae81ff">1</span>,int64(<span style="color:#a6e22e">time</span>[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">*</span><span style="color:#a6e22e">totalTrips</span>)
+    <span style="color:#a6e22e">n</span> <span style="color:#f92672">:=</span> len(<span style="color:#a6e22e">time</span>)
+    <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">left</span> &lt; <span style="color:#a6e22e">right</span> {
+        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">tmp</span> <span style="color:#66d9ef">int64</span>= <span style="color:#ae81ff">0</span>
+        <span style="color:#a6e22e">mid</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">left</span> <span style="color:#f92672">+</span> (<span style="color:#a6e22e">right</span><span style="color:#f92672">-</span><span style="color:#a6e22e">left</span>)<span style="color:#f92672">&gt;&gt;</span><span style="color:#ae81ff">1</span>
+        <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#a6e22e">n</span> <span style="color:#f92672">&amp;&amp;</span> int64(<span style="color:#a6e22e">time</span>[<span style="color:#a6e22e">i</span>]) <span style="color:#f92672">&lt;=</span> <span style="color:#a6e22e">mid</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+            <span style="color:#a6e22e">tmp</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">mid</span><span style="color:#f92672">/</span>int64(<span style="color:#a6e22e">time</span>[<span style="color:#a6e22e">i</span>])
+        }
+        <span style="color:#75715e">//左搜索, 右收缩
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">tmp</span> <span style="color:#f92672">&gt;=</span> int64(<span style="color:#a6e22e">totalTrips</span>) {
+            <span style="color:#a6e22e">right</span> = <span style="color:#a6e22e">mid</span>
+        } <span style="color:#66d9ef">else</span> {
+            <span style="color:#a6e22e">left</span> = <span style="color:#a6e22e">mid</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>
+        }
+    }
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">left</span>
+}
+</code></pre></div>
 
   </div>
 

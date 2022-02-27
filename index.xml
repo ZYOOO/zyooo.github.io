@@ -6,7 +6,17 @@
     <description>Recent content on JoyBoy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 24 Feb 2022 21:54:42 +0800</lastBuildDate><atom:link href="https://zyooo.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 27 Feb 2022 17:28:07 +0800</lastBuildDate><atom:link href="https://zyooo.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>第282场周赛T3</title>
+      <link>https://zyooo.github.io/leetcodedairy/20220227/</link>
+      <pubDate>Sun, 27 Feb 2022 17:28:07 +0800</pubDate>
+      
+      <guid>https://zyooo.github.io/leetcodedairy/20220227/</guid>
+      <description>这道题用O(N^2)的解法会超时, 所以要想办法降低时间复杂度, 所以使用二分法, 但是这里二分的不是time数组, 而是时间, 而时间的区间如何取定呢, 先把time升序排序, 然后最短的可能是1s, 最长的时间可能是time[0] * totoalTrips, 所以就可以采用二分法了
+func minimumTime(time []int, totalTrips int) int64 { sort.Ints(time) var left,right int64 = 1,int64(time[0]*totalTrips) n := len(time) for left &amp;lt; right { var tmp int64= 0 mid := left + (right-left)&amp;gt;&amp;gt;1 for i := 0; i &amp;lt; n &amp;amp;&amp;amp; int64(time[i]) &amp;lt;= mid; i++ { tmp += mid/int64(time[i]) } //左搜索, 右收缩  if tmp &amp;gt;= int64(totalTrips) { right = mid } else { left = mid+1 } } return left } </description>
+    </item>
+    
     <item>
       <title>2022-02-24</title>
       <link>https://zyooo.github.io/leetcodedairy/20220224/</link>
@@ -32,7 +42,7 @@ func gridIllumination(n int, lamps, queries [][]int) []int { type pair struct{ x
     </item>
     
     <item>
-      <title>Day14</title>
+      <title>2022-01-09</title>
       <link>https://zyooo.github.io/leetcodedairy/20220109/</link>
       <pubDate>Sun, 09 Jan 2022 20:34:58 +0800</pubDate>
       
