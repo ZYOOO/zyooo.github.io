@@ -201,7 +201,7 @@ func minimumTime(time []int, totalTrips int) int64 { sort.Ints(time) var left,ri
 
 </div>
   </header> 
-  <div class="post-content"><p><img loading="lazy" src="https://secure2.wostatic.cn/static/hBeHLE3DFqVhXLBN3oHk8v/image.png" alt="img"  />
+  <div class="post-content"><p><img loading="lazy" src="https://s2.loli.net/2022/02/27/MQCcyxESagJZ12u.png" alt="image-20220227174013645"  />
 </p>
 <p>这道题用O(N^2)的解法会超时, 所以要想办法降低时间复杂度, 所以使用二分法, 但是这里二分的不是time数组, 而是时间, 而时间的区间如何取定呢, 先把time升序排序, 然后最短的可能是1s, 最长的时间可能是time[0] * totoalTrips, 所以就可以采用二分法了</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Go" data-lang="Go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">minimumTime</span>(<span style="color:#a6e22e">time</span> []<span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">totalTrips</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">int64</span> {
