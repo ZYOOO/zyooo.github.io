@@ -1,256 +1,108 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
-
-<head><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
-<title>Redis&amp;Jedis | JoyBoy</title>
-<meta name="keywords" content="" />
-<meta name="description" content="redis&amp;Jedis redis 概念：一款高性能的NOSQL系列的非关系型数据库
-关系型数据库：MySQL、Oracle…
-​	使用表单存储数据，数据之间有关联关系，数据存储在硬盘的文件上
-非关系型数据库(NOSQL): redis, hbase…
-​	使用键值对去存储数据，数据之间没有关联关系，数据存储在内存中
-两种数据库并非对立而是互补，关系型用来做数据库，NOSQL用于做缓存、秒杀任务队列、网站访问统计等
-去https://redis.io官网下载的只有Linux系统的redis，先用着黑马的Windows绿色版本，等后边部署Linux的时候再使用
-key，value； 其中key都是字符串，value有5种不同的数据结构
-value：
-​	1.字符串类型string
-​	2.哈希类型hash：map格式
-​	3.列表类型list： linkedlist格式
-​	4.集合类型set
-​	5.有序集合类型sortedset
-**命令操作 ** (更多详细的操作在redis官网文档中有)
-字符串类型 string
-1. 存储： set key value 127.0.0.1:6379&gt; set username zhangsan OK 2. 获取： get key 127.0.0.1:6379&gt; get username &quot;zhangsan&quot; 3. 删除： del key 127.0.0.1:6379&gt; del age (integer) 1  哈希类型 hash
-  存储： hset key field value 127.0.0.1:6379&gt; hset myhash username lisi (integer) 1 127.">
-<meta name="author" content="JoyBoy">
-<link rel="canonical" href="https://zyooo.github.io/javadairy/redisjedis/" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.61dfb3f0b4cda95d2ccb867f9a3b244ce5d23e12492bcc3c277df594c7bc1adf.css" integrity="sha256-Yd&#43;z8LTNqV0sy4Z/mjskTOXSPhJJK8w8J331lMe8Gt8=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://zyooo.github.io/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://zyooo.github.io/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://zyooo.github.io/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://zyooo.github.io/apple-touch-icon.png">
-<link rel="mask-icon" href="https://zyooo.github.io/safari-pinned-tab.svg">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.70.0" />
-<noscript>
-    <style>
-        #theme-toggle,
-        .top-link {
-            display: none;
-        }
-
-    </style>
-    <style>
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --theme: rgb(29, 30, 32);
-                --entry: rgb(46, 46, 51);
-                --primary: rgb(218, 218, 219);
-                --secondary: rgb(155, 156, 157);
-                --tertiary: rgb(65, 66, 68);
-                --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
-                --code-bg: rgb(55, 56, 62);
-                --border: rgb(51, 51, 51);
-            }
-
-            .list {
-                background: var(--theme);
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
-            }
-        }
-
-    </style>
-</noscript><meta property="og:title" content="Redis&amp;Jedis" />
-<meta property="og:description" content="redis&amp;Jedis redis 概念：一款高性能的NOSQL系列的非关系型数据库
-关系型数据库：MySQL、Oracle…
-​	使用表单存储数据，数据之间有关联关系，数据存储在硬盘的文件上
-非关系型数据库(NOSQL): redis, hbase…
-​	使用键值对去存储数据，数据之间没有关联关系，数据存储在内存中
-两种数据库并非对立而是互补，关系型用来做数据库，NOSQL用于做缓存、秒杀任务队列、网站访问统计等
-去https://redis.io官网下载的只有Linux系统的redis，先用着黑马的Windows绿色版本，等后边部署Linux的时候再使用
-key，value； 其中key都是字符串，value有5种不同的数据结构
-value：
-​	1.字符串类型string
-​	2.哈希类型hash：map格式
-​	3.列表类型list： linkedlist格式
-​	4.集合类型set
-​	5.有序集合类型sortedset
-**命令操作 ** (更多详细的操作在redis官网文档中有)
-字符串类型 string
-1. 存储： set key value 127.0.0.1:6379&gt; set username zhangsan OK 2. 获取： get key 127.0.0.1:6379&gt; get username &quot;zhangsan&quot; 3. 删除： del key 127.0.0.1:6379&gt; del age (integer) 1  哈希类型 hash
-  存储： hset key field value 127.0.0.1:6379&gt; hset myhash username lisi (integer) 1 127." />
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Redis&amp;Jedis - JoyBoy&#39;s blog</title><meta name="Description" content="享受学习的过程"><meta property="og:title" content="Redis&amp;Jedis" />
+<meta property="og:description" content="redis&amp;Jedis redis 概念：一款高性能的NOSQL系列的非关系型数据库 关系型数据库：MySQL、Oracle… ​ 使用表单存储数据，数据之间有关联关系，数据存储" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://zyooo.github.io/javadairy/redisjedis/" /><meta property="article:section" content="JavaDairy" />
-<meta property="article:published_time" content="2021-10-09T11:46:30&#43;08:00" />
-<meta property="article:modified_time" content="2021-10-09T11:46:30&#43;08:00" />
+<meta property="og:url" content="https://zyooo.github.io/javadairy/redisjedis/" />
+<meta property="og:image" content="https://zyooo.github.io/logo.png"/>
+<meta property="article:published_time" content="2021-10-09T11:46:30+08:00" />
+<meta property="article:modified_time" content="2021-10-09T11:46:30+08:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://zyooo.github.io/logo.png"/>
 
-<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Redis&amp;Jedis"/>
-<meta name="twitter:description" content="redis&amp;Jedis redis 概念：一款高性能的NOSQL系列的非关系型数据库
-关系型数据库：MySQL、Oracle…
-​	使用表单存储数据，数据之间有关联关系，数据存储在硬盘的文件上
-非关系型数据库(NOSQL): redis, hbase…
-​	使用键值对去存储数据，数据之间没有关联关系，数据存储在内存中
-两种数据库并非对立而是互补，关系型用来做数据库，NOSQL用于做缓存、秒杀任务队列、网站访问统计等
-去https://redis.io官网下载的只有Linux系统的redis，先用着黑马的Windows绿色版本，等后边部署Linux的时候再使用
-key，value； 其中key都是字符串，value有5种不同的数据结构
-value：
-​	1.字符串类型string
-​	2.哈希类型hash：map格式
-​	3.列表类型list： linkedlist格式
-​	4.集合类型set
-​	5.有序集合类型sortedset
-**命令操作 ** (更多详细的操作在redis官网文档中有)
-字符串类型 string
-1. 存储： set key value 127.0.0.1:6379&gt; set username zhangsan OK 2. 获取： get key 127.0.0.1:6379&gt; get username &quot;zhangsan&quot; 3. 删除： del key 127.0.0.1:6379&gt; del age (integer) 1  哈希类型 hash
-  存储： hset key field value 127.0.0.1:6379&gt; hset myhash username lisi (integer) 1 127."/>
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [, 
+<meta name="twitter:description" content="redis&amp;Jedis redis 概念：一款高性能的NOSQL系列的非关系型数据库 关系型数据库：MySQL、Oracle… ​ 使用表单存储数据，数据之间有关联关系，数据存储"/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://zyooo.github.io/javadairy/redisjedis/" /><link rel="next" href="https://zyooo.github.io/javadairy/maven/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
     {
-      "@type": "ListItem",
-      "position":  2 ,
-      "name": "Redis\u0026Jedis",
-      "item": "https://zyooo.github.io/javadairy/redisjedis/"
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Redis\u0026Jedis",
+        "inLanguage": "en-us",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/zyooo.github.io\/javadairy\/redisjedis\/"
+        },"genre": "JavaDairy","wordcount":  3467 ,
+        "url": "https:\/\/zyooo.github.io\/javadairy\/redisjedis\/","datePublished": "2021-10-09T11:46:30+08:00","dateModified": "2021-10-09T11:46:30+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "JoyBoy"
+            },"description": ""
     }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Redis\u0026Jedis",
-  "name": "Redis\x26Jedis",
-  "description": "redis\u0026amp;Jedis redis 概念：一款高性能的NOSQL系列的非关系型数据库\n关系型数据库：MySQL、Oracle…\n​\t使用表单存储数据，数据之间有关联关系，数据存储在硬盘的文件上\n非关系型数据库(NOSQL): redis, hbase…\n​\t使用键值对去存储数据，数据之间没有关联关系，数据存储在内存中\n两种数据库并非对立而是互补，关系型用来做数据库，NOSQL用于做缓存、秒杀任务队列、网站访问统计等\n去https://redis.io官网下载的只有Linux系统的redis，先用着黑马的Windows绿色版本，等后边部署Linux的时候再使用\nkey，value； 其中key都是字符串，value有5种不同的数据结构\nvalue：\n​\t1.字符串类型string\n​\t2.哈希类型hash：map格式\n​\t3.列表类型list： linkedlist格式\n​\t4.集合类型set\n​\t5.有序集合类型sortedset\n**命令操作 ** (更多详细的操作在redis官网文档中有)\n字符串类型 string\n1. 存储： set key value 127.0.0.1:6379\u0026gt; set username zhangsan OK 2. 获取： get key 127.0.0.1:6379\u0026gt; get username \u0026quot;zhangsan\u0026quot; 3. 删除： del key 127.0.0.1:6379\u0026gt; del age (integer) 1  哈希类型 hash\n  存储： hset key field value 127.0.0.1:6379\u0026gt; hset myhash username lisi (integer) 1 127.",
-  "keywords": [
-    
-  ],
-  "articleBody": "redis\u0026Jedis redis 概念：一款高性能的NOSQL系列的非关系型数据库\n关系型数据库：MySQL、Oracle…\n​\t使用表单存储数据，数据之间有关联关系，数据存储在硬盘的文件上\n非关系型数据库(NOSQL): redis, hbase…\n​\t使用键值对去存储数据，数据之间没有关联关系，数据存储在内存中\n两种数据库并非对立而是互补，关系型用来做数据库，NOSQL用于做缓存、秒杀任务队列、网站访问统计等\n去https://redis.io官网下载的只有Linux系统的redis，先用着黑马的Windows绿色版本，等后边部署Linux的时候再使用\nkey，value； 其中key都是字符串，value有5种不同的数据结构\nvalue：\n​\t1.字符串类型string\n​\t2.哈希类型hash：map格式\n​\t3.列表类型list： linkedlist格式\n​\t4.集合类型set\n​\t5.有序集合类型sortedset\n**命令操作 ** (更多详细的操作在redis官网文档中有)\n字符串类型 string\n1. 存储： set key value 127.0.0.1:6379 set username zhangsan OK 2. 获取： get key 127.0.0.1:6379 get username \"zhangsan\" 3. 删除： del key 127.0.0.1:6379 del age (integer) 1  哈希类型 hash\n  存储： hset key field value 127.0.0.1:6379 hset myhash username lisi (integer) 1 127.0.0.1:6379 hset myhash password 123 (integer) 1\n  获取：\n hget key field: 获取指定的field对应的值 127.0.0.1:6379 hget myhash username “lisi” hgetall key：获取所有的field和value 127.0.0.1:6379 hgetall myhash  “username” “lisi” “password” “123”      删除： hdel key field 127.0.0.1:6379 hdel myhash username (integer) 1\n  列表类型 list:可以添加一个元素到列表的头部（左边）或者尾部（右边）\n  添加：\n  lpush key value: 将元素加入列表左表\n  rpush key value：将元素加入列表右边\n127.0.0.1:6379 lpush myList a (integer) 1 127.0.0.1:6379 lpush myList b (integer) 2 127.0.0.1:6379 rpush myList c (integer) 3\n    获取：\n lrange key start end ：范围获取 127.0.0.1:6379 lrange myList 0 -1  “b” “a” “c”      删除：\n  lpop key： 删除列表最左边的元素，并将元素返回\n  rpop key： 删除列表最右边的元素，并将元素返回\n    集合类型 set ： 不允许重复元素 1. 存储：sadd key value 127.0.0.1:6379 sadd myset a (integer) 1 127.0.0.1:6379 sadd myset a (integer) 0 2. 获取：smembers key:获取set集合中所有元素 127.0.0.1:6379 smembers myset 1) “a” 3. 删除：srem key value:删除set集合中的某个元素 127.0.0.1:6379 srem myset a (integer) 1\n有序集合类型 sortedset：不允许重复元素，且元素有顺序.每个元素都会关联一个double类型的分数。redis正是通过分数来为集合中的成员进行从小到大的排序。\n  存储：zadd key score value 127.0.0.1:6379 zadd mysort 60 zhangsan (integer) 1 127.0.0.1:6379 zadd mysort 50 lisi (integer) 1 127.0.0.1:6379 zadd mysort 80 wangwu (integer) 1\n  获取：zrange key start end [withscores] 127.0.0.1:6379 zrange mysort 0 -1\n “lisi” “zhangsan” “wangwu”  127.0.0.1:6379 zrange mysort 0 -1 withscores\n “zhangsan” “60” “wangwu” “80” “lisi” “500”    删除：zrem key value 127.0.0.1:6379 zrem mysort lisi (integer) 1\n  通用命令\n keys * : 查询所有的键 type key ： 获取键对应的value的类型 del key：删除指定的key value  持久化   redis是一个内存数据库，当redis服务器重启，获取电脑重启，数据会丢失，我们可以将redis内存中的数据持久化保存到硬盘的文件中。\n  redis持久化机制：\n  RDB：默认方式，不需要进行配置，默认就使用这种机制\n 在一定的间隔时间中，检测key的变化情况，然后持久化数据    编辑redis.windwos.conf文件\nafter 900 sec (15 min) if at least 1 key changed\nsave 900 1\nafter 300 sec (5 min) if at least 10 keys changed\nsave 300 10\nafter 60 sec if at least 10000 keys changed\nsave 60 10000\n  重新启动redis服务器，并指定配置文件名称 F:\\NewStudy\\JavaWeb\\day23_redis\\资料\\redis\\windows-64\\redis-2.8.9\\redis.windows.confredis-server.exe redis.windows.conf\n    AOF：日志记录的方式，可以记录每一条命令的操作。可以每一次命令操作后，持久化数据\n  编辑redis.windwos.conf文件 appendonly no（关闭aof） – appendonly yes （开启aof）\nappendfsync always ： 每一次操作都进行持久化\nappendfsync everysec ： 每隔一秒进行一次持久化\nappendfsync no\t： 不进行持久化\n      遇到个问题： 在第一次正常启动之后，配置完conf里的save，再次开启server秒退。\n错误信息：QForkMasterInit: system error caught. error code=0x000005af, message=VirtualAllocEx failed.: unknown error\n**原因：**未设置redis最大内存\n**解决：**在conf中最下面加入\nmaxmemory 268435456 maxheap 314572800 再次启动正常\nJedis Java客户端 Jedis * Jedis: 一款java操作redis数据库的工具. * 使用步骤： 1. 下载jedis的jar包 2. 使用 //1. 获取连接 Jedis jedis = new Jedis(\"localhost\",6379); //2. 操作 jedis.set(\"username\",\"zhangsan\"); //3. 关闭连接 jedis.close(); * Jedis操作各种redis中的数据结构 1) 字符串类型 string set get //1. 获取连接 Jedis jedis = new Jedis();//如果使用空参构造，默认值 \"localhost\",6379端口 //2. 操作 //存储 jedis.set(\"username\",\"zhangsan\"); //获取 String username = jedis.get(\"username\"); System.out.println(username); //可以使用setex()方法存储可以指定过期时间的 key value jedis.setex(\"activecode\",20,\"hehe\");//将activecode：hehe键值对存入redis，并且20秒后自动删除该键值对 //3. 关闭连接 jedis.close(); 2) 哈希类型 hash ： map格式 hset hget hgetAll //1. 获取连接 Jedis jedis = new Jedis();//如果使用空参构造，默认值 \"localhost\",6379端口 //2. 操作 // 存储hash jedis.hset(\"user\",\"name\",\"lisi\"); jedis.hset(\"user\",\"age\",\"23\"); jedis.hset(\"user\",\"gender\",\"female\"); // 获取hash String name = jedis.hget(\"user\", \"name\"); System.out.println(name);  ​\n // 获取hash的所有map中的数据 Mapuser = jedis.hgetAll(\"user\"); // keyset Set keySet = user.keySet(); for (String key : keySet) { //获取value String value = user.get(key); System.out.println(key + \":\" + value); } //3. 关闭连接 jedis.close(); 3) 列表类型 list ： linkedlist格式。支持重复元素 lpush / rpush lpop / rpop lrange start end : 范围获取 //1. 获取连接 Jedis jedis = new Jedis();//如果使用空参构造，默认值 \"localhost\",6379端口 //2. 操作 // list 存储 jedis.lpush(\"mylist\",\"a\",\"b\",\"c\");//从左边存 jedis.rpush(\"mylist\",\"a\",\"b\",\"c\");//从右边存 // list 范围获取 List mylist = jedis.lrange(\"mylist\", 0, -1); System.out.println(mylist); // list 弹出 String element1 = jedis.lpop(\"mylist\");//c System.out.println(element1); String element2 = jedis.rpop(\"mylist\");//c System.out.println(element2); // list 范围获取 List mylist2 = jedis.lrange(\"mylist\", 0, -1); System.out.println(mylist2); //3. 关闭连接 jedis.close(); 4) 集合类型 set ： 不允许重复元素 sadd smembers:获取所有元素 //1. 获取连接 Jedis jedis = new Jedis();//如果使用空参构造，默认值 \"localhost\",6379端口 //2. 操作  ​\n // set 存储 jedis.sadd(\"myset\",\"java\",\"php\",\"c++\"); // set 获取 Set myset = jedis.smembers(\"myset\"); System.out.println(myset); //3. 关闭连接 jedis.close(); 5) 有序集合类型 sortedset：不允许重复元素，且元素有顺序 zadd zrange //1. 获取连接 Jedis jedis = new Jedis();//如果使用空参构造，默认值 \"localhost\",6379端口 //2. 操作 // sortedset 存储 jedis.zadd(\"mysortedset\",3,\"亚瑟\"); jedis.zadd(\"mysortedset\",30,\"后裔\"); jedis.zadd(\"mysortedset\",55,\"孙悟空\"); // sortedset 获取 Set mysortedset = jedis.zrange(\"mysortedset\", 0, -1); System.out.println(mysortedset);  ​\n //3. 关闭连接 jedis.close();  ​\n * jedis连接池： JedisPool * 使用： 1. 创建JedisPool连接池对象 2. 调用方法 getResource()方法获取Jedis连接 //0.创建一个配置对象 JedisPoolConfig config = new JedisPoolConfig(); config.setMaxTotal(50); config.setMaxIdle(10); //1.创建Jedis连接池对象 JedisPool jedisPool = new JedisPool(config,\"localhost\",6379); //2.获取连接 Jedis jedis = jedisPool.getResource(); //3. 使用 jedis.set(\"hehe\",\"heihei\");  ​\tJedis工具类\n //4. 关闭 归还到连接池中 jedis.close(); * 连接池工具类 public class JedisPoolUtils { private static JedisPool jedisPool; static{ //读取配置文件 InputStream is = JedisPoolUtils.class.getClassLoader().getResourceAsStream(\"jedis.properties\"); //创建Properties对象 Properties pro = new Properties(); //关联文件 try { pro.load(is); } catch (IOException e) { e.printStackTrace(); } //获取数据，设置到JedisPoolConfig中 JedisPoolConfig config = new JedisPoolConfig(); config.setMaxTotal(Integer.parseInt(pro.getProperty(\"maxTotal\"))); config.setMaxIdle(Integer.parseInt(pro.getProperty(\"maxIdle\"))); //初始化JedisPool jedisPool = new JedisPool(config,pro.getProperty(\"host\"),Integer.parseInt(pro.getProperty(\"port\")));  ​\t​\n }  ​\n /** * 获取连接方法 */ public static Jedis getJedis(){ return jedisPool.getResource(); } }  #最大活动对象数 redis.pool.maxTotal=1000 #最大能够保持idel状态的对象数 redis.pool.maxIdle=100 #最小能够保持idel状态的对象数 redis.pool.minIdle=50 #当池内没有返回对象时，最大等待时间 redis.pool.maxWaitMillis=10000 #当调用borrow Object方法时，是否进行有效性检查 redis.pool.testOnBorrow=true #当调用return Object方法时，是否进行有效性检查 redis.pool.testOnReturn=true #“空闲链接”检测线程，检测的周期，毫秒数。如果为负值，表示不运行“检测线程”。默认为-1. redis.pool.timeBetweenEvictionRunsMillis=30000 #向调用者输出“链接”对象时，是否检测它的空闲超时； redis.pool.testWhileIdle=true # 对于“空闲链接”检测线程而言，每次检测的链接资源的个数。默认为3. redis.pool.numTestsPerEvictionRun=50 #redis服务器的IP redis.ip=xxxxxx #redis服务器的Port redis1.port=6379 案例： 案例需求： 1. 提供index.html页面，页面中有一个省份 下拉列表 2. 当 页面加载完成后 发送ajax请求，加载所有省份 * 注意：使用redis缓存一些不经常发生变化的数据。 * 数据库的数据一旦发生改变，则需要更新缓存。 * 数据库的表执行 增删改的相关操作，需要将redis缓存数据情况，再次存入 * 在service对应的增删改方法中，将redis数据删除。  ",
-  "wordCount" : "758",
-  "inLanguage": "en",
-  "datePublished": "2021-10-09T11:46:30+08:00",
-  "dateModified": "2021-10-09T11:46:30+08:00",
-  "author":{
-    "@type": "Person",
-    "name": "JoyBoy"
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://zyooo.github.io/javadairy/redisjedis/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "JoyBoy",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://zyooo.github.io/favicon.ico"
-    }
-  }
-}
-</script>
-</head>
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
 
-<body class="" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
-
-</script>
-
-<header class="header">
-    <nav class="nav">
-        <div class="logo">
-            <a href="https://zyooo.github.io/" accesskey="h" title="JoyBoy (Alt + H)">JoyBoy</a>
-            <span class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                </button>
-            </span>
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="JoyBoy&#39;s blog"><span id="id-1" class="typeit"></span></a>
         </div>
-        <ul id="menu">
-            <li>
-                <a href="https://zyooo.github.io/note/" title="NOTE">
-                    <span>NOTE</span>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/note/"> NOTE </a><a class="menu-item" href="/leetcodedairy/"> LeetCodeDairy </a><a class="menu-item" href="/bugs/"> Bugs </a><a class="menu-item" href="/javadairy/"> JavaDairy </a><a class="menu-item" href="/golangdairy/"> GolangDairy </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
                 </a>
-            </li>
-            <li>
-                <a href="https://zyooo.github.io/leetcodedairy/" title="LeetCodeDairy">
-                    <span>LeetCodeDairy</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://zyooo.github.io/bugs/" title="Bugs">
-                    <span>Bugs</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://zyooo.github.io/javadairy/" title="JavaDairy">
-                    <span>JavaDairy</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://zyooo.github.io/golangdairy/" title="GolangDairy">
-                    <span>GolangDairy</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="JoyBoy&#39;s blog"><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/note/" title="">NOTE</a><a class="menu-item" href="/leetcodedairy/" title="">LeetCodeDairy</a><a class="menu-item" href="/bugs/" title="">Bugs</a><a class="menu-item" href="/javadairy/" title="">JavaDairy</a><a class="menu-item" href="/golangdairy/" title="">GolangDairy</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
 </header>
-<main class="main">
-
-<article class="post-single">
-  <header class="post-header">
-    
-    <h1 class="post-title">
-      Redis&amp;Jedis<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
-    </h1>
-    <div class="post-meta"><span title='2021-10-09 11:46:30 +0800 CST'>October 9, 2021</span>&nbsp;·&nbsp;JoyBoy
-
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
 </div>
-  </header> 
-  <div class="post-content"><h1 id="redisjedis">redis&amp;Jedis<a hidden class="anchor" aria-hidden="true" href="#redisjedis">#</a></h1>
-<h2 id="redis">redis<a hidden class="anchor" aria-hidden="true" href="#redis">#</a></h2>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="page single special"><h1 class="single-title animated pulse faster">Redis&amp;Jedis</h1><div class="content" id="content"><h1 id="redisjedis">redis&amp;Jedis</h1>
+<h2 id="redis">redis</h2>
 <p><strong>概念：一款高性能的NOSQL系列的非关系型数据库</strong></p>
 <p>关系型数据库：MySQL、Oracle…</p>
 <p>​	使用表单存储数据，数据之间有关联关系，数据存储在硬盘的文件上</p>
@@ -265,9 +117,15 @@ value：
 <p>​	3.列表类型list： linkedlist格式</p>
 <p>​	4.集合类型set</p>
 <p>​	5.有序集合类型sortedset</p>
-<p><img loading="lazy" src="https://i.loli.net/2021/10/09/pa49gX1hoAZtDJ3.png" alt="image-20211009092128312"  />
-</p>
-<h3 id="命令操作-">**命令操作 **<a hidden class="anchor" aria-hidden="true" href="#命令操作-">#</a></h3>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i.loli.net/2021/10/09/pa49gX1hoAZtDJ3.png"
+        data-srcset="https://i.loli.net/2021/10/09/pa49gX1hoAZtDJ3.png, https://i.loli.net/2021/10/09/pa49gX1hoAZtDJ3.png 1.5x, https://i.loli.net/2021/10/09/pa49gX1hoAZtDJ3.png 2x"
+        data-sizes="auto"
+        alt="https://i.loli.net/2021/10/09/pa49gX1hoAZtDJ3.png"
+        title="image-20211009092128312" /></p>
+<h3 id="命令操作-">**命令操作 **</h3>
 <p><strong>(更多详细的操作在redis官网文档中有)</strong></p>
 <p><strong>字符串类型 string</strong></p>
 <pre><code>1. 存储： set key value
@@ -409,7 +267,7 @@ value：
 <li>type key ： 获取键对应的value的类型</li>
 <li>del key：删除指定的key value</li>
 </ol>
-<h3 id="持久化"><strong>持久化</strong><a hidden class="anchor" aria-hidden="true" href="#持久化">#</a></h3>
+<h3 id="持久化"><strong>持久化</strong></h3>
 <ol>
 <li>
 <p>redis是一个内存数据库，当redis服务器重启，获取电脑重启，数据会丢失，我们可以将redis内存中的数据持久化保存到硬盘的文件中。</p>
@@ -457,10 +315,18 @@ appendonly no（关闭aof） &ndash;&gt; appendonly yes （开启aof）</p>
 <p>错误信息：QForkMasterInit: system error caught. error code=0x000005af, message=VirtualAllocEx failed.: unknown error</p>
 <p>**原因：**未设置redis最大内存</p>
 <p>**解决：**在conf中最下面加入</p>
-<pre><code>maxmemory 268435456
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">maxmemory 268435456
 maxheap 314572800
-</code></pre><p>再次启动正常</p>
-<h2 id="jedis">Jedis<a hidden class="anchor" aria-hidden="true" href="#jedis">#</a></h2>
+</code></pre></td></tr></table>
+</div>
+</div><p>再次启动正常</p>
+<h2 id="jedis">Jedis</h2>
 <pre><code>Java客户端 Jedis
     * Jedis: 一款java操作redis数据库的工具.
     * 使用步骤：
@@ -653,7 +519,33 @@ maxheap 314572800
                 }
             }
 </code></pre>
-<pre><code>#最大活动对象数     
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">#最大活动对象数     
 redis.pool.maxTotal=1000    
 #最大能够保持idel状态的对象数      
 redis.pool.maxIdle=100  
@@ -675,7 +567,9 @@ redis.pool.numTestsPerEvictionRun=50
 redis.ip=xxxxxx  
 #redis服务器的Port    
 redis1.port=6379   
-</code></pre><h2 id="案例">案例：<a hidden class="anchor" aria-hidden="true" href="#案例">#</a></h2>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="案例">案例：</h2>
 <pre><code>案例需求：
     1. 提供index.html页面，页面中有一个省份 下拉列表
     2. 当 页面加载完成后 发送ajax请求，加载所有省份
@@ -686,83 +580,17 @@ redis1.port=6379
     * 数据库的表执行 增删改的相关操作，需要将redis缓存数据情况，再次存入
     * 在service对应的增删改方法中，将redis数据删除。
 </code></pre>
+</div><div id="comments"></div></div></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.70.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">JoyBoy</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
 
-
-  </div>
-
-  <footer class="post-footer">
-  </footer>
-</article>
-    </main>
-    
-<footer class="footer">
-    <span>&copy; 2022 <a href="https://zyooo.github.io/">JoyBoy</a></span>
-    <span>
-        Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
-    </span>
-</footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
-    </svg>
-</a>
-
-<script>
-    let menu = document.getElementById('menu')
-    if (menu) {
-        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
-        menu.onscroll = function () {
-            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
-        }
-    }
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = this.getAttribute("href").substr(1);
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                    behavior: "smooth"
-                });
-            } else {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
-            }
-            if (id === "top") {
-                history.replaceState(null, null, " ");
-            } else {
-                history.pushState(null, null, `#${id}`);
-            }
-        });
-    });
-
-</script>
-<script>
-    var mybutton = document.getElementById("top-link");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
-        } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
-        }
-    };
-
-</script>
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            document.body.classList.add('dark');
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
-
-</script>
-</body>
-
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/typeit/typeit.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>

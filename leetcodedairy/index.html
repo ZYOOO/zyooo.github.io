@@ -1,367 +1,154 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
-
-<head><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
-<title>LeetCodeDairies | JoyBoy</title>
-<meta name="keywords" content="" />
-<meta name="description" content="LeetCodeDairies - JoyBoy">
-<meta name="author" content="JoyBoy">
-<link rel="canonical" href="https://zyooo.github.io/leetcodedairy/" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.61dfb3f0b4cda95d2ccb867f9a3b244ce5d23e12492bcc3c277df594c7bc1adf.css" integrity="sha256-Yd&#43;z8LTNqV0sy4Z/mjskTOXSPhJJK8w8J331lMe8Gt8=" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://zyooo.github.io/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://zyooo.github.io/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://zyooo.github.io/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://zyooo.github.io/apple-touch-icon.png">
-<link rel="mask-icon" href="https://zyooo.github.io/safari-pinned-tab.svg">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.70.0" />
-<link rel="alternate" type="application/rss+xml" href="https://zyooo.github.io/leetcodedairy/index.xml">
-<noscript>
-    <style>
-        #theme-toggle,
-        .top-link {
-            display: none;
-        }
-
-    </style>
-    <style>
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --theme: rgb(29, 30, 32);
-                --entry: rgb(46, 46, 51);
-                --primary: rgb(218, 218, 219);
-                --secondary: rgb(155, 156, 157);
-                --tertiary: rgb(65, 66, 68);
-                --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
-                --code-bg: rgb(55, 56, 62);
-                --border: rgb(51, 51, 51);
-            }
-
-            .list {
-                background: var(--theme);
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
-            }
-        }
-
-    </style>
-</noscript><meta property="og:title" content="LeetCodeDairies" />
-<meta property="og:description" content="What everyonne you can do,just do it." />
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>所有leetcodedairy - JoyBoy&#39;s blog</title><meta name="Description" content="享受学习的过程"><meta property="og:title" content="LeetCodeDairies" />
+<meta property="og:description" content="享受学习的过程" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://zyooo.github.io/leetcodedairy/" />
+<meta property="og:image" content="https://zyooo.github.io/logo.png"/>
+<meta property="og:updated_time" content="2022-02-28T07:50:01+08:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://zyooo.github.io/logo.png"/>
 
-<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="LeetCodeDairies"/>
-<meta name="twitter:description" content="What everyonne you can do,just do it."/>
+<meta name="twitter:description" content="享受学习的过程"/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://zyooo.github.io/leetcodedairy/" /><link rel="alternate" href="/leetcodedairy/index.xml" type="application/rss+xml" title="JoyBoy&#39;s blog">
+    <link rel="feed" href="/leetcodedairy/index.xml" type="application/rss+xml" title="JoyBoy&#39;s blog"><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
 
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position":  1 ,
-      "name": "LeetCodeDairies",
-      "item": "https://zyooo.github.io/leetcodedairy/"
-    }
-  ]
-}
-</script>
-</head>
-
-<body class="list" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
-
-</script>
-
-<header class="header">
-    <nav class="nav">
-        <div class="logo">
-            <a href="https://zyooo.github.io/" accesskey="h" title="JoyBoy (Alt + H)">JoyBoy</a>
-            <span class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                </button>
-            </span>
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="JoyBoy&#39;s blog"><span id="id-1" class="typeit"></span></a>
         </div>
-        <ul id="menu">
-            <li>
-                <a href="https://zyooo.github.io/note/" title="NOTE">
-                    <span>NOTE</span>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/note/"> NOTE </a><a class="menu-item active" href="/leetcodedairy/"> LeetCodeDairy </a><a class="menu-item" href="/bugs/"> Bugs </a><a class="menu-item" href="/javadairy/"> JavaDairy </a><a class="menu-item" href="/golangdairy/"> GolangDairy </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
                 </a>
-            </li>
-            <li>
-                <a href="https://zyooo.github.io/leetcodedairy/" title="LeetCodeDairy">
-                    <span class="active">LeetCodeDairy</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://zyooo.github.io/bugs/" title="Bugs">
-                    <span>Bugs</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://zyooo.github.io/javadairy/" title="JavaDairy">
-                    <span>JavaDairy</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://zyooo.github.io/golangdairy/" title="GolangDairy">
-                    <span>GolangDairy</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="JoyBoy&#39;s blog"><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/note/" title="">NOTE</a><a class="menu-item" href="/leetcodedairy/" title="">LeetCodeDairy</a><a class="menu-item" href="/bugs/" title="">Bugs</a><a class="menu-item" href="/javadairy/" title="">JavaDairy</a><a class="menu-item" href="/golangdairy/" title="">GolangDairy</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
 </header>
-<main class="main"> 
-<header class="page-header">
-  <h1>LeetCodeDairies</h1>
-</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="page archive"><h2 class="single-title animated pulse faster">所有leetcodedairy</h2><h3 class="group-title">2022</h3><article class="archive-item">
+                        <a href="/leetcodedairy/20220228/" class="archive-item-link">2022-02-28</a>
+                        <span class="archive-item-date">28029-02-28</span>
+                    </article><article class="archive-item">
+                        <a href="/leetcodedairy/20220227/" class="archive-item-link">第282场周赛T3</a>
+                        <span class="archive-item-date">27029-02-27</span>
+                    </article><article class="archive-item">
+                        <a href="/leetcodedairy/20220224/" class="archive-item-link">2022-02-24</a>
+                        <span class="archive-item-date">24029-02-24</span>
+                    </article><article class="archive-item">
+                        <a href="/leetcodedairy/20220208/" class="archive-item-link">2022-02-08</a>
+                        <span class="archive-item-date">20029-02-20</span>
+                    </article><article class="archive-item">
+                        <a href="/leetcodedairy/20220109/" class="archive-item-link">2022-01-09</a>
+                        <span class="archive-item-date">9019-01-09</span>
+                    </article><article class="archive-item">
+                        <a href="/leetcodedairy/20220108/" class="archive-item-link">2022-01-09</a>
+                        <span class="archive-item-date">9019-01-09</span>
+                    </article><article class="archive-item">
+                        <a href="/leetcodedairy/20220107/" class="archive-item-link">2022-01-09</a>
+                        <span class="archive-item-date">9019-01-09</span>
+                    </article><article class="archive-item">
+                        <a href="/leetcodedairy/20220106/" class="archive-item-link">2022-01-06</a>
+                        <span class="archive-item-date">6019-01-06</span>
+                    </article><article class="archive-item">
+                        <a href="/leetcodedairy/20220105/" class="archive-item-link">2022-01-05</a>
+                        <span class="archive-item-date">5019-01-05</span>
+                    </article><article class="archive-item">
+                        <a href="/leetcodedairy/20220104/" class="archive-item-link">2022-01-04</a>
+                        <span class="archive-item-date">4019-01-04</span>
+                    </article><article class="archive-item">
+                        <a href="/leetcodedairy/20220103/" class="archive-item-link">2022-01-03</a>
+                        <span class="archive-item-date">3019-01-03</span>
+                    </article><h3 class="group-title">2021</h3><article class="archive-item">
+                        <a href="/leetcodedairy/20211117/" class="archive-item-link">2021-11-17</a>
+                        <span class="archive-item-date">17119-11-17</span>
+                    </article><article class="archive-item">
+                        <a href="/leetcodedairy/20211115/" class="archive-item-link">Day6-2021-11-15</a>
+                        <span class="archive-item-date">15119-11-15</span>
+                    </article><article class="archive-item">
+                        <a href="/leetcodedairy/20211105/" class="archive-item-link">2021-11-05</a>
+                        <span class="archive-item-date">5119-11-05</span>
+                    </article><article class="archive-item">
+                        <a href="/leetcodedairy/20211104/" class="archive-item-link">2021-11-04</a>
+                        <span class="archive-item-date">4119-11-04</span>
+                    </article><article class="archive-item">
+                        <a href="/leetcodedairy/20211103/" class="archive-item-link">2021-11-03</a>
+                        <span class="archive-item-date">3119-11-03</span>
+                    </article><article class="archive-item">
+                        <a href="/leetcodedairy/20211031/" class="archive-item-link">2021-10-31</a>
+                        <span class="archive-item-date">31109-10-31</span>
+                    </article><article class="archive-item">
+                        <a href="/leetcodedairy/20211008/" class="archive-item-link">2021.10.08</a>
+                        <span class="archive-item-date">9109-10-09</span>
+                    </article></div></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.70.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">JoyBoy</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
 
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>2022-02-28<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>1601.最多可达成的换楼请求目的 hard 对于每个选择, 都有选或者不选两个操作, delta数组记录每栋楼的员工变化量, 以及变量cnt记录被选择的请求数量, 如果选择当前请求, delta[x]值减1, delta[y]加1, 不选择则不做操作, 枚举完了之后判断delta中所有值是否为0, 并且根据cnt和res大小更新答案.
-func maximumRequests(n int, requests [][]int) int { res := 0 delta := make([]int,n) cnt,res,zero,l := 0,0,n,len(requests) var dfs func(pos int) dfs = func(pos int){ if pos == l { if zero == n &amp;&amp; cnt &gt; res { res = cnt } return } //not  dfs(pos&#43;1) //chose  z := zero cnt&#43;&#43; x,y := requests[pos][0],requests[pos][1] //减少之前  if delta[x] == 0 { zero-- } delta[x]-- //减少之后  if delta[x] == 0 { zero&#43;&#43; } if delta[y] == 0 { zero-- } delta[y]&#43;&#43; if delta[y] == 0 { zero&#43;&#43; } dfs(pos&#43;1) delta[x]&#43;&#43; delta[y]-- cnt-- zero = z } dfs(0) return res } </p>
-  </section>
-  <footer class="entry-footer"><span title='2022-02-28 07:50:01 +0800 CST'>February 28, 2022</span>&nbsp;·&nbsp;JoyBoy</footer>
-  <a class="entry-link" aria-label="post link to 2022-02-28" href="https://zyooo.github.io/leetcodedairy/20220228/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>第282场周赛T3<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>这道题用O(N^2)的解法会超时, 所以要想办法降低时间复杂度, 所以使用二分法, 但是这里二分的不是time数组, 而是时间, 而时间的区间如何取定呢, 先把time升序排序, 然后最短的可能是1s, 最长的时间可能是time[0] * totoalTrips, 所以就可以采用二分法了
-func minimumTime(time []int, totalTrips int) int64 { sort.Ints(time) var left,right int64 = 1,int64(time[0]*totalTrips) n := len(time) for left &lt; right { var tmp int64= 0 mid := left &#43; (right-left)&gt;&gt;1 for i := 0; i &lt; n &amp;&amp; int64(time[i]) &lt;= mid; i&#43;&#43; { tmp &#43;= mid/int64(time[i]) } //左搜索, 右收缩  if tmp &gt;= int64(totalTrips) { right = mid } else { left = mid&#43;1 } } return left } </p>
-  </section>
-  <footer class="entry-footer"><span title='2022-02-27 17:28:07 +0800 CST'>February 27, 2022</span>&nbsp;·&nbsp;JoyBoy</footer>
-  <a class="entry-link" aria-label="post link to 第282场周赛T3" href="https://zyooo.github.io/leetcodedairy/20220227/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>2022-02-24<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>开始是直接遍历的方法得到数字, 后来想着如果是严格按照一个形式的话, 那么 一个复数中只会出现一个 ‘&#43;’
-并且将虚部和实部分割, 可以利用这个去直接得到abcd, 不过不知道底层代码, 估计速度也是差不多的
-代码: 100% 100%
-func complexNumberMultiply(num1 string, num2 string) string { a,b := parse(num1) c,d := parse(num2) return fmt.Sprintf(&#34;%v&#43;%vi&#34;,(a*c-b*d),(a*d&#43;b*c)) } func parse (num string)(int,int){ a,b := 0,0 i,fa,fb := 0,1,1 flag := true n := len(num) if num[0] == &#39;-&#39; { fa = -1 i = 1 } for ;i &lt; n; i&#43;&#43;{ if num[i] &gt;= &#39;0&#39; &amp;&amp; num[i] &lt;= &#39;9&#39;{ if flag { a = a*10 &#43; int(num[i] - &#39;0&#39;) } else { b = b*10 &#43; int(num[i] - &#39;0&#39;) } } if num[i] == &#39;&#43;&#39; { flag = false } else if num[i] == &#39;-&#39; { flag = false fb = -1 } } return a*fa,b*fb } 代码:100% 94%...</p>
-  </section>
-  <footer class="entry-footer"><span title='2022-02-24 21:54:42 +0800 CST'>February 24, 2022</span>&nbsp;·&nbsp;JoyBoy</footer>
-  <a class="entry-link" aria-label="post link to 2022-02-24" href="https://zyooo.github.io/leetcodedairy/20220224/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>2022-02-08<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>1001.网格照明 hard 2022.02.08 数据规模太大了, 原本想着硬模拟的后来还是放弃了
-打算用map去存储行列和两个对角的情况, 但是又不知道怎么去表示同一条对角
-官方题解:
-func gridIllumination(n int, lamps, queries [][]int) []int { type pair struct{ x, y int } points := map[pair]bool{} row := map[int]int{} col := map[int]int{} diagonal := map[int]int{} antiDiagonal := map[int]int{} for _, lamp := range lamps { r, c := lamp[0], lamp[1] p := pair{r, c} if points[p] { continue } points[p] = true row[r]&#43;&#43; col[c]&#43;&#43; //用这个来表示哪条对角, 妙啊  diagonal[r-c]&#43;&#43; antiDiagonal[r&#43;c]&#43;&#43; } ans := make([]int, len(queries)) for i, query := range queries { r, c := query[0], query[1] if row[r] &gt; 0 || col[c] &gt; 0 || diagonal[r-c] &gt; 0 || antiDiagonal[r&#43;c] &gt; 0 { ans[i] = 1 } for x := r - 1; x &lt;= r&#43;1; x&#43;&#43; { for y := c - 1; y &lt;= c&#43;1; y&#43;&#43; { if x &lt; 0 || y &lt; 0 || x &gt;= n || y &gt;= n || !...</p>
-  </section>
-  <footer class="entry-footer"><span title='2022-02-20 20:07:20 +0800 CST'>February 20, 2022</span>&nbsp;·&nbsp;JoyBoy</footer>
-  <a class="entry-link" aria-label="post link to 2022-02-08" href="https://zyooo.github.io/leetcodedairy/20220208/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>2022-01-09<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>田忌赛马,打不过就送人头 代码逻辑
-n := len(nums1) sort.Ints(nums1) //田忌的马 sort.Ints(nums2) //齐王的马  for i := n-1; i &gt;= 0; i-- { if nums1[i] &gt; nums2[i] { //比得过跟他比  } else { //比不过,换的垫底的来送人头  } } int[] advantageCount(int[] nums1, int[] nums2) { int n = nums1.length; // 给 nums2 降序排序  PriorityQueue&lt;int[]&gt; maxpq = new PriorityQueue&lt;&gt;( (int[] pair1, int[] pair2) -&gt; { return pair2[1] - pair1[1]; //比较方式  } ); for (int i = 0; i &lt; n; i&#43;&#43;) { maxpq....</p>
-  </section>
-  <footer class="entry-footer"><span title='2022-01-09 20:34:58 +0800 CST'>January 9, 2022</span>&nbsp;·&nbsp;JoyBoy</footer>
-  <a class="entry-link" aria-label="post link to 2022-01-09" href="https://zyooo.github.io/leetcodedairy/20220109/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>2022-01-09<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>滑动窗口问题 int left = 0, right = 0 for right &lt; len(s) { //增大窗口  window.add(s[right]) right&#43;&#43; for window needs shrink{ window.remove(s[left]) left&#43;&#43; } } O(N)
-框架 //滑动窗口算法框架 func slidingWindow(s, t string) { need := make(map[string]int) window := make(map[string]int) for _,c := range t{ need[string(c)]&#43;&#43; } left,right,valid := 0,0,0 for right &lt; len(s) { //c是将移入窗口的字符  c := s[right] //右移窗口  right&#43;&#43; //对窗口内数据的一系列更新  ... //debug输出的位置  fmt.Printf(&#34;window: [%d,%d)\n&#34;,left,right) //判断左侧窗口是否要收缩  for window needs shrink{ //d 是将移出窗口的字符  d := s[left] //左移窗口  left&#43;&#43; //进行窗口内数据的一系列更新  ....</p>
-  </section>
-  <footer class="entry-footer"><span title='2022-01-09 20:34:54 +0800 CST'>January 9, 2022</span>&nbsp;·&nbsp;JoyBoy</footer>
-  <a class="entry-link" aria-label="post link to 2022-01-09" href="https://zyooo.github.io/leetcodedairy/20220108/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>2022-01-09<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>二分搜索 //搜素左侧边界 func left_bound(nums []int, target int){ if len(nums) == 0 { return -1 } left, right := 0,len(nums) for left &lt; right{ mid := left &#43; (right - left) / 2 if nums[mid] == target{ //找到target时,收缩右侧边界  right = mid }else if nums[mid] &lt; target{ left = mid &#43; 1 }else if nums[mid] &gt; target{ right = mid } } return left } // nums = [1,2,3,3,3,5,7,] target = 3 return 2 //搜索右侧边界 func right_bound(nums int[], target int){ if len(nums) == 0 { return -1 } left, right := 0,len(nums) for left &lt; right{ mid := left &#43; (right - left) / 2 if nums[mid] == target{ //找到target时,收缩左侧边界  left = mid &#43; 1 }else if nums[mid] &lt; target{ left = mid &#43; 1 }else if nums[mid] &gt; target{ right = mid } } return left } // nums = [1,2,3,3,3,5,7,] target = 3 return 4 技巧: 从题目中抽象出一个自变量x , 一个关于x的函数f(x), 以及一个目标值 target , 同时还要满足以下条件 : 1....</p>
-  </section>
-  <footer class="entry-footer"><span title='2022-01-09 20:34:51 +0800 CST'>January 9, 2022</span>&nbsp;·&nbsp;JoyBoy</footer>
-  <a class="entry-link" aria-label="post link to 2022-01-09" href="https://zyooo.github.io/leetcodedairy/20220107/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>2022-01-06<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>15.三数之和 穷举,确定了第一个数字之后, 剩下两个数字就是 target = target - nums[i] 的twoSum问题
-func twoSumTarget2(nums []int, start, target int) [][]int { var ans [][]int //sort.Ints(nums)  lo, hi := start, len(nums)-1 for lo &lt; hi { sum := nums[lo] &#43; nums[hi] left, right := nums[lo], nums[hi] if sum &lt; target { for lo &lt; hi &amp;&amp; nums[lo] == left { //跳过重复项,保证答案唯一  lo&#43;&#43; } } else if sum &gt; target { for lo &lt; hi &amp;&amp; nums[hi] == right { hi-- } } else { ans = append(ans, []int{nums[lo], nums[hi]}) for lo &lt; hi &amp;&amp; nums[lo] == left { lo&#43;&#43; } for lo &lt; hi &amp;&amp; nums[hi] == right { hi-- } } } return ans } func threeSumTarget(nums []int, target int) [][]int { sort....</p>
-  </section>
-  <footer class="entry-footer"><span title='2022-01-06 11:18:06 +0800 CST'>January 6, 2022</span>&nbsp;·&nbsp;JoyBoy</footer>
-  <a class="entry-link" aria-label="post link to 2022-01-06" href="https://zyooo.github.io/leetcodedairy/20220106/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>2022-01-05<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>1576.替换所有的问号 func modifyString(s string) string { data := []byte(s) for i := 0; i &lt; len(data); i&#43;&#43; { if data[i] == &#39;?&#39; { for b := byte(&#39;a&#39;); b &lt;= &#39;c&#39;; b&#43;&#43; { if !(i &gt; 0 &amp;&amp; data[i-1] == b || i &lt; len(data)-1 &amp;&amp; data[i&#43;1] == b) { data[i] = b break } } } } return string(data[:]) } 一个点在于, 实际上只需要遍历三个字母,就可以找到适合的答案, 还有就是里面那个 if 语句很好的解决了i=0 和
-i = length-1的问题.
-[]byte和string之间的转化方式 res := []byte( s ) string(res)...</p>
-  </section>
-  <footer class="entry-footer"><span title='2022-01-05 07:49:09 +0800 CST'>January 5, 2022</span>&nbsp;·&nbsp;JoyBoy</footer>
-  <a class="entry-link" aria-label="post link to 2022-01-05" href="https://zyooo.github.io/leetcodedairy/20220105/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>2022-01-04<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>19.删除链表的倒数第N个节点 /** * Definition for singly-linked list. * type ListNode struct { * Val int * Next *ListNode * } */ func removeNthFromEnd(head *ListNode, n int) *ListNode { dummy := new(ListNode) dummy.Next = head x := findFromEnd(dummy,n&#43;1) //找到倒数第n&#43;1个然后将倒数第n个删除  x.Next = x.Next.Next return dummy.Next } func findFromEnd(head *ListNode,k int) *ListNode{ p1,p2 := head,head for i := 0; i &lt; k; i&#43;&#43;{ p1 = p1.Next } for p1 != nil{ p1 = p1....</p>
-  </section>
-  <footer class="entry-footer"><span title='2022-01-04 07:46:10 +0800 CST'>January 4, 2022</span>&nbsp;·&nbsp;JoyBoy</footer>
-  <a class="entry-link" aria-label="post link to 2022-01-04" href="https://zyooo.github.io/leetcodedairy/20220104/"></a>
-</article>
-<footer class="page-footer">
-  <nav class="pagination">
-    <a class="next" href="https://zyooo.github.io/leetcodedairy/page/2/">Next Page »</a>
-  </nav>
-</footer>
-    </main>
-    
-<footer class="footer">
-    <span>&copy; 2022 <a href="https://zyooo.github.io/">JoyBoy</a></span>
-    <span>
-        Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
-    </span>
-</footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
-    </svg>
-</a>
-
-<script>
-    let menu = document.getElementById('menu')
-    if (menu) {
-        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
-        menu.onscroll = function () {
-            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
-        }
-    }
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = this.getAttribute("href").substr(1);
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                    behavior: "smooth"
-                });
-            } else {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
-            }
-            if (id === "top") {
-                history.replaceState(null, null, " ");
-            } else {
-                history.pushState(null, null, `#${id}`);
-            }
-        });
-    });
-
-</script>
-<script>
-    var mybutton = document.getElementById("top-link");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
-        } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
-        }
-    };
-
-</script>
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            document.body.classList.add('dark');
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
-
-</script>
-</body>
-
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/typeit/typeit.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>

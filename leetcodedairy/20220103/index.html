@@ -1,460 +1,452 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
-
-<head><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
-<title>2022-01-03 | JoyBoy</title>
-<meta name="keywords" content="" />
-<meta name="description" content="1185.一周中的第几天 难度简单92
-给你一个日期，请你设计一个算法来判断它是对应一周中的哪一天。
-输入为三个整数：day、month 和 year，分别表示日、月、年。
-您返回的结果必须是这几个值中的一个 {&quot;Sunday&quot;, &quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday&quot;, &quot;Friday&quot;, &quot;Saturday&quot;}。
-用了一个公式： W = (D &#43; 2 * M &#43; 3 * (M &#43; 1) \ 5 &#43; Y &#43; Y \ 4 - Y \ 100 &#43; Y \ 400&#43;1) Mod 7
-但是一月和二月要用13,14表示。
-class Solution { public String dayOfTheWeek(int day, int month, int year) { String[] days = {&#34;Sunday&#34;,&#34;Monday&#34;,&#34;Tuesday&#34;,&#34;Wednesday&#34;,&#34;Thursday&#34;,&#34;Friday&#34;,&#34;Saturday&#34;}; if(month == 1){ month = 13; year--; }else if(month == 2){ month = 14; year --; } //W = (D &#43; 2 * M &#43; 3 * (M &#43; 1) \ 5 &#43; Y &#43; Y \ 4 - Y \ 100 &#43; Y \ 400&#43;1) Mod 7  return days[(day &#43; 2 * month &#43; 3 * (month &#43; 1) / 5 &#43; year &#43; year / 4 - year / 100 &#43; year / 400 &#43; 1) % 7]; } } 23.">
-<meta name="author" content="JoyBoy">
-<link rel="canonical" href="https://zyooo.github.io/leetcodedairy/20220103/" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.61dfb3f0b4cda95d2ccb867f9a3b244ce5d23e12492bcc3c277df594c7bc1adf.css" integrity="sha256-Yd&#43;z8LTNqV0sy4Z/mjskTOXSPhJJK8w8J331lMe8Gt8=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://zyooo.github.io/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://zyooo.github.io/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://zyooo.github.io/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://zyooo.github.io/apple-touch-icon.png">
-<link rel="mask-icon" href="https://zyooo.github.io/safari-pinned-tab.svg">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.70.0" />
-<noscript>
-    <style>
-        #theme-toggle,
-        .top-link {
-            display: none;
-        }
-
-    </style>
-    <style>
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --theme: rgb(29, 30, 32);
-                --entry: rgb(46, 46, 51);
-                --primary: rgb(218, 218, 219);
-                --secondary: rgb(155, 156, 157);
-                --tertiary: rgb(65, 66, 68);
-                --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
-                --code-bg: rgb(55, 56, 62);
-                --border: rgb(51, 51, 51);
-            }
-
-            .list {
-                background: var(--theme);
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
-            }
-        }
-
-    </style>
-</noscript><meta property="og:title" content="2022-01-03" />
-<meta property="og:description" content="1185.一周中的第几天 难度简单92
-给你一个日期，请你设计一个算法来判断它是对应一周中的哪一天。
-输入为三个整数：day、month 和 year，分别表示日、月、年。
-您返回的结果必须是这几个值中的一个 {&quot;Sunday&quot;, &quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday&quot;, &quot;Friday&quot;, &quot;Saturday&quot;}。
-用了一个公式： W = (D &#43; 2 * M &#43; 3 * (M &#43; 1) \ 5 &#43; Y &#43; Y \ 4 - Y \ 100 &#43; Y \ 400&#43;1) Mod 7
-但是一月和二月要用13,14表示。
-class Solution { public String dayOfTheWeek(int day, int month, int year) { String[] days = {&#34;Sunday&#34;,&#34;Monday&#34;,&#34;Tuesday&#34;,&#34;Wednesday&#34;,&#34;Thursday&#34;,&#34;Friday&#34;,&#34;Saturday&#34;}; if(month == 1){ month = 13; year--; }else if(month == 2){ month = 14; year --; } //W = (D &#43; 2 * M &#43; 3 * (M &#43; 1) \ 5 &#43; Y &#43; Y \ 4 - Y \ 100 &#43; Y \ 400&#43;1) Mod 7  return days[(day &#43; 2 * month &#43; 3 * (month &#43; 1) / 5 &#43; year &#43; year / 4 - year / 100 &#43; year / 400 &#43; 1) % 7]; } } 23." />
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>2022-01-03 - JoyBoy&#39;s blog</title><meta name="Description" content="享受学习的过程"><meta property="og:title" content="2022-01-03" />
+<meta property="og:description" content="1185.一周中的第几天 难度简单92 给你一个日期，请你设计一个算法来判断它是对应一周中的哪一天。 输入为三个整数：day、month 和 year" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://zyooo.github.io/leetcodedairy/20220103/" /><meta property="article:section" content="LeetCodeDairy" />
-<meta property="article:published_time" content="2022-01-03T18:29:12&#43;08:00" />
-<meta property="article:modified_time" content="2022-01-03T18:29:12&#43;08:00" />
+<meta property="og:url" content="https://zyooo.github.io/leetcodedairy/20220103/" />
+<meta property="og:image" content="https://zyooo.github.io/logo.png"/>
+<meta property="article:published_time" content="2022-01-03T18:29:12+08:00" />
+<meta property="article:modified_time" content="2022-01-03T18:29:12+08:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://zyooo.github.io/logo.png"/>
 
-<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="2022-01-03"/>
-<meta name="twitter:description" content="1185.一周中的第几天 难度简单92
-给你一个日期，请你设计一个算法来判断它是对应一周中的哪一天。
-输入为三个整数：day、month 和 year，分别表示日、月、年。
-您返回的结果必须是这几个值中的一个 {&quot;Sunday&quot;, &quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday&quot;, &quot;Friday&quot;, &quot;Saturday&quot;}。
-用了一个公式： W = (D &#43; 2 * M &#43; 3 * (M &#43; 1) \ 5 &#43; Y &#43; Y \ 4 - Y \ 100 &#43; Y \ 400&#43;1) Mod 7
-但是一月和二月要用13,14表示。
-class Solution { public String dayOfTheWeek(int day, int month, int year) { String[] days = {&#34;Sunday&#34;,&#34;Monday&#34;,&#34;Tuesday&#34;,&#34;Wednesday&#34;,&#34;Thursday&#34;,&#34;Friday&#34;,&#34;Saturday&#34;}; if(month == 1){ month = 13; year--; }else if(month == 2){ month = 14; year --; } //W = (D &#43; 2 * M &#43; 3 * (M &#43; 1) \ 5 &#43; Y &#43; Y \ 4 - Y \ 100 &#43; Y \ 400&#43;1) Mod 7  return days[(day &#43; 2 * month &#43; 3 * (month &#43; 1) / 5 &#43; year &#43; year / 4 - year / 100 &#43; year / 400 &#43; 1) % 7]; } } 23."/>
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [, 
+<meta name="twitter:description" content="1185.一周中的第几天 难度简单92 给你一个日期，请你设计一个算法来判断它是对应一周中的哪一天。 输入为三个整数：day、month 和 year"/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://zyooo.github.io/leetcodedairy/20220103/" /><link rel="prev" href="https://zyooo.github.io/leetcodedairy/20211117/" /><link rel="next" href="https://zyooo.github.io/leetcodedairy/20220104/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
     {
-      "@type": "ListItem",
-      "position":  2 ,
-      "name": "2022-01-03",
-      "item": "https://zyooo.github.io/leetcodedairy/20220103/"
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "2022-01-03",
+        "inLanguage": "en-us",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/zyooo.github.io\/leetcodedairy\/20220103\/"
+        },"genre": "LeetCodeDairy","wordcount":  1337 ,
+        "url": "https:\/\/zyooo.github.io\/leetcodedairy\/20220103\/","datePublished": "2022-01-03T18:29:12+08:00","dateModified": "2022-01-03T18:29:12+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "JoyBoy"
+            },"description": ""
     }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "2022-01-03",
-  "name": "2022-01-03",
-  "description": "1185.一周中的第几天 难度简单92\n给你一个日期，请你设计一个算法来判断它是对应一周中的哪一天。\n输入为三个整数：day、month 和 year，分别表示日、月、年。\n您返回的结果必须是这几个值中的一个 {\u0026quot;Sunday\u0026quot;, \u0026quot;Monday\u0026quot;, \u0026quot;Tuesday\u0026quot;, \u0026quot;Wednesday\u0026quot;, \u0026quot;Thursday\u0026quot;, \u0026quot;Friday\u0026quot;, \u0026quot;Saturday\u0026quot;}。\n用了一个公式： W = (D + 2 * M + 3 * (M + 1) \\ 5 + Y + Y \\ 4 - Y \\ 100 + Y \\ 400+1) Mod 7\n但是一月和二月要用13,14表示。\nclass Solution { public String dayOfTheWeek(int day, int month, int year) { String[] days = {\u0026#34;Sunday\u0026#34;,\u0026#34;Monday\u0026#34;,\u0026#34;Tuesday\u0026#34;,\u0026#34;Wednesday\u0026#34;,\u0026#34;Thursday\u0026#34;,\u0026#34;Friday\u0026#34;,\u0026#34;Saturday\u0026#34;}; if(month == 1){ month = 13; year--; }else if(month == 2){ month = 14; year --; } //W = (D + 2 * M + 3 * (M + 1) \\ 5 + Y + Y \\ 4 - Y \\ 100 + Y \\ 400+1) Mod 7  return days[(day + 2 * month + 3 * (month + 1) / 5 + year + year / 4 - year / 100 + year / 400 + 1) % 7]; } } 23.",
-  "keywords": [
-    
-  ],
-  "articleBody": "1185.一周中的第几天 难度简单92\n给你一个日期，请你设计一个算法来判断它是对应一周中的哪一天。\n输入为三个整数：day、month 和 year，分别表示日、月、年。\n您返回的结果必须是这几个值中的一个 {\"Sunday\", \"Monday\", \"Tuesday\", \"Wednesday\", \"Thursday\", \"Friday\", \"Saturday\"}。\n用了一个公式： W = (D + 2 * M + 3 * (M + 1) \\ 5 + Y + Y \\ 4 - Y \\ 100 + Y \\ 400+1) Mod 7\n但是一月和二月要用13,14表示。\nclass Solution { public String dayOfTheWeek(int day, int month, int year) { String[] days = {\"Sunday\",\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\",\"Saturday\"}; if(month == 1){ month = 13; year--; }else if(month == 2){ month = 14; year --; } //W = (D + 2 * M + 3 * (M + 1) \\ 5 + Y + Y \\ 4 - Y \\ 100 + Y \\ 400+1) Mod 7  return days[(day + 2 * month + 3 * (month + 1) / 5 + year + year / 4 - year / 100 + year / 400 + 1) % 7]; } } 23.合并k个有序链表 难点在于如何快速得到k个节点中的最小节点\n优先级队列（二叉堆），将链表中的节点放入一个最小堆，每次获得k个结点中最小的节点\ngo里面没有内置的优先队列api，所以要自己写（用最小堆可以实现，重写heap里的方法去实现）\n或者使用分治的方法去实现\n最小堆方法实现：\npackage main import \"container/heap\" type ListNode struct { Val int Next *ListNode } type minHeap []*ListNode func (h minHeap) Len() int { return len(h) } func (h minHeap) Less(i, j int) bool { return h[i].Val h[j].Val } func (h minHeap) Swap(i, j int) { h[i], h[j] = h[j], h[i] } func (h *minHeap) Push(x interface{}) { *h = append(*h, x.(*ListNode)) //.后跟括号，是对象类型转换，只有结构对象才能执行类型动态转换/查询 } func (h *minHeap) Pop() interface{} { old := *h n := len(old) x := old[n-1] //old[n-1]是最小元素，堆顶？查查看最小堆概念 \t*h = old[0 : n-1] //切片删除old[n-1] endIndex-1即 0~n-2 \treturn x } func mergeKLists(lists []*ListNode) *ListNode { h := new(minHeap) //创建一个最小堆 \tfor i := 0; i lists); i++ { if lists[i] != nil { //k个链表的头结点加入最小堆中，注意加入的方法 heap.Push(h,xxx) \theap.Push(h, lists[i]) } } dummyHead := new(ListNode) pre := dummyHead for h.Len()  0 { //获取最小堆的堆定元素，即最小的 \ttmp := heap.Pop(h).(*ListNode) if tmp.Next != nil { //被取出的节点还有next的话就加入最小堆 \theap.Push(h, tmp.Next) } pre.Next = tmp pre = pre.Next } return dummyHead.Next } 分治方法：\nfunc mergeKLists(lists []*ListNode) *ListNode { length := len(lists) if length 1 { return nil } if length == 1 { return lists[0] } num := length / 2 left := mergeKLists(lists[:num]) //一直分割然后合并返回，最后一次返回的就是完整的链表 \tright := mergeKLists(lists[num:]) return mergeTwoLists1(left, right) } func mergeTwoLists1(l1 *ListNode, l2 *ListNode) *ListNode { if l1 == nil { return l2 } if l2 == nil { return l1 } if l1.Val l2.Val { l1.Next = mergeTwoLists1(l1.Next, l2) return l1 } l2.Next = mergeTwoLists1(l1, l2.Next) return l2 } 傻瓜方法遍历k-1遍\n/** * Definition for singly-linked list. * type ListNode struct { * Val int * Next *ListNode * } */ func mergeKLists(lists []*ListNode) *ListNode { dummy := new(ListNode) p := dummy.Next for i := 0; i lists); i++{ p = mergeTwoLists(p,lists[i]) } return p } func mergeTwoLists(l1, l2 *ListNode) *ListNode { dummy := new(ListNode) p := dummy p1, p2 := l1, l2 for p1 != nil \u0026\u0026 p2 != nil { if p1.Val  p2.Val { p.Next = p2 p2 = p2.Next } else { p.Next = p1 p1 = p1.Next } p = p.Next } if p1 == nil { p.Next = p2 } else { p.Next = p1 } return dummy.Next } 知识点：\n. 后跟括号，是对象类型转换，只有结构对象才能执行类型动态转换/查询\nPop中为什么删除最后一个\nx := old[n-1] //old[n-1]是最小元素，堆顶？查查看最小堆概念 *h = old[0 : n-1] //切片删除old[n-1] endIndex-1即 0~n-2  源码： Pop() interface{} // remove and return element Len() - 1. 可能是源码把他放到了最后 func Pop(h Interface) interface{} { n := h.Len() - 1 h.Swap(0, n) down(h, 0, n) return h.Pop() } 从源码可以看出，实际的弹出步骤是将第一个元素与最后一个元素进行互换（所以要将最后一个删了，因为那是第一个弹出的，然后对一个元素进行下沉，最后移除并返回最后一个元素\n",
-  "wordCount" : "550",
-  "inLanguage": "en",
-  "datePublished": "2022-01-03T18:29:12+08:00",
-  "dateModified": "2022-01-03T18:29:12+08:00",
-  "author":{
-    "@type": "Person",
-    "name": "JoyBoy"
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://zyooo.github.io/leetcodedairy/20220103/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "JoyBoy",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://zyooo.github.io/favicon.ico"
-    }
-  }
-}
-</script>
-</head>
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
 
-<body class="" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
-
-</script>
-
-<header class="header">
-    <nav class="nav">
-        <div class="logo">
-            <a href="https://zyooo.github.io/" accesskey="h" title="JoyBoy (Alt + H)">JoyBoy</a>
-            <span class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                </button>
-            </span>
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="JoyBoy&#39;s blog"><span id="id-1" class="typeit"></span></a>
         </div>
-        <ul id="menu">
-            <li>
-                <a href="https://zyooo.github.io/note/" title="NOTE">
-                    <span>NOTE</span>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/note/"> NOTE </a><a class="menu-item" href="/leetcodedairy/"> LeetCodeDairy </a><a class="menu-item" href="/bugs/"> Bugs </a><a class="menu-item" href="/javadairy/"> JavaDairy </a><a class="menu-item" href="/golangdairy/"> GolangDairy </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
                 </a>
-            </li>
-            <li>
-                <a href="https://zyooo.github.io/leetcodedairy/" title="LeetCodeDairy">
-                    <span>LeetCodeDairy</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://zyooo.github.io/bugs/" title="Bugs">
-                    <span>Bugs</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://zyooo.github.io/javadairy/" title="JavaDairy">
-                    <span>JavaDairy</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://zyooo.github.io/golangdairy/" title="GolangDairy">
-                    <span>GolangDairy</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="JoyBoy&#39;s blog"><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/note/" title="">NOTE</a><a class="menu-item" href="/leetcodedairy/" title="">LeetCodeDairy</a><a class="menu-item" href="/bugs/" title="">Bugs</a><a class="menu-item" href="/javadairy/" title="">JavaDairy</a><a class="menu-item" href="/golangdairy/" title="">GolangDairy</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
 </header>
-<main class="main">
-
-<article class="post-single">
-  <header class="post-header">
-    
-    <h1 class="post-title">
-      2022-01-03<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
-    </h1>
-    <div class="post-meta"><span title='2022-01-03 18:29:12 +0800 CST'>January 3, 2022</span>&nbsp;·&nbsp;JoyBoy
-
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
 </div>
-  </header> 
-  <div class="post-content"><h4 id="1185一周中的第几天httpsleetcode-cncomproblemsday-of-the-week">1185.<a href="https://leetcode-cn.com/problems/day-of-the-week/">一周中的第几天</a><a hidden class="anchor" aria-hidden="true" href="#1185一周中的第几天httpsleetcode-cncomproblemsday-of-the-week">#</a></h4>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="page single special"><h1 class="single-title animated pulse faster">2022-01-03</h1><div class="content" id="content"><h4 id="1185一周中的第几天httpsleetcode-cncomproblemsday-of-the-week">1185.<a href="https://leetcode-cn.com/problems/day-of-the-week/" target="_blank" rel="noopener noreffer">一周中的第几天</a></h4>
 <p>难度简单92</p>
 <p>给你一个日期，请你设计一个算法来判断它是对应一周中的哪一天。</p>
 <p>输入为三个整数：<code>day</code>、<code>month</code> 和 <code>year</code>，分别表示日、月、年。</p>
 <p>您返回的结果必须是这几个值中的一个 <code>{&quot;Sunday&quot;, &quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday&quot;, &quot;Friday&quot;, &quot;Saturday&quot;}</code>。</p>
 <p>用了一个公式： W = (D + 2 * M + 3 * (M + 1) \ 5 + Y + Y \ 4 - Y \ 100 + Y \ 400+1) Mod 7</p>
 <p>但是一月和二月要用13,14表示。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">dayOfTheWeek</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> day<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> month<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> year<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-        String<span style="color:#f92672">[]</span> days  <span style="color:#f92672">=</span> <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;Sunday&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;Monday&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;Tuesday&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;Wednesday&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;Thursday&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;Friday&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;Saturday&#34;</span><span style="color:#f92672">};</span>
-        <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>month <span style="color:#f92672">==</span> 1<span style="color:#f92672">){</span>
-            month <span style="color:#f92672">=</span> 13<span style="color:#f92672">;</span>
-            year<span style="color:#f92672">--;</span>
-        <span style="color:#f92672">}</span><span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>month <span style="color:#f92672">==</span> 2<span style="color:#f92672">){</span>
-            month <span style="color:#f92672">=</span> 14<span style="color:#f92672">;</span>
-            year <span style="color:#f92672">--;</span>
-        <span style="color:#f92672">}</span>
-        <span style="color:#75715e">//W = (D + 2 * M + 3 * (M + 1) \ 5 + Y + Y \ 4 - Y \ 100 + Y \ 400+1) Mod 7 
-</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">return</span> days<span style="color:#f92672">[(</span>day <span style="color:#f92672">+</span> 2 <span style="color:#f92672">*</span> month <span style="color:#f92672">+</span> 3 <span style="color:#f92672">*</span> <span style="color:#f92672">(</span>month <span style="color:#f92672">+</span> 1<span style="color:#f92672">)</span> <span style="color:#f92672">/</span> 5 <span style="color:#f92672">+</span> year <span style="color:#f92672">+</span> year <span style="color:#f92672">/</span> 4 <span style="color:#f92672">-</span> year <span style="color:#f92672">/</span> 100 <span style="color:#f92672">+</span> year <span style="color:#f92672">/</span> 400 <span style="color:#f92672">+</span> 1<span style="color:#f92672">)</span> <span style="color:#f92672">%</span> 7<span style="color:#f92672">];</span> 
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">dayOfTheWeek</span><span class="o">(</span><span class="kt">int</span> <span class="n">day</span><span class="o">,</span> <span class="kt">int</span> <span class="n">month</span><span class="o">,</span> <span class="kt">int</span> <span class="n">year</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">String</span><span class="o">[]</span> <span class="n">days</span>  <span class="o">=</span> <span class="o">{</span><span class="s">&#34;Sunday&#34;</span><span class="o">,</span><span class="s">&#34;Monday&#34;</span><span class="o">,</span><span class="s">&#34;Tuesday&#34;</span><span class="o">,</span><span class="s">&#34;Wednesday&#34;</span><span class="o">,</span><span class="s">&#34;Thursday&#34;</span><span class="o">,</span><span class="s">&#34;Friday&#34;</span><span class="o">,</span><span class="s">&#34;Saturday&#34;</span><span class="o">};</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">month</span> <span class="o">==</span> <span class="n">1</span><span class="o">){</span>
+            <span class="n">month</span> <span class="o">=</span> <span class="n">13</span><span class="o">;</span>
+            <span class="n">year</span><span class="o">--;</span>
+        <span class="o">}</span><span class="k">else</span> <span class="k">if</span><span class="o">(</span><span class="n">month</span> <span class="o">==</span> <span class="n">2</span><span class="o">){</span>
+            <span class="n">month</span> <span class="o">=</span> <span class="n">14</span><span class="o">;</span>
+            <span class="n">year</span> <span class="o">--;</span>
+        <span class="o">}</span>
+        <span class="c1">//W = (D + 2 * M + 3 * (M + 1) \ 5 + Y + Y \ 4 - Y \ 100 + Y \ 400+1) Mod 7 
+</span><span class="c1"></span>        <span class="k">return</span> <span class="n">days</span><span class="o">[(</span><span class="n">day</span> <span class="o">+</span> <span class="n">2</span> <span class="o">*</span> <span class="n">month</span> <span class="o">+</span> <span class="n">3</span> <span class="o">*</span> <span class="o">(</span><span class="n">month</span> <span class="o">+</span> <span class="n">1</span><span class="o">)</span> <span class="o">/</span> <span class="n">5</span> <span class="o">+</span> <span class="n">year</span> <span class="o">+</span> <span class="n">year</span> <span class="o">/</span> <span class="n">4</span> <span class="o">-</span> <span class="n">year</span> <span class="o">/</span> <span class="n">100</span> <span class="o">+</span> <span class="n">year</span> <span class="o">/</span> <span class="n">400</span> <span class="o">+</span> <span class="n">1</span><span class="o">)</span> <span class="o">%</span> <span class="n">7</span><span class="o">];</span> 
         
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><h4 id="23合并k个有序链表">23.合并k个有序链表<a hidden class="anchor" aria-hidden="true" href="#23合并k个有序链表">#</a></h4>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="23合并k个有序链表">23.合并k个有序链表</h4>
 <p><strong>难点在于如何快速得到k个节点中的最小节点</strong></p>
 <p><strong>优先级队列（二叉堆），将链表中的节点放入一个最小堆，每次获得k个结点中最小的节点</strong></p>
 <p><strong>go里面没有内置的优先队列api，所以要自己写（用最小堆可以实现，重写heap里的方法去实现）</strong></p>
 <p><strong>或者使用分治的方法去实现</strong></p>
 <p><strong>最小堆方法实现：</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
 
-<span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;container/heap&#34;</span>
+<span class="kn">import</span> <span class="s">&#34;container/heap&#34;</span>
 
-<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">ListNode</span> <span style="color:#66d9ef">struct</span> {
-	<span style="color:#a6e22e">Val</span>  <span style="color:#66d9ef">int</span>
-	<span style="color:#a6e22e">Next</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">ListNode</span>
-}
-<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">minHeap</span> []<span style="color:#f92672">*</span><span style="color:#a6e22e">ListNode</span>
+<span class="kd">type</span> <span class="nx">ListNode</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">Val</span>  <span class="kt">int</span>
+	<span class="nx">Next</span> <span class="o">*</span><span class="nx">ListNode</span>
+<span class="p">}</span>
+<span class="kd">type</span> <span class="nx">minHeap</span> <span class="p">[]</span><span class="o">*</span><span class="nx">ListNode</span>
 
-<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">h</span> <span style="color:#a6e22e">minHeap</span>) <span style="color:#a6e22e">Len</span>() <span style="color:#66d9ef">int</span> {
-	<span style="color:#66d9ef">return</span> len(<span style="color:#a6e22e">h</span>)
-}
-<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">h</span> <span style="color:#a6e22e">minHeap</span>) <span style="color:#a6e22e">Less</span>(<span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">j</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">bool</span> {
-	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">h</span>[<span style="color:#a6e22e">i</span>].<span style="color:#a6e22e">Val</span> &lt; <span style="color:#a6e22e">h</span>[<span style="color:#a6e22e">j</span>].<span style="color:#a6e22e">Val</span>
-}
-<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">h</span> <span style="color:#a6e22e">minHeap</span>) <span style="color:#a6e22e">Swap</span>(<span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">j</span> <span style="color:#66d9ef">int</span>) {
-	<span style="color:#a6e22e">h</span>[<span style="color:#a6e22e">i</span>], <span style="color:#a6e22e">h</span>[<span style="color:#a6e22e">j</span>] = <span style="color:#a6e22e">h</span>[<span style="color:#a6e22e">j</span>], <span style="color:#a6e22e">h</span>[<span style="color:#a6e22e">i</span>]
-}
-<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">h</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">minHeap</span>) <span style="color:#a6e22e">Push</span>(<span style="color:#a6e22e">x</span> <span style="color:#66d9ef">interface</span>{}) {
-	<span style="color:#f92672">*</span><span style="color:#a6e22e">h</span> = append(<span style="color:#f92672">*</span><span style="color:#a6e22e">h</span>, <span style="color:#a6e22e">x</span>.(<span style="color:#f92672">*</span><span style="color:#a6e22e">ListNode</span>)) <span style="color:#75715e">//.后跟括号，是对象类型转换，只有结构对象才能执行类型动态转换/查询
-</span><span style="color:#75715e"></span>}
-<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">h</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">minHeap</span>) <span style="color:#a6e22e">Pop</span>() <span style="color:#66d9ef">interface</span>{} {
-	<span style="color:#a6e22e">old</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">h</span>
-	<span style="color:#a6e22e">n</span> <span style="color:#f92672">:=</span> len(<span style="color:#a6e22e">old</span>)
-	<span style="color:#a6e22e">x</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">old</span>[<span style="color:#a6e22e">n</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]     <span style="color:#75715e">//old[n-1]是最小元素，堆顶？查查看最小堆概念
-</span><span style="color:#75715e"></span>	<span style="color:#f92672">*</span><span style="color:#a6e22e">h</span> = <span style="color:#a6e22e">old</span>[<span style="color:#ae81ff">0</span> : <span style="color:#a6e22e">n</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>] <span style="color:#75715e">//切片删除old[n-1] endIndex-1即 0~n-2
-</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">x</span>
-}
+<span class="kd">func</span> <span class="p">(</span><span class="nx">h</span> <span class="nx">minHeap</span><span class="p">)</span> <span class="nf">Len</span><span class="p">()</span> <span class="kt">int</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="nx">h</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="kd">func</span> <span class="p">(</span><span class="nx">h</span> <span class="nx">minHeap</span><span class="p">)</span> <span class="nf">Less</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">j</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="nx">h</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">Val</span> <span class="p">&lt;</span> <span class="nx">h</span><span class="p">[</span><span class="nx">j</span><span class="p">].</span><span class="nx">Val</span>
+<span class="p">}</span>
+<span class="kd">func</span> <span class="p">(</span><span class="nx">h</span> <span class="nx">minHeap</span><span class="p">)</span> <span class="nf">Swap</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">j</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">h</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span> <span class="nx">h</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="p">=</span> <span class="nx">h</span><span class="p">[</span><span class="nx">j</span><span class="p">],</span> <span class="nx">h</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>
+<span class="p">}</span>
+<span class="kd">func</span> <span class="p">(</span><span class="nx">h</span> <span class="o">*</span><span class="nx">minHeap</span><span class="p">)</span> <span class="nf">Push</span><span class="p">(</span><span class="nx">x</span> <span class="kd">interface</span><span class="p">{})</span> <span class="p">{</span>
+	<span class="o">*</span><span class="nx">h</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="o">*</span><span class="nx">h</span><span class="p">,</span> <span class="nx">x</span><span class="p">.(</span><span class="o">*</span><span class="nx">ListNode</span><span class="p">))</span> <span class="c1">//.后跟括号，是对象类型转换，只有结构对象才能执行类型动态转换/查询
+</span><span class="c1"></span><span class="p">}</span>
+<span class="kd">func</span> <span class="p">(</span><span class="nx">h</span> <span class="o">*</span><span class="nx">minHeap</span><span class="p">)</span> <span class="nf">Pop</span><span class="p">()</span> <span class="kd">interface</span><span class="p">{}</span> <span class="p">{</span>
+	<span class="nx">old</span> <span class="o">:=</span> <span class="o">*</span><span class="nx">h</span>
+	<span class="nx">n</span> <span class="o">:=</span> <span class="nb">len</span><span class="p">(</span><span class="nx">old</span><span class="p">)</span>
+	<span class="nx">x</span> <span class="o">:=</span> <span class="nx">old</span><span class="p">[</span><span class="nx">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>     <span class="c1">//old[n-1]是最小元素，堆顶？查查看最小堆概念
+</span><span class="c1"></span>	<span class="o">*</span><span class="nx">h</span> <span class="p">=</span> <span class="nx">old</span><span class="p">[</span><span class="mi">0</span> <span class="p">:</span> <span class="nx">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1">//切片删除old[n-1] endIndex-1即 0~n-2
+</span><span class="c1"></span>	<span class="k">return</span> <span class="nx">x</span>
+<span class="p">}</span>
 
-<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">mergeKLists</span>(<span style="color:#a6e22e">lists</span> []<span style="color:#f92672">*</span><span style="color:#a6e22e">ListNode</span>) <span style="color:#f92672">*</span><span style="color:#a6e22e">ListNode</span> {
-	<span style="color:#a6e22e">h</span> <span style="color:#f92672">:=</span> new(<span style="color:#a6e22e">minHeap</span>) <span style="color:#75715e">//创建一个最小堆
-</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; len(<span style="color:#a6e22e">lists</span>); <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
-		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">lists</span>[<span style="color:#a6e22e">i</span>] <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-			<span style="color:#75715e">//k个链表的头结点加入最小堆中，注意加入的方法 heap.Push(h,xxx)
-</span><span style="color:#75715e"></span>			<span style="color:#a6e22e">heap</span>.<span style="color:#a6e22e">Push</span>(<span style="color:#a6e22e">h</span>, <span style="color:#a6e22e">lists</span>[<span style="color:#a6e22e">i</span>])
-		}
-	}
-	<span style="color:#a6e22e">dummyHead</span> <span style="color:#f92672">:=</span> new(<span style="color:#a6e22e">ListNode</span>)
-	<span style="color:#a6e22e">pre</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">dummyHead</span>
-	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">h</span>.<span style="color:#a6e22e">Len</span>() &gt; <span style="color:#ae81ff">0</span> {
-		<span style="color:#75715e">//获取最小堆的堆定元素，即最小的
-</span><span style="color:#75715e"></span>		<span style="color:#a6e22e">tmp</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">heap</span>.<span style="color:#a6e22e">Pop</span>(<span style="color:#a6e22e">h</span>).(<span style="color:#f92672">*</span><span style="color:#a6e22e">ListNode</span>)
-		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">tmp</span>.<span style="color:#a6e22e">Next</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-			<span style="color:#75715e">//被取出的节点还有next的话就加入最小堆
-</span><span style="color:#75715e"></span>			<span style="color:#a6e22e">heap</span>.<span style="color:#a6e22e">Push</span>(<span style="color:#a6e22e">h</span>, <span style="color:#a6e22e">tmp</span>.<span style="color:#a6e22e">Next</span>)
-		}
-		<span style="color:#a6e22e">pre</span>.<span style="color:#a6e22e">Next</span> = <span style="color:#a6e22e">tmp</span>
-		<span style="color:#a6e22e">pre</span> = <span style="color:#a6e22e">pre</span>.<span style="color:#a6e22e">Next</span>
-	}
-	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">dummyHead</span>.<span style="color:#a6e22e">Next</span>
-}
-</code></pre></div><p><strong>分治方法：</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">mergeKLists</span>(<span style="color:#a6e22e">lists</span> []<span style="color:#f92672">*</span><span style="color:#a6e22e">ListNode</span>) <span style="color:#f92672">*</span><span style="color:#a6e22e">ListNode</span> {
-	<span style="color:#a6e22e">length</span> <span style="color:#f92672">:=</span> len(<span style="color:#a6e22e">lists</span>)
-	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">length</span> &lt; <span style="color:#ae81ff">1</span> {
-		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>
-	}
-	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">length</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span> {
-		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">lists</span>[<span style="color:#ae81ff">0</span>]
-	}
-	<span style="color:#a6e22e">num</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">length</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>
-	<span style="color:#a6e22e">left</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">mergeKLists</span>(<span style="color:#a6e22e">lists</span>[:<span style="color:#a6e22e">num</span>]) <span style="color:#75715e">//一直分割然后合并返回，最后一次返回的就是完整的链表
-</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">right</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">mergeKLists</span>(<span style="color:#a6e22e">lists</span>[<span style="color:#a6e22e">num</span>:])
-	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">mergeTwoLists1</span>(<span style="color:#a6e22e">left</span>, <span style="color:#a6e22e">right</span>)
-}
+<span class="kd">func</span> <span class="nf">mergeKLists</span><span class="p">(</span><span class="nx">lists</span> <span class="p">[]</span><span class="o">*</span><span class="nx">ListNode</span><span class="p">)</span> <span class="o">*</span><span class="nx">ListNode</span> <span class="p">{</span>
+	<span class="nx">h</span> <span class="o">:=</span> <span class="nb">new</span><span class="p">(</span><span class="nx">minHeap</span><span class="p">)</span> <span class="c1">//创建一个最小堆
+</span><span class="c1"></span>	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">lists</span><span class="p">);</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="nx">lists</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+			<span class="c1">//k个链表的头结点加入最小堆中，注意加入的方法 heap.Push(h,xxx)
+</span><span class="c1"></span>			<span class="nx">heap</span><span class="p">.</span><span class="nf">Push</span><span class="p">(</span><span class="nx">h</span><span class="p">,</span> <span class="nx">lists</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="nx">dummyHead</span> <span class="o">:=</span> <span class="nb">new</span><span class="p">(</span><span class="nx">ListNode</span><span class="p">)</span>
+	<span class="nx">pre</span> <span class="o">:=</span> <span class="nx">dummyHead</span>
+	<span class="k">for</span> <span class="nx">h</span><span class="p">.</span><span class="nf">Len</span><span class="p">()</span> <span class="p">&gt;</span> <span class="mi">0</span> <span class="p">{</span>
+		<span class="c1">//获取最小堆的堆定元素，即最小的
+</span><span class="c1"></span>		<span class="nx">tmp</span> <span class="o">:=</span> <span class="nx">heap</span><span class="p">.</span><span class="nf">Pop</span><span class="p">(</span><span class="nx">h</span><span class="p">).(</span><span class="o">*</span><span class="nx">ListNode</span><span class="p">)</span>
+		<span class="k">if</span> <span class="nx">tmp</span><span class="p">.</span><span class="nx">Next</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+			<span class="c1">//被取出的节点还有next的话就加入最小堆
+</span><span class="c1"></span>			<span class="nx">heap</span><span class="p">.</span><span class="nf">Push</span><span class="p">(</span><span class="nx">h</span><span class="p">,</span> <span class="nx">tmp</span><span class="p">.</span><span class="nx">Next</span><span class="p">)</span>
+		<span class="p">}</span>
+		<span class="nx">pre</span><span class="p">.</span><span class="nx">Next</span> <span class="p">=</span> <span class="nx">tmp</span>
+		<span class="nx">pre</span> <span class="p">=</span> <span class="nx">pre</span><span class="p">.</span><span class="nx">Next</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="nx">dummyHead</span><span class="p">.</span><span class="nx">Next</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>分治方法：</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">mergeKLists</span><span class="p">(</span><span class="nx">lists</span> <span class="p">[]</span><span class="o">*</span><span class="nx">ListNode</span><span class="p">)</span> <span class="o">*</span><span class="nx">ListNode</span> <span class="p">{</span>
+	<span class="nx">length</span> <span class="o">:=</span> <span class="nb">len</span><span class="p">(</span><span class="nx">lists</span><span class="p">)</span>
+	<span class="k">if</span> <span class="nx">length</span> <span class="p">&lt;</span> <span class="mi">1</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="kc">nil</span>
+	<span class="p">}</span>
+	<span class="k">if</span> <span class="nx">length</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="nx">lists</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+	<span class="p">}</span>
+	<span class="nx">num</span> <span class="o">:=</span> <span class="nx">length</span> <span class="o">/</span> <span class="mi">2</span>
+	<span class="nx">left</span> <span class="o">:=</span> <span class="nf">mergeKLists</span><span class="p">(</span><span class="nx">lists</span><span class="p">[:</span><span class="nx">num</span><span class="p">])</span> <span class="c1">//一直分割然后合并返回，最后一次返回的就是完整的链表
+</span><span class="c1"></span>	<span class="nx">right</span> <span class="o">:=</span> <span class="nf">mergeKLists</span><span class="p">(</span><span class="nx">lists</span><span class="p">[</span><span class="nx">num</span><span class="p">:])</span>
+	<span class="k">return</span> <span class="nf">mergeTwoLists1</span><span class="p">(</span><span class="nx">left</span><span class="p">,</span> <span class="nx">right</span><span class="p">)</span>
+<span class="p">}</span>
 
-<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">mergeTwoLists1</span>(<span style="color:#a6e22e">l1</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">ListNode</span>, <span style="color:#a6e22e">l2</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">ListNode</span>) <span style="color:#f92672">*</span><span style="color:#a6e22e">ListNode</span> {
-	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">l1</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> {
-		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">l2</span>
-	}
-	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">l2</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> {
-		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">l1</span>
-	}
-	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">l1</span>.<span style="color:#a6e22e">Val</span> &lt; <span style="color:#a6e22e">l2</span>.<span style="color:#a6e22e">Val</span> {
-		<span style="color:#a6e22e">l1</span>.<span style="color:#a6e22e">Next</span> = <span style="color:#a6e22e">mergeTwoLists1</span>(<span style="color:#a6e22e">l1</span>.<span style="color:#a6e22e">Next</span>, <span style="color:#a6e22e">l2</span>)
-		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">l1</span>
-	}
-	<span style="color:#a6e22e">l2</span>.<span style="color:#a6e22e">Next</span> = <span style="color:#a6e22e">mergeTwoLists1</span>(<span style="color:#a6e22e">l1</span>, <span style="color:#a6e22e">l2</span>.<span style="color:#a6e22e">Next</span>)
-	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">l2</span>
-}
-</code></pre></div><p>傻瓜方法遍历k-1遍</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">/**
-</span><span style="color:#75715e"> * Definition for singly-linked list.
-</span><span style="color:#75715e"> * type ListNode struct {
-</span><span style="color:#75715e"> *     Val int
-</span><span style="color:#75715e"> *     Next *ListNode
-</span><span style="color:#75715e"> * }
-</span><span style="color:#75715e"> */</span>
+<span class="kd">func</span> <span class="nf">mergeTwoLists1</span><span class="p">(</span><span class="nx">l1</span> <span class="o">*</span><span class="nx">ListNode</span><span class="p">,</span> <span class="nx">l2</span> <span class="o">*</span><span class="nx">ListNode</span><span class="p">)</span> <span class="o">*</span><span class="nx">ListNode</span> <span class="p">{</span>
+	<span class="k">if</span> <span class="nx">l1</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="nx">l2</span>
+	<span class="p">}</span>
+	<span class="k">if</span> <span class="nx">l2</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="nx">l1</span>
+	<span class="p">}</span>
+	<span class="k">if</span> <span class="nx">l1</span><span class="p">.</span><span class="nx">Val</span> <span class="p">&lt;</span> <span class="nx">l2</span><span class="p">.</span><span class="nx">Val</span> <span class="p">{</span>
+		<span class="nx">l1</span><span class="p">.</span><span class="nx">Next</span> <span class="p">=</span> <span class="nf">mergeTwoLists1</span><span class="p">(</span><span class="nx">l1</span><span class="p">.</span><span class="nx">Next</span><span class="p">,</span> <span class="nx">l2</span><span class="p">)</span>
+		<span class="k">return</span> <span class="nx">l1</span>
+	<span class="p">}</span>
+	<span class="nx">l2</span><span class="p">.</span><span class="nx">Next</span> <span class="p">=</span> <span class="nf">mergeTwoLists1</span><span class="p">(</span><span class="nx">l1</span><span class="p">,</span> <span class="nx">l2</span><span class="p">.</span><span class="nx">Next</span><span class="p">)</span>
+	<span class="k">return</span> <span class="nx">l2</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>傻瓜方法遍历k-1遍</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="cm">/**
+</span><span class="cm"> * Definition for singly-linked list.
+</span><span class="cm"> * type ListNode struct {
+</span><span class="cm"> *     Val int
+</span><span class="cm"> *     Next *ListNode
+</span><span class="cm"> * }
+</span><span class="cm"> */</span>
 
-<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">mergeKLists</span>(<span style="color:#a6e22e">lists</span> []<span style="color:#f92672">*</span><span style="color:#a6e22e">ListNode</span>) <span style="color:#f92672">*</span><span style="color:#a6e22e">ListNode</span> {
-    <span style="color:#a6e22e">dummy</span> <span style="color:#f92672">:=</span> new(<span style="color:#a6e22e">ListNode</span>)
-	<span style="color:#a6e22e">p</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">dummy</span>.<span style="color:#a6e22e">Next</span>
-	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; len(<span style="color:#a6e22e">lists</span>); <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>{
-        <span style="color:#a6e22e">p</span> = <span style="color:#a6e22e">mergeTwoLists</span>(<span style="color:#a6e22e">p</span>,<span style="color:#a6e22e">lists</span>[<span style="color:#a6e22e">i</span>])
-    }
-    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">p</span>
-}
-<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">mergeTwoLists</span>(<span style="color:#a6e22e">l1</span>, <span style="color:#a6e22e">l2</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">ListNode</span>) <span style="color:#f92672">*</span><span style="color:#a6e22e">ListNode</span> {
-	<span style="color:#a6e22e">dummy</span> <span style="color:#f92672">:=</span> new(<span style="color:#a6e22e">ListNode</span>)
-	<span style="color:#a6e22e">p</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">dummy</span>
-	<span style="color:#a6e22e">p1</span>, <span style="color:#a6e22e">p2</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">l1</span>, <span style="color:#a6e22e">l2</span>
-	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">p1</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">p2</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">p1</span>.<span style="color:#a6e22e">Val</span> &gt; <span style="color:#a6e22e">p2</span>.<span style="color:#a6e22e">Val</span> {
-			<span style="color:#a6e22e">p</span>.<span style="color:#a6e22e">Next</span> = <span style="color:#a6e22e">p2</span>
-			<span style="color:#a6e22e">p2</span> = <span style="color:#a6e22e">p2</span>.<span style="color:#a6e22e">Next</span>
-		} <span style="color:#66d9ef">else</span> {
-			<span style="color:#a6e22e">p</span>.<span style="color:#a6e22e">Next</span> = <span style="color:#a6e22e">p1</span>
-			<span style="color:#a6e22e">p1</span> = <span style="color:#a6e22e">p1</span>.<span style="color:#a6e22e">Next</span>
-		}
-		<span style="color:#a6e22e">p</span> = <span style="color:#a6e22e">p</span>.<span style="color:#a6e22e">Next</span>
-	}
-	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">p1</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> {
-		<span style="color:#a6e22e">p</span>.<span style="color:#a6e22e">Next</span> = <span style="color:#a6e22e">p2</span>
-	} <span style="color:#66d9ef">else</span> {
-		<span style="color:#a6e22e">p</span>.<span style="color:#a6e22e">Next</span> = <span style="color:#a6e22e">p1</span>
-	}
-	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">dummy</span>.<span style="color:#a6e22e">Next</span>
-}
-</code></pre></div><p><strong>知识点：</strong></p>
+<span class="kd">func</span> <span class="nf">mergeKLists</span><span class="p">(</span><span class="nx">lists</span> <span class="p">[]</span><span class="o">*</span><span class="nx">ListNode</span><span class="p">)</span> <span class="o">*</span><span class="nx">ListNode</span> <span class="p">{</span>
+    <span class="nx">dummy</span> <span class="o">:=</span> <span class="nb">new</span><span class="p">(</span><span class="nx">ListNode</span><span class="p">)</span>
+	<span class="nx">p</span> <span class="o">:=</span> <span class="nx">dummy</span><span class="p">.</span><span class="nx">Next</span>
+	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">lists</span><span class="p">);</span> <span class="nx">i</span><span class="o">++</span><span class="p">{</span>
+        <span class="nx">p</span> <span class="p">=</span> <span class="nf">mergeTwoLists</span><span class="p">(</span><span class="nx">p</span><span class="p">,</span><span class="nx">lists</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">p</span>
+<span class="p">}</span>
+<span class="kd">func</span> <span class="nf">mergeTwoLists</span><span class="p">(</span><span class="nx">l1</span><span class="p">,</span> <span class="nx">l2</span> <span class="o">*</span><span class="nx">ListNode</span><span class="p">)</span> <span class="o">*</span><span class="nx">ListNode</span> <span class="p">{</span>
+	<span class="nx">dummy</span> <span class="o">:=</span> <span class="nb">new</span><span class="p">(</span><span class="nx">ListNode</span><span class="p">)</span>
+	<span class="nx">p</span> <span class="o">:=</span> <span class="nx">dummy</span>
+	<span class="nx">p1</span><span class="p">,</span> <span class="nx">p2</span> <span class="o">:=</span> <span class="nx">l1</span><span class="p">,</span> <span class="nx">l2</span>
+	<span class="k">for</span> <span class="nx">p1</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="o">&amp;&amp;</span> <span class="nx">p2</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="nx">p1</span><span class="p">.</span><span class="nx">Val</span> <span class="p">&gt;</span> <span class="nx">p2</span><span class="p">.</span><span class="nx">Val</span> <span class="p">{</span>
+			<span class="nx">p</span><span class="p">.</span><span class="nx">Next</span> <span class="p">=</span> <span class="nx">p2</span>
+			<span class="nx">p2</span> <span class="p">=</span> <span class="nx">p2</span><span class="p">.</span><span class="nx">Next</span>
+		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+			<span class="nx">p</span><span class="p">.</span><span class="nx">Next</span> <span class="p">=</span> <span class="nx">p1</span>
+			<span class="nx">p1</span> <span class="p">=</span> <span class="nx">p1</span><span class="p">.</span><span class="nx">Next</span>
+		<span class="p">}</span>
+		<span class="nx">p</span> <span class="p">=</span> <span class="nx">p</span><span class="p">.</span><span class="nx">Next</span>
+	<span class="p">}</span>
+	<span class="k">if</span> <span class="nx">p1</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nx">p</span><span class="p">.</span><span class="nx">Next</span> <span class="p">=</span> <span class="nx">p2</span>
+	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+		<span class="nx">p</span><span class="p">.</span><span class="nx">Next</span> <span class="p">=</span> <span class="nx">p1</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="nx">dummy</span><span class="p">.</span><span class="nx">Next</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>知识点：</strong></p>
 <p>. 后跟括号，是对象类型转换，只有结构对象才能执行类型动态转换/查询</p>
 <p>Pop中为什么删除最后一个</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">x</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">old</span>[<span style="color:#a6e22e">n</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]     <span style="color:#75715e">//old[n-1]是最小元素，堆顶？查查看最小堆概念
-</span><span style="color:#75715e"></span><span style="color:#f92672">*</span><span style="color:#a6e22e">h</span> = <span style="color:#a6e22e">old</span>[<span style="color:#ae81ff">0</span> : <span style="color:#a6e22e">n</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>] <span style="color:#75715e">//切片删除old[n-1] endIndex-1即 0~n-2
-</span><span style="color:#75715e"></span>
-<span style="color:#a6e22e">源码</span><span style="color:#960050;background-color:#1e0010">：</span>
-<span style="color:#a6e22e">Pop</span>() <span style="color:#66d9ef">interface</span>{} <span style="color:#75715e">// remove and return element Len() - 1. 可能是源码把他放到了最后
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Pop</span>(<span style="color:#a6e22e">h</span> <span style="color:#a6e22e">Interface</span>) <span style="color:#66d9ef">interface</span>{} {
-        <span style="color:#a6e22e">n</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">h</span>.<span style="color:#a6e22e">Len</span>() <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>
-        <span style="color:#a6e22e">h</span>.<span style="color:#a6e22e">Swap</span>(<span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">n</span>)
-        <span style="color:#a6e22e">down</span>(<span style="color:#a6e22e">h</span>, <span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">n</span>)
-        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">h</span>.<span style="color:#a6e22e">Pop</span>()
-}
-</code></pre></div><p>从源码可以看出，实际的弹出步骤是将第一个元素与最后一个元素进行互换（所以要将最后一个删了，因为那是第一个弹出的，然后对一个元素进行<strong>下沉</strong>，最后移除并返回最后一个元素</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">x</span> <span class="o">:=</span> <span class="nx">old</span><span class="p">[</span><span class="nx">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>     <span class="c1">//old[n-1]是最小元素，堆顶？查查看最小堆概念
+</span><span class="c1"></span><span class="o">*</span><span class="nx">h</span> <span class="p">=</span> <span class="nx">old</span><span class="p">[</span><span class="mi">0</span> <span class="p">:</span> <span class="nx">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1">//切片删除old[n-1] endIndex-1即 0~n-2
+</span><span class="c1"></span>
+<span class="nx">源码</span><span class="err">：</span>
+<span class="nf">Pop</span><span class="p">()</span> <span class="kd">interface</span><span class="p">{}</span> <span class="c1">// remove and return element Len() - 1. 可能是源码把他放到了最后
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">Pop</span><span class="p">(</span><span class="nx">h</span> <span class="nx">Interface</span><span class="p">)</span> <span class="kd">interface</span><span class="p">{}</span> <span class="p">{</span>
+        <span class="nx">n</span> <span class="o">:=</span> <span class="nx">h</span><span class="p">.</span><span class="nf">Len</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="nx">h</span><span class="p">.</span><span class="nf">Swap</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">n</span><span class="p">)</span>
+        <span class="nf">down</span><span class="p">(</span><span class="nx">h</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">n</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nx">h</span><span class="p">.</span><span class="nf">Pop</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>从源码可以看出，实际的弹出步骤是将第一个元素与最后一个元素进行互换（所以要将最后一个删了，因为那是第一个弹出的，然后对一个元素进行<strong>下沉</strong>，最后移除并返回最后一个元素</p>
+</div><div id="comments"></div></div></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.70.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">JoyBoy</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
 
-
-  </div>
-
-  <footer class="post-footer">
-  </footer>
-</article>
-    </main>
-    
-<footer class="footer">
-    <span>&copy; 2022 <a href="https://zyooo.github.io/">JoyBoy</a></span>
-    <span>
-        Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
-    </span>
-</footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
-    </svg>
-</a>
-
-<script>
-    let menu = document.getElementById('menu')
-    if (menu) {
-        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
-        menu.onscroll = function () {
-            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
-        }
-    }
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = this.getAttribute("href").substr(1);
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                    behavior: "smooth"
-                });
-            } else {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
-            }
-            if (id === "top") {
-                history.replaceState(null, null, " ");
-            } else {
-                history.pushState(null, null, `#${id}`);
-            }
-        });
-    });
-
-</script>
-<script>
-    var mybutton = document.getElementById("top-link");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
-        } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
-        }
-    };
-
-</script>
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            document.body.classList.add('dark');
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
-
-</script>
-</body>
-
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/typeit/typeit.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>

@@ -1,315 +1,348 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
-
-<head><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
-<title>BigTalkDesignPattenNote | JoyBoy</title>
-<meta name="keywords" content="" />
-<meta name="description" content="大话设计模式读书笔记 1.简单工厂模式 用一个单独的类来做创照实例的过程，这就是工厂
-public class OperationFactory{ public static Operation createOperate(string operate){ Operation oper = null; switch(operate){ case &quot;&#43;&quot;: oper = new OperationAdd(); break; case &quot;-&quot;: oper = new OperationSub(); break; case &quot;*&quot;: oper = new OperationMul(); break; case &quot;/&quot;: oper = new OperationMul(); break; } return oper; } } Operation oper; oper = OperationFactory.createOperate(&quot;&#43;&quot;); oper.NumberA = 1; oper.NumberB = 2; double result = oper.GetResult(); *UML类图 UML类图图示样例
-类图 类图分为三层
-第一层显示类的名称，如果是抽象类，则就用斜体显示。
-第二层是类的特性，通常就是字段和属性。">
-<meta name="author" content="JoyBoy">
-<link rel="canonical" href="https://zyooo.github.io/note/bigtalkdesignpattennote/" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.61dfb3f0b4cda95d2ccb867f9a3b244ce5d23e12492bcc3c277df594c7bc1adf.css" integrity="sha256-Yd&#43;z8LTNqV0sy4Z/mjskTOXSPhJJK8w8J331lMe8Gt8=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://zyooo.github.io/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://zyooo.github.io/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://zyooo.github.io/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://zyooo.github.io/apple-touch-icon.png">
-<link rel="mask-icon" href="https://zyooo.github.io/safari-pinned-tab.svg">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.70.0" />
-<noscript>
-    <style>
-        #theme-toggle,
-        .top-link {
-            display: none;
-        }
-
-    </style>
-    <style>
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --theme: rgb(29, 30, 32);
-                --entry: rgb(46, 46, 51);
-                --primary: rgb(218, 218, 219);
-                --secondary: rgb(155, 156, 157);
-                --tertiary: rgb(65, 66, 68);
-                --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
-                --code-bg: rgb(55, 56, 62);
-                --border: rgb(51, 51, 51);
-            }
-
-            .list {
-                background: var(--theme);
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
-            }
-        }
-
-    </style>
-</noscript><meta property="og:title" content="BigTalkDesignPattenNote" />
-<meta property="og:description" content="大话设计模式读书笔记 1.简单工厂模式 用一个单独的类来做创照实例的过程，这就是工厂
-public class OperationFactory{ public static Operation createOperate(string operate){ Operation oper = null; switch(operate){ case &quot;&#43;&quot;: oper = new OperationAdd(); break; case &quot;-&quot;: oper = new OperationSub(); break; case &quot;*&quot;: oper = new OperationMul(); break; case &quot;/&quot;: oper = new OperationMul(); break; } return oper; } } Operation oper; oper = OperationFactory.createOperate(&quot;&#43;&quot;); oper.NumberA = 1; oper.NumberB = 2; double result = oper.GetResult(); *UML类图 UML类图图示样例
-类图 类图分为三层
-第一层显示类的名称，如果是抽象类，则就用斜体显示。
-第二层是类的特性，通常就是字段和属性。" />
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>BigTalkDesignPattenNote - JoyBoy&#39;s blog</title><meta name="Description" content="享受学习的过程"><meta property="og:title" content="BigTalkDesignPattenNote" />
+<meta property="og:description" content="大话设计模式读书笔记 1.简单工厂模式 用一个单独的类来做创照实例的过程，这就是工厂 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 public class OperationFactory{ public static Operation createOperate(string operate){ Operation oper" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://zyooo.github.io/note/bigtalkdesignpattennote/" /><meta property="article:section" content="note" />
-<meta property="article:published_time" content="2021-10-08T14:23:01&#43;08:00" />
-<meta property="article:modified_time" content="2021-10-08T14:23:01&#43;08:00" />
+<meta property="og:url" content="https://zyooo.github.io/note/bigtalkdesignpattennote/" />
+<meta property="og:image" content="https://zyooo.github.io/logo.png"/>
+<meta property="article:published_time" content="2021-10-08T14:23:01+08:00" />
+<meta property="article:modified_time" content="2021-10-08T14:23:01+08:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://zyooo.github.io/logo.png"/>
 
-<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="BigTalkDesignPattenNote"/>
-<meta name="twitter:description" content="大话设计模式读书笔记 1.简单工厂模式 用一个单独的类来做创照实例的过程，这就是工厂
-public class OperationFactory{ public static Operation createOperate(string operate){ Operation oper = null; switch(operate){ case &quot;&#43;&quot;: oper = new OperationAdd(); break; case &quot;-&quot;: oper = new OperationSub(); break; case &quot;*&quot;: oper = new OperationMul(); break; case &quot;/&quot;: oper = new OperationMul(); break; } return oper; } } Operation oper; oper = OperationFactory.createOperate(&quot;&#43;&quot;); oper.NumberA = 1; oper.NumberB = 2; double result = oper.GetResult(); *UML类图 UML类图图示样例
-类图 类图分为三层
-第一层显示类的名称，如果是抽象类，则就用斜体显示。
-第二层是类的特性，通常就是字段和属性。"/>
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [, 
+<meta name="twitter:description" content="大话设计模式读书笔记 1.简单工厂模式 用一个单独的类来做创照实例的过程，这就是工厂 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 public class OperationFactory{ public static Operation createOperate(string operate){ Operation oper"/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://zyooo.github.io/note/bigtalkdesignpattennote/" /><link rel="prev" href="https://zyooo.github.io/note/note1/" /><link rel="next" href="https://zyooo.github.io/note/ideal2021javaweb%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
     {
-      "@type": "ListItem",
-      "position":  2 ,
-      "name": "BigTalkDesignPattenNote",
-      "item": "https://zyooo.github.io/note/bigtalkdesignpattennote/"
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "BigTalkDesignPattenNote",
+        "inLanguage": "en-us",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/zyooo.github.io\/note\/bigtalkdesignpattennote\/"
+        },"genre": "note","wordcount":  3099 ,
+        "url": "https:\/\/zyooo.github.io\/note\/bigtalkdesignpattennote\/","datePublished": "2021-10-08T14:23:01+08:00","dateModified": "2021-10-08T14:23:01+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "JoyBoy"
+            },"description": ""
     }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "BigTalkDesignPattenNote",
-  "name": "BigTalkDesignPattenNote",
-  "description": "大话设计模式读书笔记 1.简单工厂模式 用一个单独的类来做创照实例的过程，这就是工厂\npublic class OperationFactory{ public static Operation createOperate(string operate){ Operation oper = null; switch(operate){ case \u0026quot;+\u0026quot;: oper = new OperationAdd(); break; case \u0026quot;-\u0026quot;: oper = new OperationSub(); break; case \u0026quot;*\u0026quot;: oper = new OperationMul(); break; case \u0026quot;/\u0026quot;: oper = new OperationMul(); break; } return oper; } } Operation oper; oper = OperationFactory.createOperate(\u0026quot;+\u0026quot;); oper.NumberA = 1; oper.NumberB = 2; double result = oper.GetResult(); *UML类图 UML类图图示样例\n类图 类图分为三层\n第一层显示类的名称，如果是抽象类，则就用斜体显示。\n第二层是类的特性，通常就是字段和属性。",
-  "keywords": [
-    
-  ],
-  "articleBody": "大话设计模式读书笔记 1.简单工厂模式 用一个单独的类来做创照实例的过程，这就是工厂\npublic class OperationFactory{ public static Operation createOperate(string operate){ Operation oper = null; switch(operate){ case \"+\": oper = new OperationAdd(); break; case \"-\": oper = new OperationSub(); break; case \"*\": oper = new OperationMul(); break; case \"/\": oper = new OperationMul(); break; } return oper; } } Operation oper; oper = OperationFactory.createOperate(\"+\"); oper.NumberA = 1; oper.NumberB = 2; double result = oper.GetResult(); *UML类图 UML类图图示样例\n类图 类图分为三层\n第一层显示类的名称，如果是抽象类，则就用斜体显示。\n第二层是类的特性，通常就是字段和属性。\n第三层是类的操作，通常是方法或行为。\n“+\"表示public，\"-“表示private ， “#“表示protected。\n接口图 顶端有《interface》\n第一行是接口名称\n第二行是接口方法\n继承 空心三角形+实线来表示\n接口 空心三角形+虚线表示\n关联 放一个类知道另一个类时，实线箭头来表示\nclass Penguin : Bird{ private Climate climate; } 聚合 “聚合表示一种弱的 ‘拥有’ 关系，体现的是A对象可以包含B对象，但B对象不是A对象的一部分”\n用空心的菱形+实线箭头来表示\n合成 “合成（Composition，也有翻译成‘组合’的）是一种强的‘拥有’关系，体现了严格的部分和整体的关系，部分和整体的生命周期一样”\n用实心的菱形+实线箭头表示\n依赖关系 虚线箭头表示\n2021.10.08\n2.策略模式 策略模式（Strategy）：它定义了 算法家族 ，分别封装起来，让他们之间可以相互替换，此模式让算法的变化，不会影响到使用算法的客户。\n承担Strategy角色的一个类上定义所有支持的算法的公共接口，它的子类去实现各种不同的策略（算法）。\n然后创建一个Context类，里面创建维护一个Strategy对象，（初始化需要做的判断可以放在这里，简单工厂和策略模式的结合，减轻客户端的压力）在初始化Context类的时候需要传入Strategy参数，这里传入的应该是Strategy的子类也就是各种实际的策略。在ContextInterface()中用strategy去调用Strategy中的那个公共接口，最后得到响应策略（算法）的结果，返回给客户端。\n书本案例—市场促销\nclass CashContext{ CashSuper cs = null; public CashContext (string type){ case \"正常收费\": CashNormal cs0 = new CashNormal(); cs = cs0; break; case \"满300返100\": CashNormal cr1 = new CashReturn(\"300\",\"100\"); cs = cr1; break; case \"打8折\": CashNormal cr2 = new CashNormal(\"0.8\"); cs = cr2; break; } public double GetResult(double money){ return cs.acceptCash(money); } } //客户端窗体程序(主要部分) doule total = 0.0d; private void btnOk_Click(Object sender,EvenArgs e){ CashContext csuper = new CashContext(cbxType.SelectedItem.ToString()); double totalPrices = 0d; totalPrices = csuper.getResult(Conver.ToDouble(txtPrice.Text) * Convert.ToDouble(txtNum.Text)); total = total + totalPrices; lbxList.Items.Add(\"单价\" + txtPrice.Text + \"数量\" + txtNum.Text + \" \" + cbxType.SelectedItem + \" 合计：\" + totalPrices.ToString()); lblResult.Text = total.ToString(); } “策略模式的Strategy类层次为Context定义了一系列的可供重用的算法或行为。继承有助于析取出这些算法中的公共功能”\n“上例子的公共功能就是获得计算费用的结果，GetResult，这使得算法之间有了抽象的父类CashSuper”\n策略模式另一个优点就是简化了单元测试，因为每个算法都有自己的类，可以通过自己的接口单独测试\n策略模式就是用来封装算法的，只要在分析过程中听到需要在不同时间应用不同的业务规则，就可以考虑使用策略模式处理这种变化的可能性\n3.单一职责原则 “如果一个类承担的职责过多，就等于把这些职责耦合在一起，一个职责的变化可能会削弱或者抑制这个类完成其他职责的能力。这种耦合会导致脆弱的设计，当变化发生时，设计会遭受到意想不到的破坏[ASD]”\n“软件设计真正要做的许多内容，就是发现职责并把那些职责相互分离。如果你能够想到多于一个的东西去改变一个类，那么这个类就具有多于一个的职责[ASD]”\n4.开放-封闭原则 开放-封闭原则，是说软件实体(类、模块、函数等等)应该是可拓展，但是不可修改\n对于拓展是开放的(Open for extension)，对于更改是封闭的(Closed for modification)\n在最初编写代码时，假设变化不会发生。当变化发生时，我们就创建抽象来隔离以后发生的同类变化。例如写个简单的加法程序，开始直接在client类中完成，但是得想到后来需要增加一些其他运算的功能，于是增加一个抽象的运算类，利用一些如继承，多态等来隔离具体加法、减法与client耦合，如后续要增加乘法除法功能，就不需要再去更改client以及加法减法的类了，而是增加乘法和除法的子类就好。\n面对需求，对程序的改动是通过增加新代码进行的，而不是更改现有的代码。\n5.依赖倒转原则 抽象不应该依赖细节，细节应该依赖于抽象，说白了就是要对接口编程，不要对实现编程。\nA.高层模块不应该依赖低层模块。两个都应该依赖抽象。\nB.抽象不应该依赖细节。细节应该依赖抽象。\n高层模块依赖于低层模块，如果需要用不同数据库或存储信息方式，那么连高层模块都不能使用了。\n#里氏代换原则 一个软件实体如果使用的是一个父类的话，那么一定适用于其子类，而且它察觉不出父类对象和子类对象的区别。也就是说，在软件里面，把父类都替换成它的子类，程序的行为没有变化，简单地说，子类型必须能够替换掉它们的父类型。\n只有当子类可以替换掉父类，软件单位的功能不受到影响时，父类才能真正被复用，而子类也能够在父类的基础上添加新的行为，也就是因为这个才使得使用父类类型的模块在无需修改的情况下就可以扩展。\n例如企鹅不能继承鸟类，虽然在生物学上企鹅是鸟类，但是在这说，企鹅不能飞，而鸟类指可以飞的，企鹅不能替换掉鸟类，所以不能继承。\n6.装饰模式 装饰模式，动态地给一个对象添加一些额外的职责，就增加功能来说，装饰模式比生成子类更为灵活。\n//Person类 ConcreteComponent class Preson{ public Person(){} private string name; public Person(string name){ this.name = name; } public virtual void Show(){ Console.WriteLine(\"装扮的{0}\",name); } } //服饰类(Decorate) class Finery : Person{ protected Person component; //打扮 public void Decorate (Person component){ this.component = component; } public override void Show(){ if(component != null){ component.Show(); } } } //具体服饰类 (ConcreteDecorator) class TShirts : Finery{ public override void Show(){ Console.Write(\"大T恤\"); base.Show(); } } class BigTrouser : Finery{ public override void Show(){ Console.Write(\"垮裤\"); base.Show(); } } ..... static void Main(string[] args){ Person xc = new Person(\"小菜\"); Console.WriteLine(\"\\n第一种装扮:\"); Sneakers pqx = new Sneakers(); BigTrouser kk = new BigTrouser(); TShirts dtx = new TShirts(); pqx.Decorate(xc); kk.Decorate(pqx); dtx.Decorate(kk); dtx.show; Console.WriteLine(\"\\n第二种装扮\"); LeatherShoes px = new LeatherShoes(); Tie ld = new Tie(); Suit xz = new Suit(); px.Decorate(xc); ld.Decorate(px); xz.Decorate(ld); xz.Show(); Console.Read(); } 装饰模式是为已有功能动态地添加更多功能的一种方式,系统需要新的功能的时候,是向旧的类中添加新的代码,这些代码通常装饰了原有类的核心职责或主要行为,例如要添加领带ld,也保留了原来的小菜xc和皮鞋px.\n有效地把类的核心职责和装饰功能区分开了，而且可以去除相关类中重复的装饰逻辑\n7.代理模式 代理模式，为其他对象提供一种代理以控制对这个对象的访问\n![f1ddfd24be4c0687ac682c58e3e708a](https://i.loli.net/2021/10/14/BIaoJKk197A6Fec.jpg\n//案例\n1，远程代理，也就是为了一个对象在不同的地址空间提供局部代表。这样可以隐藏一个对象存在于不同地址空间的试试。\n2，虚拟代理，是根据需要创建开销很大的对象。通过它来存放实例化需要很长时间的真实对象\n3，安全代理，用来控制真实对象访问时的权限\n4，智能指引，是指当调用真实的对象时，代理处理另外一些事。\n8.工厂方法模式 ",
-  "wordCount" : "380",
-  "inLanguage": "en",
-  "datePublished": "2021-10-08T14:23:01+08:00",
-  "dateModified": "2021-10-08T14:23:01+08:00",
-  "author":{
-    "@type": "Person",
-    "name": "JoyBoy"
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://zyooo.github.io/note/bigtalkdesignpattennote/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "JoyBoy",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://zyooo.github.io/favicon.ico"
-    }
-  }
-}
-</script>
-</head>
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
 
-<body class="" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
-
-</script>
-
-<header class="header">
-    <nav class="nav">
-        <div class="logo">
-            <a href="https://zyooo.github.io/" accesskey="h" title="JoyBoy (Alt + H)">JoyBoy</a>
-            <span class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                </button>
-            </span>
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="JoyBoy&#39;s blog"><span id="id-1" class="typeit"></span></a>
         </div>
-        <ul id="menu">
-            <li>
-                <a href="https://zyooo.github.io/note/" title="NOTE">
-                    <span>NOTE</span>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/note/"> NOTE </a><a class="menu-item" href="/leetcodedairy/"> LeetCodeDairy </a><a class="menu-item" href="/bugs/"> Bugs </a><a class="menu-item" href="/javadairy/"> JavaDairy </a><a class="menu-item" href="/golangdairy/"> GolangDairy </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
                 </a>
-            </li>
-            <li>
-                <a href="https://zyooo.github.io/leetcodedairy/" title="LeetCodeDairy">
-                    <span>LeetCodeDairy</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://zyooo.github.io/bugs/" title="Bugs">
-                    <span>Bugs</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://zyooo.github.io/javadairy/" title="JavaDairy">
-                    <span>JavaDairy</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://zyooo.github.io/golangdairy/" title="GolangDairy">
-                    <span>GolangDairy</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="JoyBoy&#39;s blog"><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/note/" title="">NOTE</a><a class="menu-item" href="/leetcodedairy/" title="">LeetCodeDairy</a><a class="menu-item" href="/bugs/" title="">Bugs</a><a class="menu-item" href="/javadairy/" title="">JavaDairy</a><a class="menu-item" href="/golangdairy/" title="">GolangDairy</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
 </header>
-<main class="main">
-
-<article class="post-single">
-  <header class="post-header">
-    
-    <h1 class="post-title">
-      BigTalkDesignPattenNote<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
-    </h1>
-    <div class="post-meta"><span title='2021-10-08 14:23:01 +0800 CST'>October 8, 2021</span>&nbsp;·&nbsp;JoyBoy
-
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
 </div>
-  </header> 
-  <div class="post-content"><h1 id="大话设计模式读书笔记">大话设计模式读书笔记<a hidden class="anchor" aria-hidden="true" href="#大话设计模式读书笔记">#</a></h1>
-<h2 id="1简单工厂模式">1.简单工厂模式<a hidden class="anchor" aria-hidden="true" href="#1简单工厂模式">#</a></h2>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="page single special"><h1 class="single-title animated pulse faster">BigTalkDesignPattenNote</h1><div class="content" id="content"><h1 id="大话设计模式读书笔记">大话设计模式读书笔记</h1>
+<h2 id="1简单工厂模式">1.简单工厂模式</h2>
 <p>用一个单独的类来做创照实例的过程，这就是工厂</p>
-<p><img loading="lazy" src="https://i.loli.net/2021/10/08/WTt8c4aLhlpxn3u.png" alt="image-20211008170555461"  />
-</p>
-<pre><code>public class OperationFactory{
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i.loli.net/2021/10/08/WTt8c4aLhlpxn3u.png"
+        data-srcset="https://i.loli.net/2021/10/08/WTt8c4aLhlpxn3u.png, https://i.loli.net/2021/10/08/WTt8c4aLhlpxn3u.png 1.5x, https://i.loli.net/2021/10/08/WTt8c4aLhlpxn3u.png 2x"
+        data-sizes="auto"
+        alt="https://i.loli.net/2021/10/08/WTt8c4aLhlpxn3u.png"
+        title="image-20211008170555461" /></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">public class OperationFactory{
 	public static Operation createOperate(string operate){
 		Operation oper = null;
 		switch(operate){
-			case &quot;+&quot;:
+			case &#34;+&#34;:
 				oper = new OperationAdd();
 				break;
-			case &quot;-&quot;:
+			case &#34;-&#34;:
 				oper = new OperationSub();
 				break;
-			case &quot;*&quot;:
+			case &#34;*&#34;:
 				oper = new OperationMul();
 				break;
-			case &quot;/&quot;:
+			case &#34;/&#34;:
 				oper = new OperationMul();
 				break;
 		}
 		return oper;
 	}
 }
-</code></pre><pre><code>Operation oper;
-oper = OperationFactory.createOperate(&quot;+&quot;);
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Operation oper;
+oper = OperationFactory.createOperate(&#34;+&#34;);
 oper.NumberA = 1;
 oper.NumberB = 2;
 double result = oper.GetResult();
-</code></pre><h3 id="uml类图">*UML类图<a hidden class="anchor" aria-hidden="true" href="#uml类图">#</a></h3>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="uml类图">*UML类图</h3>
 <p><strong>UML类图图示样例</strong></p>
-<p><img loading="lazy" src="https://i.loli.net/2021/10/08/geMjNRQAEsr1Hbo.png" alt="image-20211008170613771"  />
-</p>
-<h4 id="类图">类图<a hidden class="anchor" aria-hidden="true" href="#类图">#</a></h4>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i.loli.net/2021/10/08/geMjNRQAEsr1Hbo.png"
+        data-srcset="https://i.loli.net/2021/10/08/geMjNRQAEsr1Hbo.png, https://i.loli.net/2021/10/08/geMjNRQAEsr1Hbo.png 1.5x, https://i.loli.net/2021/10/08/geMjNRQAEsr1Hbo.png 2x"
+        data-sizes="auto"
+        alt="https://i.loli.net/2021/10/08/geMjNRQAEsr1Hbo.png"
+        title="image-20211008170613771" /></p>
+<h4 id="类图">类图</h4>
 <p>类图分为三层</p>
 <p>第一层显示类的名称，如果是抽象类，则就用斜体显示。</p>
 <p>第二层是类的特性，通常就是字段和属性。</p>
 <p>第三层是类的操作，通常是方法或行为。</p>
 <p>&ldquo;+&quot;表示public，&quot;-&ldquo;表示private ， &ldquo;#&ldquo;表示protected。</p>
-<p><img loading="lazy" src="https://i.loli.net/2021/10/08/2AOx6mIhFYZ5unf.png" alt="image-20211008170943057"  />
-</p>
-<h4 id="接口图">接口图<a hidden class="anchor" aria-hidden="true" href="#接口图">#</a></h4>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i.loli.net/2021/10/08/2AOx6mIhFYZ5unf.png"
+        data-srcset="https://i.loli.net/2021/10/08/2AOx6mIhFYZ5unf.png, https://i.loli.net/2021/10/08/2AOx6mIhFYZ5unf.png 1.5x, https://i.loli.net/2021/10/08/2AOx6mIhFYZ5unf.png 2x"
+        data-sizes="auto"
+        alt="https://i.loli.net/2021/10/08/2AOx6mIhFYZ5unf.png"
+        title="image-20211008170943057" /></p>
+<h4 id="接口图">接口图</h4>
 <p>顶端有《interface》</p>
 <p>第一行是接口名称</p>
 <p>第二行是接口方法</p>
-<p><img loading="lazy" src="https://i.loli.net/2021/10/08/swc47SWfu9odF36.png" alt="image-20211008171626373"  />
-</p>
-<h4 id="继承">继承<a hidden class="anchor" aria-hidden="true" href="#继承">#</a></h4>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i.loli.net/2021/10/08/swc47SWfu9odF36.png"
+        data-srcset="https://i.loli.net/2021/10/08/swc47SWfu9odF36.png, https://i.loli.net/2021/10/08/swc47SWfu9odF36.png 1.5x, https://i.loli.net/2021/10/08/swc47SWfu9odF36.png 2x"
+        data-sizes="auto"
+        alt="https://i.loli.net/2021/10/08/swc47SWfu9odF36.png"
+        title="image-20211008171626373" /></p>
+<h4 id="继承">继承</h4>
 <p>空心三角形+实线来表示</p>
-<p><img loading="lazy" src="https://i.loli.net/2021/10/08/oYsBUELmpFWDraI.png" alt="image-20211008171717526"  />
-</p>
-<h4 id="接口">接口<a hidden class="anchor" aria-hidden="true" href="#接口">#</a></h4>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i.loli.net/2021/10/08/oYsBUELmpFWDraI.png"
+        data-srcset="https://i.loli.net/2021/10/08/oYsBUELmpFWDraI.png, https://i.loli.net/2021/10/08/oYsBUELmpFWDraI.png 1.5x, https://i.loli.net/2021/10/08/oYsBUELmpFWDraI.png 2x"
+        data-sizes="auto"
+        alt="https://i.loli.net/2021/10/08/oYsBUELmpFWDraI.png"
+        title="image-20211008171717526" /></p>
+<h4 id="接口">接口</h4>
 <p>空心三角形+虚线表示</p>
-<p><img loading="lazy" src="https://i.loli.net/2021/10/08/hpISznZJRecABNt.png" alt="image-20211008171946522"  />
-</p>
-<h4 id="关联">关联<a hidden class="anchor" aria-hidden="true" href="#关联">#</a></h4>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i.loli.net/2021/10/08/hpISznZJRecABNt.png"
+        data-srcset="https://i.loli.net/2021/10/08/hpISznZJRecABNt.png, https://i.loli.net/2021/10/08/hpISznZJRecABNt.png 1.5x, https://i.loli.net/2021/10/08/hpISznZJRecABNt.png 2x"
+        data-sizes="auto"
+        alt="https://i.loli.net/2021/10/08/hpISznZJRecABNt.png"
+        title="image-20211008171946522" /></p>
+<h4 id="关联">关联</h4>
 <p>放一个类知道另一个类时，实线箭头来表示</p>
-<pre><code>class Penguin : Bird{
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">class Penguin : Bird{
 	private Climate climate;
 }
-</code></pre><p><img loading="lazy" src="https://i.loli.net/2021/10/08/TBVYyQGwExFLD9W.png" alt="image-20211008172039252"  />
-</p>
-<h4 id="聚合">聚合<a hidden class="anchor" aria-hidden="true" href="#聚合">#</a></h4>
+</code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i.loli.net/2021/10/08/TBVYyQGwExFLD9W.png"
+        data-srcset="https://i.loli.net/2021/10/08/TBVYyQGwExFLD9W.png, https://i.loli.net/2021/10/08/TBVYyQGwExFLD9W.png 1.5x, https://i.loli.net/2021/10/08/TBVYyQGwExFLD9W.png 2x"
+        data-sizes="auto"
+        alt="https://i.loli.net/2021/10/08/TBVYyQGwExFLD9W.png"
+        title="image-20211008172039252" /></p>
+<h4 id="聚合">聚合</h4>
 <p><strong>&ldquo;聚合表示一种弱的 &lsquo;拥有&rsquo; 关系，体现的是A对象可以包含B对象，但B对象不是A对象的一部分&rdquo;</strong></p>
 <p>用空心的菱形+实线箭头来表示</p>
-<p><img loading="lazy" src="https://i.loli.net/2021/10/08/fc1w2oaymVUHriM.png" alt="image-20211008172407721"  />
-</p>
-<h4 id="合成">合成<a hidden class="anchor" aria-hidden="true" href="#合成">#</a></h4>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i.loli.net/2021/10/08/fc1w2oaymVUHriM.png"
+        data-srcset="https://i.loli.net/2021/10/08/fc1w2oaymVUHriM.png, https://i.loli.net/2021/10/08/fc1w2oaymVUHriM.png 1.5x, https://i.loli.net/2021/10/08/fc1w2oaymVUHriM.png 2x"
+        data-sizes="auto"
+        alt="https://i.loli.net/2021/10/08/fc1w2oaymVUHriM.png"
+        title="image-20211008172407721" /></p>
+<h4 id="合成">合成</h4>
 <p><strong>“合成（Composition，也有翻译成‘组合’的）是一种强的‘拥有’关系，体现了严格的部分和整体的关系，部分和整体的生命周期一样”</strong></p>
 <p>用实心的菱形+实线箭头表示</p>
-<p><img loading="lazy" src="https://i.loli.net/2021/10/08/rGONmtvPz4EVi9j.png" alt="image-20211008172738136"  />
-</p>
-<h4 id="依赖关系">依赖关系<a hidden class="anchor" aria-hidden="true" href="#依赖关系">#</a></h4>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i.loli.net/2021/10/08/rGONmtvPz4EVi9j.png"
+        data-srcset="https://i.loli.net/2021/10/08/rGONmtvPz4EVi9j.png, https://i.loli.net/2021/10/08/rGONmtvPz4EVi9j.png 1.5x, https://i.loli.net/2021/10/08/rGONmtvPz4EVi9j.png 2x"
+        data-sizes="auto"
+        alt="https://i.loli.net/2021/10/08/rGONmtvPz4EVi9j.png"
+        title="image-20211008172738136" /></p>
+<h4 id="依赖关系">依赖关系</h4>
 <p>虚线箭头表示</p>
-<p><img loading="lazy" src="https://i.loli.net/2021/10/08/1WVvkzxaEYTAtUc.png" alt="image-20211008172823700"  />
-</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i.loli.net/2021/10/08/1WVvkzxaEYTAtUc.png"
+        data-srcset="https://i.loli.net/2021/10/08/1WVvkzxaEYTAtUc.png, https://i.loli.net/2021/10/08/1WVvkzxaEYTAtUc.png 1.5x, https://i.loli.net/2021/10/08/1WVvkzxaEYTAtUc.png 2x"
+        data-sizes="auto"
+        alt="https://i.loli.net/2021/10/08/1WVvkzxaEYTAtUc.png"
+        title="image-20211008172823700" /></p>
 <p>2021.10.08</p>
-<h2 id="2策略模式">2.策略模式<a hidden class="anchor" aria-hidden="true" href="#2策略模式">#</a></h2>
+<h2 id="2策略模式">2.策略模式</h2>
 <p><strong>策略模式</strong>（Strategy）：它定义了 <strong>算法家族</strong> ，分别封装起来，让他们之间可以相互替换，此模式让算法的变化，不会影响到使用算法的客户。</p>
-<p><img loading="lazy" src="https://i.loli.net/2021/10/10/7kHJar8YvOnRmfD.jpg" alt="4935907e54f73452142b0f8cd3519a6"  />
-</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i.loli.net/2021/10/10/7kHJar8YvOnRmfD.jpg"
+        data-srcset="https://i.loli.net/2021/10/10/7kHJar8YvOnRmfD.jpg, https://i.loli.net/2021/10/10/7kHJar8YvOnRmfD.jpg 1.5x, https://i.loli.net/2021/10/10/7kHJar8YvOnRmfD.jpg 2x"
+        data-sizes="auto"
+        alt="https://i.loli.net/2021/10/10/7kHJar8YvOnRmfD.jpg"
+        title="4935907e54f73452142b0f8cd3519a6" /></p>
 <p>承担Strategy角色的一个类上定义所有支持的算法的公共接口，它的子类去实现各种不同的策略（算法）。</p>
 <p>然后创建一个Context类，里面创建维护一个Strategy对象，（初始化需要做的判断可以放在这里，简单工厂和策略模式的结合，减轻客户端的压力）在初始化Context类的时候需要传入Strategy参数，这里传入的应该是Strategy的子类也就是各种实际的策略。在ContextInterface()中用strategy去调用Strategy中的那个公共接口，最后得到响应策略（算法）的结果，返回给客户端。</p>
 <p>书本案例&mdash;市场促销</p>
-<p><img loading="lazy" src="https://i.loli.net/2021/10/10/cOLYq5BnjtXaA91.jpg" alt="a11de6923fd44929fef848cb1001cc9"  />
-</p>
-<pre><code>class CashContext{
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i.loli.net/2021/10/10/cOLYq5BnjtXaA91.jpg"
+        data-srcset="https://i.loli.net/2021/10/10/cOLYq5BnjtXaA91.jpg, https://i.loli.net/2021/10/10/cOLYq5BnjtXaA91.jpg 1.5x, https://i.loli.net/2021/10/10/cOLYq5BnjtXaA91.jpg 2x"
+        data-sizes="auto"
+        alt="https://i.loli.net/2021/10/10/cOLYq5BnjtXaA91.jpg"
+        title="a11de6923fd44929fef848cb1001cc9" /></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">class CashContext{
 	CashSuper cs = null;
 	public CashContext (string type){
-		case &quot;正常收费&quot;:
+		case &#34;正常收费&#34;:
 			CashNormal cs0 = new CashNormal();
 			cs = cs0;
 			break;
-		case &quot;满300返100&quot;:
-			CashNormal cr1 = new CashReturn(&quot;300&quot;,&quot;100&quot;);
+		case &#34;满300返100&#34;:
+			CashNormal cr1 = new CashReturn(&#34;300&#34;,&#34;100&#34;);
 			cs = cr1;
 			break;
-		case &quot;打8折&quot;:
-			CashNormal cr2 = new CashNormal(&quot;0.8&quot;);
+		case &#34;打8折&#34;:
+			CashNormal cr2 = new CashNormal(&#34;0.8&#34;);
 			cs = cr2;
 			break;
 	}
@@ -317,47 +350,100 @@ double result = oper.GetResult();
 		return cs.acceptCash(money);
 	}
 }
-</code></pre><pre><code>//客户端窗体程序(主要部分)
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">//客户端窗体程序(主要部分)
 doule total = 0.0d;
 private void btnOk_Click(Object sender,EvenArgs e){
 	CashContext csuper = new CashContext(cbxType.SelectedItem.ToString());
 	double totalPrices = 0d;
 	totalPrices = csuper.getResult(Conver.ToDouble(txtPrice.Text) * Convert.ToDouble(txtNum.Text));
 	total = total + totalPrices;
-	lbxList.Items.Add(&quot;单价&quot; + txtPrice.Text + &quot;数量&quot; + txtNum.Text + &quot; &quot; 
-				+ cbxType.SelectedItem + &quot; 合计：&quot; + totalPrices.ToString());
+	lbxList.Items.Add(&#34;单价&#34; + txtPrice.Text + &#34;数量&#34; + txtNum.Text + &#34; &#34; 
+				+ cbxType.SelectedItem + &#34; 合计：&#34; + totalPrices.ToString());
 	lblResult.Text = total.ToString();
 }
-</code></pre><p><img loading="lazy" src="https://i.loli.net/2021/10/10/ZwSdOQ4o5lfrJqj.jpg" alt="379505ecd1757b3ad430142ec19b24c"  />
-</p>
+</code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i.loli.net/2021/10/10/ZwSdOQ4o5lfrJqj.jpg"
+        data-srcset="https://i.loli.net/2021/10/10/ZwSdOQ4o5lfrJqj.jpg, https://i.loli.net/2021/10/10/ZwSdOQ4o5lfrJqj.jpg 1.5x, https://i.loli.net/2021/10/10/ZwSdOQ4o5lfrJqj.jpg 2x"
+        data-sizes="auto"
+        alt="https://i.loli.net/2021/10/10/ZwSdOQ4o5lfrJqj.jpg"
+        title="379505ecd1757b3ad430142ec19b24c" /></p>
 <p><strong>&ldquo;策略模式的Strategy类层次为Context定义了一系列的可供重用的算法或行为。继承有助于析取出这些算法中的公共功能&rdquo;</strong></p>
 <p><strong>&ldquo;上例子的公共功能就是获得计算费用的结果，GetResult，这使得算法之间有了抽象的父类CashSuper&rdquo;</strong></p>
 <p><strong>策略模式另一个优点就是简化了单元测试，因为每个算法都有自己的类，可以通过自己的接口单独测试</strong></p>
 <p><strong>策略模式就是用来封装算法的，只要在分析过程中听到需要在不同时间应用不同的业务规则，就可以考虑使用策略模式处理这种变化的可能性</strong></p>
-<h2 id="3单一职责原则">3.单一职责原则<a hidden class="anchor" aria-hidden="true" href="#3单一职责原则">#</a></h2>
+<h2 id="3单一职责原则">3.单一职责原则</h2>
 <p>&ldquo;如果一个类承担的职责过多，就等于把这些职责耦合在一起，一个职责的变化可能会削弱或者抑制这个类完成其他职责的能力。这种耦合会导致脆弱的设计，当变化发生时，设计会遭受到意想不到的破坏[ASD]&rdquo;</p>
 <p>&ldquo;软件设计真正要做的许多内容，就是发现职责并把那些职责相互分离。如果你能够想到多于一个的东西去改变一个类，那么这个类就具有多于一个的职责[ASD]&rdquo;</p>
-<h2 id="4开放-封闭原则">4.开放-封闭原则<a hidden class="anchor" aria-hidden="true" href="#4开放-封闭原则">#</a></h2>
+<h2 id="4开放-封闭原则">4.开放-封闭原则</h2>
 <p><strong>开放-封闭原则，是说软件实体(类、模块、函数等等)应该是可拓展，但是不可修改</strong></p>
 <p><strong>对于拓展是开放的(Open for extension)，对于更改是封闭的(Closed for modification)</strong></p>
 <p>在最初编写代码时，假设变化不会发生。当变化发生时，我们就创建抽象来隔离以后发生的同类变化。例如写个简单的加法程序，开始直接在client类中完成，但是得想到后来需要增加一些其他运算的功能，于是增加一个抽象的运算类，利用一些如继承，多态等来隔离具体加法、减法与client耦合，如后续要增加乘法除法功能，就不需要再去更改client以及加法减法的类了，而是增加乘法和除法的子类就好。</p>
 <p><strong>面对需求，对程序的改动是通过增加新代码进行的，而不是更改现有的代码。</strong></p>
-<h2 id="5依赖倒转原则">5.依赖倒转原则<a hidden class="anchor" aria-hidden="true" href="#5依赖倒转原则">#</a></h2>
+<h2 id="5依赖倒转原则">5.依赖倒转原则</h2>
 <p>抽象不应该依赖细节，细节应该依赖于抽象，说白了就是要对接口编程，不要对实现编程。</p>
 <p><strong>A.高层模块不应该依赖低层模块。两个都应该依赖抽象。</strong></p>
 <p><strong>B.抽象不应该依赖细节。细节应该依赖抽象。</strong></p>
 <p>高层模块依赖于低层模块，如果需要用不同数据库或存储信息方式，那么连高层模块都不能使用了。</p>
-<h3 id="里氏代换原则">#里氏代换原则<a hidden class="anchor" aria-hidden="true" href="#里氏代换原则">#</a></h3>
+<h3 id="里氏代换原则">#里氏代换原则</h3>
 <p>一个软件实体如果使用的是一个父类的话，那么一定适用于其子类，而且它察觉不出父类对象和子类对象的区别。也就是说，在软件里面，把父类都替换成它的子类，程序的行为没有变化，简单地说，子类型必须能够替换掉它们的父类型。</p>
 <p>只有当子类可以替换掉父类，软件单位的功能不受到影响时，父类才能真正被复用，而子类也能够在父类的基础上添加新的行为，也就是因为这个才使得使用父类类型的模块在无需修改的情况下就可以扩展。</p>
 <p>例如企鹅不能继承鸟类，虽然在生物学上企鹅是鸟类，但是在这说，企鹅不能飞，而鸟类指可以飞的，企鹅不能替换掉鸟类，所以不能继承。</p>
-<h2 id="6装饰模式">6.装饰模式<a hidden class="anchor" aria-hidden="true" href="#6装饰模式">#</a></h2>
+<h2 id="6装饰模式">6.装饰模式</h2>
 <p><strong>装饰模式，动态地给一个对象添加一些额外的职责，就增加功能来说，装饰模式比生成子类更为灵活。</strong></p>
-<p><img loading="lazy" src="https://i.loli.net/2021/10/14/wOahjmX9GV8ZiYc.jpg" alt="8b8618c25fa595dfe3ef000d8dba91e"  />
-</p>
-<p><img loading="lazy" src="https://i.loli.net/2021/10/14/pY8Gy4vnVegC7DI.jpg" alt="8125ccd8f32ad823fd1d3e5dc56d70f"  />
-</p>
-<pre><code>//Person类 ConcreteComponent
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i.loli.net/2021/10/14/wOahjmX9GV8ZiYc.jpg"
+        data-srcset="https://i.loli.net/2021/10/14/wOahjmX9GV8ZiYc.jpg, https://i.loli.net/2021/10/14/wOahjmX9GV8ZiYc.jpg 1.5x, https://i.loli.net/2021/10/14/wOahjmX9GV8ZiYc.jpg 2x"
+        data-sizes="auto"
+        alt="https://i.loli.net/2021/10/14/wOahjmX9GV8ZiYc.jpg"
+        title="8b8618c25fa595dfe3ef000d8dba91e" /></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i.loli.net/2021/10/14/pY8Gy4vnVegC7DI.jpg"
+        data-srcset="https://i.loli.net/2021/10/14/pY8Gy4vnVegC7DI.jpg, https://i.loli.net/2021/10/14/pY8Gy4vnVegC7DI.jpg 1.5x, https://i.loli.net/2021/10/14/pY8Gy4vnVegC7DI.jpg 2x"
+        data-sizes="auto"
+        alt="https://i.loli.net/2021/10/14/pY8Gy4vnVegC7DI.jpg"
+        title="8125ccd8f32ad823fd1d3e5dc56d70f" /></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">//Person类 ConcreteComponent
 
 class Preson{
 	public Person(){}
@@ -366,10 +452,30 @@ class Preson{
 		this.name = name;
 	}
 	public virtual void Show(){
-		Console.WriteLine(&quot;装扮的{0}&quot;,name);
+		Console.WriteLine(&#34;装扮的{0}&#34;,name);
 	}
 }
-</code></pre><pre><code>//服饰类(Decorate)
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">//服饰类(Decorate)
 
 class Finery : Person{
 	protected Person component;
@@ -383,25 +489,79 @@ class Finery : Person{
 		}
 	}
 }
-</code></pre><pre><code>//具体服饰类 (ConcreteDecorator)
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">//具体服饰类 (ConcreteDecorator)
 
 class TShirts : Finery{
 	public override void Show(){
-		Console.Write(&quot;大T恤&quot;);
+		Console.Write(&#34;大T恤&#34;);
 		base.Show();
 	}
 }
 class BigTrouser : Finery{
 	public override void Show(){
-		Console.Write(&quot;垮裤&quot;);
+		Console.Write(&#34;垮裤&#34;);
 		base.Show();
 	}
 }
 .....
 
-</code></pre><pre><code>static void Main(string[] args){
-	Person xc = new Person(&quot;小菜&quot;);
-	Console.WriteLine(&quot;\n第一种装扮:&quot;);
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">static void Main(string[] args){
+	Person xc = new Person(&#34;小菜&#34;);
+	Console.WriteLine(&#34;\n第一种装扮:&#34;);
 	
 	Sneakers pqx = new Sneakers();
 	BigTrouser kk = new BigTrouser();
@@ -412,7 +572,7 @@ class BigTrouser : Finery{
 	dtx.Decorate(kk);
 	dtx.show;
 	
-	Console.WriteLine(&quot;\n第二种装扮&quot;);
+	Console.WriteLine(&#34;\n第二种装扮&#34;);
 	
 	LeatherShoes px = new LeatherShoes();
 	Tie ld = new Tie();
@@ -425,106 +585,78 @@ class BigTrouser : Finery{
 	
 	Console.Read();
 }
-</code></pre><p>装饰模式是为已有功能动态地添加更多功能的一种方式,系统需要新的功能的时候,是向旧的类中添加新的代码,这些代码通常装饰了原有类的核心职责或主要行为,例如要添加领带ld,也保留了原来的小菜xc和皮鞋px.</p>
+</code></pre></td></tr></table>
+</div>
+</div><p>装饰模式是为已有功能动态地添加更多功能的一种方式,系统需要新的功能的时候,是向旧的类中添加新的代码,这些代码通常装饰了原有类的核心职责或主要行为,例如要添加领带ld,也保留了原来的小菜xc和皮鞋px.</p>
 <p><strong>有效地把类的核心职责和装饰功能区分开了，而且可以去除相关类中重复的装饰逻辑</strong></p>
-<h2 id="7代理模式">7.代理模式<a hidden class="anchor" aria-hidden="true" href="#7代理模式">#</a></h2>
+<h2 id="7代理模式">7.代理模式</h2>
 <p><strong>代理模式，为其他对象提供一种代理以控制对这个对象的访问</strong></p>
-<p><img loading="lazy" src="https://i.loli.net/2021/10/14/BIaoJKk197A6Fec.jpg" alt="f1ddfd24be4c0687ac682c58e3e708a"  />
-</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i.loli.net/2021/10/14/BIaoJKk197A6Fec.jpg"
+        data-srcset="https://i.loli.net/2021/10/14/BIaoJKk197A6Fec.jpg, https://i.loli.net/2021/10/14/BIaoJKk197A6Fec.jpg 1.5x, https://i.loli.net/2021/10/14/BIaoJKk197A6Fec.jpg 2x"
+        data-sizes="auto"
+        alt="https://i.loli.net/2021/10/14/BIaoJKk197A6Fec.jpg"
+        title="f1ddfd24be4c0687ac682c58e3e708a" /></p>
 <p>![f1ddfd24be4c0687ac682c58e3e708a](<a href="https://i.loli.net/2021/10/14/BIaoJKk197A6Fec.jpg">https://i.loli.net/2021/10/14/BIaoJKk197A6Fec.jpg</a></p>
-<p><img loading="lazy" src="https://i.loli.net/2021/10/14/mFfQbhlxtdekACN.jpg" alt="b9099e122c0362ffa3f0cb9b490ec06"  />
-</p>
-<p><img loading="lazy" src="https://i.loli.net/2021/10/14/TpjixSEchnWwYFI.jpg" alt="7543a771966034a8c88a89123fdb878"  />
-</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i.loli.net/2021/10/14/mFfQbhlxtdekACN.jpg"
+        data-srcset="https://i.loli.net/2021/10/14/mFfQbhlxtdekACN.jpg, https://i.loli.net/2021/10/14/mFfQbhlxtdekACN.jpg 1.5x, https://i.loli.net/2021/10/14/mFfQbhlxtdekACN.jpg 2x"
+        data-sizes="auto"
+        alt="https://i.loli.net/2021/10/14/mFfQbhlxtdekACN.jpg"
+        title="b9099e122c0362ffa3f0cb9b490ec06" /></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i.loli.net/2021/10/14/TpjixSEchnWwYFI.jpg"
+        data-srcset="https://i.loli.net/2021/10/14/TpjixSEchnWwYFI.jpg, https://i.loli.net/2021/10/14/TpjixSEchnWwYFI.jpg 1.5x, https://i.loli.net/2021/10/14/TpjixSEchnWwYFI.jpg 2x"
+        data-sizes="auto"
+        alt="https://i.loli.net/2021/10/14/TpjixSEchnWwYFI.jpg"
+        title="7543a771966034a8c88a89123fdb878" /></p>
 <p>//案例</p>
-<p><img loading="lazy" src="https://i.loli.net/2021/10/14/YjDke6bKTJsiofg.jpg" alt="1ec145ef1a8126aca82166d307dd0e1"  />
-</p>
-<p><img loading="lazy" src="https://i.loli.net/2021/10/14/3IqVQNMnY7pUltH.jpg" alt="d94db0e86b7312c76368e3738f245e2"  />
-</p>
-<p><img loading="lazy" src="https://i.loli.net/2021/10/14/r8tADLTXngYzvGM.jpg" alt="4e222ddc7cc87d471ab3464d98cdbe3"  />
-</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i.loli.net/2021/10/14/YjDke6bKTJsiofg.jpg"
+        data-srcset="https://i.loli.net/2021/10/14/YjDke6bKTJsiofg.jpg, https://i.loli.net/2021/10/14/YjDke6bKTJsiofg.jpg 1.5x, https://i.loli.net/2021/10/14/YjDke6bKTJsiofg.jpg 2x"
+        data-sizes="auto"
+        alt="https://i.loli.net/2021/10/14/YjDke6bKTJsiofg.jpg"
+        title="1ec145ef1a8126aca82166d307dd0e1" /></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i.loli.net/2021/10/14/3IqVQNMnY7pUltH.jpg"
+        data-srcset="https://i.loli.net/2021/10/14/3IqVQNMnY7pUltH.jpg, https://i.loli.net/2021/10/14/3IqVQNMnY7pUltH.jpg 1.5x, https://i.loli.net/2021/10/14/3IqVQNMnY7pUltH.jpg 2x"
+        data-sizes="auto"
+        alt="https://i.loli.net/2021/10/14/3IqVQNMnY7pUltH.jpg"
+        title="d94db0e86b7312c76368e3738f245e2" /></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i.loli.net/2021/10/14/r8tADLTXngYzvGM.jpg"
+        data-srcset="https://i.loli.net/2021/10/14/r8tADLTXngYzvGM.jpg, https://i.loli.net/2021/10/14/r8tADLTXngYzvGM.jpg 1.5x, https://i.loli.net/2021/10/14/r8tADLTXngYzvGM.jpg 2x"
+        data-sizes="auto"
+        alt="https://i.loli.net/2021/10/14/r8tADLTXngYzvGM.jpg"
+        title="4e222ddc7cc87d471ab3464d98cdbe3" /></p>
 <p><strong>1，远程代理，也就是为了一个对象在不同的地址空间提供局部代表。这样可以隐藏一个对象存在于不同地址空间的试试。</strong></p>
 <p><strong>2，虚拟代理，是根据需要创建开销很大的对象。通过它来存放实例化需要很长时间的真实对象</strong></p>
 <p><strong>3，安全代理，用来控制真实对象访问时的权限</strong></p>
 <p><strong>4，智能指引，是指当调用真实的对象时，代理处理另外一些事。</strong></p>
-<h2 id="8工厂方法模式">8.工厂方法模式<a hidden class="anchor" aria-hidden="true" href="#8工厂方法模式">#</a></h2>
+<h2 id="8工厂方法模式">8.工厂方法模式</h2>
+</div><div id="comments"></div></div></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.70.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">JoyBoy</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
 
-
-  </div>
-
-  <footer class="post-footer">
-  </footer>
-</article>
-    </main>
-    
-<footer class="footer">
-    <span>&copy; 2022 <a href="https://zyooo.github.io/">JoyBoy</a></span>
-    <span>
-        Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
-    </span>
-</footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
-    </svg>
-</a>
-
-<script>
-    let menu = document.getElementById('menu')
-    if (menu) {
-        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
-        menu.onscroll = function () {
-            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
-        }
-    }
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = this.getAttribute("href").substr(1);
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                    behavior: "smooth"
-                });
-            } else {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
-            }
-            if (id === "top") {
-                history.replaceState(null, null, " ");
-            } else {
-                history.pushState(null, null, `#${id}`);
-            }
-        });
-    });
-
-</script>
-<script>
-    var mybutton = document.getElementById("top-link");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
-        } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
-        }
-    };
-
-</script>
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            document.body.classList.add('dark');
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
-
-</script>
-</body>
-
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/typeit/typeit.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>

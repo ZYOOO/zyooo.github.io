@@ -1,309 +1,150 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
-
-<head><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
-<title>Tomcat | JoyBoy</title>
-<meta name="keywords" content="" />
-<meta name="description" content="修改Tomcat的默认端口和启动项目 修改默认端口 1.首先查看80端口是否被占用
-netstat -lntp | grep 80 2.进入tomcat安装目录下的conf文件夹修改server.xml文件
-将端口修改为80
-但是这个时候输入netstat -lntp | grep 80 查看发现只监听了 127.0.0.1:80 没有打开:::80,也就是0.0.0.0:80
-导致外部无法访问80端口,最后重启了云服务器之后在查看发现可以了.
-修改默认启动项目 在host下面添加 context的内容,docBase就是项目路径名称,默认的绝对路径是上面配置的name和appBase">
-<meta name="author" content="JoyBoy">
-<link rel="canonical" href="https://zyooo.github.io/bugs/tomcat/" />
-<link crossorigin="anonymous" href="/assets/css/stylesheet.min.61dfb3f0b4cda95d2ccb867f9a3b244ce5d23e12492bcc3c277df594c7bc1adf.css" integrity="sha256-Yd&#43;z8LTNqV0sy4Z/mjskTOXSPhJJK8w8J331lMe8Gt8=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://zyooo.github.io/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://zyooo.github.io/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://zyooo.github.io/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://zyooo.github.io/apple-touch-icon.png">
-<link rel="mask-icon" href="https://zyooo.github.io/safari-pinned-tab.svg">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.70.0" />
-<noscript>
-    <style>
-        #theme-toggle,
-        .top-link {
-            display: none;
-        }
-
-    </style>
-    <style>
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --theme: rgb(29, 30, 32);
-                --entry: rgb(46, 46, 51);
-                --primary: rgb(218, 218, 219);
-                --secondary: rgb(155, 156, 157);
-                --tertiary: rgb(65, 66, 68);
-                --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
-                --code-bg: rgb(55, 56, 62);
-                --border: rgb(51, 51, 51);
-            }
-
-            .list {
-                background: var(--theme);
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
-            }
-        }
-
-    </style>
-</noscript><meta property="og:title" content="Tomcat" />
-<meta property="og:description" content="修改Tomcat的默认端口和启动项目 修改默认端口 1.首先查看80端口是否被占用
-netstat -lntp | grep 80 2.进入tomcat安装目录下的conf文件夹修改server.xml文件
-将端口修改为80
-但是这个时候输入netstat -lntp | grep 80 查看发现只监听了 127.0.0.1:80 没有打开:::80,也就是0.0.0.0:80
-导致外部无法访问80端口,最后重启了云服务器之后在查看发现可以了.
-修改默认启动项目 在host下面添加 context的内容,docBase就是项目路径名称,默认的绝对路径是上面配置的name和appBase" />
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Tomcat - JoyBoy&#39;s blog</title><meta name="Description" content="享受学习的过程"><meta property="og:title" content="Tomcat" />
+<meta property="og:description" content="修改Tomcat的默认端口和启动项目 修改默认端口 1.首先查看80端口是否被占用 1 netstat -lntp | grep 80 2.进入tomcat安装目录下的conf文件夹修改" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://zyooo.github.io/bugs/tomcat/" /><meta property="article:section" content="Bugs" />
-<meta property="article:published_time" content="2021-11-10T17:16:39&#43;08:00" />
-<meta property="article:modified_time" content="2021-11-10T17:16:39&#43;08:00" />
+<meta property="og:url" content="https://zyooo.github.io/bugs/tomcat/" />
+<meta property="og:image" content="https://zyooo.github.io/logo.png"/>
+<meta property="article:published_time" content="2021-11-10T17:16:39+08:00" />
+<meta property="article:modified_time" content="2021-11-10T17:16:39+08:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://zyooo.github.io/logo.png"/>
 
-<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Tomcat"/>
-<meta name="twitter:description" content="修改Tomcat的默认端口和启动项目 修改默认端口 1.首先查看80端口是否被占用
-netstat -lntp | grep 80 2.进入tomcat安装目录下的conf文件夹修改server.xml文件
-将端口修改为80
-但是这个时候输入netstat -lntp | grep 80 查看发现只监听了 127.0.0.1:80 没有打开:::80,也就是0.0.0.0:80
-导致外部无法访问80端口,最后重启了云服务器之后在查看发现可以了.
-修改默认启动项目 在host下面添加 context的内容,docBase就是项目路径名称,默认的绝对路径是上面配置的name和appBase"/>
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [, 
+<meta name="twitter:description" content="修改Tomcat的默认端口和启动项目 修改默认端口 1.首先查看80端口是否被占用 1 netstat -lntp | grep 80 2.进入tomcat安装目录下的conf文件夹修改"/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://zyooo.github.io/bugs/tomcat/" /><link rel="prev" href="https://zyooo.github.io/bugs/cmd%E4%B8%ADmvn_compile%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
     {
-      "@type": "ListItem",
-      "position":  2 ,
-      "name": "Tomcat",
-      "item": "https://zyooo.github.io/bugs/tomcat/"
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Tomcat",
+        "inLanguage": "en-us",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/zyooo.github.io\/bugs\/tomcat\/"
+        },"genre": "Bugs","wordcount":  243 ,
+        "url": "https:\/\/zyooo.github.io\/bugs\/tomcat\/","datePublished": "2021-11-10T17:16:39+08:00","dateModified": "2021-11-10T17:16:39+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "JoyBoy"
+            },"description": ""
     }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Tomcat",
-  "name": "Tomcat",
-  "description": "修改Tomcat的默认端口和启动项目 修改默认端口 1.首先查看80端口是否被占用\nnetstat -lntp | grep 80 2.进入tomcat安装目录下的conf文件夹修改server.xml文件\n将端口修改为80\n但是这个时候输入netstat -lntp | grep 80 查看发现只监听了 127.0.0.1:80 没有打开:::80,也就是0.0.0.0:80\n导致外部无法访问80端口,最后重启了云服务器之后在查看发现可以了.\n修改默认启动项目 在host下面添加 context的内容,docBase就是项目路径名称,默认的绝对路径是上面配置的name和appBase",
-  "keywords": [
-    
-  ],
-  "articleBody": "修改Tomcat的默认端口和启动项目 修改默认端口 1.首先查看80端口是否被占用\nnetstat -lntp | grep 80 2.进入tomcat安装目录下的conf文件夹修改server.xml文件\n将端口修改为80\n但是这个时候输入netstat -lntp | grep 80 查看发现只监听了 127.0.0.1:80 没有打开:::80,也就是0.0.0.0:80\n导致外部无法访问80端口,最后重启了云服务器之后在查看发现可以了.\n修改默认启动项目 在host下面添加 context的内容,docBase就是项目路径名称,默认的绝对路径是上面配置的name和appBase\n",
-  "wordCount" : "22",
-  "inLanguage": "en",
-  "datePublished": "2021-11-10T17:16:39+08:00",
-  "dateModified": "2021-11-10T17:16:39+08:00",
-  "author":{
-    "@type": "Person",
-    "name": "JoyBoy"
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://zyooo.github.io/bugs/tomcat/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "JoyBoy",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://zyooo.github.io/favicon.ico"
-    }
-  }
-}
-</script>
-</head>
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
 
-<body class="" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
-
-</script>
-
-<header class="header">
-    <nav class="nav">
-        <div class="logo">
-            <a href="https://zyooo.github.io/" accesskey="h" title="JoyBoy (Alt + H)">JoyBoy</a>
-            <span class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                </button>
-            </span>
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="JoyBoy&#39;s blog"><span id="id-1" class="typeit"></span></a>
         </div>
-        <ul id="menu">
-            <li>
-                <a href="https://zyooo.github.io/note/" title="NOTE">
-                    <span>NOTE</span>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/note/"> NOTE </a><a class="menu-item" href="/leetcodedairy/"> LeetCodeDairy </a><a class="menu-item" href="/bugs/"> Bugs </a><a class="menu-item" href="/javadairy/"> JavaDairy </a><a class="menu-item" href="/golangdairy/"> GolangDairy </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
                 </a>
-            </li>
-            <li>
-                <a href="https://zyooo.github.io/leetcodedairy/" title="LeetCodeDairy">
-                    <span>LeetCodeDairy</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://zyooo.github.io/bugs/" title="Bugs">
-                    <span>Bugs</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://zyooo.github.io/javadairy/" title="JavaDairy">
-                    <span>JavaDairy</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://zyooo.github.io/golangdairy/" title="GolangDairy">
-                    <span>GolangDairy</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="JoyBoy&#39;s blog"><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/note/" title="">NOTE</a><a class="menu-item" href="/leetcodedairy/" title="">LeetCodeDairy</a><a class="menu-item" href="/bugs/" title="">Bugs</a><a class="menu-item" href="/javadairy/" title="">JavaDairy</a><a class="menu-item" href="/golangdairy/" title="">GolangDairy</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
 </header>
-<main class="main">
-
-<article class="post-single">
-  <header class="post-header">
-    
-    <h1 class="post-title">
-      Tomcat<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
-    </h1>
-    <div class="post-meta"><span title='2021-11-10 17:16:39 +0800 CST'>November 10, 2021</span>&nbsp;·&nbsp;JoyBoy
-
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
 </div>
-  </header> 
-  <div class="post-content"><h2 id="修改tomcat的默认端口和启动项目">修改Tomcat的默认端口和启动项目<a hidden class="anchor" aria-hidden="true" href="#修改tomcat的默认端口和启动项目">#</a></h2>
-<h3 id="修改默认端口">修改默认端口<a hidden class="anchor" aria-hidden="true" href="#修改默认端口">#</a></h3>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="page single special"><h1 class="single-title animated pulse faster">Tomcat</h1><div class="content" id="content"><h2 id="修改tomcat的默认端口和启动项目">修改Tomcat的默认端口和启动项目</h2>
+<h3 id="修改默认端口">修改默认端口</h3>
 <p>1.首先查看80端口是否被占用</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">netstat <span style="color:#f92672">-</span>lntp <span style="color:#f92672">|</span> grep 80
-</code></pre></div><p>2.进入tomcat安装目录下的conf文件夹修改server.xml文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">netstat</span> <span class="o">-</span><span class="n">lntp</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">80</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>2.进入tomcat安装目录下的conf文件夹修改server.xml文件</p>
 <p>将端口修改为80</p>
-<p><img loading="lazy" src="https://i.loli.net/2021/11/10/jzU1WfCoY3kuy4S.png" alt="image-20211110215912362"  />
-</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i.loli.net/2021/11/10/jzU1WfCoY3kuy4S.png"
+        data-srcset="https://i.loli.net/2021/11/10/jzU1WfCoY3kuy4S.png, https://i.loli.net/2021/11/10/jzU1WfCoY3kuy4S.png 1.5x, https://i.loli.net/2021/11/10/jzU1WfCoY3kuy4S.png 2x"
+        data-sizes="auto"
+        alt="https://i.loli.net/2021/11/10/jzU1WfCoY3kuy4S.png"
+        title="image-20211110215912362" /></p>
 <p>但是这个时候输入netstat -lntp | grep 80 查看发现只监听了 127.0.0.1:80 没有打开:::80,也就是0.0.0.0:80</p>
 <p>导致外部无法访问80端口,最后重启了云服务器之后在查看发现可以了.</p>
-<h3 id="修改默认启动项目">修改默认启动项目<a hidden class="anchor" aria-hidden="true" href="#修改默认启动项目">#</a></h3>
+<h3 id="修改默认启动项目">修改默认启动项目</h3>
 <p>在host下面添加 context的内容,docBase就是项目路径名称,默认的绝对路径是上面配置的name和appBase</p>
-<p><img loading="lazy" src="https://i.loli.net/2021/11/10/hpOXobgnI8VUPAY.png" alt="image-20211110220143155"  />
-</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://i.loli.net/2021/11/10/hpOXobgnI8VUPAY.png"
+        data-srcset="https://i.loli.net/2021/11/10/hpOXobgnI8VUPAY.png, https://i.loli.net/2021/11/10/hpOXobgnI8VUPAY.png 1.5x, https://i.loli.net/2021/11/10/hpOXobgnI8VUPAY.png 2x"
+        data-sizes="auto"
+        alt="https://i.loli.net/2021/11/10/hpOXobgnI8VUPAY.png"
+        title="image-20211110220143155" /></p>
+</div><div id="comments"></div></div></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.70.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">JoyBoy</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
 
-
-  </div>
-
-  <footer class="post-footer">
-  </footer>
-</article>
-    </main>
-    
-<footer class="footer">
-    <span>&copy; 2022 <a href="https://zyooo.github.io/">JoyBoy</a></span>
-    <span>
-        Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
-    </span>
-</footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
-    </svg>
-</a>
-
-<script>
-    let menu = document.getElementById('menu')
-    if (menu) {
-        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
-        menu.onscroll = function () {
-            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
-        }
-    }
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = this.getAttribute("href").substr(1);
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                    behavior: "smooth"
-                });
-            } else {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
-            }
-            if (id === "top") {
-                history.replaceState(null, null, " ");
-            } else {
-                history.pushState(null, null, `#${id}`);
-            }
-        });
-    });
-
-</script>
-<script>
-    var mybutton = document.getElementById("top-link");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
-        } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
-        }
-    };
-
-</script>
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            document.body.classList.add('dark');
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
-
-</script>
-</body>
-
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/typeit/typeit.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>

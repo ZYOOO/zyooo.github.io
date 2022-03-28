@@ -1,21 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>GolangDairies on JoyBoy</title>
+    <title>GolangDairies on JoyBoy&#39;s blog</title>
     <link>https://zyooo.github.io/golangdairy/</link>
-    <description>Recent content in GolangDairies on JoyBoy</description>
+    <description>Recent content in GolangDairies on JoyBoy&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 30 Dec 2021 16:13:04 +0800</lastBuildDate><atom:link href="https://zyooo.github.io/golangdairy/index.xml" rel="self" type="application/rss+xml" />
+    <managingEditor>zyooooo@126.com (JoyBoy)</managingEditor>
+    <webMaster>zyooooo@126.com (JoyBoy)</webMaster>
+    <lastBuildDate>Thu, 30 Dec 2021 16:13:04 +0800</lastBuildDate>
+    
+	<atom:link href="https://zyooo.github.io/golangdairy/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>Go_Day1</title>
       <link>https://zyooo.github.io/golangdairy/go_day1/</link>
       <pubDate>Thu, 30 Dec 2021 16:13:04 +0800</pubDate>
-      
+      <author>zyooooo@126.com (JoyBoy)</author>
       <guid>https://zyooo.github.io/golangdairy/go_day1/</guid>
-      <description>Hello, golang! Hello world package main //有main函数的话这里一定要有main  import &amp;#34;fmt&amp;#34; //一个项目一个main函数，和c一样，与java不同 func main() { fmt.Println(&amp;#34;Hello,World!&amp;#34;) fmt.Println(&amp;#34;Hello golang&amp;#34;) } 标识符 老规矩，不能数字开头、不能关键字、不能含运算符。
-关键字    break default func interface select     case defer go map struct   chan else goto package switch   const fallthrough if range type   continue for import return var    除了以上介绍的这些关键字，Go 语言还有 36 个预定义标识符：
-   append bool byte cap close complex complex64 complex128 uint16     copy false float32 float64 imag int int8 int16 uint32   int32 int64 iota len make new nil panic uint64   print println real recover string true uint uint8 uintptr    空格 变量的声明必须使用空格隔开</description>
+      <description>Hello, golang! Hello world 1 2 3 4 5 6 7 8 9 10 package main //有main函数的话这里一定要有main import &amp;#34;fmt&amp;#34; //一个项目一个main函数，和c一样，与java不同 func main() { fmt.Println(&amp;#34;Hello,World!&amp;#34;)</description>
     </item>
     
   </channel>
