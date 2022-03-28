@@ -126,26 +126,6 @@ class Solution { public String dayOfTheWeek(int day, int month, int year) { Stri
     </item>
     
     <item>
-      <title>GoToSea</title>
-      <link>https://zyooo.github.io/note/gotosea/</link>
-      <pubDate>Thu, 30 Dec 2021 16:29:46 +0800</pubDate>
-      
-      <guid>https://zyooo.github.io/note/gotosea/</guid>
-      <description>下海计划 Plan A 转Go，实现项目产出；
-项目小demo：尚硅谷上面的一些，之后在自己去找一些，尚硅谷上面也有一些go的数据结构算法。
-八股文：计算机网络、操作系统、数据库、语言（go）、其他（redis、设计模式、容器、linux）；
-八股快速上手直接看面经，参考师兄的笔记和面经：
-​	笔记：https://www.yuque.com/books/share/e3d14e92-6bad-436a-96e0-5a024809d9be?#
-​	面经：https://www.nowcoder.com/discuss/665699?source_id=profile_create_nctrack&amp;amp;channel=-1
-刷题：牛客和力扣。
-算法学习找个go语言版本的算法书籍或者学习笔记跟着刷题。
-计划冲刺时间：2022年1-3月，四月份要去生产实习，4月24号回来，尽量在四月份前拿到offer，商量实习时间，争取转正，要到秋招的时候如果还没转正，准备一手秋招，好的实习可以作为跳板。
-go的学习：b站上面找视频和项目，了解了生态之后再深入常用的架构和框架，注意做笔记，持续学习。
-广州大厂：微信、网易、唯品会、字节跳动、百度等
-PlanB All in plan A.</description>
-    </item>
-    
-    <item>
       <title>Go_Day1</title>
       <link>https://zyooo.github.io/golangdairy/go_day1/</link>
       <pubDate>Thu, 30 Dec 2021 16:13:04 +0800</pubDate>
