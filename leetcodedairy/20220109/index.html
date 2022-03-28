@@ -1,498 +1,531 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="robots" content="noodp" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-        <title>2022-01-09 - JoyBoy&#39;s blog</title><meta name="Description" content="JoyBoy&#39;s blog"><meta property="og:title" content="2022-01-09" />
-<meta property="og:description" content="田忌赛马,打不过就送人头 代码逻辑 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 n := len(nums1) sort.Ints(nums1) //田忌的" />
+<html
+  lang="en"
+  dir="ltr"
+  
+><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>2022-01-09 | JoyBoy&#39;s blog</title>
+
+<meta name="generator" content="Hugo Eureka 0.9.1" />
+<link rel="stylesheet" href="https://zyooo.github.io/css/eureka.min.6a378a23360d238dc3ef4df2f5cd718093f02c10c9c7eb2437c29701cd8d389ab6da5d9f21bdd3afa305fd56c1235017.css" integrity="sha384-ajeKIzYNI43D703y9c1xgJPwLBDJx&#43;skN8KXAc2NOJq22l2fIb3Tr6MF/VbBI1AX">
+<script defer src="https://zyooo.github.io/js/eureka.min.f1639ee98d6cbd85b2b5f034d27320da962002ff83159ed4e01dbc5948c42a1ab26c2d6e74c66e93f5cec4d24dbd166d.js" integrity="sha384-8WOe6Y1svYWytfA00nMg2pYgAv&#43;DFZ7U4B28WUjEKhqybC1udMZuk/XOxNJNvRZt"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/solarized-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/dart.min.js"
+     crossorigin></script>
+
+
+<script defer type="text/javascript" src="https://zyooo.github.io/js/fontawesome.min.1c5a4674b042785ed214cf0818a81724c6b37442fd61b0ed039237b93de25ed5103fc8079a05770648ccc9c66c4f540a.js" integrity="sha384-HFpGdLBCeF7SFM8IGKgXJMazdEL9YbDtA5I3uT3iXtUQP8gHmgV3BkjMycZsT1QK"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
+   integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" 
+  integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js"
+   integrity="sha384-&#43;XBljXPPiv&#43;OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.14.0/dist/mermaid.min.js" 
+  integrity="sha384-atOyb0FxAgN9LyAc6PEf9BjgwLISyansgdH8/VXQH8p2o5vfrRgmGIJ2Sg22L0A0"  crossorigin></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="https://zyooo.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://zyooo.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="田忌赛马,打不过就送人头 代码逻辑
+n := len(nums1) sort.Ints(nums1) //田忌的马 sort.Ints(nums2) //齐王的马 for i := n-1; i &gt;= 0; i-- { if nums1[i] &gt; nums2[i] { //比得过跟他比 } else { //比不过,换的垫底的来送人头 } } int[] advantageCount(int[] nums1, int[] nums2) { int n = nums1.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"LeetCodeDairies",
+      "item":"https://zyooo.github.io/leetcodedairy/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"2022-01-09",
+      "item":"https://zyooo.github.io/leetcodedairy/20220109/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://zyooo.github.io/leetcodedairy/20220109/"
+    },
+    "headline": "2022-01-09 | JoyBoy\u0027s blog","datePublished": "2022-01-09T20:34:58+08:00",
+    "dateModified": "2022-01-09T20:34:58+08:00",
+    "wordCount":  624 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "ZhangYong",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://zyooo.github.io/images/avatar.png"
+        }
+        },
+    "description": "田忌赛马,打不过就送人头 代码逻辑\nn := len(nums1) sort.Ints(nums1) \/\/田忌的马 sort.Ints(nums2) \/\/齐王的马 for i := n-1; i \u0026gt;= 0; i-- { if nums1[i] \u0026gt; nums2[i] { \/\/比得过跟他比 } else { \/\/比不过,换的垫底的来送人头 } } int[] advantageCount(int[] nums1, int[] nums2) { int n = nums1."
+}
+</script><meta property="og:title" content="2022-01-09 | JoyBoy&#39;s blog" />
 <meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="https://zyooo.github.io/images/icon.png">
+
+
 <meta property="og:url" content="https://zyooo.github.io/leetcodedairy/20220109/" />
-<meta property="og:image" content="https://zyooo.github.io/logo.png"/>
-<meta property="article:published_time" content="2022-01-09T20:34:58+08:00" />
-<meta property="article:modified_time" content="2022-01-09T20:34:58+08:00" />
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://zyooo.github.io/logo.png"/>
 
-<meta name="twitter:title" content="2022-01-09"/>
-<meta name="twitter:description" content="田忌赛马,打不过就送人头 代码逻辑 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 n := len(nums1) sort.Ints(nums1) //田忌的"/>
-<meta name="application-name" content="LoveIt">
-<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://zyooo.github.io/leetcodedairy/20220109/" /><link rel="prev" href="https://zyooo.github.io/leetcodedairy/20220108/" /><link rel="next" href="https://zyooo.github.io/leetcodedairy/20220208/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
-    {
-        "@context": "http://schema.org",
-        "@type": "BlogPosting",
-        "headline": "2022-01-09",
-        "inLanguage": "en",
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https:\/\/zyooo.github.io\/leetcodedairy\/20220109\/"
-        },"genre": "LeetCodeDairy","wordcount":  1255 ,
-        "url": "https:\/\/zyooo.github.io\/leetcodedairy\/20220109\/","datePublished": "2022-01-09T20:34:58+08:00","dateModified": "2022-01-09T20:34:58+08:00","publisher": {
-            "@type": "Organization",
-            "name": ""},"author": {
-                "@type": "Person",
-                "name": "JoyBoy"
-            },"description": ""
+
+
+
+<meta property="og:description" content="田忌赛马,打不过就送人头 代码逻辑
+n := len(nums1) sort.Ints(nums1) //田忌的马 sort.Ints(nums2) //齐王的马 for i := n-1; i &gt;= 0; i-- { if nums1[i] &gt; nums2[i] { //比得过跟他比 } else { //比不过,换的垫底的来送人头 } } int[] advantageCount(int[] nums1, int[] nums2) { int n = nums1." />
+
+
+
+
+<meta property="og:locale" content="en" />
+
+
+
+
+<meta property="og:site_name" content="JoyBoy&#39;s blog" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2022-01-09T20:34:58&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2022-01-09T20:34:58&#43;08:00" />
+
+
+
+<meta property="article:section" content="LeetCodeDairy" />
+
+
+
+
+
+  <body class="flex min-h-screen flex-col">
+    <header
+      class="min-h-16 pl-scrollbar bg-secondary-bg fixed z-50 flex w-full items-center shadow-sm"
+    >
+      <div class="mx-auto w-full max-w-screen-xl"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
     }
-    </script></head>
-    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="me-6 text-primary-text text-xl font-bold">JoyBoy&#39;s blog</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
 
-        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
-    <div class="header-wrapper">
-        <div class="header-title">
-            <a href="/" title="JoyBoy&#39;s blog">JoyBoy&#39;s blog</a>
+    <div id="target"
+        class="hidden block md:flex md:grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">About</a>
+            <a href="/note/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">Notes</a>
+            <a href="/leetcodedairy/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  me-4">LeetCodeDairy</a>
+            <a href="/javadairy/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">JavaDairy</a>
+            <a href="/golangdairy/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">GolangDairy</a>
+            <a href="/bugs/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">Bugs</a>
         </div>
-        <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/note/"> NOTE </a><a class="menu-item" href="/leetcodedairy/"> LeetCodeDairy </a><a class="menu-item" href="/bugs/"> Bugs </a><a class="menu-item" href="/javadairy/"> JavaDairy </a><a class="menu-item" href="/golangdairy/"> GolangDairy </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
-                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
-                            <i class="fas fa-search fa-fw"></i>
-                        </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
-                            <i class="fas fa-times-circle fa-fw"></i>
-                        </a>
-                        <span class="search-button search-loading" id="search-loading-desktop">
-                            <i class="fas fa-spinner fa-fw fa-spin"></i>
-                        </span>
-                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
-                    <i class="fas fa-adjust fa-fw"></i>
-                </a>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col start-0 md:start-auto end-auto md:end-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">Auto</span>
+                </div>
             </div>
         </div>
     </div>
-</header><header class="mobile" id="header-mobile">
-    <div class="header-container">
-        <div class="header-wrapper">
-            <div class="header-title">
-                <a href="/" title="JoyBoy&#39;s blog">JoyBoy&#39;s blog</a>
-            </div>
-            <div class="menu-toggle" id="menu-toggle-mobile">
-                <span></span><span></span><span></span>
-            </div>
-        </div>
-        <div class="menu" id="menu-mobile"><div class="search-wrapper">
-                    <div class="search mobile" id="search-mobile">
-                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
-                            <i class="fas fa-search fa-fw"></i>
-                        </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
-                            <i class="fas fa-times-circle fa-fw"></i>
-                        </a>
-                        <span class="search-button search-loading" id="search-loading-mobile">
-                            <i class="fas fa-spinner fa-fw fa-spin"></i>
-                        </span>
-                    </div>
-                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
-                        Cancel
-                    </a>
-                </div><a class="menu-item" href="/note/" title="">NOTE</a><a class="menu-item" href="/leetcodedairy/" title="">LeetCodeDairy</a><a class="menu-item" href="/bugs/" title="">Bugs</a><a class="menu-item" href="/javadairy/" title="">JavaDairy</a><a class="menu-item" href="/golangdairy/" title="">GolangDairy</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
-                <i class="fas fa-adjust fa-fw"></i>
-            </a></div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
     </div>
-</header>
-<div class="search-dropdown desktop">
-    <div id="search-dropdown-desktop"></div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
 </div>
-<div class="search-dropdown mobile">
-    <div id="search-dropdown-mobile"></div>
+    </header>
+    <main class="grow pt-16">
+        <div class="pl-scrollbar">
+          <div class="mx-auto w-full max-w-screen-xl lg:px-4 xl:px-8">
+  
+  
+  <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
+    <div
+      class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
+    >
+      <article class="prose">
+  <h1 class="mb-4">2022-01-09</h1>
+
+  <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2022-01-09</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>3 min read</span>
+  </div>
+
+  
+
+  
 </div>
-<main class="main">
-                <div class="container"><div class="page single special"><h1 class="single-title animated pulse faster">2022-01-09</h1><div class="content" id="content"><h1 id="田忌赛马打不过就送人头">田忌赛马,打不过就送人头</h1>
+
+
+  
+  
+
+  <h1 id="田忌赛马打不过就送人头">田忌赛马,打不过就送人头</h1>
 <p>代码逻辑</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-Go" data-lang="Go"><span class="nx">n</span> <span class="o">:=</span> <span class="nb">len</span><span class="p">(</span><span class="nx">nums1</span><span class="p">)</span>
-<span class="nx">sort</span><span class="p">.</span><span class="nf">Ints</span><span class="p">(</span><span class="nx">nums1</span><span class="p">)</span> <span class="c1">//田忌的马
-</span><span class="c1"></span><span class="nx">sort</span><span class="p">.</span><span class="nf">Ints</span><span class="p">(</span><span class="nx">nums2</span><span class="p">)</span> <span class="c1">//齐王的马
-</span><span class="c1"></span>
-<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="nx">n</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">--</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="nx">nums1</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">&gt;</span> <span class="nx">nums2</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">{</span>
-    <span class="c1">//比得过跟他比  
-</span><span class="c1"></span>  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-    <span class="c1">//比不过,换的垫底的来送人头
-</span><span class="c1"></span>  <span class="p">}</span>
-<span class="p">}</span>
-<span class="kt">int</span><span class="p">[]</span> <span class="nf">advantageCount</span><span class="p">(</span><span class="kt">int</span><span class="p">[]</span> <span class="nx">nums1</span><span class="p">,</span> <span class="kt">int</span><span class="p">[]</span> <span class="nx">nums2</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kt">int</span> <span class="nx">n</span> <span class="p">=</span> <span class="nx">nums1</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
-    <span class="c1">// 给 nums2 降序排序
-</span><span class="c1"></span>    <span class="nx">PriorityQueue</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">[]&gt;</span> <span class="nx">maxpq</span> <span class="p">=</span> <span class="nx">new</span> <span class="nx">PriorityQueue</span><span class="p">&lt;&gt;(</span>
-        <span class="p">(</span><span class="kt">int</span><span class="p">[]</span> <span class="nx">pair1</span><span class="p">,</span> <span class="kt">int</span><span class="p">[]</span> <span class="nx">pair2</span><span class="p">)</span> <span class="o">-</span><span class="p">&gt;</span> <span class="p">{</span> 
-            <span class="k">return</span> <span class="nx">pair2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="nx">pair1</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>  <span class="c1">//比较方式
-</span><span class="c1"></span>        <span class="p">}</span>
-    <span class="p">);</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nx">i</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">maxpq</span><span class="p">.</span><span class="nf">offer</span><span class="p">(</span><span class="nx">new</span> <span class="kt">int</span><span class="p">[]{</span><span class="nx">i</span><span class="p">,</span> <span class="nx">nums2</span><span class="p">[</span><span class="nx">i</span><span class="p">]});</span>
-    <span class="p">}</span>
-    <span class="c1">// 给 nums1 升序排序
-</span><span class="c1"></span>    <span class="nx">Arrays</span><span class="p">.</span><span class="nf">sort</span><span class="p">(</span><span class="nx">nums1</span><span class="p">);</span>
+<pre><code class="language-Go">n := len(nums1)
+sort.Ints(nums1) //田忌的马
+sort.Ints(nums2) //齐王的马
 
-    <span class="c1">// nums1[left] 是最小值，nums1[right] 是最大值
-</span><span class="c1"></span>    <span class="kt">int</span> <span class="nx">left</span> <span class="p">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">right</span> <span class="p">=</span> <span class="nx">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="kt">int</span><span class="p">[]</span> <span class="nx">res</span> <span class="p">=</span> <span class="nx">new</span> <span class="kt">int</span><span class="p">[</span><span class="nx">n</span><span class="p">];</span>
+for i := n-1; i &gt;= 0; i-- {
+  if nums1[i] &gt; nums2[i] {
+    //比得过跟他比  
+  } else {
+    //比不过,换的垫底的来送人头
+  }
+}
+int[] advantageCount(int[] nums1, int[] nums2) {
+    int n = nums1.length;
+    // 给 nums2 降序排序
+    PriorityQueue&lt;int[]&gt; maxpq = new PriorityQueue&lt;&gt;(
+        (int[] pair1, int[] pair2) -&gt; { 
+            return pair2[1] - pair1[1];  //比较方式
+        }
+    );
+    for (int i = 0; i &lt; n; i++) {
+        maxpq.offer(new int[]{i, nums2[i]});
+    }
+    // 给 nums1 升序排序
+    Arrays.sort(nums1);
 
-    <span class="nf">while</span> <span class="p">(!</span><span class="nx">maxpq</span><span class="p">.</span><span class="nf">isEmpty</span><span class="p">())</span> <span class="p">{</span>
-        <span class="kt">int</span><span class="p">[]</span> <span class="nx">pair</span> <span class="p">=</span> <span class="nx">maxpq</span><span class="p">.</span><span class="nf">poll</span><span class="p">();</span>
-        <span class="c1">// maxval 是 nums2 中的最大值，i 是对应索引
-</span><span class="c1"></span>        <span class="kt">int</span> <span class="nx">i</span> <span class="p">=</span> <span class="nx">pair</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nx">maxval</span> <span class="p">=</span> <span class="nx">pair</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nx">maxval</span> <span class="p">&lt;</span> <span class="nx">nums1</span><span class="p">[</span><span class="nx">right</span><span class="p">])</span> <span class="p">{</span>
-            <span class="c1">// 如果 nums1[right] 能胜过 maxval，那就自己上
-</span><span class="c1"></span>            <span class="nx">res</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">=</span> <span class="nx">nums1</span><span class="p">[</span><span class="nx">right</span><span class="p">];</span>
-            <span class="nx">right</span><span class="o">--</span><span class="p">;</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-            <span class="c1">// 否则用最小值混一下，养精蓄锐
-</span><span class="c1"></span>            <span class="nx">res</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">=</span> <span class="nx">nums1</span><span class="p">[</span><span class="nx">left</span><span class="p">];</span>
-            <span class="nx">left</span><span class="o">++</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="nx">res</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>go的话不用优先队列,用二维数组的排序试一试</p>
+    // nums1[left] 是最小值，nums1[right] 是最大值
+    int left = 0, right = n - 1;
+    int[] res = new int[n];
+
+    while (!maxpq.isEmpty()) {
+        int[] pair = maxpq.poll();
+        // maxval 是 nums2 中的最大值，i 是对应索引
+        int i = pair[0], maxval = pair[1];
+        if (maxval &lt; nums1[right]) {
+            // 如果 nums1[right] 能胜过 maxval，那就自己上
+            res[i] = nums1[right];
+            right--;
+        } else {
+            // 否则用最小值混一下，养精蓄锐
+            res[i] = nums1[left];
+            left++;
+        }
+    }
+    return res;
+}
+</code></pre>
+<p>go的话不用优先队列,用二维数组的排序试一试</p>
 <h2 id="二维数组排序">二维数组排序</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-Go" data-lang="Go"><span class="nx">sort</span><span class="p">.</span><span class="nf">Slice</span><span class="p">(</span><span class="nx">arr</span><span class="p">,</span> <span class="kd">func</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">j</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="p">&gt;</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">j</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="c1">//按照每行的第一个元素排序,&gt; 降序, &lt; 升序
-</span><span class="c1"></span>  <span class="p">})</span>
-<span class="kd">func</span> <span class="nf">advantageCount</span><span class="p">(</span><span class="nx">nums1</span><span class="p">,</span> <span class="nx">nums2</span> <span class="p">[]</span><span class="kt">int</span><span class="p">)</span> <span class="p">[]</span><span class="kt">int</span> <span class="p">{</span>
-  <span class="nx">sort</span><span class="p">.</span><span class="nf">Ints</span><span class="p">(</span><span class="nx">nums1</span><span class="p">)</span>
-  <span class="kd">var</span> <span class="nx">arr</span> <span class="p">[][]</span><span class="kt">int</span>
-  <span class="nx">res</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">nums1</span><span class="p">))</span>
-  <span class="nx">left</span><span class="p">,</span> <span class="nx">right</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">nums1</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
-  <span class="k">for</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">nums2</span> <span class="p">{</span>
-    <span class="nx">tmp</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="nx">i</span><span class="p">,</span> <span class="nx">v</span><span class="p">}</span>
-    <span class="nx">arr</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">arr</span><span class="p">,</span> <span class="nx">tmp</span><span class="p">)</span>
-  <span class="p">}</span>
-  <span class="nx">sort</span><span class="p">.</span><span class="nf">Slice</span><span class="p">(</span><span class="nx">arr</span><span class="p">,</span> <span class="kd">func</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">j</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="p">&gt;</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">j</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="c1">//按照每行的第一个元素排序
-</span><span class="c1"></span>  <span class="p">})</span>
-  <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">nums1</span><span class="p">);</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="p">&lt;</span> <span class="nx">nums1</span><span class="p">[</span><span class="nx">right</span><span class="p">]</span> <span class="p">{</span>
-      <span class="nx">res</span><span class="p">[</span><span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span> <span class="p">=</span> <span class="nx">nums1</span><span class="p">[</span><span class="nx">right</span><span class="p">]</span>
-      <span class="nx">right</span><span class="o">--</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-      <span class="nx">res</span><span class="p">[</span><span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span> <span class="p">=</span> <span class="nx">nums1</span><span class="p">[</span><span class="nx">left</span><span class="p">]</span>
-      <span class="nx">left</span><span class="o">++</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-  <span class="k">return</span> <span class="nx">res</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><h1 id="接雨水问题">接雨水问题</h1>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://s2.loli.net/2022/01/09/iOAQmCXJhZdc9GD.png"
-        data-srcset="https://s2.loli.net/2022/01/09/iOAQmCXJhZdc9GD.png, https://s2.loli.net/2022/01/09/iOAQmCXJhZdc9GD.png 1.5x, https://s2.loli.net/2022/01/09/iOAQmCXJhZdc9GD.png 2x"
-        data-sizes="auto"
-        alt="https://s2.loli.net/2022/01/09/iOAQmCXJhZdc9GD.png"
-        title="image-20220109204026793" /></p>
+<pre><code class="language-Go">sort.Slice(arr, func(i, j int) bool {
+    return arr[i][1] &gt; arr[j][1] //按照每行的第一个元素排序,&gt; 降序, &lt; 升序
+  })
+func advantageCount(nums1, nums2 []int) []int {
+  sort.Ints(nums1)
+  var arr [][]int
+  res := make([]int, len(nums1))
+  left, right := 0, len(nums1)-1
+  for i, v := range nums2 {
+    tmp := []int{i, v}
+    arr = append(arr, tmp)
+  }
+  sort.Slice(arr, func(i, j int) bool {
+    return arr[i][1] &gt; arr[j][1] //按照每行的第一个元素排序
+  })
+  for i := 0; i &lt; len(nums1); i++ {
+    if arr[i][1] &lt; nums1[right] {
+      res[arr[i][0]] = nums1[right]
+      right--
+    } else {
+      res[arr[i][0]] = nums1[left]
+      left++
+    }
+  }
+  return res
+}
+</code></pre>
+<h1 id="接雨水问题">接雨水问题</h1>
+<p><img src="https://s2.loli.net/2022/01/09/iOAQmCXJhZdc9GD.png" alt="image-20220109204026793"></p>
 <p>思路: water[i] = min( l_max , r_max) - height[i]</p>
 <p>暴力:  每次求出两边最大值 O(N^2) O(1)</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-Go" data-lang="Go"><span class="kt">int</span> <span class="nf">trap</span><span class="p">(</span><span class="nx">vector</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span><span class="o">&amp;</span> <span class="nx">height</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kt">int</span> <span class="nx">n</span> <span class="p">=</span> <span class="nx">height</span><span class="p">.</span><span class="nf">size</span><span class="p">();</span>
-    <span class="kt">int</span> <span class="nx">res</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nx">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kt">int</span> <span class="nx">l_max</span> <span class="p">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">r_max</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
-        <span class="c1">// 找右边最高的柱子
-</span><span class="c1"></span>        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nx">j</span> <span class="p">=</span> <span class="nx">i</span><span class="p">;</span> <span class="nx">j</span> <span class="p">&lt;</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span>
-            <span class="nx">r_max</span> <span class="p">=</span> <span class="nf">max</span><span class="p">(</span><span class="nx">r_max</span><span class="p">,</span> <span class="nx">height</span><span class="p">[</span><span class="nx">j</span><span class="p">]);</span>
-        <span class="c1">// 找左边最高的柱子
-</span><span class="c1"></span>        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nx">j</span> <span class="p">=</span> <span class="nx">i</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span><span class="o">--</span><span class="p">)</span>
-            <span class="nx">l_max</span> <span class="p">=</span> <span class="nf">max</span><span class="p">(</span><span class="nx">l_max</span><span class="p">,</span> <span class="nx">height</span><span class="p">[</span><span class="nx">j</span><span class="p">]);</span>
-        <span class="c1">// 如果自己就是最高的话，
-</span><span class="c1"></span>        <span class="c1">// l_max == r_max == height[i]
-</span><span class="c1"></span>        <span class="nx">res</span> <span class="o">+=</span> <span class="nf">min</span><span class="p">(</span><span class="nx">l_max</span><span class="p">,</span> <span class="nx">r_max</span><span class="p">)</span> <span class="o">-</span> <span class="nx">height</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="nx">res</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>备忘录 :  提前求出l_max, r_max 数组 O(N) O(N)</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-Go" data-lang="Go"><span class="kt">int</span> <span class="nf">trap</span><span class="p">(</span><span class="nx">vector</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span><span class="o">&amp;</span> <span class="nx">height</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">height</span><span class="p">.</span><span class="nf">empty</span><span class="p">())</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="kt">int</span> <span class="nx">n</span> <span class="p">=</span> <span class="nx">height</span><span class="p">.</span><span class="nf">size</span><span class="p">();</span>
-    <span class="kt">int</span> <span class="nx">res</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="c1">// 数组充当备忘录
-</span><span class="c1"></span>    <span class="nx">vector</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="nf">l_max</span><span class="p">(</span><span class="nx">n</span><span class="p">),</span> <span class="nf">r_max</span><span class="p">(</span><span class="nx">n</span><span class="p">);</span>
-    <span class="c1">// 初始化 base case
-</span><span class="c1"></span>    <span class="nx">l_max</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">=</span> <span class="nx">height</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
-    <span class="nx">r_max</span><span class="p">[</span><span class="nx">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="p">=</span> <span class="nx">height</span><span class="p">[</span><span class="nx">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
-    <span class="c1">// 从左向右计算 l_max
-</span><span class="c1"></span>    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nx">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span>
-        <span class="nx">l_max</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">=</span> <span class="nf">max</span><span class="p">(</span><span class="nx">height</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span> <span class="nx">l_max</span><span class="p">[</span><span class="nx">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]);</span>
-    <span class="c1">// 从右向左计算 r_max
-</span><span class="c1"></span>    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nx">i</span> <span class="p">=</span> <span class="nx">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">--</span><span class="p">)</span> 
-        <span class="nx">r_max</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">=</span> <span class="nf">max</span><span class="p">(</span><span class="nx">height</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span> <span class="nx">r_max</span><span class="p">[</span><span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]);</span>
-    <span class="c1">// 计算答案
-</span><span class="c1"></span>    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nx">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> 
-        <span class="nx">res</span> <span class="o">+=</span> <span class="nf">min</span><span class="p">(</span><span class="nx">l_max</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span> <span class="nx">r_max</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span> <span class="o">-</span> <span class="nx">height</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
-    <span class="k">return</span> <span class="nx">res</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>双指针:  O(N) O(1)</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-Go" data-lang="Go"><span class="kd">func</span> <span class="nf">trap</span><span class="p">(</span><span class="nx">height</span> <span class="p">[]</span><span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">height</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="mi">0</span>
-  <span class="p">}</span>
-  <span class="nx">n</span> <span class="o">:=</span> <span class="nb">len</span><span class="p">(</span><span class="nx">height</span><span class="p">)</span>
-  <span class="nx">res</span><span class="p">,</span> <span class="nx">left</span><span class="p">,</span> <span class="nx">right</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">n</span><span class="o">-</span><span class="mi">1</span>
-  <span class="nx">lMax</span><span class="p">,</span> <span class="nx">rMax</span> <span class="o">:=</span> <span class="nx">height</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nx">height</span><span class="p">[</span><span class="nx">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-  <span class="k">for</span> <span class="nx">left</span> <span class="o">&lt;=</span> <span class="nx">right</span> <span class="p">{</span>
-    <span class="nx">lMax</span> <span class="p">=</span> <span class="nb">int</span><span class="p">(</span><span class="nx">math</span><span class="p">.</span><span class="nf">Max</span><span class="p">(</span><span class="nb">float64</span><span class="p">(</span><span class="nx">lMax</span><span class="p">),</span><span class="nb">float64</span><span class="p">(</span><span class="nx">height</span><span class="p">[</span><span class="nx">left</span><span class="p">])))</span>
-    <span class="nx">rMax</span> <span class="p">=</span> <span class="nb">int</span><span class="p">(</span><span class="nx">math</span><span class="p">.</span><span class="nf">Max</span><span class="p">(</span><span class="nb">float64</span><span class="p">(</span><span class="nx">rMax</span><span class="p">),</span><span class="nb">float64</span><span class="p">(</span><span class="nx">height</span><span class="p">[</span><span class="nx">right</span><span class="p">])))</span>
-    <span class="k">if</span> <span class="nx">lMax</span> <span class="p">&lt;</span> <span class="nx">rMax</span> <span class="p">{</span>
-      <span class="nx">res</span> <span class="o">+=</span> <span class="nx">lMax</span> <span class="o">-</span> <span class="nx">height</span><span class="p">[</span><span class="nx">left</span><span class="p">]</span>
-      <span class="nx">left</span><span class="o">++</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-      <span class="nx">res</span> <span class="o">+=</span> <span class="nx">rMax</span> <span class="o">-</span> <span class="nx">height</span><span class="p">[</span><span class="nx">right</span><span class="p">]</span>
-      <span class="nx">right</span><span class="o">--</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-  <span class="k">return</span> <span class="nx">res</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://s2.loli.net/2022/01/09/SG6VmXONedlEhJn.png"
-        data-srcset="https://s2.loli.net/2022/01/09/SG6VmXONedlEhJn.png, https://s2.loli.net/2022/01/09/SG6VmXONedlEhJn.png 1.5x, https://s2.loli.net/2022/01/09/SG6VmXONedlEhJn.png 2x"
-        data-sizes="auto"
-        alt="https://s2.loli.net/2022/01/09/SG6VmXONedlEhJn.png"
-        title="image-20220109203948861" /></p>
+<pre><code class="language-Go">int trap(vector&lt;int&gt;&amp; height) {
+    int n = height.size();
+    int res = 0;
+    for (int i = 1; i &lt; n - 1; i++) {
+        int l_max = 0, r_max = 0;
+        // 找右边最高的柱子
+        for (int j = i; j &lt; n; j++)
+            r_max = max(r_max, height[j]);
+        // 找左边最高的柱子
+        for (int j = i; j &gt;= 0; j--)
+            l_max = max(l_max, height[j]);
+        // 如果自己就是最高的话，
+        // l_max == r_max == height[i]
+        res += min(l_max, r_max) - height[i];
+    }
+    return res;
+}
+</code></pre>
+<p>备忘录 :  提前求出l_max, r_max 数组 O(N) O(N)</p>
+<pre><code class="language-Go">int trap(vector&lt;int&gt;&amp; height) {
+    if (height.empty()) return 0;
+    int n = height.size();
+    int res = 0;
+    // 数组充当备忘录
+    vector&lt;int&gt; l_max(n), r_max(n);
+    // 初始化 base case
+    l_max[0] = height[0];
+    r_max[n - 1] = height[n - 1];
+    // 从左向右计算 l_max
+    for (int i = 1; i &lt; n; i++)
+        l_max[i] = max(height[i], l_max[i - 1]);
+    // 从右向左计算 r_max
+    for (int i = n - 2; i &gt;= 0; i--) 
+        r_max[i] = max(height[i], r_max[i + 1]);
+    // 计算答案
+    for (int i = 1; i &lt; n - 1; i++) 
+        res += min(l_max[i], r_max[i]) - height[i];
+    return res;
+}
+</code></pre>
+<p>双指针:  O(N) O(1)</p>
+<pre><code class="language-Go">func trap(height []int) int {
+  if len(height) == 0 {
+    return 0
+  }
+  n := len(height)
+  res, left, right := 0, 0, n-1
+  lMax, rMax := height[0], height[n-1]
+  for left &lt;= right {
+    lMax = int(math.Max(float64(lMax),float64(height[left])))
+    rMax = int(math.Max(float64(rMax),float64(height[right])))
+    if lMax &lt; rMax {
+      res += lMax - height[left]
+      left++
+    } else {
+      res += rMax - height[right]
+      right--
+    }
+  }
+  return res
+}
+</code></pre>
+<p><img src="https://s2.loli.net/2022/01/09/SG6VmXONedlEhJn.png" alt="image-20220109203948861"></p>
 <p>r_max是不是右边最大的并没所谓,只要 l_max &lt; r_max 就行了</p>
 <h1 id="最长回文子串">最长回文子串</h1>
 <p><strong>核心思想: 从中间开始向两边扩散来判断回文串, 为了解决abba偶数问题,传入两个参数l,r</strong></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-Go" data-lang="Go"><span class="k">for</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">){</span>
-  <span class="nx">找到以</span> <span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">/</span> <span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="nx">和s</span><span class="p">[</span><span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">](</span><span class="nx">要防止数组越界</span><span class="p">)</span> <span class="nx">为中心的回文串</span>
-  <span class="nx">更新答案</span>
-<span class="p">}</span>
-<span class="kd">func</span> <span class="nf">longestPalindrome</span><span class="p">(</span><span class="nx">s</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">string</span> <span class="p">{</span>
-  <span class="nx">res</span> <span class="o">:=</span> <span class="s">&#34;&#34;</span>
-  <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
-    <span class="c1">//以s[i]为中心的最长回文子串
-</span><span class="c1"></span>    <span class="nx">s1</span> <span class="o">:=</span> <span class="nf">palindrome</span><span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>
-    <span class="c1">//以s[i]和s[i+1]为中心得最长回文子串
-</span><span class="c1"></span>    <span class="nx">s2</span> <span class="o">:=</span> <span class="nf">palindrome</span><span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-    <span class="c1">//res = longest(res,s1,s2)
-</span><span class="c1"></span>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s1</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">res</span> <span class="p">=</span> <span class="nx">s1</span>
-    <span class="p">}</span>
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s2</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">res</span> <span class="p">=</span> <span class="nx">s2</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-  <span class="k">return</span> <span class="nx">res</span>
-<span class="p">}</span>
-<span class="kd">func</span> <span class="nf">palindrome</span><span class="p">(</span><span class="nx">s</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">l</span><span class="p">,</span> <span class="nx">r</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">string</span> <span class="p">{</span>
-  <span class="c1">//防止索引越界
-</span><span class="c1"></span>  <span class="k">for</span> <span class="nx">l</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">r</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nx">s</span><span class="p">[</span><span class="nx">l</span><span class="p">]</span> <span class="o">==</span> <span class="nx">s</span><span class="p">[</span><span class="nx">r</span><span class="p">]</span> <span class="p">{</span>
-    <span class="nx">l</span><span class="o">--</span>
-    <span class="nx">r</span><span class="o">++</span>
-  <span class="p">}</span>
-  <span class="nx">sb</span> <span class="o">:=</span> <span class="p">[]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span>
-  <span class="c1">//返回以s[l] 和 s[r]为中心的最长回文串
-</span><span class="c1"></span>  <span class="c1">//返回的索引应是l+1 ~ r-1 因为切片是到x - 1,所以这里到r 不包含r
-</span><span class="c1"></span>  <span class="k">return</span> <span class="nb">string</span><span class="p">(</span><span class="nx">sb</span><span class="p">[</span><span class="nx">l</span><span class="o">+</span><span class="mi">1</span> <span class="p">:</span> <span class="nx">r</span><span class="p">])</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>也可以用动态规划,但是动态规划空间复杂度O(N^2) 这个只需要O(1)</p>
-</div><div id="comments"></div></div></div>
-            </main></div>
+<pre><code class="language-Go">for 0 &lt;= i &lt; len(s){
+  找到以 s[i] / s[i]和s[i+1](要防止数组越界) 为中心的回文串
+  更新答案
+}
+func longestPalindrome(s string) string {
+  res := &quot;&quot;
+  for i := 0; i &lt; len(s); i++ {
+    //以s[i]为中心的最长回文子串
+    s1 := palindrome(s, i, i)
+    //以s[i]和s[i+1]为中心得最长回文子串
+    s2 := palindrome(s, i, i+1)
+    //res = longest(res,s1,s2)
+    if len(res) &lt; len(s1) {
+      res = s1
+    }
+    if len(res) &lt; len(s2) {
+      res = s2
+    }
+  }
+  return res
+}
+func palindrome(s string, l, r int) string {
+  //防止索引越界
+  for l &gt;= 0 &amp;&amp; r &lt; len(s) &amp;&amp; s[l] == s[r] {
+    l--
+    r++
+  }
+  sb := []byte(s)
+  //返回以s[l] 和 s[r]为中心的最长回文串
+  //返回的索引应是l+1 ~ r-1 因为切片是到x - 1,所以这里到r 不包含r
+  return string(sb[l+1 : r])
+}
+</code></pre>
+<p>也可以用动态规划,但是动态规划空间复杂度O(N^2) 这个只需要O(1)</p>
 
-        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
-                <i class="fas fa-arrow-up fa-fw"></i>
-            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
-                <i class="fas fa-comment fa-fw"></i>
-            </a>
-        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</article>
+
+
+      
+
+      
+
+
+
+      
+
+      
+  <div
+    class="-mx-2 mt-4 flex flex-col border-t px-2 pt-4 md:flex-row md:justify-between"
+  >
+    <div>
+      
+        <span class="text-primary-text block font-bold"
+          >Previous</span
+        >
+        <a href="https://zyooo.github.io/leetcodedairy/20220208/" class="block">2022-02-08</a>
+      
+    </div>
+    <div class="mt-4 md:mt-0 md:text-right">
+      
+        <span class="text-primary-text block font-bold">Next</span>
+        <a href="https://zyooo.github.io/leetcodedairy/20220108/" class="block">2022-01-09</a>
+      
+    </div>
+  </div>
+
+
+      
+
+
+
+    </div>
+    
+      <div class="col-span-2">
+        
+        
+          <div
+  class="
+    bg-primary-bg
+   prose sticky top-16 z-10 hidden px-6 py-4 lg:block"
+>
+  <h3>On This Page</h3>
+</div>
+<div
+  class="sticky-toc  hidden px-6 pb-6 lg:block"
+>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#田忌赛马打不过就送人头">田忌赛马,打不过就送人头</a>
+      <ul>
+        <li><a href="#二维数组排序">二维数组排序</a></li>
+      </ul>
+    </li>
+    <li><a href="#接雨水问题">接雨水问题</a></li>
+    <li><a href="#最长回文子串">最长回文子串</a></li>
+  </ul>
+</nav>
+</div>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    enableStickyToc();
+  });
+</script>
+
+        
+      </div>
+    
+
+    
+    
+  </div>
+
+  
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        hljs.initHighlightingOnLoad();
+      });
+    </script>
+
+          </div>
+        </div>
+      
+    </main>
+    <footer class="pl-scrollbar">
+      <div class="mx-auto w-full max-w-screen-xl"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2021 <a href="https://www.wangchucheng.com/">WANG Chucheng</a> and <a href="https://www.ruiqima.com/">MA Ruiqi</a>
+ &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+    </footer>
+  </body>
 </html>

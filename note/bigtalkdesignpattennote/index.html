@@ -1,348 +1,347 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="robots" content="noodp" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-        <title>BigTalkDesignPattenNote - JoyBoy&#39;s blog</title><meta name="Description" content="JoyBoy&#39;s blog"><meta property="og:title" content="BigTalkDesignPattenNote" />
-<meta property="og:description" content="大话设计模式读书笔记 1.简单工厂模式 用一个单独的类来做创照实例的过程，这就是工厂 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 public class OperationFactory{ public static Operation createOperate(string operate){ Operation oper" />
+<html
+  lang="en"
+  dir="ltr"
+  
+><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>BigTalkDesignPattenNote | JoyBoy&#39;s blog</title>
+
+<meta name="generator" content="Hugo Eureka 0.9.1" />
+<link rel="stylesheet" href="https://zyooo.github.io/css/eureka.min.6a378a23360d238dc3ef4df2f5cd718093f02c10c9c7eb2437c29701cd8d389ab6da5d9f21bdd3afa305fd56c1235017.css" integrity="sha384-ajeKIzYNI43D703y9c1xgJPwLBDJx&#43;skN8KXAc2NOJq22l2fIb3Tr6MF/VbBI1AX">
+<script defer src="https://zyooo.github.io/js/eureka.min.f1639ee98d6cbd85b2b5f034d27320da962002ff83159ed4e01dbc5948c42a1ab26c2d6e74c66e93f5cec4d24dbd166d.js" integrity="sha384-8WOe6Y1svYWytfA00nMg2pYgAv&#43;DFZ7U4B28WUjEKhqybC1udMZuk/XOxNJNvRZt"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/solarized-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/dart.min.js"
+     crossorigin></script>
+
+
+<script defer type="text/javascript" src="https://zyooo.github.io/js/fontawesome.min.1c5a4674b042785ed214cf0818a81724c6b37442fd61b0ed039237b93de25ed5103fc8079a05770648ccc9c66c4f540a.js" integrity="sha384-HFpGdLBCeF7SFM8IGKgXJMazdEL9YbDtA5I3uT3iXtUQP8gHmgV3BkjMycZsT1QK"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
+   integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" 
+  integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js"
+   integrity="sha384-&#43;XBljXPPiv&#43;OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.14.0/dist/mermaid.min.js" 
+  integrity="sha384-atOyb0FxAgN9LyAc6PEf9BjgwLISyansgdH8/VXQH8p2o5vfrRgmGIJ2Sg22L0A0"  crossorigin></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="https://zyooo.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://zyooo.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="大话设计模式读书笔记 1.简单工厂模式 用一个单独的类来做创照实例的过程，这就是工厂
+public class OperationFactory{ public static Operation createOperate(string operate){ Operation oper = null; switch(operate){ case &quot;&#43;&quot;: oper = new OperationAdd(); break; case &quot;-&quot;: oper = new OperationSub(); break; case &quot;*&quot;: oper = new OperationMul(); break; case &quot;/&quot;: oper = new OperationMul(); break; } return oper; } }  Operation oper; oper = OperationFactory.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Notes",
+      "item":"https://zyooo.github.io/note/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"BigTalkDesignPattenNote",
+      "item":"https://zyooo.github.io/note/bigtalkdesignpattennote/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://zyooo.github.io/note/bigtalkdesignpattennote/"
+    },
+    "headline": "BigTalkDesignPattenNote | JoyBoy\u0027s blog","datePublished": "2021-10-08T14:23:01+08:00",
+    "dateModified": "2021-10-08T14:23:01+08:00",
+    "wordCount":  380 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "ZhangYong",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://zyooo.github.io/images/avatar.png"
+        }
+        },
+    "description": "大话设计模式读书笔记 1.简单工厂模式 用一个单独的类来做创照实例的过程，这就是工厂\npublic class OperationFactory{ public static Operation createOperate(string operate){ Operation oper = null; switch(operate){ case \u0026quot;\u002b\u0026quot;: oper = new OperationAdd(); break; case \u0026quot;-\u0026quot;: oper = new OperationSub(); break; case \u0026quot;*\u0026quot;: oper = new OperationMul(); break; case \u0026quot;\/\u0026quot;: oper = new OperationMul(); break; } return oper; } }  Operation oper; oper = OperationFactory."
+}
+</script><meta property="og:title" content="BigTalkDesignPattenNote | JoyBoy&#39;s blog" />
 <meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="https://zyooo.github.io/images/icon.png">
+
+
 <meta property="og:url" content="https://zyooo.github.io/note/bigtalkdesignpattennote/" />
-<meta property="og:image" content="https://zyooo.github.io/logo.png"/>
-<meta property="article:published_time" content="2021-10-08T14:23:01+08:00" />
-<meta property="article:modified_time" content="2021-10-08T14:23:01+08:00" />
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://zyooo.github.io/logo.png"/>
 
-<meta name="twitter:title" content="BigTalkDesignPattenNote"/>
-<meta name="twitter:description" content="大话设计模式读书笔记 1.简单工厂模式 用一个单独的类来做创照实例的过程，这就是工厂 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 public class OperationFactory{ public static Operation createOperate(string operate){ Operation oper"/>
-<meta name="application-name" content="LoveIt">
-<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://zyooo.github.io/note/bigtalkdesignpattennote/" /><link rel="prev" href="https://zyooo.github.io/note/note1/" /><link rel="next" href="https://zyooo.github.io/note/ideal2021javaweb%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
-    {
-        "@context": "http://schema.org",
-        "@type": "BlogPosting",
-        "headline": "BigTalkDesignPattenNote",
-        "inLanguage": "en",
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https:\/\/zyooo.github.io\/note\/bigtalkdesignpattennote\/"
-        },"genre": "note","wordcount":  3099 ,
-        "url": "https:\/\/zyooo.github.io\/note\/bigtalkdesignpattennote\/","datePublished": "2021-10-08T14:23:01+08:00","dateModified": "2021-10-08T14:23:01+08:00","publisher": {
-            "@type": "Organization",
-            "name": ""},"author": {
-                "@type": "Person",
-                "name": "JoyBoy"
-            },"description": ""
+
+
+
+<meta property="og:description" content="大话设计模式读书笔记 1.简单工厂模式 用一个单独的类来做创照实例的过程，这就是工厂
+public class OperationFactory{ public static Operation createOperate(string operate){ Operation oper = null; switch(operate){ case &quot;&#43;&quot;: oper = new OperationAdd(); break; case &quot;-&quot;: oper = new OperationSub(); break; case &quot;*&quot;: oper = new OperationMul(); break; case &quot;/&quot;: oper = new OperationMul(); break; } return oper; } }  Operation oper; oper = OperationFactory." />
+
+
+
+
+<meta property="og:locale" content="en" />
+
+
+
+
+<meta property="og:site_name" content="JoyBoy&#39;s blog" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2021-10-08T14:23:01&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2021-10-08T14:23:01&#43;08:00" />
+
+
+
+<meta property="article:section" content="note" />
+
+
+
+
+
+  <body class="flex min-h-screen flex-col">
+    <header
+      class="min-h-16 pl-scrollbar bg-secondary-bg fixed z-50 flex w-full items-center shadow-sm"
+    >
+      <div class="mx-auto w-full max-w-screen-xl"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
     }
-    </script></head>
-    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="me-6 text-primary-text text-xl font-bold">JoyBoy&#39;s blog</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
 
-        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
-    <div class="header-wrapper">
-        <div class="header-title">
-            <a href="/" title="JoyBoy&#39;s blog">JoyBoy&#39;s blog</a>
+    <div id="target"
+        class="hidden block md:flex md:grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">About</a>
+            <a href="/note/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  me-4">Notes</a>
+            <a href="/leetcodedairy/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">LeetCodeDairy</a>
+            <a href="/javadairy/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">JavaDairy</a>
+            <a href="/golangdairy/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">GolangDairy</a>
+            <a href="/bugs/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">Bugs</a>
         </div>
-        <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/note/"> NOTE </a><a class="menu-item" href="/leetcodedairy/"> LeetCodeDairy </a><a class="menu-item" href="/bugs/"> Bugs </a><a class="menu-item" href="/javadairy/"> JavaDairy </a><a class="menu-item" href="/golangdairy/"> GolangDairy </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
-                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
-                            <i class="fas fa-search fa-fw"></i>
-                        </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
-                            <i class="fas fa-times-circle fa-fw"></i>
-                        </a>
-                        <span class="search-button search-loading" id="search-loading-desktop">
-                            <i class="fas fa-spinner fa-fw fa-spin"></i>
-                        </span>
-                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
-                    <i class="fas fa-adjust fa-fw"></i>
-                </a>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col start-0 md:start-auto end-auto md:end-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">Auto</span>
+                </div>
             </div>
         </div>
     </div>
-</header><header class="mobile" id="header-mobile">
-    <div class="header-container">
-        <div class="header-wrapper">
-            <div class="header-title">
-                <a href="/" title="JoyBoy&#39;s blog">JoyBoy&#39;s blog</a>
-            </div>
-            <div class="menu-toggle" id="menu-toggle-mobile">
-                <span></span><span></span><span></span>
-            </div>
-        </div>
-        <div class="menu" id="menu-mobile"><div class="search-wrapper">
-                    <div class="search mobile" id="search-mobile">
-                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
-                            <i class="fas fa-search fa-fw"></i>
-                        </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
-                            <i class="fas fa-times-circle fa-fw"></i>
-                        </a>
-                        <span class="search-button search-loading" id="search-loading-mobile">
-                            <i class="fas fa-spinner fa-fw fa-spin"></i>
-                        </span>
-                    </div>
-                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
-                        Cancel
-                    </a>
-                </div><a class="menu-item" href="/note/" title="">NOTE</a><a class="menu-item" href="/leetcodedairy/" title="">LeetCodeDairy</a><a class="menu-item" href="/bugs/" title="">Bugs</a><a class="menu-item" href="/javadairy/" title="">JavaDairy</a><a class="menu-item" href="/golangdairy/" title="">GolangDairy</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
-                <i class="fas fa-adjust fa-fw"></i>
-            </a></div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
     </div>
-</header>
-<div class="search-dropdown desktop">
-    <div id="search-dropdown-desktop"></div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
 </div>
-<div class="search-dropdown mobile">
-    <div id="search-dropdown-mobile"></div>
+    </header>
+    <main class="grow pt-16">
+        <div class="pl-scrollbar">
+          <div class="mx-auto w-full max-w-screen-xl lg:px-4 xl:px-8">
+  
+  
+  <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
+    <div
+      class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
+    >
+      <article class="prose">
+  <h1 class="mb-4">BigTalkDesignPattenNote</h1>
+
+  <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2021-10-08</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>2 min read</span>
+  </div>
+
+  
+
+  
 </div>
-<main class="main">
-                <div class="container"><div class="page single special"><h1 class="single-title animated pulse faster">BigTalkDesignPattenNote</h1><div class="content" id="content"><h1 id="大话设计模式读书笔记">大话设计模式读书笔记</h1>
+
+
+  
+  
+
+  <h1 id="大话设计模式读书笔记">大话设计模式读书笔记</h1>
 <h2 id="1简单工厂模式">1.简单工厂模式</h2>
 <p>用一个单独的类来做创照实例的过程，这就是工厂</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/08/WTt8c4aLhlpxn3u.png"
-        data-srcset="https://i.loli.net/2021/10/08/WTt8c4aLhlpxn3u.png, https://i.loli.net/2021/10/08/WTt8c4aLhlpxn3u.png 1.5x, https://i.loli.net/2021/10/08/WTt8c4aLhlpxn3u.png 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/08/WTt8c4aLhlpxn3u.png"
-        title="image-20211008170555461" /></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">public class OperationFactory{
+<p><img src="https://i.loli.net/2021/10/08/WTt8c4aLhlpxn3u.png" alt="image-20211008170555461"></p>
+<pre><code>public class OperationFactory{
 	public static Operation createOperate(string operate){
 		Operation oper = null;
 		switch(operate){
-			case &#34;+&#34;:
+			case &quot;+&quot;:
 				oper = new OperationAdd();
 				break;
-			case &#34;-&#34;:
+			case &quot;-&quot;:
 				oper = new OperationSub();
 				break;
-			case &#34;*&#34;:
+			case &quot;*&quot;:
 				oper = new OperationMul();
 				break;
-			case &#34;/&#34;:
+			case &quot;/&quot;:
 				oper = new OperationMul();
 				break;
 		}
 		return oper;
 	}
 }
-</code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">Operation oper;
-oper = OperationFactory.createOperate(&#34;+&#34;);
+</code></pre>
+<pre><code>Operation oper;
+oper = OperationFactory.createOperate(&quot;+&quot;);
 oper.NumberA = 1;
 oper.NumberB = 2;
 double result = oper.GetResult();
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="uml类图">*UML类图</h3>
+</code></pre>
+<h3 id="uml类图">*UML类图</h3>
 <p><strong>UML类图图示样例</strong></p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/08/geMjNRQAEsr1Hbo.png"
-        data-srcset="https://i.loli.net/2021/10/08/geMjNRQAEsr1Hbo.png, https://i.loli.net/2021/10/08/geMjNRQAEsr1Hbo.png 1.5x, https://i.loli.net/2021/10/08/geMjNRQAEsr1Hbo.png 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/08/geMjNRQAEsr1Hbo.png"
-        title="image-20211008170613771" /></p>
+<p><img src="https://i.loli.net/2021/10/08/geMjNRQAEsr1Hbo.png" alt="image-20211008170613771"></p>
 <h4 id="类图">类图</h4>
 <p>类图分为三层</p>
 <p>第一层显示类的名称，如果是抽象类，则就用斜体显示。</p>
 <p>第二层是类的特性，通常就是字段和属性。</p>
 <p>第三层是类的操作，通常是方法或行为。</p>
-<p>&ldquo;+&quot;表示public，&quot;-&ldquo;表示private ， &ldquo;#&ldquo;表示protected。</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/08/2AOx6mIhFYZ5unf.png"
-        data-srcset="https://i.loli.net/2021/10/08/2AOx6mIhFYZ5unf.png, https://i.loli.net/2021/10/08/2AOx6mIhFYZ5unf.png 1.5x, https://i.loli.net/2021/10/08/2AOx6mIhFYZ5unf.png 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/08/2AOx6mIhFYZ5unf.png"
-        title="image-20211008170943057" /></p>
+<p>&ldquo;+&ldquo;表示public，&rdquo;-&ldquo;表示private ， &ldquo;#&ldquo;表示protected。</p>
+<p><img src="https://i.loli.net/2021/10/08/2AOx6mIhFYZ5unf.png" alt="image-20211008170943057"></p>
 <h4 id="接口图">接口图</h4>
 <p>顶端有《interface》</p>
 <p>第一行是接口名称</p>
 <p>第二行是接口方法</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/08/swc47SWfu9odF36.png"
-        data-srcset="https://i.loli.net/2021/10/08/swc47SWfu9odF36.png, https://i.loli.net/2021/10/08/swc47SWfu9odF36.png 1.5x, https://i.loli.net/2021/10/08/swc47SWfu9odF36.png 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/08/swc47SWfu9odF36.png"
-        title="image-20211008171626373" /></p>
+<p><img src="https://i.loli.net/2021/10/08/swc47SWfu9odF36.png" alt="image-20211008171626373"></p>
 <h4 id="继承">继承</h4>
 <p>空心三角形+实线来表示</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/08/oYsBUELmpFWDraI.png"
-        data-srcset="https://i.loli.net/2021/10/08/oYsBUELmpFWDraI.png, https://i.loli.net/2021/10/08/oYsBUELmpFWDraI.png 1.5x, https://i.loli.net/2021/10/08/oYsBUELmpFWDraI.png 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/08/oYsBUELmpFWDraI.png"
-        title="image-20211008171717526" /></p>
+<p><img src="https://i.loli.net/2021/10/08/oYsBUELmpFWDraI.png" alt="image-20211008171717526"></p>
 <h4 id="接口">接口</h4>
 <p>空心三角形+虚线表示</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/08/hpISznZJRecABNt.png"
-        data-srcset="https://i.loli.net/2021/10/08/hpISznZJRecABNt.png, https://i.loli.net/2021/10/08/hpISznZJRecABNt.png 1.5x, https://i.loli.net/2021/10/08/hpISznZJRecABNt.png 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/08/hpISznZJRecABNt.png"
-        title="image-20211008171946522" /></p>
+<p><img src="https://i.loli.net/2021/10/08/hpISznZJRecABNt.png" alt="image-20211008171946522"></p>
 <h4 id="关联">关联</h4>
 <p>放一个类知道另一个类时，实线箭头来表示</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">class Penguin : Bird{
+<pre><code>class Penguin : Bird{
 	private Climate climate;
 }
-</code></pre></td></tr></table>
-</div>
-</div><p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/08/TBVYyQGwExFLD9W.png"
-        data-srcset="https://i.loli.net/2021/10/08/TBVYyQGwExFLD9W.png, https://i.loli.net/2021/10/08/TBVYyQGwExFLD9W.png 1.5x, https://i.loli.net/2021/10/08/TBVYyQGwExFLD9W.png 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/08/TBVYyQGwExFLD9W.png"
-        title="image-20211008172039252" /></p>
+</code></pre>
+<p><img src="https://i.loli.net/2021/10/08/TBVYyQGwExFLD9W.png" alt="image-20211008172039252"></p>
 <h4 id="聚合">聚合</h4>
 <p><strong>&ldquo;聚合表示一种弱的 &lsquo;拥有&rsquo; 关系，体现的是A对象可以包含B对象，但B对象不是A对象的一部分&rdquo;</strong></p>
 <p>用空心的菱形+实线箭头来表示</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/08/fc1w2oaymVUHriM.png"
-        data-srcset="https://i.loli.net/2021/10/08/fc1w2oaymVUHriM.png, https://i.loli.net/2021/10/08/fc1w2oaymVUHriM.png 1.5x, https://i.loli.net/2021/10/08/fc1w2oaymVUHriM.png 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/08/fc1w2oaymVUHriM.png"
-        title="image-20211008172407721" /></p>
+<p><img src="https://i.loli.net/2021/10/08/fc1w2oaymVUHriM.png" alt="image-20211008172407721"></p>
 <h4 id="合成">合成</h4>
 <p><strong>“合成（Composition，也有翻译成‘组合’的）是一种强的‘拥有’关系，体现了严格的部分和整体的关系，部分和整体的生命周期一样”</strong></p>
 <p>用实心的菱形+实线箭头表示</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/08/rGONmtvPz4EVi9j.png"
-        data-srcset="https://i.loli.net/2021/10/08/rGONmtvPz4EVi9j.png, https://i.loli.net/2021/10/08/rGONmtvPz4EVi9j.png 1.5x, https://i.loli.net/2021/10/08/rGONmtvPz4EVi9j.png 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/08/rGONmtvPz4EVi9j.png"
-        title="image-20211008172738136" /></p>
+<p><img src="https://i.loli.net/2021/10/08/rGONmtvPz4EVi9j.png" alt="image-20211008172738136"></p>
 <h4 id="依赖关系">依赖关系</h4>
 <p>虚线箭头表示</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/08/1WVvkzxaEYTAtUc.png"
-        data-srcset="https://i.loli.net/2021/10/08/1WVvkzxaEYTAtUc.png, https://i.loli.net/2021/10/08/1WVvkzxaEYTAtUc.png 1.5x, https://i.loli.net/2021/10/08/1WVvkzxaEYTAtUc.png 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/08/1WVvkzxaEYTAtUc.png"
-        title="image-20211008172823700" /></p>
+<p><img src="https://i.loli.net/2021/10/08/1WVvkzxaEYTAtUc.png" alt="image-20211008172823700"></p>
 <p>2021.10.08</p>
 <h2 id="2策略模式">2.策略模式</h2>
 <p><strong>策略模式</strong>（Strategy）：它定义了 <strong>算法家族</strong> ，分别封装起来，让他们之间可以相互替换，此模式让算法的变化，不会影响到使用算法的客户。</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/10/7kHJar8YvOnRmfD.jpg"
-        data-srcset="https://i.loli.net/2021/10/10/7kHJar8YvOnRmfD.jpg, https://i.loli.net/2021/10/10/7kHJar8YvOnRmfD.jpg 1.5x, https://i.loli.net/2021/10/10/7kHJar8YvOnRmfD.jpg 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/10/7kHJar8YvOnRmfD.jpg"
-        title="4935907e54f73452142b0f8cd3519a6" /></p>
+<p><img src="https://i.loli.net/2021/10/10/7kHJar8YvOnRmfD.jpg" alt="4935907e54f73452142b0f8cd3519a6"></p>
 <p>承担Strategy角色的一个类上定义所有支持的算法的公共接口，它的子类去实现各种不同的策略（算法）。</p>
 <p>然后创建一个Context类，里面创建维护一个Strategy对象，（初始化需要做的判断可以放在这里，简单工厂和策略模式的结合，减轻客户端的压力）在初始化Context类的时候需要传入Strategy参数，这里传入的应该是Strategy的子类也就是各种实际的策略。在ContextInterface()中用strategy去调用Strategy中的那个公共接口，最后得到响应策略（算法）的结果，返回给客户端。</p>
 <p>书本案例&mdash;市场促销</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/10/cOLYq5BnjtXaA91.jpg"
-        data-srcset="https://i.loli.net/2021/10/10/cOLYq5BnjtXaA91.jpg, https://i.loli.net/2021/10/10/cOLYq5BnjtXaA91.jpg 1.5x, https://i.loli.net/2021/10/10/cOLYq5BnjtXaA91.jpg 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/10/cOLYq5BnjtXaA91.jpg"
-        title="a11de6923fd44929fef848cb1001cc9" /></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">class CashContext{
+<p><img src="https://i.loli.net/2021/10/10/cOLYq5BnjtXaA91.jpg" alt="a11de6923fd44929fef848cb1001cc9"></p>
+<pre><code>class CashContext{
 	CashSuper cs = null;
 	public CashContext (string type){
-		case &#34;正常收费&#34;:
+		case &quot;正常收费&quot;:
 			CashNormal cs0 = new CashNormal();
 			cs = cs0;
 			break;
-		case &#34;满300返100&#34;:
-			CashNormal cr1 = new CashReturn(&#34;300&#34;,&#34;100&#34;);
+		case &quot;满300返100&quot;:
+			CashNormal cr1 = new CashReturn(&quot;300&quot;,&quot;100&quot;);
 			cs = cr1;
 			break;
-		case &#34;打8折&#34;:
-			CashNormal cr2 = new CashNormal(&#34;0.8&#34;);
+		case &quot;打8折&quot;:
+			CashNormal cr2 = new CashNormal(&quot;0.8&quot;);
 			cs = cr2;
 			break;
 	}
@@ -350,44 +349,20 @@ double result = oper.GetResult();
 		return cs.acceptCash(money);
 	}
 }
-</code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">//客户端窗体程序(主要部分)
+</code></pre>
+<pre><code>//客户端窗体程序(主要部分)
 doule total = 0.0d;
 private void btnOk_Click(Object sender,EvenArgs e){
 	CashContext csuper = new CashContext(cbxType.SelectedItem.ToString());
 	double totalPrices = 0d;
 	totalPrices = csuper.getResult(Conver.ToDouble(txtPrice.Text) * Convert.ToDouble(txtNum.Text));
 	total = total + totalPrices;
-	lbxList.Items.Add(&#34;单价&#34; + txtPrice.Text + &#34;数量&#34; + txtNum.Text + &#34; &#34; 
-				+ cbxType.SelectedItem + &#34; 合计：&#34; + totalPrices.ToString());
+	lbxList.Items.Add(&quot;单价&quot; + txtPrice.Text + &quot;数量&quot; + txtNum.Text + &quot; &quot; 
+				+ cbxType.SelectedItem + &quot; 合计：&quot; + totalPrices.ToString());
 	lblResult.Text = total.ToString();
 }
-</code></pre></td></tr></table>
-</div>
-</div><p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/10/ZwSdOQ4o5lfrJqj.jpg"
-        data-srcset="https://i.loli.net/2021/10/10/ZwSdOQ4o5lfrJqj.jpg, https://i.loli.net/2021/10/10/ZwSdOQ4o5lfrJqj.jpg 1.5x, https://i.loli.net/2021/10/10/ZwSdOQ4o5lfrJqj.jpg 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/10/ZwSdOQ4o5lfrJqj.jpg"
-        title="379505ecd1757b3ad430142ec19b24c" /></p>
+</code></pre>
+<p><img src="https://i.loli.net/2021/10/10/ZwSdOQ4o5lfrJqj.jpg" alt="379505ecd1757b3ad430142ec19b24c"></p>
 <p><strong>&ldquo;策略模式的Strategy类层次为Context定义了一系列的可供重用的算法或行为。继承有助于析取出这些算法中的公共功能&rdquo;</strong></p>
 <p><strong>&ldquo;上例子的公共功能就是获得计算费用的结果，GetResult，这使得算法之间有了抽象的父类CashSuper&rdquo;</strong></p>
 <p><strong>策略模式另一个优点就是简化了单元测试，因为每个算法都有自己的类，可以通过自己的接口单独测试</strong></p>
@@ -411,39 +386,9 @@ private void btnOk_Click(Object sender,EvenArgs e){
 <p>例如企鹅不能继承鸟类，虽然在生物学上企鹅是鸟类，但是在这说，企鹅不能飞，而鸟类指可以飞的，企鹅不能替换掉鸟类，所以不能继承。</p>
 <h2 id="6装饰模式">6.装饰模式</h2>
 <p><strong>装饰模式，动态地给一个对象添加一些额外的职责，就增加功能来说，装饰模式比生成子类更为灵活。</strong></p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/14/wOahjmX9GV8ZiYc.jpg"
-        data-srcset="https://i.loli.net/2021/10/14/wOahjmX9GV8ZiYc.jpg, https://i.loli.net/2021/10/14/wOahjmX9GV8ZiYc.jpg 1.5x, https://i.loli.net/2021/10/14/wOahjmX9GV8ZiYc.jpg 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/14/wOahjmX9GV8ZiYc.jpg"
-        title="8b8618c25fa595dfe3ef000d8dba91e" /></p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/14/pY8Gy4vnVegC7DI.jpg"
-        data-srcset="https://i.loli.net/2021/10/14/pY8Gy4vnVegC7DI.jpg, https://i.loli.net/2021/10/14/pY8Gy4vnVegC7DI.jpg 1.5x, https://i.loli.net/2021/10/14/pY8Gy4vnVegC7DI.jpg 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/14/pY8Gy4vnVegC7DI.jpg"
-        title="8125ccd8f32ad823fd1d3e5dc56d70f" /></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">//Person类 ConcreteComponent
+<p><img src="https://i.loli.net/2021/10/14/wOahjmX9GV8ZiYc.jpg" alt="8b8618c25fa595dfe3ef000d8dba91e"></p>
+<p><img src="https://i.loli.net/2021/10/14/pY8Gy4vnVegC7DI.jpg" alt="8125ccd8f32ad823fd1d3e5dc56d70f"></p>
+<pre><code>//Person类 ConcreteComponent
 
 class Preson{
 	public Person(){}
@@ -452,30 +397,11 @@ class Preson{
 		this.name = name;
 	}
 	public virtual void Show(){
-		Console.WriteLine(&#34;装扮的{0}&#34;,name);
+		Console.WriteLine(&quot;装扮的{0}&quot;,name);
 	}
 }
-</code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">//服饰类(Decorate)
+</code></pre>
+<pre><code>//服饰类(Decorate)
 
 class Finery : Person{
 	protected Person component;
@@ -489,79 +415,27 @@ class Finery : Person{
 		}
 	}
 }
-</code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">//具体服饰类 (ConcreteDecorator)
+</code></pre>
+<pre><code>//具体服饰类 (ConcreteDecorator)
 
 class TShirts : Finery{
 	public override void Show(){
-		Console.Write(&#34;大T恤&#34;);
+		Console.Write(&quot;大T恤&quot;);
 		base.Show();
 	}
 }
 class BigTrouser : Finery{
 	public override void Show(){
-		Console.Write(&#34;垮裤&#34;);
+		Console.Write(&quot;垮裤&quot;);
 		base.Show();
 	}
 }
 .....
 
-</code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">static void Main(string[] args){
-	Person xc = new Person(&#34;小菜&#34;);
-	Console.WriteLine(&#34;\n第一种装扮:&#34;);
+</code></pre>
+<pre><code>static void Main(string[] args){
+	Person xc = new Person(&quot;小菜&quot;);
+	Console.WriteLine(&quot;\n第一种装扮:&quot;);
 	
 	Sneakers pqx = new Sneakers();
 	BigTrouser kk = new BigTrouser();
@@ -572,7 +446,7 @@ class BigTrouser : Finery{
 	dtx.Decorate(kk);
 	dtx.show;
 	
-	Console.WriteLine(&#34;\n第二种装扮&#34;);
+	Console.WriteLine(&quot;\n第二种装扮&quot;);
 	
 	LeatherShoes px = new LeatherShoes();
 	Tie ld = new Tie();
@@ -585,74 +459,142 @@ class BigTrouser : Finery{
 	
 	Console.Read();
 }
-</code></pre></td></tr></table>
-</div>
-</div><p>装饰模式是为已有功能动态地添加更多功能的一种方式,系统需要新的功能的时候,是向旧的类中添加新的代码,这些代码通常装饰了原有类的核心职责或主要行为,例如要添加领带ld,也保留了原来的小菜xc和皮鞋px.</p>
+</code></pre>
+<p>装饰模式是为已有功能动态地添加更多功能的一种方式,系统需要新的功能的时候,是向旧的类中添加新的代码,这些代码通常装饰了原有类的核心职责或主要行为,例如要添加领带ld,也保留了原来的小菜xc和皮鞋px.</p>
 <p><strong>有效地把类的核心职责和装饰功能区分开了，而且可以去除相关类中重复的装饰逻辑</strong></p>
 <h2 id="7代理模式">7.代理模式</h2>
 <p><strong>代理模式，为其他对象提供一种代理以控制对这个对象的访问</strong></p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/14/BIaoJKk197A6Fec.jpg"
-        data-srcset="https://i.loli.net/2021/10/14/BIaoJKk197A6Fec.jpg, https://i.loli.net/2021/10/14/BIaoJKk197A6Fec.jpg 1.5x, https://i.loli.net/2021/10/14/BIaoJKk197A6Fec.jpg 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/14/BIaoJKk197A6Fec.jpg"
-        title="f1ddfd24be4c0687ac682c58e3e708a" /></p>
+<p><img src="https://i.loli.net/2021/10/14/BIaoJKk197A6Fec.jpg" alt="f1ddfd24be4c0687ac682c58e3e708a"></p>
 <p>![f1ddfd24be4c0687ac682c58e3e708a](<a href="https://i.loli.net/2021/10/14/BIaoJKk197A6Fec.jpg">https://i.loli.net/2021/10/14/BIaoJKk197A6Fec.jpg</a></p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/14/mFfQbhlxtdekACN.jpg"
-        data-srcset="https://i.loli.net/2021/10/14/mFfQbhlxtdekACN.jpg, https://i.loli.net/2021/10/14/mFfQbhlxtdekACN.jpg 1.5x, https://i.loli.net/2021/10/14/mFfQbhlxtdekACN.jpg 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/14/mFfQbhlxtdekACN.jpg"
-        title="b9099e122c0362ffa3f0cb9b490ec06" /></p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/14/TpjixSEchnWwYFI.jpg"
-        data-srcset="https://i.loli.net/2021/10/14/TpjixSEchnWwYFI.jpg, https://i.loli.net/2021/10/14/TpjixSEchnWwYFI.jpg 1.5x, https://i.loli.net/2021/10/14/TpjixSEchnWwYFI.jpg 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/14/TpjixSEchnWwYFI.jpg"
-        title="7543a771966034a8c88a89123fdb878" /></p>
+<p><img src="https://i.loli.net/2021/10/14/mFfQbhlxtdekACN.jpg" alt="b9099e122c0362ffa3f0cb9b490ec06"></p>
+<p><img src="https://i.loli.net/2021/10/14/TpjixSEchnWwYFI.jpg" alt="7543a771966034a8c88a89123fdb878"></p>
 <p>//案例</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/14/YjDke6bKTJsiofg.jpg"
-        data-srcset="https://i.loli.net/2021/10/14/YjDke6bKTJsiofg.jpg, https://i.loli.net/2021/10/14/YjDke6bKTJsiofg.jpg 1.5x, https://i.loli.net/2021/10/14/YjDke6bKTJsiofg.jpg 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/14/YjDke6bKTJsiofg.jpg"
-        title="1ec145ef1a8126aca82166d307dd0e1" /></p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/14/3IqVQNMnY7pUltH.jpg"
-        data-srcset="https://i.loli.net/2021/10/14/3IqVQNMnY7pUltH.jpg, https://i.loli.net/2021/10/14/3IqVQNMnY7pUltH.jpg 1.5x, https://i.loli.net/2021/10/14/3IqVQNMnY7pUltH.jpg 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/14/3IqVQNMnY7pUltH.jpg"
-        title="d94db0e86b7312c76368e3738f245e2" /></p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/14/r8tADLTXngYzvGM.jpg"
-        data-srcset="https://i.loli.net/2021/10/14/r8tADLTXngYzvGM.jpg, https://i.loli.net/2021/10/14/r8tADLTXngYzvGM.jpg 1.5x, https://i.loli.net/2021/10/14/r8tADLTXngYzvGM.jpg 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/14/r8tADLTXngYzvGM.jpg"
-        title="4e222ddc7cc87d471ab3464d98cdbe3" /></p>
+<p><img src="https://i.loli.net/2021/10/14/YjDke6bKTJsiofg.jpg" alt="1ec145ef1a8126aca82166d307dd0e1"></p>
+<p><img src="https://i.loli.net/2021/10/14/3IqVQNMnY7pUltH.jpg" alt="d94db0e86b7312c76368e3738f245e2"></p>
+<p><img src="https://i.loli.net/2021/10/14/r8tADLTXngYzvGM.jpg" alt="4e222ddc7cc87d471ab3464d98cdbe3"></p>
 <p><strong>1，远程代理，也就是为了一个对象在不同的地址空间提供局部代表。这样可以隐藏一个对象存在于不同地址空间的试试。</strong></p>
 <p><strong>2，虚拟代理，是根据需要创建开销很大的对象。通过它来存放实例化需要很长时间的真实对象</strong></p>
 <p><strong>3，安全代理，用来控制真实对象访问时的权限</strong></p>
 <p><strong>4，智能指引，是指当调用真实的对象时，代理处理另外一些事。</strong></p>
 <h2 id="8工厂方法模式">8.工厂方法模式</h2>
-</div><div id="comments"></div></div></div>
-            </main></div>
 
-        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
-                <i class="fas fa-arrow-up fa-fw"></i>
-            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
-                <i class="fas fa-comment fa-fw"></i>
-            </a>
-        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</article>
+
+
+      
+
+      
+
+
+
+      
+
+      
+  <div
+    class="-mx-2 mt-4 flex flex-col border-t px-2 pt-4 md:flex-row md:justify-between"
+  >
+    <div>
+      
+        <span class="text-primary-text block font-bold"
+          >Previous</span
+        >
+        <a href="https://zyooo.github.io/note/ideal2021javaweb%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE/" class="block">Ideal2021JavaWeb项目配置</a>
+      
+    </div>
+    <div class="mt-4 md:mt-0 md:text-right">
+      
+        <span class="text-primary-text block font-bold">Next</span>
+        <a href="https://zyooo.github.io/note/note1/" class="block">如何添加右键可选在此处打开命令行窗口</a>
+      
+    </div>
+  </div>
+
+
+      
+
+
+
+    </div>
+    
+      <div class="col-span-2">
+        
+        
+          <div
+  class="
+    bg-primary-bg
+   prose sticky top-16 z-10 hidden px-6 py-4 lg:block"
+>
+  <h3>On This Page</h3>
+</div>
+<div
+  class="sticky-toc  hidden px-6 pb-6 lg:block"
+>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#大话设计模式读书笔记">大话设计模式读书笔记</a>
+      <ul>
+        <li><a href="#1简单工厂模式">1.简单工厂模式</a>
+          <ul>
+            <li><a href="#uml类图">*UML类图</a>
+              <ul>
+                <li><a href="#类图">类图</a></li>
+                <li><a href="#接口图">接口图</a></li>
+                <li><a href="#继承">继承</a></li>
+                <li><a href="#接口">接口</a></li>
+                <li><a href="#关联">关联</a></li>
+                <li><a href="#聚合">聚合</a></li>
+                <li><a href="#合成">合成</a></li>
+                <li><a href="#依赖关系">依赖关系</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#2策略模式">2.策略模式</a></li>
+        <li><a href="#3单一职责原则">3.单一职责原则</a></li>
+        <li><a href="#4开放-封闭原则">4.开放-封闭原则</a></li>
+        <li><a href="#5依赖倒转原则">5.依赖倒转原则</a>
+          <ul>
+            <li><a href="#里氏代换原则">#里氏代换原则</a></li>
+          </ul>
+        </li>
+        <li><a href="#6装饰模式">6.装饰模式</a></li>
+        <li><a href="#7代理模式">7.代理模式</a></li>
+        <li><a href="#8工厂方法模式">8.工厂方法模式</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    enableStickyToc();
+  });
+</script>
+
+        
+      </div>
+    
+
+    
+    
+  </div>
+
+  
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        hljs.initHighlightingOnLoad();
+      });
+    </script>
+
+          </div>
+        </div>
+      
+    </main>
+    <footer class="pl-scrollbar">
+      <div class="mx-auto w-full max-w-screen-xl"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2021 <a href="https://www.wangchucheng.com/">WANG Chucheng</a> and <a href="https://www.ruiqima.com/">MA Ruiqi</a>
+ &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+    </footer>
+  </body>
 </html>

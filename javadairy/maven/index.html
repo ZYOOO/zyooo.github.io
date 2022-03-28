@@ -1,107 +1,261 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="robots" content="noodp" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-        <title>Maven - JoyBoy&#39;s blog</title><meta name="Description" content="JoyBoy&#39;s blog"><meta property="og:title" content="Maven" />
-<meta property="og:description" content="Apache下的一个项目管理工具 官网地址 maven.apache.org 配置环境目录 1.获得maven文件夹的目录F:\software\apache-maven-3.8" />
+<html
+  lang="en"
+  dir="ltr"
+  
+><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>Maven | JoyBoy&#39;s blog</title>
+
+<meta name="generator" content="Hugo Eureka 0.9.1" />
+<link rel="stylesheet" href="https://zyooo.github.io/css/eureka.min.6a378a23360d238dc3ef4df2f5cd718093f02c10c9c7eb2437c29701cd8d389ab6da5d9f21bdd3afa305fd56c1235017.css" integrity="sha384-ajeKIzYNI43D703y9c1xgJPwLBDJx&#43;skN8KXAc2NOJq22l2fIb3Tr6MF/VbBI1AX">
+<script defer src="https://zyooo.github.io/js/eureka.min.f1639ee98d6cbd85b2b5f034d27320da962002ff83159ed4e01dbc5948c42a1ab26c2d6e74c66e93f5cec4d24dbd166d.js" integrity="sha384-8WOe6Y1svYWytfA00nMg2pYgAv&#43;DFZ7U4B28WUjEKhqybC1udMZuk/XOxNJNvRZt"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/solarized-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/dart.min.js"
+     crossorigin></script>
+
+
+<script defer type="text/javascript" src="https://zyooo.github.io/js/fontawesome.min.1c5a4674b042785ed214cf0818a81724c6b37442fd61b0ed039237b93de25ed5103fc8079a05770648ccc9c66c4f540a.js" integrity="sha384-HFpGdLBCeF7SFM8IGKgXJMazdEL9YbDtA5I3uT3iXtUQP8gHmgV3BkjMycZsT1QK"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
+   integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" 
+  integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js"
+   integrity="sha384-&#43;XBljXPPiv&#43;OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.14.0/dist/mermaid.min.js" 
+  integrity="sha384-atOyb0FxAgN9LyAc6PEf9BjgwLISyansgdH8/VXQH8p2o5vfrRgmGIJ2Sg22L0A0"  crossorigin></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="https://zyooo.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://zyooo.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="Apache下的一个项目管理工具
+官网地址 maven.apache.org
+配置环境目录 1.获得maven文件夹的目录F:\software\apache-maven-3.8.3
+2.在环境变量中新建一个新的 系统变量 , MAVEN_HOME ,将文件目录给放上去">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"JavaDairies",
+      "item":"https://zyooo.github.io/javadairy/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"Maven",
+      "item":"https://zyooo.github.io/javadairy/maven/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://zyooo.github.io/javadairy/maven/"
+    },
+    "headline": "Maven | JoyBoy\u0027s blog","datePublished": "2021-10-10T08:45:35+08:00",
+    "dateModified": "2021-10-10T08:45:35+08:00",
+    "wordCount":  220 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "ZhangYong",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://zyooo.github.io/images/avatar.png"
+        }
+        },
+    "description": "Apache下的一个项目管理工具\n官网地址 maven.apache.org\n配置环境目录 1.获得maven文件夹的目录F:\\software\\apache-maven-3.8.3\n2.在环境变量中新建一个新的 系统变量 , MAVEN_HOME ,将文件目录给放上去"
+}
+</script><meta property="og:title" content="Maven | JoyBoy&#39;s blog" />
 <meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="https://zyooo.github.io/images/icon.png">
+
+
 <meta property="og:url" content="https://zyooo.github.io/javadairy/maven/" />
-<meta property="og:image" content="https://zyooo.github.io/logo.png"/>
-<meta property="article:published_time" content="2021-10-10T08:45:35+08:00" />
-<meta property="article:modified_time" content="2021-10-10T08:45:35+08:00" />
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://zyooo.github.io/logo.png"/>
 
-<meta name="twitter:title" content="Maven"/>
-<meta name="twitter:description" content="Apache下的一个项目管理工具 官网地址 maven.apache.org 配置环境目录 1.获得maven文件夹的目录F:\software\apache-maven-3.8"/>
-<meta name="application-name" content="LoveIt">
-<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://zyooo.github.io/javadairy/maven/" /><link rel="prev" href="https://zyooo.github.io/javadairy/redisjedis/" /><link rel="next" href="https://zyooo.github.io/javadairy/example/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
-    {
-        "@context": "http://schema.org",
-        "@type": "BlogPosting",
-        "headline": "Maven",
-        "inLanguage": "en",
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https:\/\/zyooo.github.io\/javadairy\/maven\/"
-        },"genre": "JavaDairy","wordcount":  1568 ,
-        "url": "https:\/\/zyooo.github.io\/javadairy\/maven\/","datePublished": "2021-10-10T08:45:35+08:00","dateModified": "2021-10-10T08:45:35+08:00","publisher": {
-            "@type": "Organization",
-            "name": ""},"author": {
-                "@type": "Person",
-                "name": "JoyBoy"
-            },"description": ""
+
+
+
+<meta property="og:description" content="Apache下的一个项目管理工具
+官网地址 maven.apache.org
+配置环境目录 1.获得maven文件夹的目录F:\software\apache-maven-3.8.3
+2.在环境变量中新建一个新的 系统变量 , MAVEN_HOME ,将文件目录给放上去" />
+
+
+
+
+<meta property="og:locale" content="en" />
+
+
+
+
+<meta property="og:site_name" content="JoyBoy&#39;s blog" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2021-10-10T08:45:35&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2021-10-10T08:45:35&#43;08:00" />
+
+
+
+<meta property="article:section" content="JavaDairy" />
+
+
+
+
+
+  <body class="flex min-h-screen flex-col">
+    <header
+      class="min-h-16 pl-scrollbar bg-secondary-bg fixed z-50 flex w-full items-center shadow-sm"
+    >
+      <div class="mx-auto w-full max-w-screen-xl"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
     }
-    </script></head>
-    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="me-6 text-primary-text text-xl font-bold">JoyBoy&#39;s blog</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
 
-        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
-    <div class="header-wrapper">
-        <div class="header-title">
-            <a href="/" title="JoyBoy&#39;s blog">JoyBoy&#39;s blog</a>
+    <div id="target"
+        class="hidden block md:flex md:grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">About</a>
+            <a href="/note/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">Notes</a>
+            <a href="/leetcodedairy/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">LeetCodeDairy</a>
+            <a href="/javadairy/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  me-4">JavaDairy</a>
+            <a href="/golangdairy/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">GolangDairy</a>
+            <a href="/bugs/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">Bugs</a>
         </div>
-        <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/note/"> NOTE </a><a class="menu-item" href="/leetcodedairy/"> LeetCodeDairy </a><a class="menu-item" href="/bugs/"> Bugs </a><a class="menu-item" href="/javadairy/"> JavaDairy </a><a class="menu-item" href="/golangdairy/"> GolangDairy </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
-                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
-                            <i class="fas fa-search fa-fw"></i>
-                        </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
-                            <i class="fas fa-times-circle fa-fw"></i>
-                        </a>
-                        <span class="search-button search-loading" id="search-loading-desktop">
-                            <i class="fas fa-spinner fa-fw fa-spin"></i>
-                        </span>
-                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
-                    <i class="fas fa-adjust fa-fw"></i>
-                </a>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col start-0 md:start-auto end-auto md:end-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">Auto</span>
+                </div>
             </div>
         </div>
     </div>
-</header><header class="mobile" id="header-mobile">
-    <div class="header-container">
-        <div class="header-wrapper">
-            <div class="header-title">
-                <a href="/" title="JoyBoy&#39;s blog">JoyBoy&#39;s blog</a>
-            </div>
-            <div class="menu-toggle" id="menu-toggle-mobile">
-                <span></span><span></span><span></span>
-            </div>
-        </div>
-        <div class="menu" id="menu-mobile"><div class="search-wrapper">
-                    <div class="search mobile" id="search-mobile">
-                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
-                            <i class="fas fa-search fa-fw"></i>
-                        </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
-                            <i class="fas fa-times-circle fa-fw"></i>
-                        </a>
-                        <span class="search-button search-loading" id="search-loading-mobile">
-                            <i class="fas fa-spinner fa-fw fa-spin"></i>
-                        </span>
-                    </div>
-                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
-                        Cancel
-                    </a>
-                </div><a class="menu-item" href="/note/" title="">NOTE</a><a class="menu-item" href="/leetcodedairy/" title="">LeetCodeDairy</a><a class="menu-item" href="/bugs/" title="">Bugs</a><a class="menu-item" href="/javadairy/" title="">JavaDairy</a><a class="menu-item" href="/golangdairy/" title="">GolangDairy</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
-                <i class="fas fa-adjust fa-fw"></i>
-            </a></div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
     </div>
-</header>
-<div class="search-dropdown desktop">
-    <div id="search-dropdown-desktop"></div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
 </div>
-<div class="search-dropdown mobile">
-    <div id="search-dropdown-mobile"></div>
+    </header>
+    <main class="grow pt-16">
+        <div class="pl-scrollbar">
+          <div class="mx-auto w-full max-w-screen-xl lg:px-4 xl:px-8">
+  
+  
+  <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
+    <div
+      class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
+    >
+      <article class="prose">
+  <h1 class="mb-4">Maven</h1>
+
+  <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2021-10-10</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>2 min read</span>
+  </div>
+
+  
+
+  
 </div>
-<main class="main">
-                <div class="container"><div class="page single special"><h1 class="single-title animated pulse faster">Maven</h1><div class="content" id="content"><p>Apache下的一个项目管理工具</p>
+
+
+  
+  
+
+  <p>Apache下的一个项目管理工具</p>
 <p>官网地址 maven.apache.org</p>
 <h2 id="配置环境目录">配置环境目录</h2>
 <p>1.获得maven文件夹的目录F:\software\apache-maven-3.8.3</p>
@@ -110,63 +264,28 @@
 <p>完成,打开cmd mvn -v检查是否安装成功,注意如果一开始是有错误的,更正之后记得重新打开cmd</p>
 <h2 id="maven仓库">Maven仓库</h2>
 <p>Maven项目的仓库刚开始是没jar包的,当Maven项目需要jar包时先去查找本地仓库,如果没有再从中央仓库(由Maven团队设立的一个唯一的仓库)下载到本地仓库.</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/10/X6zYtoMHgEpZsfP.png"
-        data-srcset="https://i.loli.net/2021/10/10/X6zYtoMHgEpZsfP.png, https://i.loli.net/2021/10/10/X6zYtoMHgEpZsfP.png 1.5x, https://i.loli.net/2021/10/10/X6zYtoMHgEpZsfP.png 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/10/X6zYtoMHgEpZsfP.png"
-        title="image-20211010092302559" /></p>
+<p><img src="https://i.loli.net/2021/10/10/X6zYtoMHgEpZsfP.png" alt="image-20211010092302559"></p>
 <p>远程仓库好处:可先去获取中央仓库中的jar包,提高本地仓库获取的速度,也可以放置一些公司自己写的jar包.</p>
 <p>cmd中在Maven项目的目录下mvn compile创建默认位置本地仓库</p>
 <h3 id="修改本地仓库位置">修改本地仓库位置</h3>
 <p>打开maven目录下的conf目录下的setting.xml</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;localRepository&gt;/path/to/local/repo&lt;/localRepository&gt;
+<pre><code>&lt;localRepository&gt;/path/to/local/repo&lt;/localRepository&gt;
 修改为想要的路径,例如
 &lt;localRepository&gt;F:\software\apache-maven-3.8.3\mvn_repository&lt;/localRepository&gt;
 再加入配置文件中
-</code></pre></td></tr></table>
-</div>
-</div><p>访问中央仓库太慢的话,课访问国内的私服,例如阿里云的私服</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">	 配置到setting.xml里面mirror部分
+</code></pre>
+<p>访问中央仓库太慢的话,课访问国内的私服,例如阿里云的私服</p>
+<pre><code>	 配置到setting.xml里面mirror部分
 	 &lt;mirror&gt;  
 		  &lt;id&gt;alimaven&lt;/id&gt;  
 		  &lt;name&gt;aliyun maven&lt;/name&gt;  
 		  &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public/&lt;/url&gt;
 		  &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;          
 	 &lt;/mirror&gt;
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="目录结构">目录结构</h2>
+</code></pre>
+<h2 id="目录结构">目录结构</h2>
 <p>![](<a href="https://i.loli.net/2021/10/10/xeV6EHDjUpTdqG9.png">https://i.loli.net/2021/10/10/xeV6EHDjUpTdqG9.png</a></p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/10/DTPfzwHWKApbmFX.png"
-        data-srcset="https://i.loli.net/2021/10/10/DTPfzwHWKApbmFX.png, https://i.loli.net/2021/10/10/DTPfzwHWKApbmFX.png 1.5x, https://i.loli.net/2021/10/10/DTPfzwHWKApbmFX.png 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/10/DTPfzwHWKApbmFX.png"
-        title="image-20211010095304973" /></p>
+<p><img src="https://i.loli.net/2021/10/10/DTPfzwHWKApbmFX.png" alt="image-20211010095304973"></p>
 <h2 id="常用命令">常用命令</h2>
 <p><strong>mvn compile</strong></p>
 <p>​	编译出字节码文件,在target目录下</p>
@@ -183,136 +302,37 @@
 <p>Site Lifecycle 生成项目报告，站点，发布站点。</p>
 <p><strong>同一套生命周期中，执行后边的操作，会自动执行前边所有操作</strong></p>
 <h2 id="ideal中配置maven">ideal中配置maven</h2>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/10/3cN2LbxqRhKlmvy.png"
-        data-srcset="https://i.loli.net/2021/10/10/3cN2LbxqRhKlmvy.png, https://i.loli.net/2021/10/10/3cN2LbxqRhKlmvy.png 1.5x, https://i.loli.net/2021/10/10/3cN2LbxqRhKlmvy.png 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/10/3cN2LbxqRhKlmvy.png"
-        title="image-20211010101531560" /></p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/10/3oibG6cKJftWmgx.png"
-        data-srcset="https://i.loli.net/2021/10/10/3oibG6cKJftWmgx.png, https://i.loli.net/2021/10/10/3oibG6cKJftWmgx.png 1.5x, https://i.loli.net/2021/10/10/3oibG6cKJftWmgx.png 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/10/3oibG6cKJftWmgx.png"
-        title="image-20211010105445627" /></p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/10/ynRXQT2zwYG587p.png"
-        data-srcset="https://i.loli.net/2021/10/10/ynRXQT2zwYG587p.png, https://i.loli.net/2021/10/10/ynRXQT2zwYG587p.png 1.5x, https://i.loli.net/2021/10/10/ynRXQT2zwYG587p.png 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/10/ynRXQT2zwYG587p.png"
-        title="image-20211010105528210" /></p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/10/DtPkEyN2xIjB64S.png"
-        data-srcset="https://i.loli.net/2021/10/10/DtPkEyN2xIjB64S.png, https://i.loli.net/2021/10/10/DtPkEyN2xIjB64S.png 1.5x, https://i.loli.net/2021/10/10/DtPkEyN2xIjB64S.png 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/10/DtPkEyN2xIjB64S.png"
-        title="image-20211010105540384" /></p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/10/EVIz19jqfhYuX7J.png"
-        data-srcset="https://i.loli.net/2021/10/10/EVIz19jqfhYuX7J.png, https://i.loli.net/2021/10/10/EVIz19jqfhYuX7J.png 1.5x, https://i.loli.net/2021/10/10/EVIz19jqfhYuX7J.png 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/10/EVIz19jqfhYuX7J.png"
-        title="image-20211010105549553" /></p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/10/fcqEviHak9jyShn.png"
-        data-srcset="https://i.loli.net/2021/10/10/fcqEviHak9jyShn.png, https://i.loli.net/2021/10/10/fcqEviHak9jyShn.png 1.5x, https://i.loli.net/2021/10/10/fcqEviHak9jyShn.png 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/10/fcqEviHak9jyShn.png"
-        title="image-20211010105557745" /></p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/10/3LNuVXWSQHODbe2.png"
-        data-srcset="https://i.loli.net/2021/10/10/3LNuVXWSQHODbe2.png, https://i.loli.net/2021/10/10/3LNuVXWSQHODbe2.png 1.5x, https://i.loli.net/2021/10/10/3LNuVXWSQHODbe2.png 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/10/3LNuVXWSQHODbe2.png"
-        title="image-20211010105605450" /></p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/10/a9B7gF4r5EPdscH.png"
-        data-srcset="https://i.loli.net/2021/10/10/a9B7gF4r5EPdscH.png, https://i.loli.net/2021/10/10/a9B7gF4r5EPdscH.png 1.5x, https://i.loli.net/2021/10/10/a9B7gF4r5EPdscH.png 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/10/a9B7gF4r5EPdscH.png"
-        title="image-20211010105621801" /></p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/10/jRpKCTLo6Zc5W39.png"
-        data-srcset="https://i.loli.net/2021/10/10/jRpKCTLo6Zc5W39.png, https://i.loli.net/2021/10/10/jRpKCTLo6Zc5W39.png 1.5x, https://i.loli.net/2021/10/10/jRpKCTLo6Zc5W39.png 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/10/jRpKCTLo6Zc5W39.png"
-        title="image-20211010105629475" /></p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/10/lqbOfEJs94vp8NQ.png"
-        data-srcset="https://i.loli.net/2021/10/10/lqbOfEJs94vp8NQ.png, https://i.loli.net/2021/10/10/lqbOfEJs94vp8NQ.png 1.5x, https://i.loli.net/2021/10/10/lqbOfEJs94vp8NQ.png 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/10/lqbOfEJs94vp8NQ.png"
-        title="image-20211010105637865" /></p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/10/x7CrNoAakQcK6zS.png"
-        data-srcset="https://i.loli.net/2021/10/10/x7CrNoAakQcK6zS.png, https://i.loli.net/2021/10/10/x7CrNoAakQcK6zS.png 1.5x, https://i.loli.net/2021/10/10/x7CrNoAakQcK6zS.png 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/10/x7CrNoAakQcK6zS.png"
-        title="image-20211010105653138" /></p>
+<p><img src="https://i.loli.net/2021/10/10/3cN2LbxqRhKlmvy.png" alt="image-20211010101531560"></p>
+<p><img src="https://i.loli.net/2021/10/10/3oibG6cKJftWmgx.png" alt="image-20211010105445627"></p>
+<p><img src="https://i.loli.net/2021/10/10/ynRXQT2zwYG587p.png" alt="image-20211010105528210"></p>
+<p><img src="https://i.loli.net/2021/10/10/DtPkEyN2xIjB64S.png" alt="image-20211010105540384"></p>
+<p><img src="https://i.loli.net/2021/10/10/EVIz19jqfhYuX7J.png" alt="image-20211010105549553"></p>
+<p><img src="https://i.loli.net/2021/10/10/fcqEviHak9jyShn.png" alt="image-20211010105557745"></p>
+<p><img src="https://i.loli.net/2021/10/10/3LNuVXWSQHODbe2.png" alt="image-20211010105605450"></p>
+<p><img src="https://i.loli.net/2021/10/10/a9B7gF4r5EPdscH.png" alt="image-20211010105621801"></p>
+<p><img src="https://i.loli.net/2021/10/10/jRpKCTLo6Zc5W39.png" alt="image-20211010105629475"></p>
+<p><img src="https://i.loli.net/2021/10/10/lqbOfEJs94vp8NQ.png" alt="image-20211010105637865"></p>
+<p><img src="https://i.loli.net/2021/10/10/x7CrNoAakQcK6zS.png" alt="image-20211010105653138"></p>
 <h2 id="坐标">坐标</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="p">&lt;!</span><span class="o">--</span><span class="nx">项目名称</span><span class="err">，</span><span class="nx">定义为组织名</span><span class="o">+</span><span class="nx">项目名</span><span class="err">，</span><span class="nx">类似包名</span><span class="o">--</span><span class="p">&gt;</span>
+<pre><code>&lt;!--项目名称，定义为组织名+项目名，类似包名--&gt;
 
-<span class="p">&lt;</span><span class="nx">groupId</span><span class="p">&gt;</span><span class="nx">cn</span><span class="p">.</span><span class="nx">itcast</span><span class="p">.</span><span class="nx">maven</span><span class="p">&lt;</span><span class="o">/</span><span class="nx">groupId</span><span class="p">&gt;</span>
+&lt;groupId&gt;cn.itcast.maven&lt;/groupId&gt;
 
-<span class="p">&lt;!</span><span class="o">--</span> <span class="nx">模块名称</span> <span class="o">--</span><span class="p">&gt;&lt;</span><span class="nx">artifactId</span><span class="p">&gt;</span><span class="nx">maven</span><span class="o">-</span><span class="nx">first</span><span class="p">&lt;</span><span class="o">/</span><span class="nx">artifactId</span><span class="p">&gt;</span>
+&lt;!-- 模块名称 --&gt;&lt;artifactId&gt;maven-first&lt;/artifactId&gt;
 
-<span class="p">&lt;!</span><span class="o">--</span> <span class="nx">当前项目版本号</span><span class="err">，</span><span class="nx">snapshot</span> <span class="nx">为快照版本即非正式版本</span><span class="err">，</span><span class="nx">release</span> <span class="nx">为正式发布版本</span> <span class="o">--</span><span class="p">&gt;</span>
+&lt;!-- 当前项目版本号，snapshot 为快照版本即非正式版本，release 为正式发布版本 --&gt;
 
-<span class="p">&lt;</span><span class="nx">version</span><span class="p">&gt;</span><span class="mf">0.0.1</span><span class="o">-</span><span class="nx">SNAPSHOT</span><span class="p">&lt;</span><span class="o">/</span><span class="nx">version</span><span class="p">&gt;</span>
+&lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
 
-<span class="p">&lt;</span><span class="nx">packaging</span> <span class="p">&gt;</span> <span class="err">：</span><span class="nx">打包类型</span>
+&lt;packaging &gt; ：打包类型
 
-<span class="nx">jar</span><span class="err">：</span><span class="nx">执行</span> <span class="kn">package</span> <span class="nx">会打成</span> <span class="nx">jar</span> <span class="nx">包</span>
+jar：执行 package 会打成 jar 包
 
-<span class="nx">war</span><span class="err">：</span><span class="nx">执行</span> <span class="kn">package</span> <span class="nx">会打成</span> <span class="nx">war</span> <span class="nx">包</span>
+war：执行 package 会打成 war 包
 
-<span class="nx">pom</span> <span class="err">：</span><span class="nx">用于</span> <span class="nx">maven</span> <span class="nx">工程的继承</span><span class="err">，</span><span class="nx">通常父工程设置为</span> <span class="nx">pom</span>
-</code></pre></td></tr></table>
-</div>
-</div><p><strong>坐标来源</strong> 添加依赖需要指定依赖 jar 包的坐标，但是很多情况我们是不知道 jar 包的的坐标，可以通过如下方</p>
+pom ：用于 maven 工程的继承，通常父工程设置为 pom
+</code></pre>
+<p><strong>坐标来源</strong> 添加依赖需要指定依赖 jar 包的坐标，但是很多情况我们是不知道 jar 包的的坐标，可以通过如下方</p>
 <p>式查询：<strong>从互联网搜索</strong></p>
 <p><a href="http://search.maven.org/">http://search.maven.org/</a></p>
 <p><a href="http://mvnrepository.com/">http://mvnrepository.com/</a></p>
@@ -329,47 +349,16 @@
 <p>比如：junit。由于运行时不需要所以 test范围依赖不会被打包。</p>
 <p>​	system：system 范围依赖与 provided 类似，但是你必须显式的提供一个对于本地系统中 JAR</p>
 <p>文件的路径，需要指定 systemPath 磁盘路径，system依赖不推荐使用。</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/10/TUZyzWSjQV8R953.png"
-        data-srcset="https://i.loli.net/2021/10/10/TUZyzWSjQV8R953.png, https://i.loli.net/2021/10/10/TUZyzWSjQV8R953.png 1.5x, https://i.loli.net/2021/10/10/TUZyzWSjQV8R953.png 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/10/TUZyzWSjQV8R953.png"
-        title="image-20211010115659590" /></p>
+<p><img src="https://i.loli.net/2021/10/10/TUZyzWSjQV8R953.png" alt="image-20211010115659590"></p>
 <p>测试总结：</p>
 <p> 默认引入 的 jar 包 &mdash;&mdash;- compile 【默认范围 可以不写】（编译、测试、运行 都有效 ）</p>
 <p> servlet-api 、jsp-api &mdash;&mdash;- provided （编译、测试 有效,运行时无效 防止和 tomcat 下 jar 冲突,tomcat中已经有了）</p>
 <p> jdbc 驱动 jar 包 &mdash;- runtime （测试、运行 有效 ）</p>
 <p> junit &mdash;&ndash; test （测试有效）</p>
 <p>依赖范围由强到弱的顺序是：compile&gt;provided&gt;runtime&gt;test</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/10/7MNfeQ4OIrtzhYs.png"
-        data-srcset="https://i.loli.net/2021/10/10/7MNfeQ4OIrtzhYs.png, https://i.loli.net/2021/10/10/7MNfeQ4OIrtzhYs.png 1.5x, https://i.loli.net/2021/10/10/7MNfeQ4OIrtzhYs.png 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/10/7MNfeQ4OIrtzhYs.png"
-        title="image-20211010115749115" /></p>
+<p><img src="https://i.loli.net/2021/10/10/7MNfeQ4OIrtzhYs.png" alt="image-20211010115749115"></p>
 <h2 id="设置jdk编译版本">设置jdk编译版本</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback"> &lt;build&gt;
+<pre><code> &lt;build&gt;
 	&lt;plugins&gt;
 		&lt;plugin&gt;
 			&lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
@@ -382,15 +371,111 @@
 		&lt;/plugin&gt;
     &lt;/plugins&gt;
 &lt;/build&gt;
-</code></pre></td></tr></table>
-</div>
-</div></div><div id="comments"></div></div></div>
-            </main></div>
+</code></pre>
 
-        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
-                <i class="fas fa-arrow-up fa-fw"></i>
-            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
-                <i class="fas fa-comment fa-fw"></i>
-            </a>
-        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</article>
+
+
+      
+
+      
+
+
+
+      
+
+      
+  <div
+    class="-mx-2 mt-4 flex flex-col border-t px-2 pt-4 md:flex-row md:justify-between"
+  >
+    <div>
+      
+        <span class="text-primary-text block font-bold"
+          >Previous</span
+        >
+        <a href="https://zyooo.github.io/javadairy/example/" class="block">travel</a>
+      
+    </div>
+    <div class="mt-4 md:mt-0 md:text-right">
+      
+        <span class="text-primary-text block font-bold">Next</span>
+        <a href="https://zyooo.github.io/javadairy/redisjedis/" class="block">Redis&amp;Jedis</a>
+      
+    </div>
+  </div>
+
+
+      
+
+
+
+    </div>
+    
+      <div class="col-span-2">
+        
+        
+          <div
+  class="
+    bg-primary-bg
+   prose sticky top-16 z-10 hidden px-6 py-4 lg:block"
+>
+  <h3>On This Page</h3>
+</div>
+<div
+  class="sticky-toc  hidden px-6 pb-6 lg:block"
+>
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#配置环境目录">配置环境目录</a></li>
+        <li><a href="#maven仓库">Maven仓库</a>
+          <ul>
+            <li><a href="#修改本地仓库位置">修改本地仓库位置</a></li>
+          </ul>
+        </li>
+        <li><a href="#目录结构">目录结构</a></li>
+        <li><a href="#常用命令">常用命令</a></li>
+        <li><a href="#生命周期">生命周期</a></li>
+        <li><a href="#ideal中配置maven">ideal中配置maven</a></li>
+        <li><a href="#坐标">坐标</a></li>
+        <li><a href="#依赖范围">依赖范围</a></li>
+        <li><a href="#设置jdk编译版本">设置jdk编译版本</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    enableStickyToc();
+  });
+</script>
+
+        
+      </div>
+    
+
+    
+    
+  </div>
+
+  
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        hljs.initHighlightingOnLoad();
+      });
+    </script>
+
+          </div>
+        </div>
+      
+    </main>
+    <footer class="pl-scrollbar">
+      <div class="mx-auto w-full max-w-screen-xl"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2021 <a href="https://www.wangchucheng.com/">WANG Chucheng</a> and <a href="https://www.ruiqima.com/">MA Ruiqi</a>
+ &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+    </footer>
+  </body>
 </html>

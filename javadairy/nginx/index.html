@@ -1,107 +1,261 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="robots" content="noodp" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-        <title>Nginx - JoyBoy&#39;s blog</title><meta name="Description" content="JoyBoy&#39;s blog"><meta property="og:title" content="Nginx" />
-<meta property="og:description" content="Nginx 1.课程目标 目标1：掌握Nginx的安装 目标2：掌握Nginx的静态网站部署 目标3：理解Nginx的反向代理与负载均衡，能够配置反向代理与" />
+<html
+  lang="en"
+  dir="ltr"
+  
+><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>Nginx | JoyBoy&#39;s blog</title>
+
+<meta name="generator" content="Hugo Eureka 0.9.1" />
+<link rel="stylesheet" href="https://zyooo.github.io/css/eureka.min.6a378a23360d238dc3ef4df2f5cd718093f02c10c9c7eb2437c29701cd8d389ab6da5d9f21bdd3afa305fd56c1235017.css" integrity="sha384-ajeKIzYNI43D703y9c1xgJPwLBDJx&#43;skN8KXAc2NOJq22l2fIb3Tr6MF/VbBI1AX">
+<script defer src="https://zyooo.github.io/js/eureka.min.f1639ee98d6cbd85b2b5f034d27320da962002ff83159ed4e01dbc5948c42a1ab26c2d6e74c66e93f5cec4d24dbd166d.js" integrity="sha384-8WOe6Y1svYWytfA00nMg2pYgAv&#43;DFZ7U4B28WUjEKhqybC1udMZuk/XOxNJNvRZt"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/solarized-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/dart.min.js"
+     crossorigin></script>
+
+
+<script defer type="text/javascript" src="https://zyooo.github.io/js/fontawesome.min.1c5a4674b042785ed214cf0818a81724c6b37442fd61b0ed039237b93de25ed5103fc8079a05770648ccc9c66c4f540a.js" integrity="sha384-HFpGdLBCeF7SFM8IGKgXJMazdEL9YbDtA5I3uT3iXtUQP8gHmgV3BkjMycZsT1QK"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
+   integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" 
+  integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js"
+   integrity="sha384-&#43;XBljXPPiv&#43;OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.14.0/dist/mermaid.min.js" 
+  integrity="sha384-atOyb0FxAgN9LyAc6PEf9BjgwLISyansgdH8/VXQH8p2o5vfrRgmGIJ2Sg22L0A0"  crossorigin></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="https://zyooo.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://zyooo.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="Nginx 1.课程目标 目标1：掌握Nginx的安装
+目标2：掌握Nginx的静态网站部署
+目标3：理解Nginx的反向代理与负载均衡，能够配置反向代理与负载均衡
+2.Nginx的安装与启动 2.1什么是Nginx Nginx 是一款高性能的 http 服务器/反向代理服务器及电子邮件（IMAP/POP3）代理服务器。由俄罗斯的程序设计师伊戈尔·西索夫（Igor Sysoev）所开发，官方测试 nginx 能够支支撑 5 万并发链接，并且 cpu、内存等资源消耗却非常低，运行非常稳定。">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"JavaDairies",
+      "item":"https://zyooo.github.io/javadairy/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"Nginx",
+      "item":"https://zyooo.github.io/javadairy/nginx/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://zyooo.github.io/javadairy/nginx/"
+    },
+    "headline": "Nginx | JoyBoy\u0027s blog","datePublished": "2021-10-17T19:29:27+08:00",
+    "dateModified": "2021-10-17T19:29:27+08:00",
+    "wordCount":  533 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "ZhangYong",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://zyooo.github.io/images/avatar.png"
+        }
+        },
+    "description": "Nginx 1.课程目标 目标1：掌握Nginx的安装\n目标2：掌握Nginx的静态网站部署\n目标3：理解Nginx的反向代理与负载均衡，能够配置反向代理与负载均衡\n2.Nginx的安装与启动 2.1什么是Nginx Nginx 是一款高性能的 http 服务器\/反向代理服务器及电子邮件（IMAP\/POP3）代理服务器。由俄罗斯的程序设计师伊戈尔·西索夫（Igor Sysoev）所开发，官方测试 nginx 能够支支撑 5 万并发链接，并且 cpu、内存等资源消耗却非常低，运行非常稳定。"
+}
+</script><meta property="og:title" content="Nginx | JoyBoy&#39;s blog" />
 <meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="https://zyooo.github.io/images/icon.png">
+
+
 <meta property="og:url" content="https://zyooo.github.io/javadairy/nginx/" />
-<meta property="og:image" content="https://zyooo.github.io/logo.png"/>
-<meta property="article:published_time" content="2021-10-17T19:29:27+08:00" />
-<meta property="article:modified_time" content="2021-10-17T19:29:27+08:00" />
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://zyooo.github.io/logo.png"/>
 
-<meta name="twitter:title" content="Nginx"/>
-<meta name="twitter:description" content="Nginx 1.课程目标 目标1：掌握Nginx的安装 目标2：掌握Nginx的静态网站部署 目标3：理解Nginx的反向代理与负载均衡，能够配置反向代理与"/>
-<meta name="application-name" content="LoveIt">
-<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://zyooo.github.io/javadairy/nginx/" /><link rel="prev" href="https://zyooo.github.io/javadairy/example/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
-    {
-        "@context": "http://schema.org",
-        "@type": "BlogPosting",
-        "headline": "Nginx",
-        "inLanguage": "en",
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https:\/\/zyooo.github.io\/javadairy\/nginx\/"
-        },"genre": "JavaDairy","wordcount":  4367 ,
-        "url": "https:\/\/zyooo.github.io\/javadairy\/nginx\/","datePublished": "2021-10-17T19:29:27+08:00","dateModified": "2021-10-17T19:29:27+08:00","publisher": {
-            "@type": "Organization",
-            "name": ""},"author": {
-                "@type": "Person",
-                "name": "JoyBoy"
-            },"description": ""
+
+
+
+<meta property="og:description" content="Nginx 1.课程目标 目标1：掌握Nginx的安装
+目标2：掌握Nginx的静态网站部署
+目标3：理解Nginx的反向代理与负载均衡，能够配置反向代理与负载均衡
+2.Nginx的安装与启动 2.1什么是Nginx Nginx 是一款高性能的 http 服务器/反向代理服务器及电子邮件（IMAP/POP3）代理服务器。由俄罗斯的程序设计师伊戈尔·西索夫（Igor Sysoev）所开发，官方测试 nginx 能够支支撑 5 万并发链接，并且 cpu、内存等资源消耗却非常低，运行非常稳定。" />
+
+
+
+
+<meta property="og:locale" content="en" />
+
+
+
+
+<meta property="og:site_name" content="JoyBoy&#39;s blog" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2021-10-17T19:29:27&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2021-10-17T19:29:27&#43;08:00" />
+
+
+
+<meta property="article:section" content="JavaDairy" />
+
+
+
+
+
+  <body class="flex min-h-screen flex-col">
+    <header
+      class="min-h-16 pl-scrollbar bg-secondary-bg fixed z-50 flex w-full items-center shadow-sm"
+    >
+      <div class="mx-auto w-full max-w-screen-xl"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
     }
-    </script></head>
-    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="me-6 text-primary-text text-xl font-bold">JoyBoy&#39;s blog</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
 
-        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
-    <div class="header-wrapper">
-        <div class="header-title">
-            <a href="/" title="JoyBoy&#39;s blog">JoyBoy&#39;s blog</a>
+    <div id="target"
+        class="hidden block md:flex md:grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">About</a>
+            <a href="/note/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">Notes</a>
+            <a href="/leetcodedairy/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">LeetCodeDairy</a>
+            <a href="/javadairy/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  me-4">JavaDairy</a>
+            <a href="/golangdairy/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">GolangDairy</a>
+            <a href="/bugs/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">Bugs</a>
         </div>
-        <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/note/"> NOTE </a><a class="menu-item" href="/leetcodedairy/"> LeetCodeDairy </a><a class="menu-item" href="/bugs/"> Bugs </a><a class="menu-item" href="/javadairy/"> JavaDairy </a><a class="menu-item" href="/golangdairy/"> GolangDairy </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
-                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
-                            <i class="fas fa-search fa-fw"></i>
-                        </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
-                            <i class="fas fa-times-circle fa-fw"></i>
-                        </a>
-                        <span class="search-button search-loading" id="search-loading-desktop">
-                            <i class="fas fa-spinner fa-fw fa-spin"></i>
-                        </span>
-                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
-                    <i class="fas fa-adjust fa-fw"></i>
-                </a>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col start-0 md:start-auto end-auto md:end-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">Auto</span>
+                </div>
             </div>
         </div>
     </div>
-</header><header class="mobile" id="header-mobile">
-    <div class="header-container">
-        <div class="header-wrapper">
-            <div class="header-title">
-                <a href="/" title="JoyBoy&#39;s blog">JoyBoy&#39;s blog</a>
-            </div>
-            <div class="menu-toggle" id="menu-toggle-mobile">
-                <span></span><span></span><span></span>
-            </div>
-        </div>
-        <div class="menu" id="menu-mobile"><div class="search-wrapper">
-                    <div class="search mobile" id="search-mobile">
-                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
-                            <i class="fas fa-search fa-fw"></i>
-                        </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
-                            <i class="fas fa-times-circle fa-fw"></i>
-                        </a>
-                        <span class="search-button search-loading" id="search-loading-mobile">
-                            <i class="fas fa-spinner fa-fw fa-spin"></i>
-                        </span>
-                    </div>
-                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
-                        Cancel
-                    </a>
-                </div><a class="menu-item" href="/note/" title="">NOTE</a><a class="menu-item" href="/leetcodedairy/" title="">LeetCodeDairy</a><a class="menu-item" href="/bugs/" title="">Bugs</a><a class="menu-item" href="/javadairy/" title="">JavaDairy</a><a class="menu-item" href="/golangdairy/" title="">GolangDairy</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
-                <i class="fas fa-adjust fa-fw"></i>
-            </a></div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
     </div>
-</header>
-<div class="search-dropdown desktop">
-    <div id="search-dropdown-desktop"></div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
 </div>
-<div class="search-dropdown mobile">
-    <div id="search-dropdown-mobile"></div>
+    </header>
+    <main class="grow pt-16">
+        <div class="pl-scrollbar">
+          <div class="mx-auto w-full max-w-screen-xl lg:px-4 xl:px-8">
+  
+  
+  <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
+    <div
+      class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
+    >
+      <article class="prose">
+  <h1 class="mb-4">Nginx</h1>
+
+  <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2021-10-17</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>3 min read</span>
+  </div>
+
+  
+
+  
 </div>
-<main class="main">
-                <div class="container"><div class="page single special"><h1 class="single-title animated pulse faster">Nginx</h1><div class="content" id="content"><h1 id="nginx">Nginx</h1>
+
+
+  
+  
+
+  <h1 id="nginx">Nginx</h1>
 <h1 id="1课程目标">1.课程目标</h1>
 <p>目标1：掌握Nginx的安装</p>
 <p>目标2：掌握Nginx的静态网站部署</p>
@@ -109,14 +263,7 @@
 <h1 id="2nginx的安装与启动">2.Nginx的安装与启动</h1>
 <h2 id="21什么是nginx">2.1什么是Nginx</h2>
 <p>Nginx 是一款高性能的 http 服务器/反向代理服务器及电子邮件（IMAP/POP3）代理服务器。由俄罗斯的程序设计师伊戈尔·西索夫（Igor Sysoev）所开发，官方测试 nginx 能够支支撑 5 万并发链接，并且 cpu、内存等资源消耗却非常低，运行非常稳定。</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/17/RM53FAuyedGltfc.jpg"
-        data-srcset="https://i.loli.net/2021/10/17/RM53FAuyedGltfc.jpg, https://i.loli.net/2021/10/17/RM53FAuyedGltfc.jpg 1.5x, https://i.loli.net/2021/10/17/RM53FAuyedGltfc.jpg 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/17/RM53FAuyedGltfc.jpg"
-        title="img" /></p>
+<p><img src="https://i.loli.net/2021/10/17/RM53FAuyedGltfc.jpg" alt="img"></p>
 <p>Nginx 应用场景：</p>
 <p>1、http 服务器。Nginx 是一个 http 服务可以独立提供 http 服务。可以做网页静态服务器。</p>
 <p>2、虚拟主机。可以实现在一台服务器虚拟出多个网站。例如个人网站使用的虚拟主机。</p>
@@ -147,14 +294,7 @@
 <p>第三步：进入nginx-1.8.0目录  使用 configure 命令创建一 makeFile 文件。</p>
 <p>./configure --prefix=/usr/local/nginx --pid-path=/var/run/nginx/nginx.pid --lock-path=/var/lock/nginx.lock --error-log-path=/var/log/nginx/error.log --http-log-path=/var/log/nginx/access.log --with-http_gzip_static_module --http-client-body-temp-path=/var/temp/nginx/client --http-proxy-temp-path=/var/temp/nginx/proxy --http-fastcgi-temp-path=/var/temp/nginx/fastcgi --http-uwsgi-temp-path=/var/temp/nginx/uwsgi --http-scgi-temp-path=/var/temp/nginx/scgi</p>
 <p>执行后可以看到Makefile文件</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/17/xqATg7f9Z1XRjzi.jpg"
-        data-srcset="https://i.loli.net/2021/10/17/xqATg7f9Z1XRjzi.jpg, https://i.loli.net/2021/10/17/xqATg7f9Z1XRjzi.jpg 1.5x, https://i.loli.net/2021/10/17/xqATg7f9Z1XRjzi.jpg 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/17/xqATg7f9Z1XRjzi.jpg"
-        title="img" /></p>
+<p><img src="https://i.loli.net/2021/10/17/xqATg7f9Z1XRjzi.jpg" alt="img"></p>
 <p>第四步：编译</p>
 <p>make</p>
 <p>第五步：安装</p>
@@ -168,14 +308,7 @@
 <p>./nginx</p>
 <p>启动后查看进程</p>
 <p>ps aux|grep nginx</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/17/BQt6yKNiSY7OLGp.jpg"
-        data-srcset="https://i.loli.net/2021/10/17/BQt6yKNiSY7OLGp.jpg, https://i.loli.net/2021/10/17/BQt6yKNiSY7OLGp.jpg 1.5x, https://i.loli.net/2021/10/17/BQt6yKNiSY7OLGp.jpg 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/17/BQt6yKNiSY7OLGp.jpg"
-        title="img" /></p>
+<p><img src="https://i.loli.net/2021/10/17/BQt6yKNiSY7OLGp.jpg" alt="img"></p>
 <p>地址栏输入虚拟机的IP即可访问（默认为80端口）</p>
 <p>关闭 nginx：</p>
 <p>./nginx -s stop</p>
@@ -188,14 +321,7 @@
 <h1 id="3nginx静态网站部署">3.Nginx静态网站部署</h1>
 <h2 id="31-静态网站的部署">3.1 静态网站的部署</h2>
 <p>将/资料/静态页面/index目录下的所有内容 上传到服务器的/usr/local/nginx/html下即可访问</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/17/yw1M6xPi9SaUNnO.jpg"
-        data-srcset="https://i.loli.net/2021/10/17/yw1M6xPi9SaUNnO.jpg, https://i.loli.net/2021/10/17/yw1M6xPi9SaUNnO.jpg 1.5x, https://i.loli.net/2021/10/17/yw1M6xPi9SaUNnO.jpg 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/17/yw1M6xPi9SaUNnO.jpg"
-        title="img" /></p>
+<p><img src="https://i.loli.net/2021/10/17/yw1M6xPi9SaUNnO.jpg" alt="img"></p>
 <h2 id="32-配置虚拟主机">3.2 配置虚拟主机</h2>
 <p>虚拟主机，也叫“网站空间”，就是把一台运行在互联网上的物理服务器划分成多个“虚拟”服务器。虚拟主机技术极大的促进了网络技术的应用和普及。同时虚拟主机的租用服务也成了网络时代的一种新型经济形式。</p>
 <h3 id="321-端口绑定">3.2.1 端口绑定</h3>
@@ -223,7 +349,7 @@
 <p>地址栏输入http://192.168.177.129/:82 可以看到注册页面</p>
 <h3 id="322-域名绑定">3.2.2 域名绑定</h3>
 <h4 id="什么是域名">什么是域名：</h4>
-<p><a href="https://baike.baidu.com/item/%e5%9f%9f%e5%90%8d" target="_blank" rel="noopener noreffer">域名</a>（[Domain Name](<a href="https://baike.baidu.com/item/Domain">https://baike.baidu.com/item/Domain</a> Name)），是由一串用“点”分隔的<a href="https://baike.baidu.com/item/%e5%ad%97%e7%ac%a6" target="_blank" rel="noopener noreffer">字符</a>组成的Internet上某一台计算机或计算机组的名称，用于在数据传输时标识计算机的电子方位（有时也指地理位置，地理上的域名，指代有行政自主权的一个地方区域）。域名是一个<a href="https://baike.baidu.com/item/IP%e5%9c%b0%e5%9d%80" target="_blank" rel="noopener noreffer">IP地址</a>上有“面具” 。域名的目的是便于记忆和沟通的一组服务器的地址（<a href="https://baike.baidu.com/item/%e7%bd%91%e7%ab%99/155722" target="_blank" rel="noopener noreffer">网站</a>，电子邮件，<a href="https://baike.baidu.com/item/FTP/13839" target="_blank" rel="noopener noreffer">FTP</a>等）。域名作为力所能及难忘的互联网参与者的名称。域名按<a href="https://baike.baidu.com/item/%e5%9f%9f%e5%90%8d%e7%b3%bb%e7%bb%9f" target="_blank" rel="noopener noreffer">域名系统</a>（DNS）的规则流程组成。在<a href="https://baike.baidu.com/item/DNS/427444" target="_blank" rel="noopener noreffer">DNS</a>中注册的任何名称都是域名。域名用于各种网络环境和应用程序特定的命名和寻址目的。通常，域名表示<a href="https://baike.baidu.com/item/%e4%ba%92%e8%81%94%e7%bd%91%e5%8d%8f%e8%ae%ae" target="_blank" rel="noopener noreffer">互联网协议</a>（IP）资源，例如用于访问因特网的个人计算机，托管网站的服务器计算机，或网站本身或通过因特网传送的任何其他服务。世界上第一个注册的域名是在1985年1月注册的。</p>
+<p><a href="https://baike.baidu.com/item/%E5%9F%9F%E5%90%8D">域名</a>（[Domain Name](<a href="https://baike.baidu.com/item/Domain">https://baike.baidu.com/item/Domain</a> Name)），是由一串用“点”分隔的<a href="https://baike.baidu.com/item/%E5%AD%97%E7%AC%A6">字符</a>组成的Internet上某一台计算机或计算机组的名称，用于在数据传输时标识计算机的电子方位（有时也指地理位置，地理上的域名，指代有行政自主权的一个地方区域）。域名是一个<a href="https://baike.baidu.com/item/IP%E5%9C%B0%E5%9D%80">IP地址</a>上有“面具” 。域名的目的是便于记忆和沟通的一组服务器的地址（<a href="https://baike.baidu.com/item/%E7%BD%91%E7%AB%99/155722">网站</a>，电子邮件，<a href="https://baike.baidu.com/item/FTP/13839">FTP</a>等）。域名作为力所能及难忘的互联网参与者的名称。域名按<a href="https://baike.baidu.com/item/%E5%9F%9F%E5%90%8D%E7%B3%BB%E7%BB%9F">域名系统</a>（DNS）的规则流程组成。在<a href="https://baike.baidu.com/item/DNS/427444">DNS</a>中注册的任何名称都是域名。域名用于各种网络环境和应用程序特定的命名和寻址目的。通常，域名表示<a href="https://baike.baidu.com/item/%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE">互联网协议</a>（IP）资源，例如用于访问因特网的个人计算机，托管网站的服务器计算机，或网站本身或通过因特网传送的任何其他服务。世界上第一个注册的域名是在1985年1月注册的。</p>
 <p><em><strong>*域名级别：*</strong></em></p>
 <p><em><strong>*（1）顶级域名*</strong></em></p>
 <p>顶级域名又分为两类：</p>
@@ -245,42 +371,7 @@
 <p>192.168.177.129	www.hmtravel.com</p>
 <p>192.168.177.129	regist.hmtravel.com</p>
 <p>做好域名指向后，修改nginx配置文件</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">server {    
+<pre><code>server {    
 
     listen    80;    
 
@@ -311,105 +402,41 @@ server {
      }  
 
 }
-</code></pre></td></tr></table>
-</div>
-</div><p>执行以下命令，刷新配置</p>
+</code></pre>
+<p>执行以下命令，刷新配置</p>
 <p>[root@localhost sbin]# ./nginx -s reload</p>
 <p>测试：</p>
 <p>地址栏输入http://www.hmtravel.com/</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/17/SMJHV7fbowq5shr.jpg"
-        data-srcset="https://i.loli.net/2021/10/17/SMJHV7fbowq5shr.jpg, https://i.loli.net/2021/10/17/SMJHV7fbowq5shr.jpg 1.5x, https://i.loli.net/2021/10/17/SMJHV7fbowq5shr.jpg 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/17/SMJHV7fbowq5shr.jpg"
-        title="img" /></p>
+<p><img src="https://i.loli.net/2021/10/17/SMJHV7fbowq5shr.jpg" alt="img"></p>
 <p>地址栏输入http://regist.hmtravel.com/</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/17/pgRDsyBQYzJN49r.jpg"
-        data-srcset="https://i.loli.net/2021/10/17/pgRDsyBQYzJN49r.jpg, https://i.loli.net/2021/10/17/pgRDsyBQYzJN49r.jpg 1.5x, https://i.loli.net/2021/10/17/pgRDsyBQYzJN49r.jpg 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/17/pgRDsyBQYzJN49r.jpg"
-        title="img" /></p>
+<p><img src="https://i.loli.net/2021/10/17/pgRDsyBQYzJN49r.jpg" alt="img"></p>
 <h1 id="4nginx反向代理与负载均衡"><em><strong>*4.Nginx反向代理与负载均衡*</strong></em></h1>
 <h2 id="41-反向代理"><em><strong>*4.1 反向代理*</strong></em></h2>
 <h3 id="411-什么是反向代理"><em><strong>*4.1.1 什么是反向代理*</strong></em></h3>
-<p>反向代理（Reverse Proxy）方式是指以<a href="http://baike.baidu.com/item/%e4%bb%a3%e7%90%86%e6%9c%8d%e5%8a%a1%e5%99%a8" target="_blank" rel="noopener noreffer">代理服务器</a>来接受internet上的连接请求，然后将请求转发给内部网络上的服务器，并将从服务器上得到的结果返回给internet上请求连接的客户端，此时代理服务器对外就表现为一个反向代理服务器。</p>
+<p>反向代理（Reverse Proxy）方式是指以<a href="http://baike.baidu.com/item/%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8">代理服务器</a>来接受internet上的连接请求，然后将请求转发给内部网络上的服务器，并将从服务器上得到的结果返回给internet上请求连接的客户端，此时代理服务器对外就表现为一个反向代理服务器。</p>
 <p>首先我们先理解正向代理，如下图：</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/17/t6BsW2wPaTqQ7o8.jpg"
-        data-srcset="https://i.loli.net/2021/10/17/t6BsW2wPaTqQ7o8.jpg, https://i.loli.net/2021/10/17/t6BsW2wPaTqQ7o8.jpg 1.5x, https://i.loli.net/2021/10/17/t6BsW2wPaTqQ7o8.jpg 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/17/t6BsW2wPaTqQ7o8.jpg"
-        title="img" /></p>
+<p><img src="https://i.loli.net/2021/10/17/t6BsW2wPaTqQ7o8.jpg" alt="img"></p>
 <p>正向代理是针对你的客户端，而反向代理是针对服务器的，如下图</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/17/jK5oac8IBGO7diW.jpg"
-        data-srcset="https://i.loli.net/2021/10/17/jK5oac8IBGO7diW.jpg, https://i.loli.net/2021/10/17/jK5oac8IBGO7diW.jpg 1.5x, https://i.loli.net/2021/10/17/jK5oac8IBGO7diW.jpg 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/17/jK5oac8IBGO7diW.jpg"
-        title="img" /></p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/17/qPBrWLnSZlRpgCQ.jpg"
-        data-srcset="https://i.loli.net/2021/10/17/qPBrWLnSZlRpgCQ.jpg, https://i.loli.net/2021/10/17/qPBrWLnSZlRpgCQ.jpg 1.5x, https://i.loli.net/2021/10/17/qPBrWLnSZlRpgCQ.jpg 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/17/qPBrWLnSZlRpgCQ.jpg"
-        title="img" /></p>
+<p><img src="https://i.loli.net/2021/10/17/jK5oac8IBGO7diW.jpg" alt="img"></p>
+<p><img src="https://i.loli.net/2021/10/17/qPBrWLnSZlRpgCQ.jpg" alt="img"></p>
 <h3 id="412-配置反向代理-准备工作"><em><strong>*4.1.2 配置反向代理-准备工作*</strong></em></h3>
 <p>（1） 将travel案例部署到tomcat中（ROOT目录），上传到服务器。</p>
 <p>（2）启动TOMCAT，输入网址http://192.168.177.129:8080 可以看到网站首页</p>
 <h3 id="413-配置反向代理"><em><strong>*4.1.3 配置反向代理*</strong></em></h3>
 <p>（1）在Nginx主机修改 Nginx配置文件</p>
-<p>upstream tomcat-travel{	  server 192.168.177.129:8080;  }   server {    listen    80; # 监听的端口    server_name  <a href="http://www.hmtravel.com">www.hmtravel.com</a>; # 域名或ip    location / {	# 访问路径配置      # root  index;# 根目录	  proxy_pass http://tomcat-travel;      index  index.html index.htm; # 默认首页    }}</p>
+<p>upstream tomcat-travel{	  server 192.168.177.129:8080;  }   server {    listen    80; # 监听的端口    server_name  <a href="https://www.hmtravel.com">www.hmtravel.com</a>; # 域名或ip    location / {	# 访问路径配置      # root  index;# 根目录	  proxy_pass http://tomcat-travel;      index  index.html index.htm; # 默认首页    }}</p>
 <p>（2）重新启动Nginx  然后用浏览器测试：http://www.hmtravel.com （此域名须配置域名指向）</p>
 <h2 id="42-负载均衡"><em><strong>*4.2 负载均衡*</strong></em></h2>
 <h3 id="421-什么是负载均衡"><em><strong>*4.2.1 什么是负载均衡*</strong></em></h3>
-<p>负载均衡 建立在现有网络结构之上，它提供了一种廉价有效透明的方法扩展<a href="http://baike.baidu.com/item/%e7%bd%91%e7%bb%9c%e8%ae%be%e5%a4%87" target="_blank" rel="noopener noreffer">网络设备</a>和<a href="http://baike.baidu.com/item/%e6%9c%8d%e5%8a%a1%e5%99%a8" target="_blank" rel="noopener noreffer">服务器</a>的带宽、增加<a href="http://baike.baidu.com/item/%e5%90%9e%e5%90%90%e9%87%8f" target="_blank" rel="noopener noreffer">吞吐量</a>、加强网络数据处理能力、提高网络的灵活性和可用性。</p>
-<p>负载均衡，英文名称为Load Balance，其意思就是分摊到多个操作单元上进行执行，例如Web<a href="http://baike.baidu.com/item/%e6%9c%8d%e5%8a%a1%e5%99%a8" target="_blank" rel="noopener noreffer">服务器</a>、<a href="http://baike.baidu.com/item/FTP%e6%9c%8d%e5%8a%a1%e5%99%a8" target="_blank" rel="noopener noreffer">FTP服务器</a>、<a href="http://baike.baidu.com/item/%e4%bc%81%e4%b8%9a" target="_blank" rel="noopener noreffer">企业</a>关键应用服务器和其它关键任务服务器等，从而共同完成工作任务。</p>
+<p>负载均衡 建立在现有网络结构之上，它提供了一种廉价有效透明的方法扩展<a href="http://baike.baidu.com/item/%E7%BD%91%E7%BB%9C%E8%AE%BE%E5%A4%87">网络设备</a>和<a href="http://baike.baidu.com/item/%E6%9C%8D%E5%8A%A1%E5%99%A8">服务器</a>的带宽、增加<a href="http://baike.baidu.com/item/%E5%90%9E%E5%90%90%E9%87%8F">吞吐量</a>、加强网络数据处理能力、提高网络的灵活性和可用性。</p>
+<p>负载均衡，英文名称为Load Balance，其意思就是分摊到多个操作单元上进行执行，例如Web<a href="http://baike.baidu.com/item/%E6%9C%8D%E5%8A%A1%E5%99%A8">服务器</a>、<a href="http://baike.baidu.com/item/FTP%E6%9C%8D%E5%8A%A1%E5%99%A8">FTP服务器</a>、<a href="http://baike.baidu.com/item/%E4%BC%81%E4%B8%9A">企业</a>关键应用服务器和其它关键任务服务器等，从而共同完成工作任务。</p>
 <h3 id="422-配置负载均衡-准备工作"><em><strong>*4.2.2 配置负载均衡-准备工作*</strong></em></h3>
 <p>（1）将刚才的存放工程的tomcat复制三份，修改端口分别为8080 ，8081，8082 。</p>
 <p>（2）分别启动这三个tomcat服务。</p>
 <p>（3）为了能够区分是访问哪个服务器的网站，可以在首页标题加上标记以便区分。</p>
 <h3 id="423-配置负载均衡"><em><strong>*4.2.3 配置负载均衡*</strong></em></h3>
 <p>修改 Nginx配置文件：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback"> upstream tomcat-travel {	  
+<pre><code> upstream tomcat-travel {	  
      server 192.168.177.129:8080;	  
      server 192.168.177.129:8081;	  
      server 192.168.177.129:8082;  
@@ -433,21 +460,149 @@ server {
      root  html;    
      }  
  }
-</code></pre></td></tr></table>
-</div>
-</div><p>地址栏输入http:// <a href="http://www.hmtravel.com">www.hmtravel.com</a> /  刷新观察每个网页的标题，看是否不同。</p>
+</code></pre>
+<p>地址栏输入http:// <a href="https://www.hmtravel.com">www.hmtravel.com</a> /  刷新观察每个网页的标题，看是否不同。</p>
 <p>经过测试，三台服务器出现的概率各为33.3333333%，交替显示。</p>
 <p>如果其中一台服务器性能比较好，想让其承担更多的压力，可以设置权重。</p>
 <p>比如想让NO.1出现次数是其它服务器的2倍，则修改配置如下：</p>
 <p>upstream tomcat-travel {	  server 192.168.177.129:8080;	  server 192.168.177.129:8081 weight=2;	  server 192.168.177.129:8082;  }</p>
 <p>经过测试，每刷新四次，有两次是8081</p>
-</div><div id="comments"></div></div></div>
-            </main></div>
 
-        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
-                <i class="fas fa-arrow-up fa-fw"></i>
-            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
-                <i class="fas fa-comment fa-fw"></i>
-            </a>
-        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</article>
+
+
+      
+
+      
+
+
+
+      
+
+      
+  <div
+    class="-mx-2 mt-4 flex flex-col border-t px-2 pt-4 md:flex-row md:justify-between"
+  >
+    <div>
+      
+    </div>
+    <div class="mt-4 md:mt-0 md:text-right">
+      
+        <span class="text-primary-text block font-bold">Next</span>
+        <a href="https://zyooo.github.io/javadairy/example/" class="block">travel</a>
+      
+    </div>
+  </div>
+
+
+      
+
+
+
+    </div>
+    
+      <div class="col-span-2">
+        
+        
+          <div
+  class="
+    bg-primary-bg
+   prose sticky top-16 z-10 hidden px-6 py-4 lg:block"
+>
+  <h3>On This Page</h3>
+</div>
+<div
+  class="sticky-toc  hidden px-6 pb-6 lg:block"
+>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#nginx">Nginx</a></li>
+    <li><a href="#1课程目标">1.课程目标</a></li>
+    <li><a href="#2nginx的安装与启动">2.Nginx的安装与启动</a>
+      <ul>
+        <li><a href="#21什么是nginx">2.1什么是Nginx</a></li>
+        <li><a href="#22-nginx在linux下的安装">2.2 Nginx在Linux下的安装</a>
+          <ul>
+            <li><a href="#221环境准备">2.2.1环境准备</a>
+              <ul>
+                <li><a href="#pcre">PCRE</a></li>
+                <li><a href="#zlib">zlib</a></li>
+                <li><a href="#openssl">OpenSSL</a></li>
+              </ul>
+            </li>
+            <li><a href="#222-nginx下载">2.2.2 Nginx下载</a></li>
+            <li><a href="#223-nginx安装">2.2.3 Nginx安装</a></li>
+          </ul>
+        </li>
+        <li><a href="#23-nginx启动与访问">2.3 Nginx启动与访问</a></li>
+      </ul>
+    </li>
+    <li><a href="#3nginx静态网站部署">3.Nginx静态网站部署</a>
+      <ul>
+        <li><a href="#31-静态网站的部署">3.1 静态网站的部署</a></li>
+        <li><a href="#32-配置虚拟主机">3.2 配置虚拟主机</a>
+          <ul>
+            <li><a href="#321-端口绑定">3.2.1 端口绑定</a></li>
+            <li><a href="#322-域名绑定">3.2.2 域名绑定</a>
+              <ul>
+                <li><a href="#什么是域名">什么是域名：</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#4nginx反向代理与负载均衡"><em><strong>*4.Nginx反向代理与负载均衡*</strong></em></a>
+      <ul>
+        <li><a href="#41-反向代理"><em><strong>*4.1 反向代理*</strong></em></a>
+          <ul>
+            <li><a href="#411-什么是反向代理"><em><strong>*4.1.1 什么是反向代理*</strong></em></a></li>
+            <li><a href="#412-配置反向代理-准备工作"><em><strong>*4.1.2 配置反向代理-准备工作*</strong></em></a></li>
+            <li><a href="#413-配置反向代理"><em><strong>*4.1.3 配置反向代理*</strong></em></a></li>
+          </ul>
+        </li>
+        <li><a href="#42-负载均衡"><em><strong>*4.2 负载均衡*</strong></em></a>
+          <ul>
+            <li><a href="#421-什么是负载均衡"><em><strong>*4.2.1 什么是负载均衡*</strong></em></a></li>
+            <li><a href="#422-配置负载均衡-准备工作"><em><strong>*4.2.2 配置负载均衡-准备工作*</strong></em></a></li>
+            <li><a href="#423-配置负载均衡"><em><strong>*4.2.3 配置负载均衡*</strong></em></a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    enableStickyToc();
+  });
+</script>
+
+        
+      </div>
+    
+
+    
+    
+  </div>
+
+  
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        hljs.initHighlightingOnLoad();
+      });
+    </script>
+
+          </div>
+        </div>
+      
+    </main>
+    <footer class="pl-scrollbar">
+      <div class="mx-auto w-full max-w-screen-xl"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2021 <a href="https://www.wangchucheng.com/">WANG Chucheng</a> and <a href="https://www.ruiqima.com/">MA Ruiqi</a>
+ &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+    </footer>
+  </body>
 </html>

@@ -1,107 +1,263 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="robots" content="noodp" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-        <title>Redis&amp;Jedis - JoyBoy&#39;s blog</title><meta name="Description" content="JoyBoy&#39;s blog"><meta property="og:title" content="Redis&amp;Jedis" />
-<meta property="og:description" content="redis&amp;Jedis redis 概念：一款高性能的NOSQL系列的非关系型数据库 关系型数据库：MySQL、Oracle… ​ 使用表单存储数据，数据之间有关联关系，数据存储" />
+<html
+  lang="en"
+  dir="ltr"
+  
+><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>Redis&amp;Jedis | JoyBoy&#39;s blog</title>
+
+<meta name="generator" content="Hugo Eureka 0.9.1" />
+<link rel="stylesheet" href="https://zyooo.github.io/css/eureka.min.6a378a23360d238dc3ef4df2f5cd718093f02c10c9c7eb2437c29701cd8d389ab6da5d9f21bdd3afa305fd56c1235017.css" integrity="sha384-ajeKIzYNI43D703y9c1xgJPwLBDJx&#43;skN8KXAc2NOJq22l2fIb3Tr6MF/VbBI1AX">
+<script defer src="https://zyooo.github.io/js/eureka.min.f1639ee98d6cbd85b2b5f034d27320da962002ff83159ed4e01dbc5948c42a1ab26c2d6e74c66e93f5cec4d24dbd166d.js" integrity="sha384-8WOe6Y1svYWytfA00nMg2pYgAv&#43;DFZ7U4B28WUjEKhqybC1udMZuk/XOxNJNvRZt"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/solarized-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/dart.min.js"
+     crossorigin></script>
+
+
+<script defer type="text/javascript" src="https://zyooo.github.io/js/fontawesome.min.1c5a4674b042785ed214cf0818a81724c6b37442fd61b0ed039237b93de25ed5103fc8079a05770648ccc9c66c4f540a.js" integrity="sha384-HFpGdLBCeF7SFM8IGKgXJMazdEL9YbDtA5I3uT3iXtUQP8gHmgV3BkjMycZsT1QK"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
+   integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" 
+  integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js"
+   integrity="sha384-&#43;XBljXPPiv&#43;OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.14.0/dist/mermaid.min.js" 
+  integrity="sha384-atOyb0FxAgN9LyAc6PEf9BjgwLISyansgdH8/VXQH8p2o5vfrRgmGIJ2Sg22L0A0"  crossorigin></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="https://zyooo.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://zyooo.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="redis&amp;Jedis redis 概念：一款高性能的NOSQL系列的非关系型数据库
+关系型数据库：MySQL、Oracle…
+​	使用表单存储数据，数据之间有关联关系，数据存储在硬盘的文件上
+非关系型数据库(NOSQL): redis, hbase…
+​	使用键值对去存储数据，数据之间没有关联关系，数据存储在内存中">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"JavaDairies",
+      "item":"https://zyooo.github.io/javadairy/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"Redis\u0026Jedis",
+      "item":"https://zyooo.github.io/javadairy/redisjedis/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://zyooo.github.io/javadairy/redisjedis/"
+    },
+    "headline": "Redis\u0026Jedis | JoyBoy\u0027s blog","datePublished": "2021-10-09T11:46:30+08:00",
+    "dateModified": "2021-10-09T11:46:30+08:00",
+    "wordCount":  758 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "ZhangYong",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://zyooo.github.io/images/avatar.png"
+        }
+        },
+    "description": "redis\u0026amp;Jedis redis 概念：一款高性能的NOSQL系列的非关系型数据库\n关系型数据库：MySQL、Oracle…\n​\t使用表单存储数据，数据之间有关联关系，数据存储在硬盘的文件上\n非关系型数据库(NOSQL): redis, hbase…\n​\t使用键值对去存储数据，数据之间没有关联关系，数据存储在内存中"
+}
+</script><meta property="og:title" content="Redis&amp;Jedis | JoyBoy&#39;s blog" />
 <meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="https://zyooo.github.io/images/icon.png">
+
+
 <meta property="og:url" content="https://zyooo.github.io/javadairy/redisjedis/" />
-<meta property="og:image" content="https://zyooo.github.io/logo.png"/>
-<meta property="article:published_time" content="2021-10-09T11:46:30+08:00" />
-<meta property="article:modified_time" content="2021-10-09T11:46:30+08:00" />
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://zyooo.github.io/logo.png"/>
 
-<meta name="twitter:title" content="Redis&amp;Jedis"/>
-<meta name="twitter:description" content="redis&amp;Jedis redis 概念：一款高性能的NOSQL系列的非关系型数据库 关系型数据库：MySQL、Oracle… ​ 使用表单存储数据，数据之间有关联关系，数据存储"/>
-<meta name="application-name" content="LoveIt">
-<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://zyooo.github.io/javadairy/redisjedis/" /><link rel="next" href="https://zyooo.github.io/javadairy/maven/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
-    {
-        "@context": "http://schema.org",
-        "@type": "BlogPosting",
-        "headline": "Redis\u0026Jedis",
-        "inLanguage": "en",
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https:\/\/zyooo.github.io\/javadairy\/redisjedis\/"
-        },"genre": "JavaDairy","wordcount":  3467 ,
-        "url": "https:\/\/zyooo.github.io\/javadairy\/redisjedis\/","datePublished": "2021-10-09T11:46:30+08:00","dateModified": "2021-10-09T11:46:30+08:00","publisher": {
-            "@type": "Organization",
-            "name": ""},"author": {
-                "@type": "Person",
-                "name": "JoyBoy"
-            },"description": ""
+
+
+
+<meta property="og:description" content="redis&amp;Jedis redis 概念：一款高性能的NOSQL系列的非关系型数据库
+关系型数据库：MySQL、Oracle…
+​	使用表单存储数据，数据之间有关联关系，数据存储在硬盘的文件上
+非关系型数据库(NOSQL): redis, hbase…
+​	使用键值对去存储数据，数据之间没有关联关系，数据存储在内存中" />
+
+
+
+
+<meta property="og:locale" content="en" />
+
+
+
+
+<meta property="og:site_name" content="JoyBoy&#39;s blog" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2021-10-09T11:46:30&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2021-10-09T11:46:30&#43;08:00" />
+
+
+
+<meta property="article:section" content="JavaDairy" />
+
+
+
+
+
+  <body class="flex min-h-screen flex-col">
+    <header
+      class="min-h-16 pl-scrollbar bg-secondary-bg fixed z-50 flex w-full items-center shadow-sm"
+    >
+      <div class="mx-auto w-full max-w-screen-xl"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
     }
-    </script></head>
-    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="me-6 text-primary-text text-xl font-bold">JoyBoy&#39;s blog</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
 
-        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
-    <div class="header-wrapper">
-        <div class="header-title">
-            <a href="/" title="JoyBoy&#39;s blog">JoyBoy&#39;s blog</a>
+    <div id="target"
+        class="hidden block md:flex md:grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">About</a>
+            <a href="/note/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">Notes</a>
+            <a href="/leetcodedairy/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">LeetCodeDairy</a>
+            <a href="/javadairy/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  me-4">JavaDairy</a>
+            <a href="/golangdairy/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">GolangDairy</a>
+            <a href="/bugs/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">Bugs</a>
         </div>
-        <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/note/"> NOTE </a><a class="menu-item" href="/leetcodedairy/"> LeetCodeDairy </a><a class="menu-item" href="/bugs/"> Bugs </a><a class="menu-item" href="/javadairy/"> JavaDairy </a><a class="menu-item" href="/golangdairy/"> GolangDairy </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
-                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
-                            <i class="fas fa-search fa-fw"></i>
-                        </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
-                            <i class="fas fa-times-circle fa-fw"></i>
-                        </a>
-                        <span class="search-button search-loading" id="search-loading-desktop">
-                            <i class="fas fa-spinner fa-fw fa-spin"></i>
-                        </span>
-                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
-                    <i class="fas fa-adjust fa-fw"></i>
-                </a>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col start-0 md:start-auto end-auto md:end-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">Auto</span>
+                </div>
             </div>
         </div>
     </div>
-</header><header class="mobile" id="header-mobile">
-    <div class="header-container">
-        <div class="header-wrapper">
-            <div class="header-title">
-                <a href="/" title="JoyBoy&#39;s blog">JoyBoy&#39;s blog</a>
-            </div>
-            <div class="menu-toggle" id="menu-toggle-mobile">
-                <span></span><span></span><span></span>
-            </div>
-        </div>
-        <div class="menu" id="menu-mobile"><div class="search-wrapper">
-                    <div class="search mobile" id="search-mobile">
-                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
-                            <i class="fas fa-search fa-fw"></i>
-                        </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
-                            <i class="fas fa-times-circle fa-fw"></i>
-                        </a>
-                        <span class="search-button search-loading" id="search-loading-mobile">
-                            <i class="fas fa-spinner fa-fw fa-spin"></i>
-                        </span>
-                    </div>
-                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
-                        Cancel
-                    </a>
-                </div><a class="menu-item" href="/note/" title="">NOTE</a><a class="menu-item" href="/leetcodedairy/" title="">LeetCodeDairy</a><a class="menu-item" href="/bugs/" title="">Bugs</a><a class="menu-item" href="/javadairy/" title="">JavaDairy</a><a class="menu-item" href="/golangdairy/" title="">GolangDairy</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
-                <i class="fas fa-adjust fa-fw"></i>
-            </a></div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
     </div>
-</header>
-<div class="search-dropdown desktop">
-    <div id="search-dropdown-desktop"></div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
 </div>
-<div class="search-dropdown mobile">
-    <div id="search-dropdown-mobile"></div>
+    </header>
+    <main class="grow pt-16">
+        <div class="pl-scrollbar">
+          <div class="mx-auto w-full max-w-screen-xl lg:px-4 xl:px-8">
+  
+  
+  <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
+    <div
+      class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
+    >
+      <article class="prose">
+  <h1 class="mb-4">Redis&amp;Jedis</h1>
+
+  <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2021-10-09</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>4 min read</span>
+  </div>
+
+  
+
+  
 </div>
-<main class="main">
-                <div class="container"><div class="page single special"><h1 class="single-title animated pulse faster">Redis&amp;Jedis</h1><div class="content" id="content"><h1 id="redisjedis">redis&amp;Jedis</h1>
+
+
+  
+  
+
+  <h1 id="redisjedis">redis&amp;Jedis</h1>
 <h2 id="redis">redis</h2>
 <p><strong>概念：一款高性能的NOSQL系列的非关系型数据库</strong></p>
 <p>关系型数据库：MySQL、Oracle…</p>
@@ -117,26 +273,19 @@
 <p>​	3.列表类型list： linkedlist格式</p>
 <p>​	4.集合类型set</p>
 <p>​	5.有序集合类型sortedset</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/09/pa49gX1hoAZtDJ3.png"
-        data-srcset="https://i.loli.net/2021/10/09/pa49gX1hoAZtDJ3.png, https://i.loli.net/2021/10/09/pa49gX1hoAZtDJ3.png 1.5x, https://i.loli.net/2021/10/09/pa49gX1hoAZtDJ3.png 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/09/pa49gX1hoAZtDJ3.png"
-        title="image-20211009092128312" /></p>
+<p><img src="https://i.loli.net/2021/10/09/pa49gX1hoAZtDJ3.png" alt="image-20211009092128312"></p>
 <h3 id="命令操作-">**命令操作 **</h3>
 <p><strong>(更多详细的操作在redis官网文档中有)</strong></p>
 <p><strong>字符串类型 string</strong></p>
 <pre><code>1. 存储： set key value
-    127.0.0.1:6379&gt; set username zhangsan
-    OK
+	127.0.0.1:6379&gt; set username zhangsan
+	OK
 2. 获取： get key
-    127.0.0.1:6379&gt; get username
-    &quot;zhangsan&quot;
+	127.0.0.1:6379&gt; get username
+	&quot;zhangsan&quot;
 3. 删除： del key
-    127.0.0.1:6379&gt; del age
-    (integer) 1
+	127.0.0.1:6379&gt; del age
+	(integer) 1
 </code></pre>
 <p><strong>哈希类型 hash</strong></p>
 <ol>
@@ -315,237 +464,204 @@ appendonly no（关闭aof） &ndash;&gt; appendonly yes （开启aof）</p>
 <p>错误信息：QForkMasterInit: system error caught. error code=0x000005af, message=VirtualAllocEx failed.: unknown error</p>
 <p>**原因：**未设置redis最大内存</p>
 <p>**解决：**在conf中最下面加入</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">maxmemory 268435456
+<pre><code>maxmemory 268435456
 maxheap 314572800
-</code></pre></td></tr></table>
-</div>
-</div><p>再次启动正常</p>
+</code></pre>
+<p>再次启动正常</p>
 <h2 id="jedis">Jedis</h2>
 <pre><code>Java客户端 Jedis
-    * Jedis: 一款java操作redis数据库的工具.
-    * 使用步骤：
-        1. 下载jedis的jar包
-        2. 使用
-            //1. 获取连接
-            Jedis jedis = new Jedis(&quot;localhost&quot;,6379);
-            //2. 操作
-            jedis.set(&quot;username&quot;,&quot;zhangsan&quot;);
-            //3. 关闭连接
-            jedis.close();
-    * Jedis操作各种redis中的数据结构
-        1) 字符串类型 string
-            set
-            get
+	* Jedis: 一款java操作redis数据库的工具.
+	* 使用步骤：
+		1. 下载jedis的jar包
+		2. 使用
+			//1. 获取连接
+    		Jedis jedis = new Jedis(&quot;localhost&quot;,6379);
+   			//2. 操作
+   			jedis.set(&quot;username&quot;,&quot;zhangsan&quot;);
+    		//3. 关闭连接
+    		jedis.close();
+	* Jedis操作各种redis中的数据结构
+		1) 字符串类型 string
+			set
+			get
 			
-             //1. 获取连接
-            Jedis jedis = new Jedis();//如果使用空参构造，默认值 &quot;localhost&quot;,6379端口
-            //2. 操作
-            //存储
-            jedis.set(&quot;username&quot;,&quot;zhangsan&quot;);
-            //获取
-            String username = jedis.get(&quot;username&quot;);
-            System.out.println(username);
+			 //1. 获取连接
+	        Jedis jedis = new Jedis();//如果使用空参构造，默认值 &quot;localhost&quot;,6379端口
+	        //2. 操作
+	        //存储
+	        jedis.set(&quot;username&quot;,&quot;zhangsan&quot;);
+	        //获取
+	        String username = jedis.get(&quot;username&quot;);
+	        System.out.println(username);
 	
-            //可以使用setex()方法存储可以指定过期时间的 key value
-            jedis.setex(&quot;activecode&quot;,20,&quot;hehe&quot;);//将activecode：hehe键值对存入redis，并且20秒后自动删除该键值对
+	        //可以使用setex()方法存储可以指定过期时间的 key value
+	        jedis.setex(&quot;activecode&quot;,20,&quot;hehe&quot;);//将activecode：hehe键值对存入redis，并且20秒后自动删除该键值对
 	
-            //3. 关闭连接
-            jedis.close();
+	        //3. 关闭连接
+	        jedis.close();
 
-        2) 哈希类型 hash ： map格式  
-            hset
-            hget
-            hgetAll
-            //1. 获取连接
-            Jedis jedis = new Jedis();//如果使用空参构造，默认值 &quot;localhost&quot;,6379端口
-            //2. 操作
-            // 存储hash
-            jedis.hset(&quot;user&quot;,&quot;name&quot;,&quot;lisi&quot;);
-            jedis.hset(&quot;user&quot;,&quot;age&quot;,&quot;23&quot;);
-            jedis.hset(&quot;user&quot;,&quot;gender&quot;,&quot;female&quot;);
+		2) 哈希类型 hash ： map格式  
+			hset
+			hget
+			hgetAll
+			//1. 获取连接
+	        Jedis jedis = new Jedis();//如果使用空参构造，默认值 &quot;localhost&quot;,6379端口
+	        //2. 操作
+	        // 存储hash
+	        jedis.hset(&quot;user&quot;,&quot;name&quot;,&quot;lisi&quot;);
+	        jedis.hset(&quot;user&quot;,&quot;age&quot;,&quot;23&quot;);
+	        jedis.hset(&quot;user&quot;,&quot;gender&quot;,&quot;female&quot;);
 	
-            // 获取hash
-            String name = jedis.hget(&quot;user&quot;, &quot;name&quot;);
-            System.out.println(name);
+	        // 获取hash
+	        String name = jedis.hget(&quot;user&quot;, &quot;name&quot;);
+	        System.out.println(name);
 </code></pre>
 <p>​</p>
-<pre><code>            // 获取hash的所有map中的数据
-            Map&lt;String, String&gt; user = jedis.hgetAll(&quot;user&quot;);
+<pre><code>	        // 获取hash的所有map中的数据
+	        Map&lt;String, String&gt; user = jedis.hgetAll(&quot;user&quot;);
 	
-            // keyset
-            Set&lt;String&gt; keySet = user.keySet();
-            for (String key : keySet) {
-                //获取value
-                String value = user.get(key);
-                System.out.println(key + &quot;:&quot; + value);
-            }
+	        // keyset
+	        Set&lt;String&gt; keySet = user.keySet();
+	        for (String key : keySet) {
+	            //获取value
+	            String value = user.get(key);
+	            System.out.println(key + &quot;:&quot; + value);
+	        }
 	
-            //3. 关闭连接
-            jedis.close();
+	        //3. 关闭连接
+	        jedis.close();
 
 
-        3) 列表类型 list ： linkedlist格式。支持重复元素
-            lpush / rpush
-            lpop / rpop
-            lrange start end : 范围获取
+		3) 列表类型 list ： linkedlist格式。支持重复元素
+			lpush / rpush
+			lpop / rpop
+			lrange start end : 范围获取
 			
-             //1. 获取连接
-            Jedis jedis = new Jedis();//如果使用空参构造，默认值 &quot;localhost&quot;,6379端口
-            //2. 操作
-            // list 存储
-            jedis.lpush(&quot;mylist&quot;,&quot;a&quot;,&quot;b&quot;,&quot;c&quot;);//从左边存
-            jedis.rpush(&quot;mylist&quot;,&quot;a&quot;,&quot;b&quot;,&quot;c&quot;);//从右边存
+			 //1. 获取连接
+	        Jedis jedis = new Jedis();//如果使用空参构造，默认值 &quot;localhost&quot;,6379端口
+	        //2. 操作
+	        // list 存储
+	        jedis.lpush(&quot;mylist&quot;,&quot;a&quot;,&quot;b&quot;,&quot;c&quot;);//从左边存
+	        jedis.rpush(&quot;mylist&quot;,&quot;a&quot;,&quot;b&quot;,&quot;c&quot;);//从右边存
 	
-            // list 范围获取
-            List&lt;String&gt; mylist = jedis.lrange(&quot;mylist&quot;, 0, -1);
-            System.out.println(mylist);
+	        // list 范围获取
+	        List&lt;String&gt; mylist = jedis.lrange(&quot;mylist&quot;, 0, -1);
+	        System.out.println(mylist);
 	        
-            // list 弹出
-            String element1 = jedis.lpop(&quot;mylist&quot;);//c
-            System.out.println(element1);
+	        // list 弹出
+	        String element1 = jedis.lpop(&quot;mylist&quot;);//c
+	        System.out.println(element1);
 	
-            String element2 = jedis.rpop(&quot;mylist&quot;);//c
-            System.out.println(element2);
+	        String element2 = jedis.rpop(&quot;mylist&quot;);//c
+	        System.out.println(element2);
 	
-            // list 范围获取
-            List&lt;String&gt; mylist2 = jedis.lrange(&quot;mylist&quot;, 0, -1);
-            System.out.println(mylist2);
+	        // list 范围获取
+	        List&lt;String&gt; mylist2 = jedis.lrange(&quot;mylist&quot;, 0, -1);
+	        System.out.println(mylist2);
 	
-            //3. 关闭连接
-            jedis.close();
+	        //3. 关闭连接
+	        jedis.close();
 
 
-        4) 集合类型 set  ： 不允许重复元素
-            sadd
-            smembers:获取所有元素
+		4) 集合类型 set  ： 不允许重复元素
+			sadd
+			smembers:获取所有元素
 
-            //1. 获取连接
-            Jedis jedis = new Jedis();//如果使用空参构造，默认值 &quot;localhost&quot;,6379端口
-            //2. 操作
+			//1. 获取连接
+	        Jedis jedis = new Jedis();//如果使用空参构造，默认值 &quot;localhost&quot;,6379端口
+	        //2. 操作
 </code></pre>
 <p>​</p>
-<pre><code>            // set 存储
-            jedis.sadd(&quot;myset&quot;,&quot;java&quot;,&quot;php&quot;,&quot;c++&quot;);
+<pre><code>	        // set 存储
+	        jedis.sadd(&quot;myset&quot;,&quot;java&quot;,&quot;php&quot;,&quot;c++&quot;);
 	
-            // set 获取
-            Set&lt;String&gt; myset = jedis.smembers(&quot;myset&quot;);
-            System.out.println(myset);
+	        // set 获取
+	        Set&lt;String&gt; myset = jedis.smembers(&quot;myset&quot;);
+	        System.out.println(myset);
 	
-            //3. 关闭连接
-            jedis.close();
-        5) 有序集合类型 sortedset：不允许重复元素，且元素有顺序
-            zadd
-            zrange
+	        //3. 关闭连接
+	        jedis.close();
+		5) 有序集合类型 sortedset：不允许重复元素，且元素有顺序
+			zadd
+			zrange
 
-            //1. 获取连接
-            Jedis jedis = new Jedis();//如果使用空参构造，默认值 &quot;localhost&quot;,6379端口
-            //2. 操作
-            // sortedset 存储
-            jedis.zadd(&quot;mysortedset&quot;,3,&quot;亚瑟&quot;);
-            jedis.zadd(&quot;mysortedset&quot;,30,&quot;后裔&quot;);
-            jedis.zadd(&quot;mysortedset&quot;,55,&quot;孙悟空&quot;);
+			//1. 获取连接
+	        Jedis jedis = new Jedis();//如果使用空参构造，默认值 &quot;localhost&quot;,6379端口
+	        //2. 操作
+	        // sortedset 存储
+	        jedis.zadd(&quot;mysortedset&quot;,3,&quot;亚瑟&quot;);
+	        jedis.zadd(&quot;mysortedset&quot;,30,&quot;后裔&quot;);
+	        jedis.zadd(&quot;mysortedset&quot;,55,&quot;孙悟空&quot;);
 	
-            // sortedset 获取
-            Set&lt;String&gt; mysortedset = jedis.zrange(&quot;mysortedset&quot;, 0, -1);
+	        // sortedset 获取
+	        Set&lt;String&gt; mysortedset = jedis.zrange(&quot;mysortedset&quot;, 0, -1);
 	
-            System.out.println(mysortedset);
+	        System.out.println(mysortedset);
 </code></pre>
 <p>​</p>
-<pre><code>            //3. 关闭连接
-            jedis.close();
+<pre><code>	        //3. 关闭连接
+	        jedis.close();
 </code></pre>
 <p>​</p>
-<pre><code>    * jedis连接池： JedisPool
-        * 使用：
-            1. 创建JedisPool连接池对象
-            2. 调用方法 getResource()方法获取Jedis连接
-                //0.创建一个配置对象
-                JedisPoolConfig config = new JedisPoolConfig();
-                config.setMaxTotal(50);
-                config.setMaxIdle(10);
+<pre><code>	* jedis连接池： JedisPool
+		* 使用：
+			1. 创建JedisPool连接池对象
+			2. 调用方法 getResource()方法获取Jedis连接
+				//0.创建一个配置对象
+		        JedisPoolConfig config = new JedisPoolConfig();
+		        config.setMaxTotal(50);
+		        config.setMaxIdle(10);
 		
-                //1.创建Jedis连接池对象
-                JedisPool jedisPool = new JedisPool(config,&quot;localhost&quot;,6379);
+		        //1.创建Jedis连接池对象
+		        JedisPool jedisPool = new JedisPool(config,&quot;localhost&quot;,6379);
 		
-                //2.获取连接
-                Jedis jedis = jedisPool.getResource();
-                //3. 使用
-                jedis.set(&quot;hehe&quot;,&quot;heihei&quot;);
+		        //2.获取连接
+		        Jedis jedis = jedisPool.getResource();
+		        //3. 使用
+		        jedis.set(&quot;hehe&quot;,&quot;heihei&quot;);
 </code></pre>
 <p>​			<strong>Jedis工具类</strong></p>
-<pre><code>                //4. 关闭 归还到连接池中
-                jedis.close();
+<pre><code>		        //4. 关闭 归还到连接池中
+		        jedis.close();
 		
-        * 连接池工具类
-            public class JedisPoolUtils {
+		* 连接池工具类
+			public class JedisPoolUtils {
 
-                private static JedisPool jedisPool;
+			    private static JedisPool jedisPool;
 			
-                static{
-                    //读取配置文件
-                    InputStream is = 				   JedisPoolUtils.class.getClassLoader().getResourceAsStream(&quot;jedis.properties&quot;);
-                    //创建Properties对象
-                    Properties pro = new Properties();
-                    //关联文件
-                    try {
-                        pro.load(is);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    //获取数据，设置到JedisPoolConfig中
-                    JedisPoolConfig config = new JedisPoolConfig();
-                    config.setMaxTotal(Integer.parseInt(pro.getProperty(&quot;maxTotal&quot;)));
-                    config.setMaxIdle(Integer.parseInt(pro.getProperty(&quot;maxIdle&quot;)));
+			    static{
+			        //读取配置文件
+			        InputStream is = 				   JedisPoolUtils.class.getClassLoader().getResourceAsStream(&quot;jedis.properties&quot;);
+			        //创建Properties对象
+			        Properties pro = new Properties();
+			        //关联文件
+			        try {
+			            pro.load(is);
+			        } catch (IOException e) {
+			            e.printStackTrace();
+			        }
+			        //获取数据，设置到JedisPoolConfig中
+			        JedisPoolConfig config = new JedisPoolConfig();
+			        config.setMaxTotal(Integer.parseInt(pro.getProperty(&quot;maxTotal&quot;)));
+			        config.setMaxIdle(Integer.parseInt(pro.getProperty(&quot;maxIdle&quot;)));
 			
-                    //初始化JedisPool
-                    jedisPool = new JedisPool(config,pro.getProperty(&quot;host&quot;),Integer.parseInt(pro.getProperty(&quot;port&quot;)));
+			        //初始化JedisPool
+			        jedisPool = new JedisPool(config,pro.getProperty(&quot;host&quot;),Integer.parseInt(pro.getProperty(&quot;port&quot;)));
 </code></pre>
 <p>​			
 ​</p>
-<pre><code>                }
+<pre><code>			    }
 </code></pre>
 <p>​</p>
-<pre><code>                /**
-                 * 获取连接方法
-                 */
-                public static Jedis getJedis(){
-                    return jedisPool.getResource();
-                }
-            }
+<pre><code>			    /**
+			     * 获取连接方法
+			     */
+			    public static Jedis getJedis(){
+			        return jedisPool.getResource();
+			    }
+			}
 </code></pre>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">#最大活动对象数     
+<pre><code>#最大活动对象数     
 redis.pool.maxTotal=1000    
 #最大能够保持idel状态的对象数      
 redis.pool.maxIdle=100  
@@ -567,26 +683,114 @@ redis.pool.numTestsPerEvictionRun=50
 redis.ip=xxxxxx  
 #redis服务器的Port    
 redis1.port=6379   
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="案例">案例：</h2>
+</code></pre>
+<h2 id="案例">案例：</h2>
 <pre><code>案例需求：
-    1. 提供index.html页面，页面中有一个省份 下拉列表
-    2. 当 页面加载完成后 发送ajax请求，加载所有省份
+	1. 提供index.html页面，页面中有一个省份 下拉列表
+	2. 当 页面加载完成后 发送ajax请求，加载所有省份
 
 
 * 注意：使用redis缓存一些不经常发生变化的数据。
-    * 数据库的数据一旦发生改变，则需要更新缓存。
+	* 数据库的数据一旦发生改变，则需要更新缓存。
     * 数据库的表执行 增删改的相关操作，需要将redis缓存数据情况，再次存入
     * 在service对应的增删改方法中，将redis数据删除。
 </code></pre>
-</div><div id="comments"></div></div></div>
-            </main></div>
 
-        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
-                <i class="fas fa-arrow-up fa-fw"></i>
-            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
-                <i class="fas fa-comment fa-fw"></i>
-            </a>
-        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</article>
+
+
+      
+
+      
+
+
+
+      
+
+      
+  <div
+    class="-mx-2 mt-4 flex flex-col border-t px-2 pt-4 md:flex-row md:justify-between"
+  >
+    <div>
+      
+        <span class="text-primary-text block font-bold"
+          >Previous</span
+        >
+        <a href="https://zyooo.github.io/javadairy/maven/" class="block">Maven</a>
+      
+    </div>
+    <div class="mt-4 md:mt-0 md:text-right">
+      
+    </div>
+  </div>
+
+
+      
+
+
+
+    </div>
+    
+      <div class="col-span-2">
+        
+        
+          <div
+  class="
+    bg-primary-bg
+   prose sticky top-16 z-10 hidden px-6 py-4 lg:block"
+>
+  <h3>On This Page</h3>
+</div>
+<div
+  class="sticky-toc  hidden px-6 pb-6 lg:block"
+>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#redisjedis">redis&amp;Jedis</a>
+      <ul>
+        <li><a href="#redis">redis</a>
+          <ul>
+            <li><a href="#命令操作-">**命令操作 **</a></li>
+            <li><a href="#持久化"><strong>持久化</strong></a></li>
+          </ul>
+        </li>
+        <li><a href="#jedis">Jedis</a></li>
+        <li><a href="#案例">案例：</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    enableStickyToc();
+  });
+</script>
+
+        
+      </div>
+    
+
+    
+    
+  </div>
+
+  
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        hljs.initHighlightingOnLoad();
+      });
+    </script>
+
+          </div>
+        </div>
+      
+    </main>
+    <footer class="pl-scrollbar">
+      <div class="mx-auto w-full max-w-screen-xl"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2021 <a href="https://www.wangchucheng.com/">WANG Chucheng</a> and <a href="https://www.ruiqima.com/">MA Ruiqi</a>
+ &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+    </footer>
+  </body>
 </html>

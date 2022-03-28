@@ -1,107 +1,265 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="robots" content="noodp" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-        <title>Linux - JoyBoy&#39;s blog</title><meta name="Description" content="JoyBoy&#39;s blog"><meta property="og:title" content="Linux" />
-<meta property="og:description" content="Linux学习 输入ifconfig 查询ip地址,以后用于远程连接,我的192.168.122.128,使用CRT去远程连接服务器. 常用命令 文" />
+<html
+  lang="en"
+  dir="ltr"
+  
+><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>Linux | JoyBoy&#39;s blog</title>
+
+<meta name="generator" content="Hugo Eureka 0.9.1" />
+<link rel="stylesheet" href="https://zyooo.github.io/css/eureka.min.6a378a23360d238dc3ef4df2f5cd718093f02c10c9c7eb2437c29701cd8d389ab6da5d9f21bdd3afa305fd56c1235017.css" integrity="sha384-ajeKIzYNI43D703y9c1xgJPwLBDJx&#43;skN8KXAc2NOJq22l2fIb3Tr6MF/VbBI1AX">
+<script defer src="https://zyooo.github.io/js/eureka.min.f1639ee98d6cbd85b2b5f034d27320da962002ff83159ed4e01dbc5948c42a1ab26c2d6e74c66e93f5cec4d24dbd166d.js" integrity="sha384-8WOe6Y1svYWytfA00nMg2pYgAv&#43;DFZ7U4B28WUjEKhqybC1udMZuk/XOxNJNvRZt"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/solarized-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/dart.min.js"
+     crossorigin></script>
+
+
+<script defer type="text/javascript" src="https://zyooo.github.io/js/fontawesome.min.1c5a4674b042785ed214cf0818a81724c6b37442fd61b0ed039237b93de25ed5103fc8079a05770648ccc9c66c4f540a.js" integrity="sha384-HFpGdLBCeF7SFM8IGKgXJMazdEL9YbDtA5I3uT3iXtUQP8gHmgV3BkjMycZsT1QK"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
+   integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" 
+  integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js"
+   integrity="sha384-&#43;XBljXPPiv&#43;OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.14.0/dist/mermaid.min.js" 
+  integrity="sha384-atOyb0FxAgN9LyAc6PEf9BjgwLISyansgdH8/VXQH8p2o5vfrRgmGIJ2Sg22L0A0"  crossorigin></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="https://zyooo.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://zyooo.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="Linux学习 输入ifconfig 查询ip地址,以后用于远程连接,我的192.168.122.128,使用CRT去远程连接服务器.
+常用命令 文件里有文档可以查
+cd
+pwd
+li
+li -a">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Notes",
+      "item":"https://zyooo.github.io/note/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"Linux",
+      "item":"https://zyooo.github.io/note/linux/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://zyooo.github.io/note/linux/"
+    },
+    "headline": "Linux | JoyBoy\u0027s blog","datePublished": "2021-10-17T09:12:25+08:00",
+    "dateModified": "2021-10-17T09:12:25+08:00",
+    "wordCount":  709 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "ZhangYong",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://zyooo.github.io/images/avatar.png"
+        }
+        },
+    "description": "Linux学习 输入ifconfig 查询ip地址,以后用于远程连接,我的192.168.122.128,使用CRT去远程连接服务器.\n常用命令 文件里有文档可以查\ncd\npwd\nli\nli -a"
+}
+</script><meta property="og:title" content="Linux | JoyBoy&#39;s blog" />
 <meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="https://zyooo.github.io/images/icon.png">
+
+
 <meta property="og:url" content="https://zyooo.github.io/note/linux/" />
-<meta property="og:image" content="https://zyooo.github.io/logo.png"/>
-<meta property="article:published_time" content="2021-10-17T09:12:25+08:00" />
-<meta property="article:modified_time" content="2021-10-17T09:12:25+08:00" />
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://zyooo.github.io/logo.png"/>
 
-<meta name="twitter:title" content="Linux"/>
-<meta name="twitter:description" content="Linux学习 输入ifconfig 查询ip地址,以后用于远程连接,我的192.168.122.128,使用CRT去远程连接服务器. 常用命令 文"/>
-<meta name="application-name" content="LoveIt">
-<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://zyooo.github.io/note/linux/" /><link rel="prev" href="https://zyooo.github.io/note/ideal2021javaweb%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE/" /><link rel="next" href="https://zyooo.github.io/note/oralenglish/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
-    {
-        "@context": "http://schema.org",
-        "@type": "BlogPosting",
-        "headline": "Linux",
-        "inLanguage": "en",
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https:\/\/zyooo.github.io\/note\/linux\/"
-        },"genre": "note","wordcount":  3967 ,
-        "url": "https:\/\/zyooo.github.io\/note\/linux\/","datePublished": "2021-10-17T09:12:25+08:00","dateModified": "2021-10-17T09:12:25+08:00","publisher": {
-            "@type": "Organization",
-            "name": ""},"author": {
-                "@type": "Person",
-                "name": "JoyBoy"
-            },"description": ""
+
+
+
+<meta property="og:description" content="Linux学习 输入ifconfig 查询ip地址,以后用于远程连接,我的192.168.122.128,使用CRT去远程连接服务器.
+常用命令 文件里有文档可以查
+cd
+pwd
+li
+li -a" />
+
+
+
+
+<meta property="og:locale" content="en" />
+
+
+
+
+<meta property="og:site_name" content="JoyBoy&#39;s blog" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2021-10-17T09:12:25&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2021-10-17T09:12:25&#43;08:00" />
+
+
+
+<meta property="article:section" content="note" />
+
+
+
+
+
+  <body class="flex min-h-screen flex-col">
+    <header
+      class="min-h-16 pl-scrollbar bg-secondary-bg fixed z-50 flex w-full items-center shadow-sm"
+    >
+      <div class="mx-auto w-full max-w-screen-xl"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
     }
-    </script></head>
-    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="me-6 text-primary-text text-xl font-bold">JoyBoy&#39;s blog</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
 
-        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
-    <div class="header-wrapper">
-        <div class="header-title">
-            <a href="/" title="JoyBoy&#39;s blog">JoyBoy&#39;s blog</a>
+    <div id="target"
+        class="hidden block md:flex md:grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">About</a>
+            <a href="/note/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  me-4">Notes</a>
+            <a href="/leetcodedairy/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">LeetCodeDairy</a>
+            <a href="/javadairy/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">JavaDairy</a>
+            <a href="/golangdairy/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">GolangDairy</a>
+            <a href="/bugs/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">Bugs</a>
         </div>
-        <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/note/"> NOTE </a><a class="menu-item" href="/leetcodedairy/"> LeetCodeDairy </a><a class="menu-item" href="/bugs/"> Bugs </a><a class="menu-item" href="/javadairy/"> JavaDairy </a><a class="menu-item" href="/golangdairy/"> GolangDairy </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
-                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
-                            <i class="fas fa-search fa-fw"></i>
-                        </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
-                            <i class="fas fa-times-circle fa-fw"></i>
-                        </a>
-                        <span class="search-button search-loading" id="search-loading-desktop">
-                            <i class="fas fa-spinner fa-fw fa-spin"></i>
-                        </span>
-                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
-                    <i class="fas fa-adjust fa-fw"></i>
-                </a>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col start-0 md:start-auto end-auto md:end-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">Auto</span>
+                </div>
             </div>
         </div>
     </div>
-</header><header class="mobile" id="header-mobile">
-    <div class="header-container">
-        <div class="header-wrapper">
-            <div class="header-title">
-                <a href="/" title="JoyBoy&#39;s blog">JoyBoy&#39;s blog</a>
-            </div>
-            <div class="menu-toggle" id="menu-toggle-mobile">
-                <span></span><span></span><span></span>
-            </div>
-        </div>
-        <div class="menu" id="menu-mobile"><div class="search-wrapper">
-                    <div class="search mobile" id="search-mobile">
-                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
-                            <i class="fas fa-search fa-fw"></i>
-                        </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
-                            <i class="fas fa-times-circle fa-fw"></i>
-                        </a>
-                        <span class="search-button search-loading" id="search-loading-mobile">
-                            <i class="fas fa-spinner fa-fw fa-spin"></i>
-                        </span>
-                    </div>
-                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
-                        Cancel
-                    </a>
-                </div><a class="menu-item" href="/note/" title="">NOTE</a><a class="menu-item" href="/leetcodedairy/" title="">LeetCodeDairy</a><a class="menu-item" href="/bugs/" title="">Bugs</a><a class="menu-item" href="/javadairy/" title="">JavaDairy</a><a class="menu-item" href="/golangdairy/" title="">GolangDairy</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
-                <i class="fas fa-adjust fa-fw"></i>
-            </a></div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
     </div>
-</header>
-<div class="search-dropdown desktop">
-    <div id="search-dropdown-desktop"></div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
 </div>
-<div class="search-dropdown mobile">
-    <div id="search-dropdown-mobile"></div>
+    </header>
+    <main class="grow pt-16">
+        <div class="pl-scrollbar">
+          <div class="mx-auto w-full max-w-screen-xl lg:px-4 xl:px-8">
+  
+  
+  <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
+    <div
+      class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
+    >
+      <article class="prose">
+  <h1 class="mb-4">Linux</h1>
+
+  <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2021-10-17</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>4 min read</span>
+  </div>
+
+  
+
+  
 </div>
-<main class="main">
-                <div class="container"><div class="page single special"><h1 class="single-title animated pulse faster">Linux</h1><div class="content" id="content"><h1 id="linux学习">Linux学习</h1>
+
+
+  
+  
+
+  <h1 id="linux学习">Linux学习</h1>
 <p>输入ifconfig 查询ip地址,以后用于远程连接,我的192.168.122.128,使用CRT去远程连接服务器.</p>
 <h2 id="常用命令">常用命令</h2>
 <p>文件里有文档可以查</p>
@@ -128,14 +286,7 @@
 <p><strong>rm -f * 删除所有文件</strong></p>
 <p><em><em>rm -f /</em> root目录下所有文件</em>*</p>
 <p><strong>tar  打包或者解压</strong></p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/17/vlfiUWw8JVzMF1Y.png"
-        data-srcset="https://i.loli.net/2021/10/17/vlfiUWw8JVzMF1Y.png, https://i.loli.net/2021/10/17/vlfiUWw8JVzMF1Y.png 1.5x, https://i.loli.net/2021/10/17/vlfiUWw8JVzMF1Y.png 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/17/vlfiUWw8JVzMF1Y.png"
-        title="image-20211017094124374" /></p>
+<p><img src="https://i.loli.net/2021/10/17/vlfiUWw8JVzMF1Y.png" alt="image-20211017094124374"></p>
 <p><strong>【find】命令</strong></p>
 <p>find指令用于查找符合条件的文件</p>
 <p>示例：</p>
@@ -149,30 +300,9 @@
 <p>用法: grep [选项]&hellip; PATTERN [FILE]&hellip;示例：</p>
 <p>grep lang anaconda-ks.cfg  在文件中查找lang</p>
 <p>grep lang anaconda-ks.cfg –color 高亮显示</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/17/CZV4kvQNtzW6cl3.jpg"
-        data-srcset="https://i.loli.net/2021/10/17/CZV4kvQNtzW6cl3.jpg, https://i.loli.net/2021/10/17/CZV4kvQNtzW6cl3.jpg 1.5x, https://i.loli.net/2021/10/17/CZV4kvQNtzW6cl3.jpg 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/17/CZV4kvQNtzW6cl3.jpg"
-        title="img" /></p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/17/dF9vgZAnQrLMRGo.jpg"
-        data-srcset="https://i.loli.net/2021/10/17/dF9vgZAnQrLMRGo.jpg, https://i.loli.net/2021/10/17/dF9vgZAnQrLMRGo.jpg 1.5x, https://i.loli.net/2021/10/17/dF9vgZAnQrLMRGo.jpg 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/17/dF9vgZAnQrLMRGo.jpg"
-        title="img" /></p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/17/NRqaSmY9dMA7svy.jpg"
-        data-srcset="https://i.loli.net/2021/10/17/NRqaSmY9dMA7svy.jpg, https://i.loli.net/2021/10/17/NRqaSmY9dMA7svy.jpg 1.5x, https://i.loli.net/2021/10/17/NRqaSmY9dMA7svy.jpg 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/17/NRqaSmY9dMA7svy.jpg"
-        title="img" /></p>
+<p><img src="https://i.loli.net/2021/10/17/CZV4kvQNtzW6cl3.jpg" alt="img"></p>
+<p><img src="https://i.loli.net/2021/10/17/dF9vgZAnQrLMRGo.jpg" alt="img"></p>
+<p><img src="https://i.loli.net/2021/10/17/NRqaSmY9dMA7svy.jpg" alt="img"></p>
 <p><strong>【touch】</strong></p>
 <p>创建一个空文件</p>
 <p>* touch a.txt</p>
@@ -225,22 +355,8 @@
 <p>ps –ef | grep aio</p>
 <h1 id="一-linux的权限命令"><strong>一、</strong> <em><strong>*Linux*</strong></em><em><strong>*的权限命令*</strong></em></h1>
 <h2 id="1-文件权限"><strong>1．</strong> <em><strong>*文件权限*</strong></em></h2>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/17/yDOh3Lq1XWvw6jn.jpg"
-        data-srcset="https://i.loli.net/2021/10/17/yDOh3Lq1XWvw6jn.jpg, https://i.loli.net/2021/10/17/yDOh3Lq1XWvw6jn.jpg 1.5x, https://i.loli.net/2021/10/17/yDOh3Lq1XWvw6jn.jpg 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/17/yDOh3Lq1XWvw6jn.jpg"
-        title="img" /></p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/17/wsumHAktePjMgDi.png"
-        data-srcset="https://i.loli.net/2021/10/17/wsumHAktePjMgDi.png, https://i.loli.net/2021/10/17/wsumHAktePjMgDi.png 1.5x, https://i.loli.net/2021/10/17/wsumHAktePjMgDi.png 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/17/wsumHAktePjMgDi.png"
-        title="image-20211017101039595" /></p>
+<p><img src="https://i.loli.net/2021/10/17/yDOh3Lq1XWvw6jn.jpg" alt="img"></p>
+<p><img src="https://i.loli.net/2021/10/17/wsumHAktePjMgDi.png" alt="image-20211017101039595"></p>
 <table>
 <thead>
 <tr>
@@ -314,14 +430,7 @@ BROADCAST=192.168.0.255 #广播地址
 NBOOT=yes # 系统启动时是否设置此网络接口，设置为yes时，系统启动时激活此设备。</p>
 <h2 id="3-域名映射"><strong>3．</strong> 域名映射</h2>
 <p>/etc/hosts文件用于在通过主机名进行访问时做ip地址解析之用,相当于windows系统的C:\Windows\System32\drivers\etc\hosts文件的功能</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/17/H8Z7iCofhbxgavc.jpg"
-        data-srcset="https://i.loli.net/2021/10/17/H8Z7iCofhbxgavc.jpg, https://i.loli.net/2021/10/17/H8Z7iCofhbxgavc.jpg 1.5x, https://i.loli.net/2021/10/17/H8Z7iCofhbxgavc.jpg 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/17/H8Z7iCofhbxgavc.jpg"
-        title="img" /></p>
+<p><img src="https://i.loli.net/2021/10/17/H8Z7iCofhbxgavc.jpg" alt="img"></p>
 <h2 id="4网络服务管理">4．网络服务管理</h2>
 <p>service network status 查看指定服务的状态</p>
 <p>service network stop 停止指定服务</p>
@@ -347,52 +456,17 @@ NBOOT=yes # 系统启动时是否设置此网络接口，设置为yes时，系�
 <p>软件以源码工程的形式发布，需要获取到源码工程后用相应开发工具进行编译打包部署。</p>
 <p>l 上传与下载工具介绍</p>
 <p>\1. FileZilla</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/22/znoXadAywsfJHlV.jpg"
-        data-srcset="https://i.loli.net/2021/10/22/znoXadAywsfJHlV.jpg, https://i.loli.net/2021/10/22/znoXadAywsfJHlV.jpg 1.5x, https://i.loli.net/2021/10/22/znoXadAywsfJHlV.jpg 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/22/znoXadAywsfJHlV.jpg"
-        title="img" /></p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/17/Lo4qdvez3jcri59.jpg"
-        data-srcset="https://i.loli.net/2021/10/17/Lo4qdvez3jcri59.jpg, https://i.loli.net/2021/10/17/Lo4qdvez3jcri59.jpg 1.5x, https://i.loli.net/2021/10/17/Lo4qdvez3jcri59.jpg 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/17/Lo4qdvez3jcri59.jpg"
-        title="img" /></p>
+<p><img src="https://i.loli.net/2021/10/22/znoXadAywsfJHlV.jpg" alt="img"></p>
+<p><img src="https://i.loli.net/2021/10/17/Lo4qdvez3jcri59.jpg" alt="img"></p>
 <p>\2. lrzsz</p>
 <p>我们可以使用yum安装方式安装 yum install lrzsz</p>
 <p>注意：必须有网络</p>
 <p>可以在crt中设置上传与下载目录</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/17/YX5btgJcV1BAs62.jpg"
-        data-srcset="https://i.loli.net/2021/10/17/YX5btgJcV1BAs62.jpg, https://i.loli.net/2021/10/17/YX5btgJcV1BAs62.jpg 1.5x, https://i.loli.net/2021/10/17/YX5btgJcV1BAs62.jpg 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/17/YX5btgJcV1BAs62.jpg"
-        title="img" /></p>
+<p><img src="https://i.loli.net/2021/10/17/YX5btgJcV1BAs62.jpg" alt="img"></p>
 <p>上传：</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/17/dgnhluHJCVzb1vW.jpg"
-        data-srcset="https://i.loli.net/2021/10/17/dgnhluHJCVzb1vW.jpg, https://i.loli.net/2021/10/17/dgnhluHJCVzb1vW.jpg 1.5x, https://i.loli.net/2021/10/17/dgnhluHJCVzb1vW.jpg 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/17/dgnhluHJCVzb1vW.jpg"
-        title="img" /></p>
+<p><img src="https://i.loli.net/2021/10/17/dgnhluHJCVzb1vW.jpg" alt="img"></p>
 <p>下载</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/17/FZH7dGX2aKIW6sj.jpg"
-        data-srcset="https://i.loli.net/2021/10/17/FZH7dGX2aKIW6sj.jpg, https://i.loli.net/2021/10/17/FZH7dGX2aKIW6sj.jpg 1.5x, https://i.loli.net/2021/10/17/FZH7dGX2aKIW6sj.jpg 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/17/FZH7dGX2aKIW6sj.jpg"
-        title="img" /></p>
+<p><img src="https://i.loli.net/2021/10/17/FZH7dGX2aKIW6sj.jpg" alt="img"></p>
 <h2 id="1-在linux上安装jdk"><strong>1．</strong> 在Linux上安装JDK:</h2>
 <p>【步骤一】：上传JDK到Linux的服务器.</p>
 <p>* 上传JDK</p>
@@ -405,14 +479,7 @@ NBOOT=yes # 系统启动时是否设置此网络接口，设置为yes时，系�
 <p>* 通常将软件安装到/usr/local</p>
 <p>* 直接解压就可以</p>
 <p>tar –xvf  jdk.tar.gz  -C 目标路径</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/17/eBwyZVhuQfizpMA.jpg"
-        data-srcset="https://i.loli.net/2021/10/17/eBwyZVhuQfizpMA.jpg, https://i.loli.net/2021/10/17/eBwyZVhuQfizpMA.jpg 1.5x, https://i.loli.net/2021/10/17/eBwyZVhuQfizpMA.jpg 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/17/eBwyZVhuQfizpMA.jpg"
-        title="img" /></p>
+<p><img src="https://i.loli.net/2021/10/17/eBwyZVhuQfizpMA.jpg" alt="img"></p>
 <p>【步骤三】：配置JDK的环境变量.</p>
 <p>配置环境变量：</p>
 <p>① vi /etc/profile</p>
@@ -426,74 +493,18 @@ NBOOT=yes # 系统启动时是否设置此网络接口，设置为yes时，系�
 <p>③source /etc/profile  使更改的配置立即生效</p>
 <h2 id="2-在linux上安装mysql"><strong>2．</strong> 在Linux上安装Mysql:</h2>
 <p>【步骤一】：将mysql的安装文件上传到Linux的服务器.</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/17/QIkxmy7tHFZjvGK.jpg"
-        data-srcset="https://i.loli.net/2021/10/17/QIkxmy7tHFZjvGK.jpg, https://i.loli.net/2021/10/17/QIkxmy7tHFZjvGK.jpg 1.5x, https://i.loli.net/2021/10/17/QIkxmy7tHFZjvGK.jpg 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/17/QIkxmy7tHFZjvGK.jpg"
-        title="img" /></p>
+<p><img src="https://i.loli.net/2021/10/17/QIkxmy7tHFZjvGK.jpg" alt="img"></p>
 <p>将mysql的tar解压</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/17/69vy7YJFIiDLORA.jpg"
-        data-srcset="https://i.loli.net/2021/10/17/69vy7YJFIiDLORA.jpg, https://i.loli.net/2021/10/17/69vy7YJFIiDLORA.jpg 1.5x, https://i.loli.net/2021/10/17/69vy7YJFIiDLORA.jpg 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/17/69vy7YJFIiDLORA.jpg"
-        title="img" /></p>
+<p><img src="https://i.loli.net/2021/10/17/69vy7YJFIiDLORA.jpg" alt="img"></p>
 <p>将系统自带的mysql卸载</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/17/6Z84xCvSVTwikUY.jpg"
-        data-srcset="https://i.loli.net/2021/10/17/6Z84xCvSVTwikUY.jpg, https://i.loli.net/2021/10/17/6Z84xCvSVTwikUY.jpg 1.5x, https://i.loli.net/2021/10/17/6Z84xCvSVTwikUY.jpg 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/17/6Z84xCvSVTwikUY.jpg"
-        title="img" /></p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/17/VYOMU4qiPJ6nDxv.jpg"
-        data-srcset="https://i.loli.net/2021/10/17/VYOMU4qiPJ6nDxv.jpg, https://i.loli.net/2021/10/17/VYOMU4qiPJ6nDxv.jpg 1.5x, https://i.loli.net/2021/10/17/VYOMU4qiPJ6nDxv.jpg 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/17/VYOMU4qiPJ6nDxv.jpg"
-        title="img" /></p>
+<p><img src="https://i.loli.net/2021/10/17/6Z84xCvSVTwikUY.jpg" alt="img"></p>
+<p><img src="https://i.loli.net/2021/10/17/VYOMU4qiPJ6nDxv.jpg" alt="img"></p>
 <p>【步骤二】：安装MYSQL服务端</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/17/wyao7OdcIeGAfbS.jpg"
-        data-srcset="https://i.loli.net/2021/10/17/wyao7OdcIeGAfbS.jpg, https://i.loli.net/2021/10/17/wyao7OdcIeGAfbS.jpg 1.5x, https://i.loli.net/2021/10/17/wyao7OdcIeGAfbS.jpg 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/17/wyao7OdcIeGAfbS.jpg"
-        title="img" /></p>
+<p><img src="https://i.loli.net/2021/10/17/wyao7OdcIeGAfbS.jpg" alt="img"></p>
 <p>下面的提示是告诉我们root用户的密码第一次是随机生成的，它保存在/root/.mysql_secret中，第一次登录需要修改root密码</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/17/YLnicHDZPeXGKWf.jpg"
-        data-srcset="https://i.loli.net/2021/10/17/YLnicHDZPeXGKWf.jpg, https://i.loli.net/2021/10/17/YLnicHDZPeXGKWf.jpg 1.5x, https://i.loli.net/2021/10/17/YLnicHDZPeXGKWf.jpg 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/17/YLnicHDZPeXGKWf.jpg"
-        title="img" /></p>
+<p><img src="https://i.loli.net/2021/10/17/YLnicHDZPeXGKWf.jpg" alt="img"></p>
 <p><strong>server端安装不上的原因</strong>:本来自带的mysql-lib未删除.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">#  yum list | grep mysql
+<pre><code>#  yum list | grep mysql
 查询
 # yum remove mysql-libs
 然后就能安装上了
@@ -502,63 +513,20 @@ yum -y install autoconf
 数据初始化
 /usr/bin/mysql_install_db --user=mysql
 在启动mysql
-/usr/bin/mysqladmin -u root password &#39;new-password&#39;设置新密码
-</code></pre></td></tr></table>
-</div>
-</div><p>【步骤三】：安装MYSQL客户端</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/17/BLKSXEpedgmQoi9.jpg"
-        data-srcset="https://i.loli.net/2021/10/17/BLKSXEpedgmQoi9.jpg, https://i.loli.net/2021/10/17/BLKSXEpedgmQoi9.jpg 1.5x, https://i.loli.net/2021/10/17/BLKSXEpedgmQoi9.jpg 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/17/BLKSXEpedgmQoi9.jpg"
-        title="img" /></p>
+/usr/bin/mysqladmin -u root password 'new-password'设置新密码
+</code></pre>
+<p>【步骤三】：安装MYSQL客户端</p>
+<p><img src="https://i.loli.net/2021/10/17/BLKSXEpedgmQoi9.jpg" alt="img"></p>
 <p>查看生成的root密码</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/17/coP7ZHWVxERuDAa.jpg"
-        data-srcset="https://i.loli.net/2021/10/17/coP7ZHWVxERuDAa.jpg, https://i.loli.net/2021/10/17/coP7ZHWVxERuDAa.jpg 1.5x, https://i.loli.net/2021/10/17/coP7ZHWVxERuDAa.jpg 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/17/coP7ZHWVxERuDAa.jpg"
-        title="img" /></p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/17/y9FYlz3gDdRbIa6.jpg"
-        data-srcset="https://i.loli.net/2021/10/17/y9FYlz3gDdRbIa6.jpg, https://i.loli.net/2021/10/17/y9FYlz3gDdRbIa6.jpg 1.5x, https://i.loli.net/2021/10/17/y9FYlz3gDdRbIa6.jpg 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/17/y9FYlz3gDdRbIa6.jpg"
-        title="img" /></p>
+<p><img src="https://i.loli.net/2021/10/17/coP7ZHWVxERuDAa.jpg" alt="img"></p>
+<p><img src="https://i.loli.net/2021/10/17/y9FYlz3gDdRbIa6.jpg" alt="img"></p>
 <p>报错:原因是没有启动mysql服务</p>
 <p>需要开启mysql服务</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/17/GlqQVjzErRkYXBn.jpg"
-        data-srcset="https://i.loli.net/2021/10/17/GlqQVjzErRkYXBn.jpg, https://i.loli.net/2021/10/17/GlqQVjzErRkYXBn.jpg 1.5x, https://i.loli.net/2021/10/17/GlqQVjzErRkYXBn.jpg 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/17/GlqQVjzErRkYXBn.jpg"
-        title="img" /></p>
+<p><img src="https://i.loli.net/2021/10/17/GlqQVjzErRkYXBn.jpg" alt="img"></p>
 <p>执行下面操作报错，原因是第一次操作mysql必须修改root用户的密码</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/17/6OfiWGvEZT5Bpgd.jpg"
-        data-srcset="https://i.loli.net/2021/10/17/6OfiWGvEZT5Bpgd.jpg, https://i.loli.net/2021/10/17/6OfiWGvEZT5Bpgd.jpg 1.5x, https://i.loli.net/2021/10/17/6OfiWGvEZT5Bpgd.jpg 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/17/6OfiWGvEZT5Bpgd.jpg"
-        title="img" /></p>
+<p><img src="https://i.loli.net/2021/10/17/6OfiWGvEZT5Bpgd.jpg" alt="img"></p>
 <p>设置root用户的密码</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/17/fEjWprAcXvgU2oh.jpg"
-        data-srcset="https://i.loli.net/2021/10/17/fEjWprAcXvgU2oh.jpg, https://i.loli.net/2021/10/17/fEjWprAcXvgU2oh.jpg 1.5x, https://i.loli.net/2021/10/17/fEjWprAcXvgU2oh.jpg 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/17/fEjWprAcXvgU2oh.jpg"
-        title="img" /></p>
+<p><img src="https://i.loli.net/2021/10/17/fEjWprAcXvgU2oh.jpg" alt="img"></p>
 <p>l <strong>Mysql****服务加入到系统服务并自动启动操作：</strong></p>
 <p>chkconfig &ndash;add mysql</p>
 <p>自动启动：</p>
@@ -566,14 +534,7 @@ yum -y install autoconf
 <p>查询列表：</p>
 <p>chkconfig</p>
 <p>l 关于mysql远程访问设置</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/17/y6c2aVTmbLUpu7N.jpg"
-        data-srcset="https://i.loli.net/2021/10/17/y6c2aVTmbLUpu7N.jpg, https://i.loli.net/2021/10/17/y6c2aVTmbLUpu7N.jpg 1.5x, https://i.loli.net/2021/10/17/y6c2aVTmbLUpu7N.jpg 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/17/y6c2aVTmbLUpu7N.jpg"
-        title="img" /></p>
+<p><img src="https://i.loli.net/2021/10/17/y6c2aVTmbLUpu7N.jpg" alt="img"></p>
 <p>在linux中很多软件的端口都被”防火墙”限止，我们需要将防火墙关闭</p>
 <p>防火墙打开3306端口</p>
 <p>/sbin/iptables -I INPUT -p tcp &ndash;dport 3306 -j ACCEPT</p>
@@ -601,26 +562,12 @@ yum -y install autoconf
 <tbody>
 <tr>
 <td></td>
-<td><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/17/2D4Hrwlbd63S9AO.jpg"
-        data-srcset="https://i.loli.net/2021/10/17/2D4Hrwlbd63S9AO.jpg, https://i.loli.net/2021/10/17/2D4Hrwlbd63S9AO.jpg 1.5x, https://i.loli.net/2021/10/17/2D4Hrwlbd63S9AO.jpg 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/17/2D4Hrwlbd63S9AO.jpg"
-        title="img" /></td>
+<td><img src="https://i.loli.net/2021/10/17/2D4Hrwlbd63S9AO.jpg" alt="img"></td>
 </tr>
 </tbody>
 </table>
 <p>​	输入y确认下载</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/17/J6LbTMfjdEBPwYI.jpg"
-        data-srcset="https://i.loli.net/2021/10/17/J6LbTMfjdEBPwYI.jpg, https://i.loli.net/2021/10/17/J6LbTMfjdEBPwYI.jpg 1.5x, https://i.loli.net/2021/10/17/J6LbTMfjdEBPwYI.jpg 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/17/J6LbTMfjdEBPwYI.jpg"
-        title="img" /></p>
+<p><img src="https://i.loli.net/2021/10/17/J6LbTMfjdEBPwYI.jpg" alt="img"></p>
 <p>输入y确认安装</p>
 <table>
 <thead>
@@ -632,14 +579,7 @@ yum -y install autoconf
 <tbody>
 <tr>
 <td></td>
-<td><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/17/yizHQM1uK3gLtsS.jpg"
-        data-srcset="https://i.loli.net/2021/10/17/yizHQM1uK3gLtsS.jpg, https://i.loli.net/2021/10/17/yizHQM1uK3gLtsS.jpg 1.5x, https://i.loli.net/2021/10/17/yizHQM1uK3gLtsS.jpg 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/17/yizHQM1uK3gLtsS.jpg"
-        title="img" /></td>
+<td><img src="https://i.loli.net/2021/10/17/yizHQM1uK3gLtsS.jpg" alt="img"></td>
 </tr>
 </tbody>
 </table>
@@ -654,14 +594,7 @@ yum -y install autoconf
 <tbody>
 <tr>
 <td></td>
-<td><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/17/a6CtrEXLWSqmDZM.jpg"
-        data-srcset="https://i.loli.net/2021/10/17/a6CtrEXLWSqmDZM.jpg, https://i.loli.net/2021/10/17/a6CtrEXLWSqmDZM.jpg 1.5x, https://i.loli.net/2021/10/17/a6CtrEXLWSqmDZM.jpg 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/17/a6CtrEXLWSqmDZM.jpg"
-        title="img" /></td>
+<td><img src="https://i.loli.net/2021/10/17/a6CtrEXLWSqmDZM.jpg" alt="img"></td>
 </tr>
 </tbody>
 </table>
@@ -696,86 +629,23 @@ yum -y install autoconf
 <h2 id="2-部署项目到linux"><strong>2．</strong> <em><strong>*部署*</strong></em><em><strong>*项目到Linux*</strong></em></h2>
 <p>\1. 修改pom配置</p>
 <p>在pom.xml中添加<finalName></p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/17/PuCZkfL1jYSJI4B.jpg"
-        data-srcset="https://i.loli.net/2021/10/17/PuCZkfL1jYSJI4B.jpg, https://i.loli.net/2021/10/17/PuCZkfL1jYSJI4B.jpg 1.5x, https://i.loli.net/2021/10/17/PuCZkfL1jYSJI4B.jpg 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/17/PuCZkfL1jYSJI4B.jpg"
-        title="img" /></p>
+<p><img src="https://i.loli.net/2021/10/17/PuCZkfL1jYSJI4B.jpg" alt="img"></p>
 <p>​	修改jdk版本1.7</p>
 <p>​</p>
 <p>\2. 修改项目</p>
 <p>​	2.1 druid.properties</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/17/b7S9jNBw5QgH4En.jpg"
-        data-srcset="https://i.loli.net/2021/10/17/b7S9jNBw5QgH4En.jpg, https://i.loli.net/2021/10/17/b7S9jNBw5QgH4En.jpg 1.5x, https://i.loli.net/2021/10/17/b7S9jNBw5QgH4En.jpg 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/17/b7S9jNBw5QgH4En.jpg"
-        title="img" /></p>
+<p><img src="https://i.loli.net/2021/10/17/b7S9jNBw5QgH4En.jpg" alt="img"></p>
 <p>\3. 将war包上</p>
 <p>​	2.2 header.html</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/17/fwE2YoLsClWzVOp.jpg"
-        data-srcset="https://i.loli.net/2021/10/17/fwE2YoLsClWzVOp.jpg, https://i.loli.net/2021/10/17/fwE2YoLsClWzVOp.jpg 1.5x, https://i.loli.net/2021/10/17/fwE2YoLsClWzVOp.jpg 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/17/fwE2YoLsClWzVOp.jpg"
-        title="img" /></p>
-<p>1.3 route_de<img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/17/bS8ojceFTnprHYx.jpg"
-        data-srcset="https://i.loli.net/2021/10/17/bS8ojceFTnprHYx.jpg, https://i.loli.net/2021/10/17/bS8ojceFTnprHYx.jpg 1.5x, https://i.loli.net/2021/10/17/bS8ojceFTnprHYx.jpg 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/17/bS8ojceFTnprHYx.jpg"
-        title="img" />2.3 route_detail.html</p>
+<p><img src="https://i.loli.net/2021/10/17/fwE2YoLsClWzVOp.jpg" alt="img"></p>
+<p>1.3 route_de<img src="https://i.loli.net/2021/10/17/bS8ojceFTnprHYx.jpg" alt="img">2.3 route_detail.html</p>
 <p>\4. 将war包上传到</p>
 <p>\3. 使用package命令打包</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://i.loli.net/2021/10/17/aeHcuRCDMNG1ZYy.jpg"
-        data-srcset="https://i.loli.net/2021/10/17/aeHcuRCDMNG1ZYy.jpg, https://i.loli.net/2021/10/17/aeHcuRCDMNG1ZYy.jpg 1.5x, https://i.loli.net/2021/10/17/aeHcuRCDMNG1ZYy.jpg 2x"
-        data-sizes="auto"
-        alt="https://i.loli.net/2021/10/17/aeHcuRCDMNG1ZYy.jpg"
-        title="img" /></p>
+<p><img src="https://i.loli.net/2021/10/17/aeHcuRCDMNG1ZYy.jpg" alt="img"></p>
 <p>\4. 将travel.war上传到tomcat中的webapps目录</p>
 <p>\5. 重启tomcat</p>
 <p>\6. 导出本地mysql数据，并导入linux中的mysql</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback"> Failed to execute goal org.apache.maven.plugins:maven-war-plugin:2.2:war (default-war) on project travel: Execution default-war of goal org.apache.maven.plugins:maven-war-plugin:2.2:war failed: Unable to load the mojo &#39;war&#39; in the plugin &#39;org.apache.maven.plugins:maven-war-plugin:2.2&#39; due to an API incompatibility: org.codehaus.plexus.component.repository.exception.ComponentLookupException: Cannot access defaults field of Properties
+<pre><code> Failed to execute goal org.apache.maven.plugins:maven-war-plugin:2.2:war (default-war) on project travel: Execution default-war of goal org.apache.maven.plugins:maven-war-plugin:2.2:war failed: Unable to load the mojo 'war' in the plugin 'org.apache.maven.plugins:maven-war-plugin:2.2' due to an API incompatibility: org.codehaus.plexus.component.repository.exception.ComponentLookupException: Cannot access defaults field of Properties
  
  报错,在pom.xml中添加下列代码之后就能打包了
  &lt;build&gt;
@@ -799,15 +669,129 @@ yum -y install autoconf
     &lt;/plugins&gt;
   &lt;/build&gt;
 
-</code></pre></td></tr></table>
-</div>
-</div></div><div id="comments"></div></div></div>
-            </main></div>
+</code></pre>
 
-        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
-                <i class="fas fa-arrow-up fa-fw"></i>
-            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
-                <i class="fas fa-comment fa-fw"></i>
-            </a>
-        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</article>
+
+
+      
+
+      
+
+
+
+      
+
+      
+  <div
+    class="-mx-2 mt-4 flex flex-col border-t px-2 pt-4 md:flex-row md:justify-between"
+  >
+    <div>
+      
+        <span class="text-primary-text block font-bold"
+          >Previous</span
+        >
+        <a href="https://zyooo.github.io/note/oralenglish/" class="block">OralEnglish</a>
+      
+    </div>
+    <div class="mt-4 md:mt-0 md:text-right">
+      
+        <span class="text-primary-text block font-bold">Next</span>
+        <a href="https://zyooo.github.io/note/ideal2021javaweb%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE/" class="block">Ideal2021JavaWeb项目配置</a>
+      
+    </div>
+  </div>
+
+
+      
+
+
+
+    </div>
+    
+      <div class="col-span-2">
+        
+        
+          <div
+  class="
+    bg-primary-bg
+   prose sticky top-16 z-10 hidden px-6 py-4 lg:block"
+>
+  <h3>On This Page</h3>
+</div>
+<div
+  class="sticky-toc  hidden px-6 pb-6 lg:block"
+>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#linux学习">Linux学习</a>
+      <ul>
+        <li><a href="#常用命令">常用命令</a></li>
+        <li><a href="#vi和vim编辑器">Vi和Vim编辑器</a></li>
+        <li><a href="#1-vim编辑器"><strong>1．</strong> <em><strong>*Vim*</strong></em><em><strong>*编辑器：*</strong></em></a></li>
+        <li><a href="#2-重定向输出和"><strong>2．</strong> <em><strong>*重定向输出*</strong></em><em><strong>*&gt;*</strong></em><em><strong>*和*</strong></em><em><strong>*&raquo;*</strong></em></a></li>
+        <li><a href="#3-系统管理命令"><strong>3．</strong> <em><strong>*系统管理命令*</strong></em></a></li>
+        <li><a href="#4-管道--"><strong>4．</strong> <em><strong>*管道*</strong></em>  |</a></li>
+      </ul>
+    </li>
+    <li><a href="#一-linux的权限命令"><strong>一、</strong> <em><strong>*Linux*</strong></em><em><strong>*的权限命令*</strong></em></a>
+      <ul>
+        <li><a href="#1-文件权限"><strong>1．</strong> <em><strong>*文件权限*</strong></em></a></li>
+        <li><a href="#2-linux三种文件类型"><strong>2．</strong> Linux三种文件类型：</a></li>
+        <li><a href="#3-文件类型标识"><strong>3．</strong> 文件类型标识</a></li>
+        <li><a href="#4文件权限管理">4．文件权限管理：</a></li>
+      </ul>
+    </li>
+    <li><a href="#二linux上常用网络操作">二、Linux上常用网络操作</a>
+      <ul>
+        <li><a href="#1主机名配置">1．主机名配置</a></li>
+        <li><a href="#2ip地址配置">2．IP地址配置</a></li>
+        <li><a href="#3-域名映射"><strong>3．</strong> 域名映射</a></li>
+        <li><a href="#4网络服务管理">4．网络服务管理</a></li>
+      </ul>
+    </li>
+    <li><a href="#三linux上软件安装">三、Linux上软件安装</a>
+      <ul>
+        <li><a href="#1-在linux上安装jdk"><strong>1．</strong> 在Linux上安装JDK:</a></li>
+        <li><a href="#2-在linux上安装mysql"><strong>2．</strong> 在Linux上安装Mysql:</a></li>
+        <li><a href="#3在linux上安装tomcat">3．在Linux上安装tomcat:</a></li>
+        <li><a href="#1-在linux上安装redis"><strong>1．</strong> <em><strong>*在*</strong></em><em><strong>*Linux上安装redis*</strong></em></a></li>
+        <li><a href="#2-部署项目到linux"><strong>2．</strong> <em><strong>*部署*</strong></em><em><strong>*项目到Linux*</strong></em></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    enableStickyToc();
+  });
+</script>
+
+        
+      </div>
+    
+
+    
+    
+  </div>
+
+  
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        hljs.initHighlightingOnLoad();
+      });
+    </script>
+
+          </div>
+        </div>
+      
+    </main>
+    <footer class="pl-scrollbar">
+      <div class="mx-auto w-full max-w-screen-xl"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2021 <a href="https://www.wangchucheng.com/">WANG Chucheng</a> and <a href="https://www.ruiqima.com/">MA Ruiqi</a>
+ &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+    </footer>
+  </body>
 </html>
