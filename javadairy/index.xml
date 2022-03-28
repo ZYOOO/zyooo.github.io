@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>JavaDairies on JoyBoy&#39;s blog</title>
+    <title>JavaDairies on LoveIt</title>
     <link>https://zyooo.github.io/javadairy/</link>
-    <description>Recent content in JavaDairies on JoyBoy&#39;s blog</description>
+    <description>Recent content in JavaDairies on LoveIt</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <managingEditor>zyooooo@126.com (JoyBoy)</managingEditor>
-    <webMaster>zyooooo@126.com (JoyBoy)</webMaster>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Sun, 17 Oct 2021 19:29:27 +0800</lastBuildDate>
     
 	<atom:link href="https://zyooo.github.io/javadairy/index.xml" rel="self" type="application/rss+xml" />
@@ -17,36 +16,85 @@
       <title>Nginx</title>
       <link>https://zyooo.github.io/javadairy/nginx/</link>
       <pubDate>Sun, 17 Oct 2021 19:29:27 +0800</pubDate>
-      <author>zyooooo@126.com (JoyBoy)</author>
+      
       <guid>https://zyooo.github.io/javadairy/nginx/</guid>
-      <description>Nginx 1.课程目标 目标1：掌握Nginx的安装 目标2：掌握Nginx的静态网站部署 目标3：理解Nginx的反向代理与负载均衡，能够配置反向代理与</description>
+      <description>Nginx 1.课程目标 目标1：掌握Nginx的安装
+目标2：掌握Nginx的静态网站部署
+目标3：理解Nginx的反向代理与负载均衡，能够配置反向代理与负载均衡
+2.Nginx的安装与启动 2.1什么是Nginx Nginx 是一款高性能的 http 服务器/反向代理服务器及电子邮件（IMAP/POP3）代理服务器。由俄罗斯的程序设计师伊戈尔·西索夫（Igor Sysoev）所开发，官方测试 nginx 能够支支撑 5 万并发链接，并且 cpu、内存等资源消耗却非常低，运行非常稳定。
+Nginx 应用场景：
+1、http 服务器。Nginx 是一个 http 服务可以独立提供 http 服务。可以做网页静态服务器。
+2、虚拟主机。可以实现在一台服务器虚拟出多个网站。例如个人网站使用的虚拟主机。
+3、反向代理，负载均衡。当网站的访问量达到一定程度后，单台服务器不能满足用户的请求时，需要用多台服务器集群可以使用 nginx 做反向代理。并且多台服务器可以平均分担负载，不会因为某台服务器负载高宕机而某台服务器闲置的情况。
+2.2 Nginx在Linux下的安装 重新准备一台虚拟机作为服务器。比如IP地址为192.168.177.129
+2.2.1环境准备 （1）需要安装 gcc 的环境【此步省略】
+yum install gcc-c++
+（2）第三方的开发包。
+PCRE PCRE(Perl Compatible Regular Expressions)是一个 Perl 库，包括 perl 兼容的正则表达式库。nginx 的 http 模块使用 pcre 来解析正则表达式，所以需要在 linux 上安装 pcre 库。
+yum install -y pcre pcre-devel
+注：pcre-devel 是使用 pcre 开发的一个二次开发库。nginx 也需要此库。
+zlib zlib 库提供了很多种压缩和解压缩的方式，nginx 使用 zlib 对 http 包的内容进行 gzip，所以需要在 linux 上安装 zlib 库。</description>
     </item>
     
     <item>
       <title>travel</title>
       <link>https://zyooo.github.io/javadairy/example/</link>
       <pubDate>Wed, 13 Oct 2021 11:03:43 +0800</pubDate>
-      <author>zyooooo@126.com (JoyBoy)</author>
+      
       <guid>https://zyooo.github.io/javadairy/example/</guid>
-      <description>黑马旅游网案例 注册 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 &amp;lt;script&amp;gt; /* * 表单校验： * 1.用户名：单词字符，长</description>
+      <description>黑马旅游网案例 注册 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40  &amp;lt;script&amp;gt; /* * 表单校验： * 1.用户名：单词字符，长度8到20位 * 2.密码：单词字符，长度8到20位 *	3.email：邮件格式 * 4.姓名：非空 * 5.手机号：手机号格式 *	6.出生日期：非空 *	7.验证码：非空 * */ function checkUsername(){ var username = $(&amp;#34;#username&amp;#34;).val(); var reg_username = /^\w{8,20}$/; var flag = reg_username.</description>
     </item>
     
     <item>
       <title>Maven</title>
       <link>https://zyooo.github.io/javadairy/maven/</link>
       <pubDate>Sun, 10 Oct 2021 08:45:35 +0800</pubDate>
-      <author>zyooooo@126.com (JoyBoy)</author>
+      
       <guid>https://zyooo.github.io/javadairy/maven/</guid>
-      <description>Apache下的一个项目管理工具 官网地址 maven.apache.org 配置环境目录 1.获得maven文件夹的目录F:\software\apache-maven-3.8</description>
+      <description>Apache下的一个项目管理工具
+官网地址 maven.apache.org
+配置环境目录 1.获得maven文件夹的目录F:\software\apache-maven-3.8.3
+2.在环境变量中新建一个新的 系统变量 , MAVEN_HOME ,将文件目录给放上去
+3.在Path中新建一个 %MAVEN_HOME%\bin
+完成,打开cmd mvn -v检查是否安装成功,注意如果一开始是有错误的,更正之后记得重新打开cmd
+Maven仓库 Maven项目的仓库刚开始是没jar包的,当Maven项目需要jar包时先去查找本地仓库,如果没有再从中央仓库(由Maven团队设立的一个唯一的仓库)下载到本地仓库.
+远程仓库好处:可先去获取中央仓库中的jar包,提高本地仓库获取的速度,也可以放置一些公司自己写的jar包.
+cmd中在Maven项目的目录下mvn compile创建默认位置本地仓库
+修改本地仓库位置 打开maven目录下的conf目录下的setting.xml
+1 2 3 4  &amp;lt;localRepository&amp;gt;/path/to/local/repo&amp;lt;/localRepository&amp;gt; 修改为想要的路径,例如 &amp;lt;localRepository&amp;gt;F:\software\apache-maven-3.8.3\mvn_repository&amp;lt;/localRepository&amp;gt; 再加入配置文件中   访问中央仓库太慢的话,课访问国内的私服,例如阿里云的私服
+1 2 3 4 5 6 7  配置到setting.xml里面mirror部分 &amp;lt;mirror&amp;gt; &amp;lt;id&amp;gt;alimaven&amp;lt;/id&amp;gt; &amp;lt;name&amp;gt;aliyun maven&amp;lt;/name&amp;gt; &amp;lt;url&amp;gt;http://maven.aliyun.com/nexus/content/groups/public/&amp;lt;/url&amp;gt; &amp;lt;mirrorOf&amp;gt;central&amp;lt;/mirrorOf&amp;gt; &amp;lt;/mirror&amp;gt;   目录结构 ![](https://i.loli.net/2021/10/10/xeV6EHDjUpTdqG9.png
+常用命令 mvn compile
+​	编译出字节码文件,在target目录下
+mvn clean
+​	删除target目录
+mvn package
+​	对于 java 工程执行 package 打成 jar 包，对于 web 工程打成 war包,同时先编译了。</description>
     </item>
     
     <item>
       <title>Redis&amp;Jedis</title>
       <link>https://zyooo.github.io/javadairy/redisjedis/</link>
       <pubDate>Sat, 09 Oct 2021 11:46:30 +0800</pubDate>
-      <author>zyooooo@126.com (JoyBoy)</author>
+      
       <guid>https://zyooo.github.io/javadairy/redisjedis/</guid>
-      <description>redis&amp;amp;Jedis redis 概念：一款高性能的NOSQL系列的非关系型数据库 关系型数据库：MySQL、Oracle… ​ 使用表单存储数据，数据之间有关联关系，数据存储</description>
+      <description>redis&amp;amp;Jedis redis 概念：一款高性能的NOSQL系列的非关系型数据库
+关系型数据库：MySQL、Oracle…
+​	使用表单存储数据，数据之间有关联关系，数据存储在硬盘的文件上
+非关系型数据库(NOSQL): redis, hbase…
+​	使用键值对去存储数据，数据之间没有关联关系，数据存储在内存中
+两种数据库并非对立而是互补，关系型用来做数据库，NOSQL用于做缓存、秒杀任务队列、网站访问统计等
+去https://redis.io官网下载的只有Linux系统的redis，先用着黑马的Windows绿色版本，等后边部署Linux的时候再使用
+key，value； 其中key都是字符串，value有5种不同的数据结构
+value：
+​	1.字符串类型string
+​	2.哈希类型hash：map格式
+​	3.列表类型list： linkedlist格式
+​	4.集合类型set
+​	5.有序集合类型sortedset
+**命令操作 ** (更多详细的操作在redis官网文档中有)
+字符串类型 string
+1. 存储： set key value 127.0.0.1:6379&amp;gt; set username zhangsan OK 2. 获取： get key 127.0.0.1:6379&amp;gt; get username &amp;quot;zhangsan&amp;quot; 3. 删除： del key 127.0.0.1:6379&amp;gt; del age (integer) 1  哈希类型 hash
+  存储： hset key field value 127.0.0.1:6379&amp;gt; hset myhash username lisi (integer) 1 127.</description>
     </item>
     
   </channel>
