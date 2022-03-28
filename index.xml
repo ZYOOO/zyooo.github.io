@@ -1,9 +1,10 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>LoveIt</title>
+        <title>JoyBoy&#39;s blog</title>
         <link>https://zyooo.github.io/</link>
-        <description>About LoveIt Theme</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 28 Mar 2022 15:17:59 &#43;0800</lastBuildDate>
+        <description>JoyBoy&#39;s blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>zyooooo@126.com (JoyBoy)</managingEditor>
+            <webMaster>zyooooo@126.com (JoyBoy)</webMaster><lastBuildDate>Mon, 28 Feb 2022 07:50:01 &#43;0800</lastBuildDate>
             <atom:link href="https://zyooo.github.io/index.xml" rel="self" type="application/rss+xml" />
         </channel>
 </rss>

@@ -1,39 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Notes on LoveIt</title>
+    <title>Notes on JoyBoy&#39;s blog</title>
     <link>https://zyooo.github.io/note/</link>
-    <description>Recent content in Notes on LoveIt</description>
+    <description>Recent content in Notes on JoyBoy&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Mon, 28 Mar 2022 15:17:59 +0800</lastBuildDate>
+    <managingEditor>zyooooo@126.com (JoyBoy)</managingEditor>
+    <webMaster>zyooooo@126.com (JoyBoy)</webMaster>
+    <lastBuildDate>Wed, 20 Oct 2021 12:25:53 +0800</lastBuildDate>
     
 	<atom:link href="https://zyooo.github.io/note/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Test</title>
-      <link>https://zyooo.github.io/note/test/</link>
-      <pubDate>Mon, 28 Mar 2022 15:17:59 +0800</pubDate>
-      
-      <guid>https://zyooo.github.io/note/test/</guid>
-      <description>一级 啦啦
-啦啦啦
-;aaaaa
-啊啊啊啊
-二级 2
-三级 3
-四级 4
-五级 5
-六级 6</description>
-    </item>
-    
-    <item>
       <title>OralEnglish</title>
       <link>https://zyooo.github.io/note/oralenglish/</link>
       <pubDate>Wed, 20 Oct 2021 12:25:53 +0800</pubDate>
-      
+      <author>zyooooo@126.com (JoyBoy)</author>
       <guid>https://zyooo.github.io/note/oralenglish/</guid>
       <description>Day 1 Success means different things for different people, some may equate it with fame, some with wealth and still some with accomplishments. For me, it means fulfilling one&amp;rsquo;s dreams. Whatever your dreams are, you have a goal and then focus all your attention on it.
 Dreams bring you hope and happiness. In the process of struggling for it, you cry, sweat, complain or even purse,but the joy of harvesting makes you forget all the pains and troubles you have gone through.</description>
@@ -43,107 +27,54 @@ Dreams bring you hope and happiness. In the process of struggling for it, you cr
       <title>Linux</title>
       <link>https://zyooo.github.io/note/linux/</link>
       <pubDate>Sun, 17 Oct 2021 09:12:25 +0800</pubDate>
-      
+      <author>zyooooo@126.com (JoyBoy)</author>
       <guid>https://zyooo.github.io/note/linux/</guid>
-      <description>Linux学习 输入ifconfig 查询ip地址,以后用于远程连接,我的192.168.122.128,使用CRT去远程连接服务器.
-常用命令 文件里有文档可以查
-cd
-pwd
-li
-li -a
-li -l == ll
-按tab可以补文件名称
-cd .. 退回上一级
-cd - 放回上一次的目录
-mkdir 加上-p可以创建多级目录
-rmdir 只能删除空文件
-cat 查看全部
-more 空格满屏 回车一行
-less 上下键翻动 q退出
-tail -f 动态查看实时监控
-cp (copy) cp 文件名 粘贴的路径,可改名
-mv (move)
-./ 当前目录 ../上一级目录
-rm 删除文件 回复y或者n
-rm -r 删除文件夹
-rm -rf 删除且不询问
-rm -f * 删除所有文件
-rm -f / root目录下所有文件*
-tar 打包或者解压
-【find】命令
-find指令用于查找符合条件的文件
-示例：
-find / -name “ins*” 查找文件名称是以ins开头的文件</description>
+      <description>Linux学习 输入ifconfig 查询ip地址,以后用于远程连接,我的192.168.122.128,使用CRT去远程连接服务器. 常用命令 文</description>
     </item>
     
     <item>
       <title>Ideal2021JavaWeb项目配置</title>
       <link>https://zyooo.github.io/note/ideal2021javaweb%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE/</link>
       <pubDate>Sat, 09 Oct 2021 12:28:42 +0800</pubDate>
-      
+      <author>zyooooo@126.com (JoyBoy)</author>
       <guid>https://zyooo.github.io/note/ideal2021javaweb%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE/</guid>
-      <description>Itellidea2021版本中web项目的配置
-右键项目名称，选择Add Frameworks Support，勾选Web Application，OK。
-添加Tomcat
-点右上角
-或者菜单栏中Run中的Edit Configurations
-这个自己配置
-回到打开project structure –&amp;gt; Modules
-选择添加library
-添加Tomcat包之后选择web，勾选下方的SourceRoots，这样才能直接new servlet
-注意重启idea后这个勾会没打上，所以要自己打上</description>
+      <description>Itellidea2021版本中web项目的配置 右键项目名称，选择Add Frameworks Support，勾选Web Application，OK。 添加Tom</description>
     </item>
     
     <item>
       <title>BigTalkDesignPattenNote</title>
       <link>https://zyooo.github.io/note/bigtalkdesignpattennote/</link>
       <pubDate>Fri, 08 Oct 2021 14:23:01 +0800</pubDate>
-      
+      <author>zyooooo@126.com (JoyBoy)</author>
       <guid>https://zyooo.github.io/note/bigtalkdesignpattennote/</guid>
-      <description>大话设计模式读书笔记 1.简单工厂模式 用一个单独的类来做创照实例的过程，这就是工厂
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20  public class OperationFactory{ public static Operation createOperate(string operate){ Operation oper = null; switch(operate){ case &amp;#34;+&amp;#34;: oper = new OperationAdd(); break; case &amp;#34;-&amp;#34;: oper = new OperationSub(); break; case &amp;#34;*&amp;#34;: oper = new OperationMul(); break; case &amp;#34;/&amp;#34;: oper = new OperationMul(); break; } return oper; } }   1 2 3 4 5  Operation oper; oper = OperationFactory.</description>
+      <description>大话设计模式读书笔记 1.简单工厂模式 用一个单独的类来做创照实例的过程，这就是工厂 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 public class OperationFactory{ public static Operation createOperate(string operate){ Operation oper</description>
     </item>
     
     <item>
       <title>如何添加右键可选在此处打开命令行窗口</title>
       <link>https://zyooo.github.io/note/note1/</link>
       <pubDate>Fri, 01 Oct 2021 10:05:28 +0800</pubDate>
-      
+      <author>zyooooo@126.com (JoyBoy)</author>
       <guid>https://zyooo.github.io/note/note1/</guid>
-      <description>如何添加右键可选在此处打开命令行窗口 1 2 3 4 5 6 7 8  1.win+r 输入 regedit 回车打开注册表 2.切换到HKEY_CLASSES_ROOT\Directory\Background\shell\ 右键shell，新建项 “OpenCMDHere” 并在该项下，右击新建项 “command” 直接点击OpenCMDHere将OpenCMDHere中的默认改为 在此处打开命令窗口 右键 新建字符串名，名字为Icon将值改为cmd.exe 创建 OpenCMDHere 的图片 3.修改command最终的默认值 输入 cmd.exe /s /k pushd \&amp;#34;%V\&amp;#34;   </description>
+      <description>如何添加右键可选在此处打开命令行窗口 1 2 3 4 5 6 7 8 1.win+r 输入 regedit 回车打开注册表 2.切换到HKEY_CLASSES_ROOT\Directory\</description>
     </item>
     
     <item>
       <title>Blog搭建和我的信息</title>
       <link>https://zyooo.github.io/note/blog%E6%90%AD%E5%BB%BA%E5%92%8C%E6%88%91%E7%9A%84%E4%BF%A1%E6%81%AF/</link>
       <pubDate>Thu, 30 Sep 2021 10:03:39 +0800</pubDate>
-      
+      <author>zyooooo@126.com (JoyBoy)</author>
       <guid>https://zyooo.github.io/note/blog%E6%90%AD%E5%BB%BA%E5%92%8C%E6%88%91%E7%9A%84%E4%BF%A1%E6%81%AF/</guid>
-      <description>blog搭建和我的信息 现在已经安装好了hugo 在cmd中输入 hugo version可以查询
-创建启动 hugo new site [path] [flags] 创建
-这里是新创建了一个hugo new site F:\myblog blog
-到 themes.gohugo.io里面去下载主题直接在cmd中clone
-cd [path]
-git clone https://github.com/vaga/hugo-theme-m10c.git themes/m10c
-然后启动 hugo server -t m10c &amp;ndash;buildDrafts
-Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
-通过本地链接就可以访问了
-写一篇文章 hugo new post/hello.md
-git 令牌
-生成public文件夹 1  hugo --theme=m10c --baseUrl=&amp;#34;https://zyooo.github.io/&amp;#34; --buildDrafts   每一次添加东西先生成然后commit push
-git操作 到public目录下
-git add .
-git commit -m&amp;rdquo; &amp;quot;
-git push origin main</description>
+      <description>blog搭建和我的信息 现在已经安装好了hugo 在cmd中输入 hugo version可以查询 创建启动 hugo new site [path] [flags] 创建 这里是新创建了一个hugo new site F:\myblog blog</description>
     </item>
     
     <item>
       <title>Vocabulary</title>
       <link>https://zyooo.github.io/note/note/</link>
       <pubDate>Wed, 29 Sep 2021 19:08:46 +0800</pubDate>
-      
+      <author>zyooooo@126.com (JoyBoy)</author>
       <guid>https://zyooo.github.io/note/note/</guid>
-      <description>2021.09.27           flatter vt.奉承;自命不凡,使显得更漂亮   thrift n.节约,节俭; 海石竹   contrast n.差异,悬殊;截然不同的实物; vt.对照,对比. vi.有明显差异   pharmacy n.药房,药店;药剂学;配药学   pilgrim n.朝圣者,香客;清教徒前辈移民   glacier n.冰川，冰河   cholesterol n.胆固醇   asylum n.(政治)避难,庇护   corporal n.下士.adj.肉体的,身体的   gauge n.测量仪器,宽度,口径; vt.判断,测量,估算   prosper vi.繁荣,兴旺,发达   surgery n.外科手术;手术室;应诊时间   contingent 依情况而定的,n.代表团   corporate adj.公司的 ; 团体的   collaboration n.</description>
+      <description>2021.09.27 flatter vt.奉承;自命不凡,使显得更漂亮 thrift n.节约,节俭; 海石竹 contrast n.差异,悬殊;截然不同的实物; vt.对照,对比. vi.有明显差异 pharmacy n.药房</description>
     </item>
     
   </channel>
