@@ -1,11 +1,11 @@
 # Nginx
 
 
-# 					***\*Nginx\****
+# 					Nginx
 
  
 
-# ***\*1.\*******\*课程目标\****
+# 1.课程目标
 
 目标1：掌握Nginx的安装
 
@@ -13,15 +13,15 @@
 
 目标3：理解Nginx的反向代理与负载均衡，能够配置反向代理与负载均衡
 
-# ***\*2.Nginx的安装与启动\****
+# 2.Nginx的安装与启动
 
-## ***\*2.1什么是Nginx\****
+## 2.1什么是Nginx
 
 Nginx 是一款高性能的 http 服务器/反向代理服务器及电子邮件（IMAP/POP3）代理服务器。由俄罗斯的程序设计师伊戈尔·西索夫（Igor Sysoev）所开发，官方测试 nginx 能够支支撑 5 万并发链接，并且 cpu、内存等资源消耗却非常低，运行非常稳定。
 
 ![img](https://i.loli.net/2021/10/17/RM53FAuyedGltfc.jpg) 
 
-***\*Nginx 应用场景：\****
+Nginx 应用场景：
 
 1、http 服务器。Nginx 是一个 http 服务可以独立提供 http 服务。可以做网页静态服务器。
 
@@ -29,11 +29,11 @@ Nginx 是一款高性能的 http 服务器/反向代理服务器及电子邮件�
 
 3、反向代理，负载均衡。当网站的访问量达到一定程度后，单台服务器不能满足用户的请求时，需要用多台服务器集群可以使用 nginx 做反向代理。并且多台服务器可以平均分担负载，不会因为某台服务器负载高宕机而某台服务器闲置的情况。  
 
-## ***\*2.2 Nginx在Linux下的安装\****
+## 2.2 Nginx在Linux下的安装
 
 重新准备一台虚拟机作为服务器。比如IP地址为192.168.177.129 
 
-### ***\*2.2.1环境准备\****
+### 2.2.1环境准备
 
 （1）需要安装 gcc 的环境【此步省略】
 
@@ -41,7 +41,7 @@ yum install gcc-c++
 
 （2）第三方的开发包。
 
-n ***\*PCRE\****
+#### PCRE
 
   PCRE(Perl Compatible Regular Expressions)是一个 Perl 库，包括 perl 兼容的正则表达式库。nginx 的 http 模块使用 pcre 来解析正则表达式，所以需要在 linux 上安装 pcre 库。
 
@@ -49,25 +49,25 @@ yum install -y pcre pcre-devel
 
 注：pcre-devel 是使用 pcre 开发的一个二次开发库。nginx 也需要此库。
 
-n  ***\*zlib\****
+#### zlib
 
 zlib 库提供了很多种压缩和解压缩的方式，nginx 使用 zlib 对 http 包的内容进行 gzip，所以需要在 linux 上安装 zlib 库。
 
 yum install -y zlib zlib-devel
 
-n  ***\*OpenSSL\****
+#### OpenSSL
 
 OpenSSL 是一个强大的安全套接字层密码库，囊括主要的密码算法、常用的密钥和证书封装管理功能及 SSL 协议，并提供丰富的应用程序供测试或其它目的使用。nginx 不仅支持 http 协议，还支持 https（即在 ssl 协议上传输 http），所以需要在 linux安装 openssl 库。
 
 yum install -y openssl openssl-devel
 
-### ***\*2.2.2 Nginx下载\****
+### 2.2.2 Nginx下载
 
 官方网站下载 nginx：http://nginx.org/
 
 我们课程中使用的版本是 1.8.0 版本。
 
-### ***\*2.2.3 Nginx安装\****
+### 2.2.3 Nginx安装
 
 第一步：把 nginx 的源码包nginx-1.8.0.tar.gz上传到 linux 系统
 
@@ -83,10 +83,6 @@ tar zxvf nginx-1.8.0.tar.gz
 
 ![img](https://i.loli.net/2021/10/17/xqATg7f9Z1XRjzi.jpg) 
 
-| ***\*----  知识点小贴士 ----\****Makefile是一种配置文件， Makefile 一个工程中的源文件不计数，其按类型、功能、模块分别放在若干个目录中，makefile定义了一系列的规则来指定，哪些文件需要先编译，哪些文件需要后编译，哪些文件需要重新编译，甚至于进行更复杂的功能操作，因为 makefile就像一个Shell脚本一样，其中也可以执行操作系统的命令。 |
-| ------------------------------------------------------------ |
-| ***\*----  知识点小贴士 ----\*******\*configure参数\*******\*./configure \*\******\*--prefix=/usr \                            指向安装目录\*******\*--sbin-path=/usr/sbin/nginx \                 指向（执行）程序文件（nginx）\*******\*--conf-path=/etc/nginx/nginx.conf \           指向配置文件\*******\*--error-log-path=/var/log/nginx/error.log \       指向log\*******\*--http-log-path=/var/log/nginx/access.log \      指向http-log\*******\*--pid-path=/var/run/nginx/nginx.pid \           指向pid\*******\*--lock-path=/var/lock/nginx.lock \             （安装文件锁定，防止安装文件被别人利用，或自己误操作。）\*******\*--user=nginx \*\******\*--group=nginx \*\******\*--with-http_ssl_module \           启用ngx_http_ssl_module支持（使支持https请求，需已安装openssl）\*******\*--with-http_flv_module \            启用ngx_http_flv_module支持（提供寻求内存使用基于时间的偏移量文件）\*******\*--with-http_stub_status_module \   启用ngx_http_stub_status_module支持（获取nginx自上次启动以来的工作状态）\*******\*--with-http_gzip_static_module \  启用ngx_http_gzip_static_module支持（在线实时压缩输出数据流）\*******\*--http-client-body-temp-path=/var/tmp/nginx/client/ \ 设定http客户端请求临时文件路径\*******\*--http-proxy-temp-path=/var/tmp/nginx/proxy/ \ 设定http代理临时文件路径\*******\*--http-fastcgi-temp-path=/var/tmp/nginx/fcgi/ \ 设定http fastcgi临时文件路径\*******\*--http-uwsgi-temp-path=/var/tmp/nginx/uwsgi \ 设定http uwsgi临时文件路径\*******\*--http-scgi-temp-path=/var/tmp/nginx/scgi \ 设定http scgi临时文件路径\*******\*--with-pcre 启用pcre库\**** |
-
 第四步：编译
 
 make
@@ -95,7 +91,7 @@ make
 
 make install
 
-## ***\*2.3 Nginx启动与访问\****
+## 2.3 Nginx启动与访问
 
 注意：启动nginx 之前，上边将临时文件目录指定为/var/temp/nginx/client， 需要在/var  下创建此 目录
 
@@ -137,19 +133,19 @@ ps aux|grep nginx
 
 ./nginx -s reload
 
-# ***\*3.Nginx静态网站部署\****
+# 3.Nginx静态网站部署
 
-## ***\*3.1 静态网站的部署\****
+## 3.1 静态网站的部署
 
 将/资料/静态页面/index目录下的所有内容 上传到服务器的/usr/local/nginx/html下即可访问 
 
 ![img](https://i.loli.net/2021/10/17/yw1M6xPi9SaUNnO.jpg) 
 
-## ***\*3.2 配置虚拟主机\****
+## 3.2 配置虚拟主机
 
 虚拟主机，也叫“网站空间”，就是把一台运行在互联网上的物理服务器划分成多个“虚拟”服务器。虚拟主机技术极大的促进了网络技术的应用和普及。同时虚拟主机的租用服务也成了网络时代的一种新型经济形式。
 
-### ***\*3.2.1 端口绑定\****
+### 3.2.1 端口绑定
 
 （1）上传静态网站：
 
@@ -159,7 +155,35 @@ ps aux|grep nginx
 
 （2）修改Nginx 的配置文件：/usr/local/nginx/conf/nginx.conf
 
-server {    listen    81; # 监听的端口    server_name  localhost; # 域名或ip    location / {	# 访问路径配置      root  index;# 根目录      index  index.html index.htm; # 默认首页    }    error_page  500 502 503 504  /50x.html;	# 错误页面    location = /50x.html {      root  html;    }  }    server {    listen    82; # 监听的端口    server_name  localhost; # 域名或ip    location / {	# 访问路径配置      root  regist;# 根目录      index  regist.html; # 默认首页    }    error_page  500 502 503 504  /50x.html;	# 错误页面    location = /50x.html {      root  html;    }       }
+server {    
+
+listen    81; # 监听的端口    server_name  localhost; # 域名或ip    
+
+location / {	# 访问路径配置      root  index;# 根目录      index  index.html index.htm; # 默认首页    }    
+
+error_page  500 502 503 504  /50x.html;	# 错误页面    
+
+location = /50x.html {      root  html;    }  
+
+}    
+
+server {    
+
+listen    82; # 监听的端口    server_name  localhost; # 域名或ip   
+
+ location / {	# 访问路径配置      
+
+root  regist;# 根目录      
+
+index  regist.html; # 默认首页    
+
+}    
+
+error_page  500 502 503 504  /50x.html;	# 错误页面    
+
+location = /50x.html {      root  html;    }       
+
+}
 
 （3）访问测试：
 
@@ -167,9 +191,9 @@ server {    listen    81; # 监听的端口    server_name  localhost; # 域名�
 
 地址栏输入http://192.168.177.129/:82 可以看到注册页面
 
-### ***\*3.2.2 域名绑定\****
+### 3.2.2 域名绑定
 
-***\*什么是域名：\****
+#### 什么是域名：
 
 [域名](https://baike.baidu.com/item/域名)（[Domain Name](https://baike.baidu.com/item/Domain Name)），是由一串用“点”分隔的[字符](https://baike.baidu.com/item/字符)组成的Internet上某一台计算机或计算机组的名称，用于在数据传输时标识计算机的电子方位（有时也指地理位置，地理上的域名，指代有行政自主权的一个地方区域）。域名是一个[IP地址](https://baike.baidu.com/item/IP地址)上有“面具” 。域名的目的是便于记忆和沟通的一组服务器的地址（[网站](https://baike.baidu.com/item/网站/155722)，电子邮件，[FTP](https://baike.baidu.com/item/FTP/13839)等）。域名作为力所能及难忘的互联网参与者的名称。域名按[域名系统](https://baike.baidu.com/item/域名系统)（DNS）的规则流程组成。在[DNS](https://baike.baidu.com/item/DNS/427444)中注册的任何名称都是域名。域名用于各种网络环境和应用程序特定的命名和寻址目的。通常，域名表示[互联网协议](https://baike.baidu.com/item/互联网协议)（IP）资源，例如用于访问因特网的个人计算机，托管网站的服务器计算机，或网站本身或通过因特网传送的任何其他服务。世界上第一个注册的域名是在1985年1月注册的。
 
