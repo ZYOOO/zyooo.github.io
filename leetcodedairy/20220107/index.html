@@ -19,7 +19,7 @@
   as="style" onload="this.onload=null;this.rel='stylesheet'">
 
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/solarized-light.min.css"
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/stackoverflow-dark.min.css"
    media="print"
   onload="this.media='all';this.onload=null" crossorigin>
 <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
@@ -56,8 +56,8 @@
   integrity="sha384-atOyb0FxAgN9LyAc6PEf9BjgwLISyansgdH8/VXQH8p2o5vfrRgmGIJ2Sg22L0A0"  crossorigin></script>
 
 
-<link rel="icon" type="image/png" sizes="32x32" href="https://zyooo.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_3.png">
-<link rel="apple-touch-icon" sizes="180x180" href="https://zyooo.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://zyooo.github.io/images/icon_hu0887349992b35fe0daec5472ae05fa5f_87705_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://zyooo.github.io/images/icon_hu0887349992b35fe0daec5472ae05fa5f_87705_180x180_fill_box_center_3.png">
 
 <meta name="description"
   content="二分搜索 //搜素左侧边界 func left_bound(nums []int, target int){ if len(nums) == 0 { return -1 } left, right := 0,len(nums) for left &lt; right{ mid := left &#43; (right - left) / 2 if nums[mid] == target{ //找到target时,收缩右侧边界 right = mid }else if nums[mid] &lt; target{ left = mid &#43; 1 }else if nums[mid] &gt; target{ right = mid } } return left } // nums = [1,2,3,3,3,5,7,] target = 3 return 2 //搜索右侧边界 func right_bound(nums int[], target int){ if len(nums) == 0 { return -1 } left, right := 0,len(nums) for left &lt; right{ mid := left &#43; (right - left) / 2 if nums[mid] == target{ //找到target时,收缩左侧边界 left = mid &#43; 1 }else if nums[mid] &lt; target{ left = mid &#43; 1 }else if nums[mid] &gt; target{ right = mid } } return left } // nums = [1,2,3,3,3,5,7,] target = 3 return 4  技巧: 从题目中抽象出一个自变量x , 一个关于x的函数f(x), 以及一个目标值 target , 同时还要满足以下条件 : 1.">
@@ -95,7 +95,7 @@
         "name": "ZhangYong",
         "logo": {
             "@type": "ImageObject",
-            "url": "https://zyooo.github.io/images/avatar.png"
+            "url": "https://zyooo.github.io/images/icon.png"
         }
         },
     "description": "二分搜索 \/\/搜素左侧边界 func left_bound(nums []int, target int){ if len(nums) == 0 { return -1 } left, right := 0,len(nums) for left \u0026lt; right{ mid := left \u002b (right - left) \/ 2 if nums[mid] == target{ \/\/找到target时,收缩右侧边界 right = mid }else if nums[mid] \u0026lt; target{ left = mid \u002b 1 }else if nums[mid] \u0026gt; target{ right = mid } } return left } \/\/ nums = [1,2,3,3,3,5,7,] target = 3 return 2 \/\/搜索右侧边界 func right_bound(nums int[], target int){ if len(nums) == 0 { return -1 } left, right := 0,len(nums) for left \u0026lt; right{ mid := left \u002b (right - left) \/ 2 if nums[mid] == target{ \/\/找到target时,收缩左侧边界 left = mid \u002b 1 }else if nums[mid] \u0026lt; target{ left = mid \u002b 1 }else if nums[mid] \u0026gt; target{ right = mid } } return left } \/\/ nums = [1,2,3,3,3,5,7,] target = 3 return 4  技巧: 从题目中抽象出一个自变量x , 一个关于x的函数f(x), 以及一个目标值 target , 同时还要满足以下条件 : 1."
