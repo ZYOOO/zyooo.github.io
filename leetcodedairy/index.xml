@@ -8,7 +8,16 @@
     <language>en</language>
     <copyright>&amp;copy; 2021 &lt;a href=&#34;https://www.wangchucheng.com/&#34;&gt;WANG Chucheng&lt;/a&gt; and &lt;a href=&#34;https://www.ruiqima.com/&#34;&gt;MA Ruiqi&lt;/a&gt;
 </copyright>
-    <lastBuildDate>Mon, 28 Feb 2022 07:50:01 +0800</lastBuildDate><atom:link href="https://zyooo.github.io/leetcodedairy/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 01 Apr 2022 07:50:01 +0800</lastBuildDate><atom:link href="https://zyooo.github.io/leetcodedairy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2022-04-01</title>
+      <link>https://zyooo.github.io/leetcodedairy/20220401/</link>
+      <pubDate>Fri, 01 Apr 2022 07:50:01 +0800</pubDate>
+      
+      <guid>https://zyooo.github.io/leetcodedairy/20220401/</guid>
+      <description>954. 二倍数对数组 感觉不是很难, 但是最开始的想法是只用哈希然后偶数找二分之一或者两倍, 奇数就找两倍, 但是可以想到这个会有很多问题.</description>
+    </item>
+    
     <item>
       <title>2022-02-28</title>
       <link>https://zyooo.github.io/leetcodedairy/20220228/</link>
@@ -33,9 +42,7 @@
       <pubDate>Thu, 24 Feb 2022 21:54:42 +0800</pubDate>
       
       <guid>https://zyooo.github.io/leetcodedairy/20220224/</guid>
-      <description>开始是直接遍历的方法得到数字, 后来想着如果是严格按照一个形式的话, 那么 一个复数中只会出现一个 &amp;lsquo;+&amp;rsquo;
-并且将虚部和实部分割, 可以利用这个去直接得到abcd, 不过不知道底层代码, 估计速度也是差不多的
-代码: 100% 100%</description>
+      <description>开始是直接遍历的方法得到数字, 后来想着如果是严格按照一个形式的话, 那么 一个复数中只会出现一个 &amp;lsquo;+&amp;rsquo;</description>
     </item>
     
     <item>
@@ -44,10 +51,7 @@
       <pubDate>Sun, 20 Feb 2022 20:07:20 +0800</pubDate>
       
       <guid>https://zyooo.github.io/leetcodedairy/20220208/</guid>
-      <description>1001.网格照明 hard 2022.02.08 数据规模太大了, 原本想着硬模拟的后来还是放弃了
-打算用map去存储行列和两个对角的情况, 但是又不知道怎么去表示同一条对角
-官方题解:
-func gridIllumination(n int, lamps, queries [][]int) []int { type pair struct{ x, y int } points := map[pair]bool{} row := map[int]int{} col := map[int]int{} diagonal := map[int]int{} antiDiagonal := map[int]int{} for _, lamp := range lamps { r, c := lamp[0], lamp[1] p := pair{r, c} if points[p] { continue } points[p] = true row[r]++ col[c]++ //用这个来表示哪条对角, 妙啊 diagonal[r-c]++ antiDiagonal[r+c]++ } ans := make([]int, len(queries)) for i, query := range queries { r, c := query[0], query[1] if row[r] &amp;gt; 0 || col[c] &amp;gt; 0 || diagonal[r-c] &amp;gt; 0 || antiDiagonal[r+c] &amp;gt; 0 { ans[i] = 1 } for x := r - 1; x &amp;lt;= r+1; x++ { for y := c - 1; y &amp;lt;= c+1; y++ { if x &amp;lt; 0 || y &amp;lt; 0 || x &amp;gt;= n || y &amp;gt;= n || !</description>
+      <description>1001.网格照明 hard 2022.</description>
     </item>
     
     <item>
@@ -56,8 +60,7 @@ func gridIllumination(n int, lamps, queries [][]int) []int { type pair struct{ x
       <pubDate>Sun, 09 Jan 2022 20:34:58 +0800</pubDate>
       
       <guid>https://zyooo.github.io/leetcodedairy/20220109/</guid>
-      <description>田忌赛马,打不过就送人头 代码逻辑
-n := len(nums1) sort.Ints(nums1) //田忌的马 sort.Ints(nums2) //齐王的马 for i := n-1; i &amp;gt;= 0; i-- { if nums1[i] &amp;gt; nums2[i] { //比得过跟他比 } else { //比不过,换的垫底的来送人头 } } int[] advantageCount(int[] nums1, int[] nums2) { int n = nums1.</description>
+      <description>田忌赛马,打不过就送人头 代码逻辑</description>
     </item>
     
     <item>
@@ -84,8 +87,7 @@ n := len(nums1) sort.Ints(nums1) //田忌的马 sort.Ints(nums2) //齐王的马 
       <pubDate>Thu, 06 Jan 2022 11:18:06 +0800</pubDate>
       
       <guid>https://zyooo.github.io/leetcodedairy/20220106/</guid>
-      <description>15.三数之和 穷举,确定了第一个数字之后, 剩下两个数字就是 target = target - nums[i] 的twoSum问题
-func twoSumTarget2(nums []int, start, target int) [][]int { var ans [][]int //sort.</description>
+      <description>15.三数之和 穷举,确定了第一个数字之后, 剩下两个数字就是 target = target - nums[i] 的twoSum问题</description>
     </item>
     
     <item>
@@ -103,7 +105,7 @@ func twoSumTarget2(nums []int, start, target int) [][]int { var ans [][]int //so
       <pubDate>Tue, 04 Jan 2022 07:46:10 +0800</pubDate>
       
       <guid>https://zyooo.github.io/leetcodedairy/20220104/</guid>
-      <description>19.删除链表的倒数第N个节点 /** * Definition for singly-linked list. * type ListNode struct { * Val int * Next *ListNode * } */ func removeNthFromEnd(head *ListNode, n int) *ListNode { dummy := new(ListNode) dummy.</description>
+      <description>19.删除链表的倒数第N个节点 /** * Definition for singly-linked list.</description>
     </item>
     
     <item>
@@ -112,10 +114,7 @@ func twoSumTarget2(nums []int, start, target int) [][]int { var ans [][]int //so
       <pubDate>Mon, 03 Jan 2022 18:29:12 +0800</pubDate>
       
       <guid>https://zyooo.github.io/leetcodedairy/20220103/</guid>
-      <description>1185.一周中的第几天 难度简单92
-给你一个日期，请你设计一个算法来判断它是对应一周中的哪一天。
-输入为三个整数：day、month 和 year，分别表示日、月、年。
-您返回的结果必须是这几个值中的一个 {&amp;quot;Sunday&amp;quot;, &amp;quot;Monday&amp;quot;, &amp;quot;Tuesday&amp;quot;, &amp;quot;Wednesday&amp;quot;, &amp;quot;Thursday&amp;quot;, &amp;quot;Friday&amp;quot;, &amp;quot;Saturday&amp;quot;}。</description>
+      <description>1185.一周中的第几天 难度简单92</description>
     </item>
     
     <item>
@@ -124,7 +123,7 @@ func twoSumTarget2(nums []int, start, target int) [][]int { var ans [][]int //so
       <pubDate>Wed, 17 Nov 2021 12:15:12 +0800</pubDate>
       
       <guid>https://zyooo.github.io/leetcodedairy/20211117/</guid>
-      <description>318.最大单词长度乘积 给定一个字符串数组 words，找到 length(word[i]) * length(word[j]) 的最大值，并且这两个单词不含有公共字母。你可以认为每个单词只包含小写字母。如果不存在这样的两个单词，返回 0。 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/maximum-product-of-word-lengths 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处.</description>
+      <description>318.最大单词长度乘积 给定一个字符串数组 words，找到 length(word[i]) * length(word[j]) 的最大值，并且这两个单词不含有公共字母。你可以认为每个单词只包含小写字母。如果不存在这样的两个单词，返回 0。 来源：力扣（LeetCode） 链接：https://leetcode-cn.</description>
     </item>
     
     <item>
@@ -133,8 +132,7 @@ func twoSumTarget2(nums []int, start, target int) [][]int { var ans [][]int //so
       <pubDate>Mon, 15 Nov 2021 10:58:22 +0800</pubDate>
       
       <guid>https://zyooo.github.io/leetcodedairy/20211115/</guid>
-      <description>319.灯泡开关 @脑筋急转弯
-初始时有 n 个灯泡处于关闭状态。第一轮，你将会打开所有灯泡。接下来的第二轮，你将会每两个灯泡关闭一个。 第三轮，你每三个灯泡就切换一个灯泡的开关（即，打开变关闭，关闭变打开）。第 i 轮，你每 i 个灯泡就切换一个灯泡的开关。直到第 n 轮，你只需要切换最后一个灯泡的开关。 找出并返回 n 轮后有多少个亮着的灯泡。 来源：力扣（LeetCode） 链接：https://leetcode-cn.</description>
+      <description>319.灯泡开关 @脑筋急转弯</description>
     </item>
     
     <item>
@@ -170,8 +168,7 @@ func twoSumTarget2(nums []int, start, target int) [][]int { var ans [][]int //so
       <pubDate>Sun, 31 Oct 2021 21:22:51 +0800</pubDate>
       
       <guid>https://zyooo.github.io/leetcodedairy/20211031/</guid>
-      <description>最大子序和 给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
-示例: 输入：nums = [-2,1,-3,4,-1,2,1,-5,4] 输出：6 解释：连续子数组 [4,-1,2,1] 的和最大，为 6 。  用贪心算法去解决此问题,遍历数组,得到当前的值,如果lastCount小于零的话就抛弃,当前和就等于当前值,如果lastCount大于等于0的话就和当前值相加作为当前和,lastCount等于当前和,当前和和最大和比较,得出最大和,遍历完一边之后返回最大和.</description>
+      <description>最大子序和 给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。</description>
     </item>
     
     <item>
@@ -180,7 +177,7 @@ func twoSumTarget2(nums []int, start, target int) [][]int { var ans [][]int //so
       <pubDate>Sat, 09 Oct 2021 11:35:50 +0800</pubDate>
       
       <guid>https://zyooo.github.io/leetcodedairy/20211008/</guid>
-      <description>1.旅行终点站 简单 2021.10.08 给你一份旅游线路图，该线路图中的旅行线路用数组 paths 表示，其中 paths[i] = [cityAi, cityBi] 表示该线路将会从 cityAi 直接前往 cityBi 。请你找出这次旅行的终点站，即没有任何可以通往其他城市的线路的城市。题目数据保证线路图会形成一条不存在循环的线路，因此恰有一个旅行终点站。</description>
+      <description>1.旅行终点站 简单 2021.</description>
     </item>
     
   </channel>

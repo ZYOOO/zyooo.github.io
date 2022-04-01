@@ -8,14 +8,23 @@
     <language>en</language>
     <copyright>&amp;copy; 2021 &lt;a href=&#34;https://www.wangchucheng.com/&#34;&gt;WANG Chucheng&lt;/a&gt; and &lt;a href=&#34;https://www.ruiqima.com/&#34;&gt;MA Ruiqi&lt;/a&gt;
 </copyright>
-    <lastBuildDate>Thu, 30 Dec 2021 16:13:04 +0800</lastBuildDate><atom:link href="https://zyooo.github.io/golangdairy/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 28 Mar 2022 22:27:47 +0800</lastBuildDate><atom:link href="https://zyooo.github.io/golangdairy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>《Go语言实战》读书笔记</title>
+      <link>https://zyooo.github.io/golangdairy/test/</link>
+      <pubDate>Mon, 28 Mar 2022 22:27:47 +0800</pubDate>
+      
+      <guid>https://zyooo.github.io/golangdairy/test/</guid>
+      <description>Go语言实战 记录《Go语言实战》中自己觉得需要学习的点</description>
+    </item>
+    
     <item>
       <title>Go_Day1</title>
       <link>https://zyooo.github.io/golangdairy/go_day1/</link>
       <pubDate>Thu, 30 Dec 2021 16:13:04 +0800</pubDate>
       
       <guid>https://zyooo.github.io/golangdairy/go_day1/</guid>
-      <description>Hello, golang! Hello world package main //有main函数的话这里一定要有main import &amp;quot;fmt&amp;quot; //一个项目一个main函数，和c一样，与java不同 func main() { fmt.</description>
+      <description>Hello, golang!</description>
     </item>
     
   </channel>

@@ -8,14 +8,23 @@
     <language>en</language>
     <copyright>&amp;copy; 2021 &lt;a href=&#34;https://www.wangchucheng.com/&#34;&gt;WANG Chucheng&lt;/a&gt; and &lt;a href=&#34;https://www.ruiqima.com/&#34;&gt;MA Ruiqi&lt;/a&gt;
 </copyright>
-    <lastBuildDate>Mon, 28 Mar 2022 22:27:47 +0800</lastBuildDate><atom:link href="https://zyooo.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 01 Apr 2022 07:50:01 +0800</lastBuildDate><atom:link href="https://zyooo.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Test</title>
-      <link>https://zyooo.github.io/note/test/</link>
+      <title>2022-04-01</title>
+      <link>https://zyooo.github.io/leetcodedairy/20220401/</link>
+      <pubDate>Fri, 01 Apr 2022 07:50:01 +0800</pubDate>
+      
+      <guid>https://zyooo.github.io/leetcodedairy/20220401/</guid>
+      <description>954. 二倍数对数组 感觉不是很难, 但是最开始的想法是只用哈希然后偶数找二分之一或者两倍, 奇数就找两倍, 但是可以想到这个会有很多问题.</description>
+    </item>
+    
+    <item>
+      <title>《Go语言实战》读书笔记</title>
+      <link>https://zyooo.github.io/golangdairy/test/</link>
       <pubDate>Mon, 28 Mar 2022 22:27:47 +0800</pubDate>
       
-      <guid>https://zyooo.github.io/note/test/</guid>
-      <description>2级 3级 4级 </description>
+      <guid>https://zyooo.github.io/golangdairy/test/</guid>
+      <description>Go语言实战 记录《Go语言实战》中自己觉得需要学习的点</description>
     </item>
     
     <item>
@@ -42,9 +51,7 @@
       <pubDate>Thu, 24 Feb 2022 21:54:42 +0800</pubDate>
       
       <guid>https://zyooo.github.io/leetcodedairy/20220224/</guid>
-      <description>开始是直接遍历的方法得到数字, 后来想着如果是严格按照一个形式的话, 那么 一个复数中只会出现一个 &amp;lsquo;+&amp;rsquo;
-并且将虚部和实部分割, 可以利用这个去直接得到abcd, 不过不知道底层代码, 估计速度也是差不多的
-代码: 100% 100%</description>
+      <description>开始是直接遍历的方法得到数字, 后来想着如果是严格按照一个形式的话, 那么 一个复数中只会出现一个 &amp;lsquo;+&amp;rsquo;</description>
     </item>
     
     <item>
@@ -53,10 +60,7 @@
       <pubDate>Sun, 20 Feb 2022 20:07:20 +0800</pubDate>
       
       <guid>https://zyooo.github.io/leetcodedairy/20220208/</guid>
-      <description>1001.网格照明 hard 2022.02.08 数据规模太大了, 原本想着硬模拟的后来还是放弃了
-打算用map去存储行列和两个对角的情况, 但是又不知道怎么去表示同一条对角
-官方题解:
-func gridIllumination(n int, lamps, queries [][]int) []int { type pair struct{ x, y int } points := map[pair]bool{} row := map[int]int{} col := map[int]int{} diagonal := map[int]int{} antiDiagonal := map[int]int{} for _, lamp := range lamps { r, c := lamp[0], lamp[1] p := pair{r, c} if points[p] { continue } points[p] = true row[r]++ col[c]++ //用这个来表示哪条对角, 妙啊 diagonal[r-c]++ antiDiagonal[r+c]++ } ans := make([]int, len(queries)) for i, query := range queries { r, c := query[0], query[1] if row[r] &amp;gt; 0 || col[c] &amp;gt; 0 || diagonal[r-c] &amp;gt; 0 || antiDiagonal[r+c] &amp;gt; 0 { ans[i] = 1 } for x := r - 1; x &amp;lt;= r+1; x++ { for y := c - 1; y &amp;lt;= c+1; y++ { if x &amp;lt; 0 || y &amp;lt; 0 || x &amp;gt;= n || y &amp;gt;= n || !</description>
+      <description>1001.网格照明 hard 2022.</description>
     </item>
     
     <item>
@@ -65,8 +69,7 @@ func gridIllumination(n int, lamps, queries [][]int) []int { type pair struct{ x
       <pubDate>Sun, 09 Jan 2022 20:34:58 +0800</pubDate>
       
       <guid>https://zyooo.github.io/leetcodedairy/20220109/</guid>
-      <description>田忌赛马,打不过就送人头 代码逻辑
-n := len(nums1) sort.Ints(nums1) //田忌的马 sort.Ints(nums2) //齐王的马 for i := n-1; i &amp;gt;= 0; i-- { if nums1[i] &amp;gt; nums2[i] { //比得过跟他比 } else { //比不过,换的垫底的来送人头 } } int[] advantageCount(int[] nums1, int[] nums2) { int n = nums1.</description>
+      <description>田忌赛马,打不过就送人头 代码逻辑</description>
     </item>
     
     <item>
@@ -93,8 +96,7 @@ n := len(nums1) sort.Ints(nums1) //田忌的马 sort.Ints(nums2) //齐王的马 
       <pubDate>Thu, 06 Jan 2022 11:18:06 +0800</pubDate>
       
       <guid>https://zyooo.github.io/leetcodedairy/20220106/</guid>
-      <description>15.三数之和 穷举,确定了第一个数字之后, 剩下两个数字就是 target = target - nums[i] 的twoSum问题
-func twoSumTarget2(nums []int, start, target int) [][]int { var ans [][]int //sort.</description>
+      <description>15.三数之和 穷举,确定了第一个数字之后, 剩下两个数字就是 target = target - nums[i] 的twoSum问题</description>
     </item>
     
     <item>
@@ -112,7 +114,7 @@ func twoSumTarget2(nums []int, start, target int) [][]int { var ans [][]int //so
       <pubDate>Tue, 04 Jan 2022 07:46:10 +0800</pubDate>
       
       <guid>https://zyooo.github.io/leetcodedairy/20220104/</guid>
-      <description>19.删除链表的倒数第N个节点 /** * Definition for singly-linked list. * type ListNode struct { * Val int * Next *ListNode * } */ func removeNthFromEnd(head *ListNode, n int) *ListNode { dummy := new(ListNode) dummy.</description>
+      <description>19.删除链表的倒数第N个节点 /** * Definition for singly-linked list.</description>
     </item>
     
     <item>
@@ -121,10 +123,7 @@ func twoSumTarget2(nums []int, start, target int) [][]int { var ans [][]int //so
       <pubDate>Mon, 03 Jan 2022 18:29:12 +0800</pubDate>
       
       <guid>https://zyooo.github.io/leetcodedairy/20220103/</guid>
-      <description>1185.一周中的第几天 难度简单92
-给你一个日期，请你设计一个算法来判断它是对应一周中的哪一天。
-输入为三个整数：day、month 和 year，分别表示日、月、年。
-您返回的结果必须是这几个值中的一个 {&amp;quot;Sunday&amp;quot;, &amp;quot;Monday&amp;quot;, &amp;quot;Tuesday&amp;quot;, &amp;quot;Wednesday&amp;quot;, &amp;quot;Thursday&amp;quot;, &amp;quot;Friday&amp;quot;, &amp;quot;Saturday&amp;quot;}。</description>
+      <description>1185.一周中的第几天 难度简单92</description>
     </item>
     
     <item>
@@ -133,7 +132,7 @@ func twoSumTarget2(nums []int, start, target int) [][]int { var ans [][]int //so
       <pubDate>Thu, 30 Dec 2021 16:13:04 +0800</pubDate>
       
       <guid>https://zyooo.github.io/golangdairy/go_day1/</guid>
-      <description>Hello, golang! Hello world package main //有main函数的话这里一定要有main import &amp;quot;fmt&amp;quot; //一个项目一个main函数，和c一样，与java不同 func main() { fmt.</description>
+      <description>Hello, golang!</description>
     </item>
     
     <item>
@@ -142,7 +141,7 @@ func twoSumTarget2(nums []int, start, target int) [][]int { var ans [][]int //so
       <pubDate>Wed, 17 Nov 2021 12:15:12 +0800</pubDate>
       
       <guid>https://zyooo.github.io/leetcodedairy/20211117/</guid>
-      <description>318.最大单词长度乘积 给定一个字符串数组 words，找到 length(word[i]) * length(word[j]) 的最大值，并且这两个单词不含有公共字母。你可以认为每个单词只包含小写字母。如果不存在这样的两个单词，返回 0。 来源：力扣（LeetCode） 链接：https://leetcode-cn.com/problems/maximum-product-of-word-lengths 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处.</description>
+      <description>318.最大单词长度乘积 给定一个字符串数组 words，找到 length(word[i]) * length(word[j]) 的最大值，并且这两个单词不含有公共字母。你可以认为每个单词只包含小写字母。如果不存在这样的两个单词，返回 0。 来源：力扣（LeetCode） 链接：https://leetcode-cn.</description>
     </item>
     
     <item>
@@ -151,8 +150,7 @@ func twoSumTarget2(nums []int, start, target int) [][]int { var ans [][]int //so
       <pubDate>Mon, 15 Nov 2021 10:58:22 +0800</pubDate>
       
       <guid>https://zyooo.github.io/leetcodedairy/20211115/</guid>
-      <description>319.灯泡开关 @脑筋急转弯
-初始时有 n 个灯泡处于关闭状态。第一轮，你将会打开所有灯泡。接下来的第二轮，你将会每两个灯泡关闭一个。 第三轮，你每三个灯泡就切换一个灯泡的开关（即，打开变关闭，关闭变打开）。第 i 轮，你每 i 个灯泡就切换一个灯泡的开关。直到第 n 轮，你只需要切换最后一个灯泡的开关。 找出并返回 n 轮后有多少个亮着的灯泡。 来源：力扣（LeetCode） 链接：https://leetcode-cn.</description>
+      <description>319.灯泡开关 @脑筋急转弯</description>
     </item>
     
     <item>
@@ -161,8 +159,7 @@ func twoSumTarget2(nums []int, start, target int) [][]int { var ans [][]int //so
       <pubDate>Wed, 10 Nov 2021 17:16:39 +0800</pubDate>
       
       <guid>https://zyooo.github.io/bugs/tomcat/</guid>
-      <description>修改Tomcat的默认端口和启动项目 修改默认端口 1.首先查看80端口是否被占用
-netstat -lntp | grep 80  2.进入tomcat安装目录下的conf文件夹修改server.xml文件</description>
+      <description>修改Tomcat的默认端口和启动项目 修改默认端口 1.</description>
     </item>
     
     <item>
@@ -198,8 +195,7 @@ netstat -lntp | grep 80  2.进入tomcat安装目录下的conf文件夹修改serv
       <pubDate>Sun, 31 Oct 2021 21:22:51 +0800</pubDate>
       
       <guid>https://zyooo.github.io/leetcodedairy/20211031/</guid>
-      <description>最大子序和 给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
-示例: 输入：nums = [-2,1,-3,4,-1,2,1,-5,4] 输出：6 解释：连续子数组 [4,-1,2,1] 的和最大，为 6 。  用贪心算法去解决此问题,遍历数组,得到当前的值,如果lastCount小于零的话就抛弃,当前和就等于当前值,如果lastCount大于等于0的话就和当前值相加作为当前和,lastCount等于当前和,当前和和最大和比较,得出最大和,遍历完一边之后返回最大和.</description>
+      <description>最大子序和 给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。</description>
     </item>
     
     <item>
@@ -217,10 +213,7 @@ netstat -lntp | grep 80  2.进入tomcat安装目录下的conf文件夹修改serv
       <pubDate>Sun, 17 Oct 2021 19:29:27 +0800</pubDate>
       
       <guid>https://zyooo.github.io/javadairy/nginx/</guid>
-      <description>Nginx 1.课程目标 目标1：掌握Nginx的安装
-目标2：掌握Nginx的静态网站部署
-目标3：理解Nginx的反向代理与负载均衡，能够配置反向代理与负载均衡
-2.Nginx的安装与启动 2.1什么是Nginx Nginx 是一款高性能的 http 服务器/反向代理服务器及电子邮件（IMAP/POP3）代理服务器。由俄罗斯的程序设计师伊戈尔·西索夫（Igor Sysoev）所开发，官方测试 nginx 能够支支撑 5 万并发链接，并且 cpu、内存等资源消耗却非常低，运行非常稳定。</description>
+      <description>Nginx 1.</description>
     </item>
     
     <item>
@@ -229,12 +222,7 @@ netstat -lntp | grep 80  2.进入tomcat安装目录下的conf文件夹修改serv
       <pubDate>Sun, 17 Oct 2021 09:12:25 +0800</pubDate>
       
       <guid>https://zyooo.github.io/note/linux/</guid>
-      <description>Linux学习 输入ifconfig 查询ip地址,以后用于远程连接,我的192.168.122.128,使用CRT去远程连接服务器.
-常用命令 文件里有文档可以查
-cd
-pwd
-li
-li -a</description>
+      <description>Linux学习 输入ifconfig 查询ip地址,以后用于远程连接,我的192.</description>
     </item>
     
     <item>
@@ -243,7 +231,7 @@ li -a</description>
       <pubDate>Wed, 13 Oct 2021 11:03:43 +0800</pubDate>
       
       <guid>https://zyooo.github.io/javadairy/example/</guid>
-      <description>黑马旅游网案例 注册 &amp;lt;script&amp;gt; /* * 表单校验： * 1.用户名：单词字符，长度8到20位 * 2.密码：单词字符，长度8到20位 *	3.</description>
+      <description>黑马旅游网案例 注册 &amp;lt;script&amp;gt; /* * 表单校验： * 1.</description>
     </item>
     
     <item>
@@ -252,8 +240,7 @@ li -a</description>
       <pubDate>Sun, 10 Oct 2021 09:41:38 +0800</pubDate>
       
       <guid>https://zyooo.github.io/bugs/cmd%E4%B8%ADmvn_compile%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
-      <description>在cmd上运行mvn compile时出现编译错误
-No compiler is provided in this environment. Perhaps you are running on a JRE rather than a JDK?</description>
+      <description>在cmd上运行mvn compile时出现编译错误</description>
     </item>
     
     <item>
@@ -262,10 +249,7 @@ No compiler is provided in this environment. Perhaps you are running on a JRE ra
       <pubDate>Sun, 10 Oct 2021 08:45:35 +0800</pubDate>
       
       <guid>https://zyooo.github.io/javadairy/maven/</guid>
-      <description>Apache下的一个项目管理工具
-官网地址 maven.apache.org
-配置环境目录 1.获得maven文件夹的目录F:\software\apache-maven-3.8.3
-2.在环境变量中新建一个新的 系统变量 , MAVEN_HOME ,将文件目录给放上去</description>
+      <description>Apache下的一个项目管理工具</description>
     </item>
     
     <item>
@@ -274,12 +258,7 @@ No compiler is provided in this environment. Perhaps you are running on a JRE ra
       <pubDate>Sat, 09 Oct 2021 12:28:42 +0800</pubDate>
       
       <guid>https://zyooo.github.io/note/ideal2021javaweb%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE/</guid>
-      <description>Itellidea2021版本中web项目的配置
-右键项目名称，选择Add Frameworks Support，勾选Web Application，OK。
-添加Tomcat
-点右上角
-或者菜单栏中Run中的Edit Configurations
-这个自己配置</description>
+      <description>Itellidea2021版本中web项目的配置</description>
     </item>
     
     <item>
@@ -288,8 +267,7 @@ No compiler is provided in this environment. Perhaps you are running on a JRE ra
       <pubDate>Sat, 09 Oct 2021 11:49:46 +0800</pubDate>
       
       <guid>https://zyooo.github.io/bugs/windows%E4%B8%8Bredi-server.exe%E7%A7%92%E9%80%80/</guid>
-      <description>Windows下redi-server.exe秒退 遇到个问题： 在第一次正常启动之后，配置完conf里的save，再次开启server秒退。
-错误信息：QForkMasterInit: system error caught. error code=0x000005af, message=VirtualAllocEx failed.</description>
+      <description>Windows下redi-server.exe秒退 遇到个问题： 在第一次正常启动之后，配置完conf里的save，再次开启server秒退。</description>
     </item>
     
     <item>
@@ -298,11 +276,7 @@ No compiler is provided in this environment. Perhaps you are running on a JRE ra
       <pubDate>Sat, 09 Oct 2021 11:46:30 +0800</pubDate>
       
       <guid>https://zyooo.github.io/javadairy/redisjedis/</guid>
-      <description>redis&amp;amp;Jedis redis 概念：一款高性能的NOSQL系列的非关系型数据库
-关系型数据库：MySQL、Oracle…
-​	使用表单存储数据，数据之间有关联关系，数据存储在硬盘的文件上
-非关系型数据库(NOSQL): redis, hbase…
-​	使用键值对去存储数据，数据之间没有关联关系，数据存储在内存中</description>
+      <description>redis&amp;amp;Jedis redis 概念：一款高性能的NOSQL系列的非关系型数据库</description>
     </item>
     
     <item>
@@ -311,7 +285,7 @@ No compiler is provided in this environment. Perhaps you are running on a JRE ra
       <pubDate>Sat, 09 Oct 2021 11:35:50 +0800</pubDate>
       
       <guid>https://zyooo.github.io/leetcodedairy/20211008/</guid>
-      <description>1.旅行终点站 简单 2021.10.08 给你一份旅游线路图，该线路图中的旅行线路用数组 paths 表示，其中 paths[i] = [cityAi, cityBi] 表示该线路将会从 cityAi 直接前往 cityBi 。请你找出这次旅行的终点站，即没有任何可以通往其他城市的线路的城市。题目数据保证线路图会形成一条不存在循环的线路，因此恰有一个旅行终点站。</description>
+      <description>1.旅行终点站 简单 2021.</description>
     </item>
     
     <item>
@@ -320,8 +294,7 @@ No compiler is provided in this environment. Perhaps you are running on a JRE ra
       <pubDate>Fri, 08 Oct 2021 14:23:01 +0800</pubDate>
       
       <guid>https://zyooo.github.io/note/bigtalkdesignpattennote/</guid>
-      <description>大话设计模式读书笔记 1.简单工厂模式 用一个单独的类来做创照实例的过程，这就是工厂
-public class OperationFactory{ public static Operation createOperate(string operate){ Operation oper = null; switch(operate){ case &amp;quot;+&amp;quot;: oper = new OperationAdd(); break; case &amp;quot;-&amp;quot;: oper = new OperationSub(); break; case &amp;quot;*&amp;quot;: oper = new OperationMul(); break; case &amp;quot;/&amp;quot;: oper = new OperationMul(); break; } return oper; } }  Operation oper; oper = OperationFactory.</description>
+      <description>大话设计模式读书笔记 1.</description>
     </item>
     
     <item>
@@ -330,7 +303,7 @@ public class OperationFactory{ public static Operation createOperate(string oper
       <pubDate>Fri, 01 Oct 2021 10:05:28 +0800</pubDate>
       
       <guid>https://zyooo.github.io/note/note1/</guid>
-      <description>如何添加右键可选在此处打开命令行窗口 1.win+r 输入 regedit 回车打开注册表 2.切换到HKEY_CLASSES_ROOT\Directory\Background\shell\ 右键shell，新建项 “OpenCMDHere” 并在该项下，右击新建项 “command” 直接点击OpenCMDHere将OpenCMDHere中的默认改为 在此处打开命令窗口 右键 新建字符串名，名字为Icon将值改为cmd.</description>
+      <description>如何添加右键可选在此处打开命令行窗口 1.</description>
     </item>
     
     <item>
@@ -348,8 +321,7 @@ public class OperationFactory{ public static Operation createOperate(string oper
       <pubDate>Thu, 30 Sep 2021 10:03:39 +0800</pubDate>
       
       <guid>https://zyooo.github.io/note/blog%E6%90%AD%E5%BB%BA%E5%92%8C%E6%88%91%E7%9A%84%E4%BF%A1%E6%81%AF/</guid>
-      <description>blog搭建和我的信息 现在已经安装好了hugo 在cmd中输入 hugo version可以查询
-创建启动 hugo new site [path] [flags] 创建</description>
+      <description>blog搭建和我的信息 现在已经安装好了hugo 在cmd中输入 hugo version可以查询</description>
     </item>
     
     <item>
@@ -358,7 +330,7 @@ public class OperationFactory{ public static Operation createOperate(string oper
       <pubDate>Wed, 29 Sep 2021 19:08:46 +0800</pubDate>
       
       <guid>https://zyooo.github.io/note/note/</guid>
-      <description>2021.09.27           flatter vt.</description>
+      <description>2021.</description>
     </item>
     
   </channel>

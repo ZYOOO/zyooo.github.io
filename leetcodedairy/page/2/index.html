@@ -72,33 +72,57 @@
     "itemListElement":[{
             "@type":"ListItem",
             "position":  1 ,
-            "name": "2022-01-09",
-            "description": "滑动窗口问题 int left = 0, right = 0 for right \u0026lt; len(s) { //增大窗口 window.",
-            "url": "https://zyooo.github.io/leetcodedairy/20220108/"
+            "name": "2022-01-04",
+            "description": "19.删除链表的倒数第N个节点 /** * Definition for singly-linked list.",
+            "url": "https://zyooo.github.io/leetcodedairy/20220104/"
         },{
             "@type":"ListItem",
             "position":  2 ,
-            "name": "2022-01-09",
-            "description": "二分搜索 //搜素左侧边界 func left_bound(nums []int, target int){ if len(nums) == 0 { return -1 } left, right := 0,len(nums) for left \u0026lt; right{ mid := left + (right - left) / 2 if nums[mid] == target{ //找到target时,收缩右侧边界 right = mid }else if nums[mid] \u0026lt; target{ left = mid + 1 }else if nums[mid] \u0026gt; target{ right = mid } } return left } // nums = [1,2,3,3,3,5,7,] target = 3 return 2 //搜索右侧边界 func right_bound(nums int[], target int){ if len(nums) == 0 { return -1 } left, right := 0,len(nums) for left \u0026lt; right{ mid := left + (right - left) / 2 if nums[mid] == target{ //找到target时,收缩左侧边界 left = mid + 1 }else if nums[mid] \u0026lt; target{ left = mid + 1 }else if nums[mid] \u0026gt; target{ right = mid } } return left } // nums = [1,2,3,3,3,5,7,] target = 3 return 4  技巧: 从题目中抽象出一个自变量x , 一个关于x的函数f(x), 以及一个目标值 target , 同时还要满足以下条件 : 1.",
-            "url": "https://zyooo.github.io/leetcodedairy/20220107/"
+            "name": "2022-01-03",
+            "description": "1185.一周中的第几天 难度简单92",
+            "url": "https://zyooo.github.io/leetcodedairy/20220103/"
         },{
             "@type":"ListItem",
             "position":  3 ,
-            "name": "2022-01-06",
-            "description": "15.三数之和 穷举,确定了第一个数字之后, 剩下两个数字就是 target = target - nums[i] 的twoSum问题\nfunc twoSumTarget2(nums []int, start, target int) [][]int { var ans [][]int //sort.",
-            "url": "https://zyooo.github.io/leetcodedairy/20220106/"
+            "name": "2021-11-17",
+            "description": "318.最大单词长度乘积 给定一个字符串数组 words，找到 length(word[i]) * length(word[j]) 的最大值，并且这两个单词不含有公共字母。你可以认为每个单词只包含小写字母。如果不存在这样的两个单词，返回 0。 来源：力扣（LeetCode） 链接：https://leetcode-cn.",
+            "url": "https://zyooo.github.io/leetcodedairy/20211117/"
         },{
             "@type":"ListItem",
             "position":  4 ,
-            "name": "2022-01-05",
-            "description": "1576.替换所有的问号 func modifyString(s string) string { data := []byte(s) for i := 0; i \u0026lt; len(data); i++ { if data[i] == '?",
-            "url": "https://zyooo.github.io/leetcodedairy/20220105/"
+            "name": "Day6-2021-11-15",
+            "description": "319.灯泡开关 @脑筋急转弯",
+            "url": "https://zyooo.github.io/leetcodedairy/20211115/"
         },{
             "@type":"ListItem",
             "position":  5 ,
-            "name": "2022-01-04",
-            "description": "19.删除链表的倒数第N个节点 /** * Definition for singly-linked list. * type ListNode struct { * Val int * Next *ListNode * } */ func removeNthFromEnd(head *ListNode, n int) *ListNode { dummy := new(ListNode) dummy.",
-            "url": "https://zyooo.github.io/leetcodedairy/20220104/"
+            "name": "2021-11-05",
+            "description": "重塑矩阵 在 MATLAB 中，有一个非常有用的函数 reshape ，它可以将一个 m x n 矩阵重塑为另一个大小不同（r x c）的新矩阵，但保留其原始数据。 给你一个由二维数组 mat 表示的 m x n 矩阵，以及两个正整数 r 和 c ，分别表示想要的重构的矩阵的行数和列数。 重构后的矩阵需要将原始矩阵的所有元素以相同的 行遍历顺序 填充。 如果具有给定参数的 reshape 操作是可行且合理的，则输出新的重塑矩阵；否则，输出原始矩阵。 示例 1： 输入：mat = [[1,2],[3,4]], r = 1, c = 4 输出：[[1,2,3,4]] 来源：力扣（LeetCode） 链接：https://leetcode-cn.",
+            "url": "https://zyooo.github.io/leetcodedairy/20211105/"
+        },{
+            "@type":"ListItem",
+            "position":  6 ,
+            "name": "2021-11-04",
+            "description": "两个数组的交集 给定两个数组，编写一个函数来计算它们的交集。 示例 1： 输入：nums1 = [1,2,2,1], nums2 = [2,2] 输出：[2,2] 示例 2: 输入：nums1 = [4,9,5], nums2 = [9,4,9,8,4] 输出：[4,9] 说明： 输出结果中每个元素出现的次数，应与元素在两个数组中出现次数的最小值一致。 我们可以不考虑输出结果的顺序。 来源：力扣（LeetCode） 链接：https://leetcode-cn.",
+            "url": "https://zyooo.github.io/leetcodedairy/20211104/"
+        },{
+            "@type":"ListItem",
+            "position":  7 ,
+            "name": "2021-11-03",
+            "description": "合并两个有序数组 给你两个按 非递减顺序 排列的整数数组 nums1 和 nums2，另有两个整数 m 和 n ，分别表示 nums1 和 nums2 中的元素数目。",
+            "url": "https://zyooo.github.io/leetcodedairy/20211103/"
+        },{
+            "@type":"ListItem",
+            "position":  8 ,
+            "name": "2021-10-31",
+            "description": "最大子序和 给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。",
+            "url": "https://zyooo.github.io/leetcodedairy/20211031/"
+        },{
+            "@type":"ListItem",
+            "position":  9 ,
+            "name": "2021.10.08",
+            "description": "1.旅行终点站 简单 2021.",
+            "url": "https://zyooo.github.io/leetcodedairy/20211008/"
         }
     ]
 }
@@ -133,7 +157,7 @@
 
 
 
-<meta property="og:updated_time" content="2022-02-28T07:50:01&#43;08:00" />
+<meta property="og:updated_time" content="2022-04-01T07:50:01&#43;08:00" />
 
 
 
@@ -231,11 +255,11 @@
   
   <div class="w-full ">
     <div class="prose">
-  <a href="https://zyooo.github.io/leetcodedairy/20220108/" class="no-underline">
-    <h3 class="mt-0">2022-01-09</h3>
+  <a href="https://zyooo.github.io/leetcodedairy/20220104/" class="no-underline">
+    <h3 class="mt-0">2022-01-04</h3>
   </a>
   
-    滑动窗口问题 int left = 0, right = 0 for right &lt; len(s) { //增大窗口 window.
+    19.删除链表的倒数第N个节点 /** * Definition for singly-linked list.
   
 
   
@@ -245,12 +269,12 @@
   <div class="me-6 my-2">
     <i class="fas fa-calendar me-1"></i>
     <span
-      >2022-01-09</span
+      >2022-01-04</span
     >
   </div>
   <div class="me-6 my-2">
     <i class="fas fa-clock me-1"></i>
-    <span>1 min read</span>
+    <span>2 min read</span>
   </div>
 
   
@@ -272,11 +296,11 @@
   
   <div class="w-full ">
     <div class="prose">
-  <a href="https://zyooo.github.io/leetcodedairy/20220107/" class="no-underline">
-    <h3 class="mt-0">2022-01-09</h3>
+  <a href="https://zyooo.github.io/leetcodedairy/20220103/" class="no-underline">
+    <h3 class="mt-0">2022-01-03</h3>
   </a>
   
-    二分搜索 //搜素左侧边界 func left_bound(nums []int, target int){ if len(nums) == 0 { return -1 } left, right := 0,len(nums) for left &lt; right{ mid := left &#43; (right - left) / 2 if nums[mid] == target{ //找到target时,收缩右侧边界 right = mid }else if nums[mid] &lt; target{ left = mid &#43; 1 }else if nums[mid] &gt; target{ right = mid } } return left } // nums = [1,2,3,3,3,5,7,] target = 3 return 2 //搜索右侧边界 func right_bound(nums int[], target int){ if len(nums) == 0 { return -1 } left, right := 0,len(nums) for left &lt; right{ mid := left &#43; (right - left) / 2 if nums[mid] == target{ //找到target时,收缩左侧边界 left = mid &#43; 1 }else if nums[mid] &lt; target{ left = mid &#43; 1 }else if nums[mid] &gt; target{ right = mid } } return left } // nums = [1,2,3,3,3,5,7,] target = 3 return 4  技巧: 从题目中抽象出一个自变量x , 一个关于x的函数f(x), 以及一个目标值 target , 同时还要满足以下条件 : 1.
+    1185.一周中的第几天 难度简单92
   
 
   
@@ -286,7 +310,7 @@
   <div class="me-6 my-2">
     <i class="fas fa-calendar me-1"></i>
     <span
-      >2022-01-09</span
+      >2022-01-03</span
     >
   </div>
   <div class="me-6 my-2">
@@ -313,12 +337,11 @@
   
   <div class="w-full ">
     <div class="prose">
-  <a href="https://zyooo.github.io/leetcodedairy/20220106/" class="no-underline">
-    <h3 class="mt-0">2022-01-06</h3>
+  <a href="https://zyooo.github.io/leetcodedairy/20211117/" class="no-underline">
+    <h3 class="mt-0">2021-11-17</h3>
   </a>
   
-    15.三数之和 穷举,确定了第一个数字之后, 剩下两个数字就是 target = target - nums[i] 的twoSum问题
-func twoSumTarget2(nums []int, start, target int) [][]int { var ans [][]int //sort.
+    318.最大单词长度乘积 给定一个字符串数组 words，找到 length(word[i]) * length(word[j]) 的最大值，并且这两个单词不含有公共字母。你可以认为每个单词只包含小写字母。如果不存在这样的两个单词，返回 0。 来源：力扣（LeetCode） 链接：https://leetcode-cn.
   
 
   
@@ -328,7 +351,89 @@ func twoSumTarget2(nums []int, start, target int) [][]int { var ans [][]int //so
   <div class="me-6 my-2">
     <i class="fas fa-calendar me-1"></i>
     <span
-      >2022-01-06</span
+      >2021-11-17</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>1 min read</span>
+  </div>
+
+  
+
+  
+</div>
+
+  
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="prose">
+  <a href="https://zyooo.github.io/leetcodedairy/20211115/" class="no-underline">
+    <h3 class="mt-0">Day6-2021-11-15</h3>
+  </a>
+  
+    319.灯泡开关 @脑筋急转弯
+  
+
+  
+    <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2021-11-15</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>1 min read</span>
+  </div>
+
+  
+
+  
+</div>
+
+  
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="prose">
+  <a href="https://zyooo.github.io/leetcodedairy/20211105/" class="no-underline">
+    <h3 class="mt-0">2021-11-05</h3>
+  </a>
+  
+    重塑矩阵 在 MATLAB 中，有一个非常有用的函数 reshape ，它可以将一个 m x n 矩阵重塑为另一个大小不同（r x c）的新矩阵，但保留其原始数据。 给你一个由二维数组 mat 表示的 m x n 矩阵，以及两个正整数 r 和 c ，分别表示想要的重构的矩阵的行数和列数。 重构后的矩阵需要将原始矩阵的所有元素以相同的 行遍历顺序 填充。 如果具有给定参数的 reshape 操作是可行且合理的，则输出新的重塑矩阵；否则，输出原始矩阵。 示例 1： 输入：mat = [[1,2],[3,4]], r = 1, c = 4 输出：[[1,2,3,4]] 来源：力扣（LeetCode） 链接：https://leetcode-cn.
+  
+
+  
+    <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2021-11-05</span
     >
   </div>
   <div class="me-6 my-2">
@@ -355,11 +460,11 @@ func twoSumTarget2(nums []int, start, target int) [][]int { var ans [][]int //so
   
   <div class="w-full ">
     <div class="prose">
-  <a href="https://zyooo.github.io/leetcodedairy/20220105/" class="no-underline">
-    <h3 class="mt-0">2022-01-05</h3>
+  <a href="https://zyooo.github.io/leetcodedairy/20211104/" class="no-underline">
+    <h3 class="mt-0">2021-11-04</h3>
   </a>
   
-    1576.替换所有的问号 func modifyString(s string) string { data := []byte(s) for i := 0; i &lt; len(data); i&#43;&#43; { if data[i] == &#39;?
+    两个数组的交集 给定两个数组，编写一个函数来计算它们的交集。 示例 1： 输入：nums1 = [1,2,2,1], nums2 = [2,2] 输出：[2,2] 示例 2: 输入：nums1 = [4,9,5], nums2 = [9,4,9,8,4] 输出：[4,9] 说明： 输出结果中每个元素出现的次数，应与元素在两个数组中出现次数的最小值一致。 我们可以不考虑输出结果的顺序。 来源：力扣（LeetCode） 链接：https://leetcode-cn.
   
 
   
@@ -369,7 +474,7 @@ func twoSumTarget2(nums []int, start, target int) [][]int { var ans [][]int //so
   <div class="me-6 my-2">
     <i class="fas fa-calendar me-1"></i>
     <span
-      >2022-01-05</span
+      >2021-11-04</span
     >
   </div>
   <div class="me-6 my-2">
@@ -396,11 +501,11 @@ func twoSumTarget2(nums []int, start, target int) [][]int { var ans [][]int //so
   
   <div class="w-full ">
     <div class="prose">
-  <a href="https://zyooo.github.io/leetcodedairy/20220104/" class="no-underline">
-    <h3 class="mt-0">2022-01-04</h3>
+  <a href="https://zyooo.github.io/leetcodedairy/20211103/" class="no-underline">
+    <h3 class="mt-0">2021-11-03</h3>
   </a>
   
-    19.删除链表的倒数第N个节点 /** * Definition for singly-linked list. * type ListNode struct { * Val int * Next *ListNode * } */ func removeNthFromEnd(head *ListNode, n int) *ListNode { dummy := new(ListNode) dummy.
+    合并两个有序数组 给你两个按 非递减顺序 排列的整数数组 nums1 和 nums2，另有两个整数 m 和 n ，分别表示 nums1 和 nums2 中的元素数目。
   
 
   
@@ -410,12 +515,94 @@ func twoSumTarget2(nums []int, start, target int) [][]int { var ans [][]int //so
   <div class="me-6 my-2">
     <i class="fas fa-calendar me-1"></i>
     <span
-      >2022-01-04</span
+      >2021-11-03</span
     >
   </div>
   <div class="me-6 my-2">
     <i class="fas fa-clock me-1"></i>
-    <span>2 min read</span>
+    <span>1 min read</span>
+  </div>
+
+  
+
+  
+</div>
+
+  
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="prose">
+  <a href="https://zyooo.github.io/leetcodedairy/20211031/" class="no-underline">
+    <h3 class="mt-0">2021-10-31</h3>
+  </a>
+  
+    最大子序和 给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
+  
+
+  
+    <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2021-10-31</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>1 min read</span>
+  </div>
+
+  
+
+  
+</div>
+
+  
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="prose">
+  <a href="https://zyooo.github.io/leetcodedairy/20211008/" class="no-underline">
+    <h3 class="mt-0">2021.10.08</h3>
+  </a>
+  
+    1.旅行终点站 简单 2021.
+  
+
+  
+    <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2021-10-09</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>1 min read</span>
   </div>
 
   
@@ -450,17 +637,11 @@ func twoSumTarget2(nums []int, start, target int) [][]int { var ans [][]int //so
       <li class="page-item active">
         <a aria-current="page" aria-label="Page 2" class="page-link" role="button">2</a>
       </li>
-      <li class="page-item">
-        <a href="/leetcodedairy/page/3/" aria-label="Page 3" class="page-link" role="button">3</a>
+      <li class="page-item disabled">
+        <a aria-disabled="true" aria-label="Next" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&raquo;</span></a>
       </li>
-      <li class="page-item">
-        <a href="/leetcodedairy/page/4/" aria-label="Page 4" class="page-link" role="button">4</a>
-      </li>
-      <li class="page-item">
-        <a href="/leetcodedairy/page/3/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
-      </li>
-      <li class="page-item">
-        <a href="/leetcodedairy/page/4/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+      <li class="page-item disabled">
+        <a aria-disabled="true" aria-label="Last" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&raquo;&raquo;</span></a>
       </li>
     </ul>
 

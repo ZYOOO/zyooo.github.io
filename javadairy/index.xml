@@ -15,10 +15,7 @@
       <pubDate>Sun, 17 Oct 2021 19:29:27 +0800</pubDate>
       
       <guid>https://zyooo.github.io/javadairy/nginx/</guid>
-      <description>Nginx 1.课程目标 目标1：掌握Nginx的安装
-目标2：掌握Nginx的静态网站部署
-目标3：理解Nginx的反向代理与负载均衡，能够配置反向代理与负载均衡
-2.Nginx的安装与启动 2.1什么是Nginx Nginx 是一款高性能的 http 服务器/反向代理服务器及电子邮件（IMAP/POP3）代理服务器。由俄罗斯的程序设计师伊戈尔·西索夫（Igor Sysoev）所开发，官方测试 nginx 能够支支撑 5 万并发链接，并且 cpu、内存等资源消耗却非常低，运行非常稳定。</description>
+      <description>Nginx 1.</description>
     </item>
     
     <item>
@@ -27,7 +24,7 @@
       <pubDate>Wed, 13 Oct 2021 11:03:43 +0800</pubDate>
       
       <guid>https://zyooo.github.io/javadairy/example/</guid>
-      <description>黑马旅游网案例 注册 &amp;lt;script&amp;gt; /* * 表单校验： * 1.用户名：单词字符，长度8到20位 * 2.密码：单词字符，长度8到20位 *	3.</description>
+      <description>黑马旅游网案例 注册 &amp;lt;script&amp;gt; /* * 表单校验： * 1.</description>
     </item>
     
     <item>
@@ -36,10 +33,7 @@
       <pubDate>Sun, 10 Oct 2021 08:45:35 +0800</pubDate>
       
       <guid>https://zyooo.github.io/javadairy/maven/</guid>
-      <description>Apache下的一个项目管理工具
-官网地址 maven.apache.org
-配置环境目录 1.获得maven文件夹的目录F:\software\apache-maven-3.8.3
-2.在环境变量中新建一个新的 系统变量 , MAVEN_HOME ,将文件目录给放上去</description>
+      <description>Apache下的一个项目管理工具</description>
     </item>
     
     <item>
@@ -48,11 +42,7 @@
       <pubDate>Sat, 09 Oct 2021 11:46:30 +0800</pubDate>
       
       <guid>https://zyooo.github.io/javadairy/redisjedis/</guid>
-      <description>redis&amp;amp;Jedis redis 概念：一款高性能的NOSQL系列的非关系型数据库
-关系型数据库：MySQL、Oracle…
-​	使用表单存储数据，数据之间有关联关系，数据存储在硬盘的文件上
-非关系型数据库(NOSQL): redis, hbase…
-​	使用键值对去存储数据，数据之间没有关联关系，数据存储在内存中</description>
+      <description>redis&amp;amp;Jedis redis 概念：一款高性能的NOSQL系列的非关系型数据库</description>
     </item>
     
   </channel>
