@@ -72,63 +72,63 @@
     "itemListElement":[{
             "@type":"ListItem",
             "position":  1 ,
+            "name": "2022-04-02",
+            "description": "JoyBoy's blog",
+            "url": "https://zyooo.github.io/leetcodedairy/20220402/"
+        },{
+            "@type":"ListItem",
+            "position":  2 ,
             "name": "2022-04-01",
             "description": "954. 二倍数对数组 感觉不是很难, 但是最开始的想法是只用哈希然后偶数找二分之一或者两倍, 奇数就找两倍, 但是可以想到这个会有很多问题.",
             "url": "https://zyooo.github.io/leetcodedairy/20220401/"
         },{
             "@type":"ListItem",
-            "position":  2 ,
+            "position":  3 ,
             "name": "2022-02-28",
             "description": "1601.最多可达成的换楼请求目的 hard 对于每个选择, 都有选或者不选两个操作, delta数组记录每栋楼的员工变化量, 以及变量cnt记录被选择的请求数量, 如果选择当前请求, delta[x]值减1, delta[y]加1, 不选择则不做操作, 枚举完了之后判断delta中所有值是否为0, 并且根据cnt和res大小更新答案.",
             "url": "https://zyooo.github.io/leetcodedairy/20220228/"
         },{
             "@type":"ListItem",
-            "position":  3 ,
+            "position":  4 ,
             "name": "第282场周赛T3",
             "description": "这道题用O(N^2)的解法会超时, 所以要想办法降低时间复杂度, 所以使用二分法, 但是这里二分的不是time数组, 而是时间, 而时间的区间如何取定呢, 先把time升序排序, 然后最短的可能是1s, 最长的时间可能是time[0] * totoalTrips, 所以就可以采用二分法了",
             "url": "https://zyooo.github.io/leetcodedairy/20220227/"
         },{
             "@type":"ListItem",
-            "position":  4 ,
+            "position":  5 ,
             "name": "2022-02-24",
             "description": "开始是直接遍历的方法得到数字, 后来想着如果是严格按照一个形式的话, 那么 一个复数中只会出现一个 \u0026lsquo;+\u0026rsquo;",
             "url": "https://zyooo.github.io/leetcodedairy/20220224/"
         },{
             "@type":"ListItem",
-            "position":  5 ,
+            "position":  6 ,
             "name": "2022-02-08",
             "description": "1001.网格照明 hard 2022.",
             "url": "https://zyooo.github.io/leetcodedairy/20220208/"
         },{
             "@type":"ListItem",
-            "position":  6 ,
+            "position":  7 ,
             "name": "2022-01-09",
             "description": "田忌赛马,打不过就送人头 代码逻辑",
             "url": "https://zyooo.github.io/leetcodedairy/20220109/"
         },{
             "@type":"ListItem",
-            "position":  7 ,
+            "position":  8 ,
             "name": "2022-01-09",
             "description": "滑动窗口问题 int left = 0, right = 0 for right \u0026lt; len(s) { //增大窗口 window.",
             "url": "https://zyooo.github.io/leetcodedairy/20220108/"
         },{
             "@type":"ListItem",
-            "position":  8 ,
+            "position":  9 ,
             "name": "2022-01-09",
             "description": "二分搜索 //搜素左侧边界 func left_bound(nums []int, target int){ if len(nums) == 0 { return -1 } left, right := 0,len(nums) for left \u0026lt; right{ mid := left + (right - left) / 2 if nums[mid] == target{ //找到target时,收缩右侧边界 right = mid }else if nums[mid] \u0026lt; target{ left = mid + 1 }else if nums[mid] \u0026gt; target{ right = mid } } return left } // nums = [1,2,3,3,3,5,7,] target = 3 return 2 //搜索右侧边界 func right_bound(nums int[], target int){ if len(nums) == 0 { return -1 } left, right := 0,len(nums) for left \u0026lt; right{ mid := left + (right - left) / 2 if nums[mid] == target{ //找到target时,收缩左侧边界 left = mid + 1 }else if nums[mid] \u0026lt; target{ left = mid + 1 }else if nums[mid] \u0026gt; target{ right = mid } } return left } // nums = [1,2,3,3,3,5,7,] target = 3 return 4  技巧: 从题目中抽象出一个自变量x , 一个关于x的函数f(x), 以及一个目标值 target , 同时还要满足以下条件 : 1.",
             "url": "https://zyooo.github.io/leetcodedairy/20220107/"
         },{
             "@type":"ListItem",
-            "position":  9 ,
+            "position":  10 ,
             "name": "2022-01-06",
             "description": "15.三数之和 穷举,确定了第一个数字之后, 剩下两个数字就是 target = target - nums[i] 的twoSum问题",
             "url": "https://zyooo.github.io/leetcodedairy/20220106/"
-        },{
-            "@type":"ListItem",
-            "position":  10 ,
-            "name": "2022-01-05",
-            "description": "1576.替换所有的问号 func modifyString(s string) string { data := []byte(s) for i := 0; i \u0026lt; len(data); i++ { if data[i] == '?",
-            "url": "https://zyooo.github.io/leetcodedairy/20220105/"
         }
     ]
 }
@@ -163,7 +163,7 @@
 
 
 
-<meta property="og:updated_time" content="2022-04-01T07:50:01&#43;08:00" />
+<meta property="og:updated_time" content="2022-04-02T07:50:01&#43;08:00" />
 
 
 
@@ -255,6 +255,45 @@
 
   <div class="bg-secondary-bg rounded px-6">
     <div class="overflow-hidden divide-y">
+  
+  <div class="py-6">
+    <div class="flex flex-col-reverse lg:flex-row justify-between">
+  
+  <div class="w-full ">
+    <div class="prose">
+  <a href="https://zyooo.github.io/leetcodedairy/20220402/" class="no-underline">
+    <h3 class="mt-0">2022-04-02</h3>
+  </a>
+  
+
+  
+    <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2022-04-02</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>0 min read</span>
+  </div>
+
+  
+
+  
+</div>
+
+  
+</div>
+
+  </div>
+
+  
+</div>
+  </div>
   
   <div class="py-6">
     <div class="flex flex-col-reverse lg:flex-row justify-between">
@@ -604,47 +643,6 @@
     <i class="fas fa-calendar me-1"></i>
     <span
       >2022-01-06</span
-    >
-  </div>
-  <div class="me-6 my-2">
-    <i class="fas fa-clock me-1"></i>
-    <span>2 min read</span>
-  </div>
-
-  
-
-  
-</div>
-
-  
-</div>
-
-  </div>
-
-  
-</div>
-  </div>
-  
-  <div class="py-6">
-    <div class="flex flex-col-reverse lg:flex-row justify-between">
-  
-  <div class="w-full ">
-    <div class="prose">
-  <a href="https://zyooo.github.io/leetcodedairy/20220105/" class="no-underline">
-    <h3 class="mt-0">2022-01-05</h3>
-  </a>
-  
-    1576.替换所有的问号 func modifyString(s string) string { data := []byte(s) for i := 0; i &lt; len(data); i&#43;&#43; { if data[i] == &#39;?
-  
-
-  
-    <div
-  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
->
-  <div class="me-6 my-2">
-    <i class="fas fa-calendar me-1"></i>
-    <span
-      >2022-01-05</span
     >
   </div>
   <div class="me-6 my-2">

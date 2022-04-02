@@ -8,7 +8,16 @@
     <language>en</language>
     <copyright>&amp;copy; 2021 &lt;a href=&#34;https://www.wangchucheng.com/&#34;&gt;WANG Chucheng&lt;/a&gt; and &lt;a href=&#34;https://www.ruiqima.com/&#34;&gt;MA Ruiqi&lt;/a&gt;
 </copyright>
-    <lastBuildDate>Wed, 20 Oct 2021 12:25:53 +0800</lastBuildDate><atom:link href="https://zyooo.github.io/note/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 01 Apr 2022 21:26:14 +0800</lastBuildDate><atom:link href="https://zyooo.github.io/note/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>操作系统IO相关</title>
+      <link>https://zyooo.github.io/note/os_io/</link>
+      <pubDate>Fri, 01 Apr 2022 21:26:14 +0800</pubDate>
+      
+      <guid>https://zyooo.github.io/note/os_io/</guid>
+      <description>IO管理 进程在Linux上有着不小的开销, 不说创建, 上下文切换一次就得花个微秒, 为了高效地对海量用户提供服务, 必须要让同一个进程 能同时处理很多个tcp连接才行.</description>
+    </item>
+    
     <item>
       <title>OralEnglish</title>
       <link>https://zyooo.github.io/note/oralenglish/</link>

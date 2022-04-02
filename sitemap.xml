@@ -2,13 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://zyooo.github.io/leetcodedairy/20220401/</loc>
-    <lastmod>2022-04-01T07:50:01+08:00</lastmod>
+    <loc>https://zyooo.github.io/leetcodedairy/20220402/</loc>
+    <lastmod>2022-04-02T07:50:01+08:00</lastmod>
   </url><url>
     <loc>https://zyooo.github.io/</loc>
-    <lastmod>2022-04-01T07:50:01+08:00</lastmod>
+    <lastmod>2022-04-02T07:50:01+08:00</lastmod>
   </url><url>
     <loc>https://zyooo.github.io/leetcodedairy/</loc>
+    <lastmod>2022-04-02T07:50:01+08:00</lastmod>
+  </url><url>
+    <loc>https://zyooo.github.io/note/</loc>
+    <lastmod>2022-04-01T21:26:14+08:00</lastmod>
+  </url><url>
+    <loc>https://zyooo.github.io/note/os_io/</loc>
+    <lastmod>2022-04-01T21:26:14+08:00</lastmod>
+  </url><url>
+    <loc>https://zyooo.github.io/leetcodedairy/20220401/</loc>
     <lastmod>2022-04-01T07:50:01+08:00</lastmod>
   </url><url>
     <loc>https://zyooo.github.io/golangdairy/</loc>
@@ -77,9 +86,6 @@
     <loc>https://zyooo.github.io/leetcodedairy/20211031/</loc>
     <lastmod>2021-10-31T21:22:51+08:00</lastmod>
   </url><url>
-    <loc>https://zyooo.github.io/note/</loc>
-    <lastmod>2021-10-20T12:25:53+08:00</lastmod>
-  </url><url>
     <loc>https://zyooo.github.io/note/oralenglish/</loc>
     <lastmod>2021-10-20T12:25:53+08:00</lastmod>
   </url><url>
@@ -118,12 +124,6 @@
   </url><url>
     <loc>https://zyooo.github.io/note/note1/</loc>
     <lastmod>2021-10-01T10:05:28+08:00</lastmod>
-  </url><url>
-    <loc>https://zyooo.github.io/post/</loc>
-    <lastmod>2021-09-30T17:16:46+08:00</lastmod>
-  </url><url>
-    <loc>https://zyooo.github.io/post/project/</loc>
-    <lastmod>2021-09-30T17:16:46+08:00</lastmod>
   </url><url>
     <loc>https://zyooo.github.io/note/blog%E6%90%AD%E5%BB%BA%E5%92%8C%E6%88%91%E7%9A%84%E4%BF%A1%E6%81%AF/</loc>
     <lastmod>2021-09-30T10:03:39+08:00</lastmod>

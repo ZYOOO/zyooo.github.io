@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  dir="ltr"
+  
+><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<title>操作系统IO相关 | JoyBoy&#39;s blog</title>
+
+<meta name="generator" content="Hugo Eureka 0.9.1" />
+<link rel="stylesheet" href="https://zyooo.github.io/css/eureka.min.6a378a23360d238dc3ef4df2f5cd718093f02c10c9c7eb2437c29701cd8d389ab6da5d9f21bdd3afa305fd56c1235017.css" integrity="sha384-ajeKIzYNI43D703y9c1xgJPwLBDJx&#43;skN8KXAc2NOJq22l2fIb3Tr6MF/VbBI1AX">
+<script defer src="https://zyooo.github.io/js/eureka.min.f1639ee98d6cbd85b2b5f034d27320da962002ff83159ed4e01dbc5948c42a1ab26c2d6e74c66e93f5cec4d24dbd166d.js" integrity="sha384-8WOe6Y1svYWytfA00nMg2pYgAv&#43;DFZ7U4B28WUjEKhqybC1udMZuk/XOxNJNvRZt"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/stackoverflow-dark.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/dart.min.js"
+     crossorigin></script>
+
+
+<script defer type="text/javascript" src="https://zyooo.github.io/js/fontawesome.min.1c5a4674b042785ed214cf0818a81724c6b37442fd61b0ed039237b93de25ed5103fc8079a05770648ccc9c66c4f540a.js" integrity="sha384-HFpGdLBCeF7SFM8IGKgXJMazdEL9YbDtA5I3uT3iXtUQP8gHmgV3BkjMycZsT1QK"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
+   integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" 
+  integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js"
+   integrity="sha384-&#43;XBljXPPiv&#43;OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.14.0/dist/mermaid.min.js" 
+  integrity="sha384-atOyb0FxAgN9LyAc6PEf9BjgwLISyansgdH8/VXQH8p2o5vfrRgmGIJ2Sg22L0A0"  crossorigin></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="https://zyooo.github.io/images/icon_hu0887349992b35fe0daec5472ae05fa5f_87705_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://zyooo.github.io/images/icon_hu0887349992b35fe0daec5472ae05fa5f_87705_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="IO管理 进程在Linux上有着不小的开销, 不说创建, 上下文切换一次就得花个微秒, 为了高效地对海量用户提供服务, 必须要让同一个进程 能同时处理很多个tcp连接才行.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Notes",
+      "item":"https://zyooo.github.io/note/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"操作系统IO相关",
+      "item":"https://zyooo.github.io/note/os_io/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://zyooo.github.io/note/os_io/"
+    },
+    "headline": "操作系统IO相关 | JoyBoy\u0027s blog","datePublished": "2022-04-01T21:26:14+08:00",
+    "dateModified": "2022-04-01T21:26:14+08:00",
+    "wordCount":  537 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "ZhangYong",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://zyooo.github.io/images/icon.png"
+        }
+        },
+    "description": "IO管理 进程在Linux上有着不小的开销, 不说创建, 上下文切换一次就得花个微秒, 为了高效地对海量用户提供服务, 必须要让同一个进程 能同时处理很多个tcp连接才行."
+}
+</script><meta property="og:title" content="操作系统IO相关 | JoyBoy&#39;s blog" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="https://zyooo.github.io/images/icon.png">
+
+
+<meta property="og:url" content="https://zyooo.github.io/note/os_io/" />
+
+
+
+
+<meta property="og:description" content="IO管理 进程在Linux上有着不小的开销, 不说创建, 上下文切换一次就得花个微秒, 为了高效地对海量用户提供服务, 必须要让同一个进程 能同时处理很多个tcp连接才行." />
+
+
+
+
+<meta property="og:locale" content="en" />
+
+
+
+
+<meta property="og:site_name" content="JoyBoy&#39;s blog" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2022-04-01T21:26:14&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2022-04-01T21:26:14&#43;08:00" />
+
+
+
+<meta property="article:section" content="note" />
+
+
+
+
+
+  <body class="flex min-h-screen flex-col">
+    <header
+      class="min-h-16 pl-scrollbar bg-secondary-bg fixed z-50 flex w-full items-center shadow-sm"
+    >
+      <div class="mx-auto w-full max-w-screen-xl"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="me-6 text-primary-text text-xl font-bold">JoyBoy&#39;s blog</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">About</a>
+            <a href="/note/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  me-4">Notes</a>
+            <a href="/leetcodedairy/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">LeetCodeDairy</a>
+            <a href="/javadairy/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">JavaDairy</a>
+            <a href="/golangdairy/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">GolangDairy</a>
+            <a href="/bugs/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">Bugs</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col start-0 md:start-auto end-auto md:end-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+    </header>
+    <main class="grow pt-16">
+        <div class="pl-scrollbar">
+          <div class="mx-auto w-full max-w-screen-xl lg:px-4 xl:px-8">
+  
+  
+  <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
+    <div
+      class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
+    >
+      <article class="prose">
+  <h1 class="mb-4">操作系统IO相关</h1>
+
+  <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2022-04-01</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>3 min read</span>
+  </div>
+
+  
+
+  
+</div>
+
+
+  
+  
+
+  <h1 id="io管理">IO管理</h1>
+<p>进程在Linux上有着不小的开销, 不说创建, 上下文切换一次就得花个微秒, 为了高效地对海量用户提供服务, 必须要让同一个进程 能同时处理很多个tcp连接才行. 假设一个进程保持了10000条连接, 那么如何发现哪条连接上有数据可读了, 哪条连接可写了? (网络IO)</p>
+<p>什么是IO的Block :</p>
+<ul>
+<li>情况一 : 用系统调用read从socket里读取一段数据 (网络IO)</li>
+<li>情况二 : 用系统调用read从一个磁盘文件读取一段数据到内存 (磁盘IO)</li>
+<li>解释 : 所谓block是指操作系统可以预见这个block会发生才会主动block</li>
+</ul>
+<p>对于Linux来说 :</p>
+<ul>
+<li>第一种情况算作block, 因为Linux无法知道网络上对方是否会发数据, 但是发现socket buffer里面没有数据就可以确定对方还没有发过来, 对于调用read的程序来说就会block</li>
+<li>第二种情况不算block, 因为对于普通磁盘文件的读写, 也许磁盘运作期间会抖动, 会短暂暂停, 但是操作系统无法预见这种情况, 只能视作不会block, 照样执行</li>
+</ul>
+<p>下面着重于网络IO</p>
+<h2 id="bio-blocking-io">BIO (Blocking IO)</h2>
+<ul>
+<li>用read去读取网络的数据时, 如果还未收到数据, 就只能等待, 直到对方把数据发过来或者等到网络超时. 对于单线程的网络服务来说, 会出现卡死的问题, 在等待的过程中整个线程会被挂起, 阻塞当前进程(其他进程无影响)</li>
+<li>为解决上述问题, 可采用多线程, 每个线程去处理一个网络请求, 但是线程的数量随着并发连接数线性增长(未复用), 导致内存压力和上下文切换压力大大增加</li>
+<li>要是操作IO接口时, 操作系统能够直接告诉有没有数据, 而不是block去等待就好了, 这时就用到了NIO</li>
+</ul>
+<h2 id="nio-non-blocking-io">NIO (Non-Blocking IO)</h2>
+<p>Linux下设置IO模式为&quot;Non-Blocking&quot;模式 :</p>
+<pre><code class="language-c">void setnonblocking(int fd){
+    int flags = fcntl(fd, F_GETFL, 0);
+    fcntl(fd, F_SETFL, flags | O_NONBLOCK);
+    //以上操作只对socket对应的文件描述符有意义, 对磁盘文件的描述符做此设置总会成功, 但是会直接被忽略
+}
+</code></pre>
+<p>在此模式下, 调用read, 如果发现没数据到达, 就会立刻返回-1, 并且errno被设置为EAGAIN (有些事EWOULDBLOCK) Linux下都一样</p>
+<pre><code class="language-c">struct timespec sleep_interval{.tv_sec = 0, .tv_nsec = 1000};
+ssize_t nbytes;
+while (1) {
+    /* 尝试读取 */
+    if ((nbytes = read(fd, buf, sizeof(buf))) &lt; 0) {
+        if (errno == EAGAIN) { // 没数据到
+            perror(&quot;nothing can be read&quot;);
+        } else {
+            perror(&quot;fatal error&quot;);
+            exit(EXIT_FAILURE);
+        }
+    } else { // 有数据
+        process_data(buf, nbytes);
+    }
+    // 处理其他事情，做完了就等一会，再尝试
+    nanosleep(sleep_interval, NULL);
+}
+</code></pre>
+<p>两个新问题 :</p>
+<ul>
+<li>如果有大量的文件描述符要等, 就得一个个的read, 也就是频繁系统调用, 带来大量的Context Switch</li>
+<li>休息的时候不太好把握, 太长, 程序响应延迟就过大, 太短了又会造成频繁的重试, 消耗CPU</li>
+<li>于就是IO多路复用了</li>
+</ul>
+<h2 id="io多路复用">IO多路复用</h2>
+<p>IO Multiplexing : 程序注册一组socket文件描述符给操作系统, 表示对这些fd的IO事件的监听, 有了就告诉程序处理</p>
+<p>IO多路复用是要和NIO一起使用的。尽管在操作系统级别，NIO和IO多路复用是两个相对独立的事情。NIO仅仅是指IO API总是能立刻返回，		不会被Blocking；而IO多路复用仅仅是操作系统提供的一种便利的通知机制。操作系统并不会强制这俩必须得一起用——你可以用NIO，但		不用IO多路复用，就像上一节中的代码；也可以只用IO多路复用 + BIO，这时效果还是当前线程被卡住。但是，<strong>IO多路复用和NIO是要配		合一起使用才有实际意义</strong>。因此，在使用IO多路复用之前，请总是先把fd设为<code>O_NONBLOCK</code>。</p>
+<p>对IO多路复用，还存在一些常见的误解，比如：</p>
+<ul>
+<li>
+<p><strong>❌IO多路复用是指多个数据流共享同一个Socket</strong>。其实IO多路复用说的是多个Socket，只不过操作系统是一起监听他们的事件而已。</p>
+<blockquote>
+<p>多个数据流共享同一个TCP连接的场景的确是有，比如Http2 Multiplexing就是指Http2通讯中中多个逻辑的数据流共享同一个TCP连接。但这与IO多路复用是完全不同的问题。</p>
+</blockquote>
+</li>
+<li>
+<p><strong>❌IO多路复用是NIO，所以总是不Block的</strong>。其实IO多路复用的关键API调用(<code>select</code>，<code>poll</code>，<code>epoll_wait</code>）总是Block的，正如下文的例子所讲。</p>
+</li>
+<li>
+<p>❌<strong>IO多路复用和NIO一起减少了IO</strong>。实际上，IO本身（网络数据的收发）无论用不用IO多路复用和NIO，都没有变化。请求的数据该是多少还是多少；网络上该传输多少数据还是多少数据。IO多路复用和NIO一起仅仅是解决了调度的问题，避免CPU在这个过程中的浪费，使系统的瓶颈更容易触达到网络带宽，而非CPU或者内存。要提高IO吞吐，还是提高硬件的容量（例如，用支持更大带宽的网线、网卡和交换机）和依靠并发传输（例如HDFS的数据多副本并发传输）。</p>
+</li>
+</ul>
+<h3 id="select">select</h3>
+<p><code>select</code>长这样：</p>
+<pre><code class="language-csharp">int select(int nfds, fd_set *readfds, fd_set *writefds, fd_set *exceptfds, struct timeval *timeout);
+</code></pre>
+<p>它接受3个文件描述符的数组，分别监听读取(<code>readfds</code>)，写入(<code>writefds</code>)和异常(<code>expectfds</code>)事件。那么一个 IO多路复用的代码大概是这样：</p>
+<pre><code class="language-cpp">struct timeval tv = {.tv_sec = 1, .tv_usec = 0};
+
+ssize_t nbytes;
+
+while(1) {
+    FD_ZERO(&amp;read_fds);
+    setnonblocking(fd1);
+    setnonblocking(fd2);
+    FD_SET(fd1, &amp;read_fds);
+    FD_SET(fd2, &amp;read_fds);
+    // 把要监听的fd拼到一个数组里，而且每次循环都得重来一次...
+    if (select(FD_SETSIZE, &amp;read_fds, NULL, NULL, &amp;tv) &lt; 0) { // block住，直到有事件到达
+        perror(&quot;select出错了&quot;);
+        exit(EXIT_FAILURE);
+    }
+    for (int i = 0; i &lt; FD_SETSIZE; i++) {
+        if (FD_ISSET(i, &amp;read_fds)) {
+            /* 检测到第[i]个读取fd已经收到了，这里假设buf总是大于到达的数据，所以可以一次read完 */
+            if ((nbytes = read(i, buf, sizeof(buf))) &gt;= 0) {
+                process_data(nbytes, buf);
+            } else {
+                perror(&quot;读取出错了&quot;);
+                exit(EXIT_FAILURE);
+            }
+        }
+    }
+}
+</code></pre>
+<p>首先，为了<code>select</code>需要构造一个fd数组（这里为了简化，没有构造要监听写入和异常事件的fd数组）。之后，用<code>select</code>监听了<code>read_fds</code>中的多个socket的读取时间。调用<code>select</code>后，<strong>程序会Block住</strong>，直到一个事件发生了，或者等到最大1秒钟(<code>tv</code>定义了这个时间长度）就返回。之后，需要遍历所有注册的fd，挨个检查哪个fd有事件到达(<code>FD_ISSET</code>返回true)。如果是，就说明数据已经到达了，可以读取fd了。读取后就可以进行数据的处理。</p>
+<p><code>select</code>有一些发指的缺点：</p>
+<ul>
+<li><code>select</code>能够支持的最大的fd数组的长度是<strong>1024</strong>。这对要处理高并发的web服务器是不可接受的。</li>
+<li>fd数组按照监听的事件分为了3个数组，为了这3个数组要<strong>分配3段内存去构造</strong>，而且每次调用<code>select</code>前都要重设它们（因为<code>select</code>会改这3个数组)；调用<code>select</code>后，这3数组要从用户态复制一份到内核态；事件到达后，要遍历这3数组。很不爽。</li>
+<li><code>select</code>返回后要挨个遍历fd，找到被“SET”的那些进行处理。这样比较低效。</li>
+<li><code>select</code>是无状态的，即每次调用<code>select</code>，内核都要重新检查所有被注册的fd的状态。<code>select</code>返回后，这些状态就被返回了，内核不会记住它们；到了下一次调用，内核依然要重新检查一遍。于是查询的效率很低。</li>
+</ul>
+<h3 id="poll">poll</h3>
+<p><code>poll</code>与<code>select</code>类似于。它大概长这样：</p>
+<pre><code class="language-cpp">int poll(struct pollfd *fds, nfds_t nfds, int timeout);
+</code></pre>
+<p><code>poll</code>的代码例子和<code>select</code>差不多，因此也就不赘述了。有意思的是<code>poll</code>这个单词的意思是“轮询”，所以很多中文资料都会提到对IO进行“轮询”。</p>
+<blockquote>
+<p>上面说的select和下文说的epoll本质上都是轮询。</p>
+</blockquote>
+<p><code>poll</code>优化了<code>select</code>的一些问题。比如不再有3个数组，而是1个<code>polldfd</code>结构的数组了，并且也不需要每次重设了。数组的个数也没有了1024的限制。但其他的问题依旧：</p>
+<ul>
+<li>依然是无状态的，性能的问题与<code>select</code>差不多一样；</li>
+<li>应用程序仍然无法很方便的拿到那些“有事件发生的fd“，还是需要遍历所有注册的fd。</li>
+</ul>
+<p>目前来看，高性能的web服务器都不会使用<code>select</code>和<code>poll</code>。他们俩存在的意义仅仅是“兼容性”，因为很多操作系统都实现了这两个系统调用。</p>
+<p>如果是追求性能的话，在BSD/macOS上提供了kqueue api；在Salorias中提供了/dev/poll（可惜该操作系统已经凉凉)；而在Linux上提供了epoll api。它们的出现彻底解决了<code>select</code>和<code>poll</code>的问题。Java NIO，nginx等在对应的平台的上都是使用这些api实现。</p>
+<p>因为大部分情况下我会用Linux做服务器，所以下文以Linux epoll为例子来解释多路复用是怎么工作的。</p>
+<h3 id="用epoll实现的io多路复用">用epoll实现的IO多路复用</h3>
+<p>epoll是Linux下的IO多路复用的实现。这里单开一章是因为它非常有代表性，并且Linux也是目前最广泛被作为服务器的操作系统。细致的了解epoll对整个IO多路复用的工作原理非常有帮助。</p>
+<p>与<code>select</code>和<code>poll</code>不同，要使用epoll是需要先创建一下的。</p>
+<pre><code class="language-python">int epfd = epoll_create(10);
+</code></pre>
+<p><code>epoll_create</code>在内核层创建了一个数据表，接口会返回一个“epoll的文件描述符”指向这个表。注意，接口参数是一个表达要监听事件列表的长度的数值。但不用太在意，因为epoll内部随后会根据事件注册和事件注销动态调整epoll中表格的大小。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/4662107-db96d72fcff779c7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/286/format/webp" alt="img"></p>
+<p>epoll创建</p>
+<p>为什么epoll要创建一个用文件描述符来指向的表呢？这里有两个好处：</p>
+<ul>
+<li>epoll是有状态的，不像<code>select</code>和<code>poll</code>那样每次都要重新传入所有要监听的fd，这避免了很多无谓的数据复制。epoll的数据是用接口<code>epoll_ctl</code>来管理的（增、删、改）。</li>
+<li>epoll文件描述符在进程被fork时，子进程是可以继承的。这可以给对多进程共享一份epoll数据，实现并行监听网络请求带来便利。但这超过了本文的讨论范围，就此打住。</li>
+</ul>
+<p>epoll创建后，第二步是使用<code>epoll_ctl</code>接口来注册要监听的事件。</p>
+<pre><code class="language-csharp">int epoll_ctl(int epfd, int op, int fd, struct epoll_event *event);
+</code></pre>
+<p>其中第一个参数就是上面创建的<code>epfd</code>。第二个参数<code>op</code>表示如何对文件名进行操作，共有3种。</p>
+<ul>
+<li><code>EPOLL_CTL_ADD</code> - 注册一个事件</li>
+<li><code>EPOLL_CTL_DEL</code> - 取消一个事件的注册</li>
+<li><code>EPOLL_CTL_MOD</code> - 修改一个事件的注册</li>
+</ul>
+<p>第三个参数是要操作的fd，这里必须是支持NIO的fd（比如socket）。</p>
+<p>第四个参数是一个<code>epoll_event</code>的类型的数据，表达了注册的事件的具体信息。</p>
+<pre><code class="language-cpp">typedef union epoll_data {
+    void    *ptr;
+    int      fd;
+    uint32_t u32;
+    uint64_t u64;
+} epoll_data_t;
+struct epoll_event {
+    uint32_t     events;    /* Epoll events */
+    epoll_data_t data;      /* User data variable */
+};
+</code></pre>
+<p>比方说，想关注一个fd1的读取事件事件，并采用边缘触发(下文会解释什么是边缘触发），大概要这么写：</p>
+<pre><code class="language-csharp">struct epoll_data ev;
+ev.events = EPOLLIN | EPOLLET; // EPOLLIN表示读事件；EPOLLET表示边缘触发
+ev.data.fd = fd1;
+</code></pre>
+<p>通过<code>epoll_ctl</code>就可以灵活的注册/取消注册/修改注册某个fd的某些事件。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/4662107-6605e852cb10a9af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/286/format/webp" alt="img"></p>
+<p>管理fd事件注册</p>
+<p>第三步，使用<code>epoll_wait</code>来等待事件的发生。</p>
+<pre><code class="language-csharp">int epoll_wait(int epfd, struct epoll_event *evlist, int maxevents, int timeout);
+</code></pre>
+<p>特别留意，这一步是&quot;block&quot;的。只有当注册的事件至少有一个发生，或者<code>timeout</code>达到时，该调用才会返回。这与<code>select</code>和<code>poll</code>几乎一致。但不一样的地方是<code>evlist</code>，它是<code>epoll_wait</code>的返回数组，里面<strong>只包含那些被触发的事件对应的fd</strong>，而不是像<code>select</code>和<code>poll</code>那样返回所有注册的fd。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/4662107-158b40d37dcb03df.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/286/format/webp" alt="img"></p>
+<p>监听fd事件</p>
+<p>综合起来，一段比较完整的epoll代码大概是这样的。</p>
+<pre><code class="language-cpp">#define MAX_EVENTS 10
+
+struct epoll_event ev, events[MAX_EVENTS];
+int nfds, epfd, fd1, fd2;
+// 假设这里有两个socket，fd1和fd2，被初始化好。
+// 设置为non blocking
+setnonblocking(fd1);
+setnonblocking(fd2);
+// 创建epoll
+epfd = epoll_create(MAX_EVENTS);
+if (epollfd == -1) {
+    perror(&quot;epoll_create1&quot;);
+    exit(EXIT_FAILURE);
+}
+//注册事件
+ev.events = EPOLLIN | EPOLLET;
+ev.data.fd = fd1;
+if (epoll_ctl(epollfd, EPOLL_CTL_ADD, fd1, &amp;ev) == -1) {
+    perror(&quot;epoll_ctl: error register fd1&quot;);
+    exit(EXIT_FAILURE);
+}
+if (epoll_ctl(epollfd, EPOLL_CTL_ADD, fd2, &amp;ev) == -1) {
+    perror(&quot;epoll_ctl: error register fd2&quot;);
+    exit(EXIT_FAILURE);
+}
+// 监听事件
+for (;;) {
+    nfds = epoll_wait(epdf, events, MAX_EVENTS, -1);
+    if (nfds == -1) {
+        perror(&quot;epoll_wait&quot;);
+        exit(EXIT_FAILURE);
+    }
+    for (n = 0; n &lt; nfds; ++n) { // 处理所有发生IO事件的fd
+        process_event(events[n].data.fd);
+        // 如果有必要，可以利用epoll_ctl继续对本fd注册下一次监听，然后重新epoll_wait
+    }
+}
+</code></pre>
+<p>此外，<a href="https://link.jianshu.com/?t=http%3A%2F%2Fman7.org%2Flinux%2Fman-pages%2Fman7%2Fepoll.7.html">epoll的手册</a> 中也有一个简单的例子。</p>
+<p>所有的基于IO多路复用的代码都会遵循这样的写法：注册——监听事件——处理——再注册，无限循环下去。</p>
+<h3 id="epoll的优势">epoll的优势</h3>
+<p>为什么epoll的性能比<code>select</code>和<code>poll</code>要强呢？ <code>select</code>和<code>poll</code>每次都需要把完成的fd列表传入到内核，迫使内核每次必须从头扫描到尾。而epoll完全是反过来的。epoll在内核的数据被建立好了之后，每次某个被监听的fd一旦有事件发生，内核就直接标记之。<code>epoll_wait</code>调用时，会尝试直接读取到当时已经标记好的fd列表，如果没有就会进入等待状态。</p>
+<p>同时，<code>epoll_wait</code>直接只返回了被触发的fd列表，这样上层应用写起来也轻松愉快，再也不用从大量注册的fd中筛选出有事件的fd了。</p>
+<p>简单说就是<code>select</code>和<code>poll</code>的代价是**&ldquo;O(所有注册事件fd的数量)&rdquo;<strong>，而epoll的代价是</strong>&ldquo;O(发生事件fd的数量)&rdquo;**。于是，高性能网络服务器的场景特别适合用epoll来实现——因为大多数网络服务器都有这样的模式：同时要监听大量（几千，几万，几十万甚至更多）的网络连接，但是短时间内发生的事件非常少。</p>
+<p>但是，假设发生事件的fd的数量接近所有注册事件fd的数量，那么epoll的优势就没有了，其性能表现会和<code>poll</code>和<code>select</code>差不多。</p>
+<p>epoll除了性能优势，还有一个优点——同时支持水平触发(Level Trigger)和边沿触发(Edge Trigger)。</p>
+<h3 id="水平触发和边沿触发">水平触发和边沿触发</h3>
+<p>默认情况下，epoll使用水平触发，这与<code>select</code>和<code>poll</code>的行为完全一致。在水平触发下，epoll顶多算是一个“跑得更快的poll”。</p>
+<p>而一旦在注册事件时使用了<code>EPOLLET</code>标记（如上文中的例子），那么将其视为边沿触发（或者有地方叫边缘触发，一个意思）。那么到底什么水平触发和边沿触发呢？</p>
+<p>考虑下图中的例子。有两个socket的fd——fd1和fd2。我们设定监听f1的“水平触发读事件“，监听fd2的”边沿触发读事件“。我们使用在时刻t1，使用<code>epoll_wait</code>监听他们的事件。在时刻t2时，两个fd都到了100bytes数据，于是在时刻t3, <code>epoll_wait</code>返回了两个fd进行处理。在t4，我们故意不读取所有的数据出来，只各自读50bytes。然后在t5重新注册两个事件并监听。在t6时，只有fd1会返回，因为fd1里的数据没有读完，仍然处于“被触发”状态；而fd2不会被返回，因为没有新数据到达。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/4662107-173d7a3fa4b61ca0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/450/format/webp" alt="img"></p>
+<p>水平触发和边沿触发</p>
+<p>这个例子很明确的显示了水平触发和边沿触发的区别。</p>
+<ul>
+<li>
+<p>水平触发只关心文件描述符中是否还有没完成处理的数据，如果有，不管怎样<code>epoll_wait</code>，总是会被返回。简单说——水平触发代表了一种“状态”。</p>
+</li>
+<li>
+<p>边沿触发只关心文件描述符是否有<strong>新</strong>的事件产生，如果有，则返回；如果返回过一次，不管程序是否处理了，只要没有新的事件产生，<code>epoll_wait</code>不会再认为这个fd被“触发”了。简单说——边沿触发代表了一个“事件”。</p>
+<blockquote>
+<p>那么边沿触发怎么才能迫使新事件产生呢？一般需要反复调用<code>read</code>/<code>write</code>这样的IO接口，直到得到了<code>EAGAIN</code>错误码，再去尝试<code>epoll_wait</code>才有可能得到下次事件。</p>
+</blockquote>
+</li>
+</ul>
+<p>那么为什么需要边沿触发呢？</p>
+<p>边沿触发把如何处理数据的控制权完全交给了开发者，提供了巨大的灵活性。比如，读取一个http的请求，开发者可以决定只读取http中的headers数据就停下来，然后根据业务逻辑判断是否要继续读（比如需要调用另外一个服务来决定是否继续读）。而不是次次被socket尚有数据的状态烦扰；写入数据时也是如此。比如希望将一个资源A写入到socket。当socket的buffer充足时，<code>epoll_wait</code>会返回这个fd是准备好的。但是资源A此时不一定准备好。如果使用水平触发，每次经过<code>epoll_wait</code>也总会被打扰。在边沿触发下，开发者有机会更精细的定制这里的控制逻辑。</p>
+<p>但不好的一面时，边沿触发也大大的提高了编程的难度。一不留神，可能就会miss掉处理部分socket数据的机会。如果没有很好的根据<code>EAGAIN</code>来“重置”一个fd，就会造成此fd永远没有新事件产生，进而导致饿死相关的处理代码。</p>
+<h2 id="再来思考一下什么是block">再来思考一下什么是“Block”</h2>
+<p>上面的所有介绍都在围绕如何让网络IO不会被Block。但是网络IO处理仅仅是整个数据处理中的一部分。如果你留意到上文例子中的“处理事件”代码，就会发现这里可能是有问题的。</p>
+<ul>
+<li>处理代码有可能需要读写文件，可能会很慢，从而干扰整个程序的效率；</li>
+<li>处理代码有可能是一段复杂的数据计算，计算量很大的话，就会卡住整个执行流程；</li>
+<li>处理代码有bug，可能直接进入了一段死循环……</li>
+</ul>
+<p>这时你会发现，这里的Block和本文之初讲的<code>O_NONBLOCK</code>是不同的事情。在一个网络服务中，如果处理程序的延迟远远小于网络IO，那么这完全不成问题。但是如果处理程序的延迟已经大到无法忽略了，就会对整个程序产生很大的影响。这时IO多路复用已经不是问题的关键。</p>
+<p>试分析和比较下面两个场景：</p>
+<ul>
+<li>web proxy。程序通过IO多路复用接收到了请求之后，直接转发给另外一个网络服务。</li>
+<li>web server。程序通过IO多路复用接收到了请求之后，需要读取一个文件，并返回其内容。</li>
+</ul>
+<p>它们有什么不同？它们的瓶颈可能出在哪里？</p>
+<p>文章写的通俗易懂，原文转至：
+作者：大宽宽
+链接：https://www.jianshu.com/p/ef418ccf2f7d
+来源：简书</p>
+
+</article>
+
+
+      
+
+      
+
+
+
+      
+
+      
+  <div
+    class="-mx-2 mt-4 flex flex-col border-t px-2 pt-4 md:flex-row md:justify-between"
+  >
+    <div>
+      
+    </div>
+    <div class="mt-4 md:mt-0 md:text-right">
+      
+        <span class="text-primary-text block font-bold">Next</span>
+        <a href="https://zyooo.github.io/note/oralenglish/" class="block">OralEnglish</a>
+      
+    </div>
+  </div>
+
+
+      
+
+
+
+    </div>
+    
+      <div class="col-span-2">
+        
+        
+          <div
+  class="
+    bg-primary-bg
+   prose sticky top-16 z-10 hidden px-6 py-4 lg:block"
+>
+  <h3>On This Page</h3>
+</div>
+<div
+  class="sticky-toc  hidden px-6 pb-6 lg:block"
+>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#io管理">IO管理</a>
+      <ul>
+        <li><a href="#bio-blocking-io">BIO (Blocking IO)</a></li>
+        <li><a href="#nio-non-blocking-io">NIO (Non-Blocking IO)</a></li>
+        <li><a href="#io多路复用">IO多路复用</a>
+          <ul>
+            <li><a href="#select">select</a></li>
+            <li><a href="#poll">poll</a></li>
+            <li><a href="#用epoll实现的io多路复用">用epoll实现的IO多路复用</a></li>
+            <li><a href="#epoll的优势">epoll的优势</a></li>
+            <li><a href="#水平触发和边沿触发">水平触发和边沿触发</a></li>
+          </ul>
+        </li>
+        <li><a href="#再来思考一下什么是block">再来思考一下什么是“Block”</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    enableStickyToc();
+  });
+</script>
+
+        
+      </div>
+    
+
+    
+    
+  </div>
+
+  
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        hljs.initHighlightingOnLoad();
+      });
+    </script>
+
+          </div>
+        </div>
+      
+    </main>
+    <footer class="pl-scrollbar">
+      <div class="mx-auto w-full max-w-screen-xl"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2021 <a href="https://www.wangchucheng.com/">WANG Chucheng</a> and <a href="https://www.ruiqima.com/">MA Ruiqi</a>
+ &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+    </footer>
+  </body>
+</html>

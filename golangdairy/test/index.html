@@ -89,7 +89,7 @@
     },
     "headline": "《Go语言实战》读书笔记 | JoyBoy\u0027s blog","datePublished": "2022-03-28T22:27:47+08:00",
     "dateModified": "2022-03-28T22:27:47+08:00",
-    "wordCount":  265 ,
+    "wordCount":  2329 ,
     "publisher": {
         "@type": "Person",
         "name": "ZhangYong",
@@ -237,7 +237,7 @@
   </div>
   <div class="me-6 my-2">
     <i class="fas fa-clock me-1"></i>
-    <span>2 min read</span>
+    <span>11 min read</span>
   </div>
 
   
@@ -261,6 +261,7 @@
 
 4. 更加智能的编译器，编译速度快
 </code></pre>
+<p>​</p>
 <h2 id="第三章打包和go工具">第三章：打包和Go工具</h2>
 <ol>
 <li>
@@ -459,7 +460,806 @@ func main(){
 }
 </code></pre>
 </li>
+<li>
+<p>类型的本质</p>
+<ul>
+<li>在声明一个类型的方法之前, 首先思考一下 : 这个类型的本质是什么</li>
+<li>如果给这个类型增加或者删除某个值, 是要创建一个新值, 还是要更改当前的值?
+<ul>
+<li>如果是要创建一个新值, 该类型的方法就是用值接收者</li>
+<li>如果是要修改当前值, 就是用指针接收者</li>
+</ul>
+</li>
+<li>保持传递的一致性很重要</li>
+<li>编译器只允许为命名的用户定义的类型声明方法 func(xx XX)xxx(){}</li>
+</ul>
+</li>
+<li>
+<h3 id="接口">接口</h3>
+<ul>
+<li>
+<p>接口是用来定义行为的<strong>类型</strong></p>
+</li>
+<li>
+<p>被定义的行为不由接口直接实现, 而是通过方法由用户定义的类型实现</p>
+</li>
+<li>
+<p>任何用户定义的类型都可以实现任何接口, 所以对接口值方法的调用自然是一种多态</p>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+// notifier 定义了一个通知类行为的接口
+type notifier interface {
+	notify()
+}
+
+// user 在程序里面定义一个用户类型
+type user struct {
+	name  string
+	email string
+}
+
+// notify 是使用指针接收者实现的方法
+func (u *user) notify() {
+	fmt.Printf(&quot;Sending user email to %s&lt;%s&gt;\n&quot;, u.name, u.email)
+}
+
+func main() {
+	u := user{&quot;bill&quot;, &quot;bill@email.com&quot;}
+	//sendNotification(u)
+	//Cannot use 'u' (type user) as the type notifier Type
+	//does not implement 'notifier' as the 'notify' method has a pointer receiver
+	//因为notify使用的是指针接收者, 所以user并没有实现接口, 而*user实现了, 所以要传入&amp;u才行
+	sendNotification(&amp;u)
+	//但是在上面改成(u user)之后, 传入u或者&amp;u都可以实现
+}
+
+func sendNotification(n notifier) {
+	n.notify()
+}
+
+</code></pre>
+</li>
+<li>
+<p>多态, 如上例可以新增一个admin类型, 同样实现notify()方法, 但是里面的内容可以多样, 同样调用sendNotification()就能发送不同的值了</p>
+</li>
+</ul>
+</li>
+<li>
+<h3 id="嵌入类型">嵌入类型</h3>
+<ol>
+<li>
+<p>内部类型的方法(接口)被提升到外部类型</p>
+<pre><code class="language-go">// Sample program to show how embedded types work with interfaces.
+package main
+
+import (
+	&quot;fmt&quot;
+)
+
+// notifier is an interface that defined notification
+// type behavior.
+type notifier interface {
+	notify()
+}
+
+// user defines a user in the program.
+type user struct {
+	name  string
+	email string
+}
+
+// notify implements a method that can be called via
+// a value of type user.
+func (u *user) notify() {
+	fmt.Printf(&quot;Sending user email to %s&lt;%s&gt;\n&quot;,
+		u.name,
+		u.email)
+}
+
+// admin represents an admin user with privileges.
+type admin struct {
+	user
+	level string
+}
+
+// main is the entry point for the application.
+func main() {
+	// Create an admin user.
+	ad := admin{
+		user: user{
+			name:  &quot;john smith&quot;,
+			email: &quot;john@yahoo.com&quot;,
+		},
+		level: &quot;super&quot;,
+	}
+	ad.user.notify()  
+	ad.notify() //方法提升
+	// Send the admin user a notification.
+	// The embedded inner type's implementation of the
+	// interface is &quot;promoted&quot; to the outer type.
+	sendNotification(&amp;ad)  //接口提升
+}
+
+// sendNotification accepts values that implement the notifier
+// interface and sends notifications.
+func sendNotification(n notifier) {
+	n.notify()
+}
+
+/*
+OutPut:
+	Sending user email to john smith&lt;john@yahoo.com&gt;
+    Sending user email to john smith&lt;john@yahoo.com&gt;
+    Sending user email to john smith&lt;john@yahoo.com&gt;
+*/
+</code></pre>
+</li>
+<li>
+<p>外部类型使用自己的一套实现</p>
+<pre><code class="language-go">// Sample program to show what happens when the outer and inner
+// type implement the same interface.
+package main
+
+import (
+	&quot;fmt&quot;
+)
+
+// notifier is an interface that defined notification
+// type behavior.
+type notifier interface {
+	notify()
+}
+
+// user defines a user in the program.
+type user struct {
+	name  string
+	email string
+}
+
+// notify implements a method that can be called via
+// a value of type user.
+func (u *user) notify() {
+	fmt.Printf(&quot;Sending user email to %s&lt;%s&gt;\n&quot;,
+		u.name,
+		u.email)
+}
+
+// admin represents an admin user with privileges.
+type admin struct {
+	user
+	level string
+}
+
+// notify implements a method that can be called via
+// a value of type Admin.
+func (a *admin) notify() {
+	fmt.Printf(&quot;Sending admin email to %s&lt;%s&gt;\n&quot;,
+		a.name,
+		a.email)
+}
+
+// main is the entry point for the application.
+func main() {
+	// Create an admin user.
+	ad := admin{
+		user: user{
+			name:  &quot;john smith&quot;,
+			email: &quot;john@yahoo.com&quot;,
+		},
+		level: &quot;super&quot;,
+	}
+
+	// Send the admin user a notification.
+	// The embedded inner type's implementation of the
+	// interface is NOT &quot;promoted&quot; to the outer type.
+	sendNotification(&amp;ad)
+	//Send admin ...
+
+	// We can access the inner type's method directly.
+	ad.user.notify()
+	//Send user ...
+
+	// The inner type's method is NOT promoted.
+	ad.notify()
+    //Send admin ...
+}
+
+// sendNotification accepts values that implement the notifier
+// interface and sends notifications.
+func sendNotification(n notifier) {
+	n.notify()
+}
+</code></pre>
+</li>
+<li>
+<p>公开与未公开标识符 : 开头字母大小写, 小写的不能被在包外显示创建</p>
+</li>
 </ol>
+</li>
+</ol>
+<h2 id="第六章-并发">第六章: 并发</h2>
+<h3 id="并发与并行">并发与并行</h3>
+<ol>
+<li>并行 parallelism : 同时做很多事情</li>
+<li>并行 concurrency : 同时管理很多事情</li>
+</ol>
+<h3 id="goroutine">goroutine</h3>
+<ol>
+<li>
+<p>GMP模型看另外文章</p>
+</li>
+<li>
+<p>修改逻辑处理器的数量</p>
+<pre><code class="language-go">...
+func main() {
+    runtime.GOMAXPROCS(1) //有点并发的感觉, 也有可能第一个函数时间非常短在切换调度之前就结束了, 看起来就像串行
+    runtime.GOMAXPROCS(runtime.NumCPU())  //给每个一物理处理器都创建一个逻辑处理器
+}
+</code></pre>
+</li>
+</ol>
+<h3 id="竞争状态">竞争状态</h3>
+<ol>
+<li>
+<p>示例代码</p>
+<pre><code class="language-go">// Sample program to show how embedded types work with interfaces.
+package main
+
+import (
+	&quot;fmt&quot;
+	&quot;runtime&quot;
+	&quot;sync&quot;
+)
+
+var (
+	//counter 是所有 goroutine 都要增加其值的变量
+	counter int
+	//wg 用来等待程序结束
+	wg sync.WaitGroup
+)
+
+// main is the entry point for the application.
+func main() {
+	wg.Add(2)
+
+	//创建两个goroutine
+	go incCounter(1)
+	go incCounter(2)
+	wg.Wait()
+	fmt.Println(&quot;Final Counter&quot;, counter)
+}
+
+func incCounter(id int) {
+	defer wg.Done()
+	for count := 0; count &lt; 2; count++ {
+		//捕获counter的值
+		value := counter
+
+		//当前goroutine从线程退出, 并放回到队列
+		runtime.Gosched()
+		value++
+		counter = value
+	}
+}
+
+</code></pre>
+</li>
+<li>
+<p>最终的答案是2, 因为有个runtime.Gosched() , 具体流程看下图</p>
+<p><img src="https://s2.loli.net/2022/04/01/Kekwahq4sopRHlx.jpg" alt="4135ab13a043e8a35dec975c4bd3100"></p>
+</li>
+</ol>
+<h3 id="锁">锁</h3>
+<ol>
+<li>
+<h4 id="原子函数">原子函数</h4>
+<ul>
+<li>
+<p>保护共享资源</p>
+<pre><code class="language-go">// Sample program to show how embedded types work with interfaces.
+package main
+
+import (
+	&quot;fmt&quot;
+	&quot;runtime&quot;
+	&quot;sync&quot;
+	&quot;sync/atomic&quot;
+)
+
+var (
+	//counter 是所有 goroutine 都要增加其值的变量
+	counter int32
+	//wg 用来等待程序结束
+	wg sync.WaitGroup
+)
+
+// main is the entry point for the application.
+func main() {
+	wg.Add(2)
+
+	//创建两个goroutine
+	go incCounter(1)
+	go incCounter(2)
+	wg.Wait()
+	fmt.Println(&quot;Final Counter&quot;, counter)
+}
+
+func incCounter(id int) {
+	defer wg.Done()
+	for count := 0; count &lt; 2; count++ {
+		//注意这里要把counter的类型改为int32 , 不能用int
+		atomic.AddInt32(&amp;counter, 1)
+		//当前goroutine从线程退出, 并放回到队列
+		runtime.Gosched()
+	}
+}
+</code></pre>
+<p>最终输出的结果为4</p>
+</li>
+<li>
+<p>进行安全读写</p>
+<pre><code class="language-go">package main
+
+import (
+	&quot;fmt&quot;
+	&quot;sync&quot;
+	&quot;sync/atomic&quot;
+	&quot;time&quot;
+)
+
+var (
+	//counter 是所有 goroutine 都要增加其值的变量
+	shutdown int64
+	//wg 用来等待程序结束
+	wg sync.WaitGroup
+)
+
+// main is the entry point for the application.
+func main() {
+	wg.Add(2)
+
+	//创建两个goroutine
+	go doWork(&quot;A&quot;)
+	go doWork(&quot;B&quot;)
+	//给定goroutine执行时间
+	time.Sleep(1 * time.Second)
+
+	//该停止工作了, 安全的去设置shutdown标志
+	fmt.Println(&quot;Shutdown Now&quot;)
+	atomic.StoreInt64(&amp;shutdown, 1)
+	wg.Wait()
+}
+
+func doWork(name string) {
+	defer wg.Done()
+	for {
+		fmt.Printf(&quot;Doing %s Work\n&quot;, name)
+		time.Sleep(250 * time.Millisecond)
+
+		if atomic.LoadInt64(&amp;shutdown) == 1 {
+			fmt.Printf(&quot;Shutting %s Down\n&quot;, name)
+			break
+		}
+	}
+}
+/*
+Doing B Work
+Doing A Work
+Doing B Work
+Doing A Work
+Doing A Work
+Doing B Work
+Doing B Work
+Doing A Work
+Shutdown Now
+Shutting B Down
+Shutting A Down
+*/
+</code></pre>
+<p>如果StoreInt64 和 LoadInt64同时调用, 那么原子函数会将这些调用相互同步, 保证操作安全</p>
+</li>
+</ul>
+</li>
+<li>
+<h4 id="互斥锁">互斥锁</h4>
+<pre><code class="language-go">// Sample program to show how embedded types work with interfaces.
+package main
+
+import (
+	&quot;fmt&quot;
+	&quot;runtime&quot;
+	&quot;sync&quot;
+)
+
+var (
+	//counter 是所有 goroutine 都要增加其值的变量
+	counter int
+	//wg 用来等待程序结束
+	wg    sync.WaitGroup
+	mutex sync.Mutex
+)
+
+// main is the entry point for the application.
+func main() {
+	wg.Add(2)
+
+	//创建两个goroutine
+	go incCounter(1)
+	go incCounter(2)
+	wg.Wait()
+	fmt.Println(&quot;Final Counter&quot;, counter)
+}
+
+func incCounter(id int) {
+	defer wg.Done()
+	for count := 0; count &lt; 2; count++ {
+		mutex.Lock()
+
+		//捕获counter的值
+		value := counter
+
+		//当前goroutine从线程退出, 并放回到队列
+		runtime.Gosched()
+		value++
+		counter = value
+
+		mutex.Unlock()
+	}
+}
+
+</code></pre>
+<p>最终结果是4, 正确, 因为锁将临界区给锁了起来</p>
+</li>
+</ol>
+<h3 id="通道">通道</h3>
+<ol>
+<li>
+<p>无缓冲通道模拟接力跑</p>
+<pre><code class="language-go">// This sample program demonstrates how to use an unbuffered
+// channel to simulate a relay race between four goroutines.
+package main
+
+import (
+	&quot;fmt&quot;
+	&quot;sync&quot;
+	&quot;time&quot;
+)
+
+// wg is used to wait for the program to finish.
+var wg sync.WaitGroup
+
+// main is the entry point for all Go programs.
+func main() {
+	// Create an unbuffered channel.
+	baton := make(chan int)
+
+	// Add a count of one for the last runner.
+	wg.Add(1)
+
+	// First runner to his mark.
+	go Runner(baton)
+
+	// Start the race.
+	baton &lt;- 1
+
+	// Wait for the race to finish.
+	wg.Wait()
+}
+
+// Runner simulates a person running in the relay race.
+func Runner(baton chan int) {
+	var newRunner int
+
+	// Wait to receive the baton.
+	runner := &lt;-baton
+
+	// Start running around the track.
+	fmt.Printf(&quot;Runner %d Running With Baton\n&quot;, runner)
+
+	// New runner to the line.
+	if runner != 4 {
+		newRunner = runner + 1
+		fmt.Printf(&quot;Runner %d To The Line\n&quot;, newRunner)
+		go Runner(baton)
+	}
+
+	// Running around the track.
+	time.Sleep(100 * time.Millisecond)
+
+	// Is the race over.
+	if runner == 4 {
+		fmt.Printf(&quot;Runner %d Finished, Race Over\n&quot;, runner)
+		wg.Done()
+		return
+	}
+
+	// Exchange the baton for the next runner.
+	fmt.Printf(&quot;Runner %d Exchange With Runner %d\n&quot;,
+		runner,
+		newRunner)
+
+	baton &lt;- newRunner
+}
+/*
+Runner 1 Running With Baton
+Runner 2 To The Line
+Runner 1 Exchange With Runner 2
+Runner 2 Running With Baton
+Runner 3 To The Line       
+Runner 2 Exchange With Runner 3
+Runner 3 Running With Baton
+Runner 4 To The Line       
+Runner 3 Exchange With Runner 4
+Runner 4 Running With Baton
+Runner 4 Finished, Race Over
+*/
+</code></pre>
+</li>
+<li>
+<p>有缓冲通道模拟接收完成工作</p>
+<pre><code class="language-go">// This sample program demonstrates how to use a buffered
+// channel to work on multiple tasks with a predefined number
+// of goroutines.
+package main
+
+import (
+	&quot;fmt&quot;
+	&quot;math/rand&quot;
+	&quot;sync&quot;
+	&quot;time&quot;
+)
+
+const (
+	numberGoroutines = 4  // Number of goroutines to use.
+	taskLoad         = 10 // Amount of work to process.
+)
+
+// wg is used to wait for the program to finish.
+var wg sync.WaitGroup
+
+// init is called to initialize the package by the
+// Go runtime prior to any other code being executed.
+func init() {
+	// Seed the random number generator.
+	rand.Seed(time.Now().Unix())
+}
+
+// main is the entry point for all Go programs.
+func main() {
+	// Create a buffered channel to manage the task load.
+	tasks := make(chan string, taskLoad)
+
+	// Launch goroutines to handle the work.
+	wg.Add(numberGoroutines)
+	for gr := 1; gr &lt;= numberGoroutines; gr++ {
+		go worker(tasks, gr)
+	}
+
+	// Add a bunch of work to get done.
+	for post := 1; post &lt;= taskLoad; post++ {
+		tasks &lt;- fmt.Sprintf(&quot;Task : %d&quot;, post)
+	}
+
+	// Close the channel so the goroutines will quit
+	// when all the work is done.
+	close(tasks)
+
+	// Wait for all the work to get done.
+	wg.Wait()
+}
+
+// worker is launched as a goroutine to process work from
+// the buffered channel.
+func worker(tasks chan string, worker int) {
+	// Report that we just returned.
+	defer wg.Done()
+
+	for {
+		// Wait for work to be assigned.
+		task, ok := &lt;-tasks
+		if !ok {
+			// This means the channel is empty and closed.
+			fmt.Printf(&quot;Worker: %d : Shutting Down\n&quot;, worker)
+			return
+		}
+
+		// Display we are starting the work.
+		fmt.Printf(&quot;Worker: %d : Started %s\n&quot;, worker, task)
+
+		// Randomly wait to simulate work time.
+		sleep := rand.Int63n(100)
+		time.Sleep(time.Duration(sleep) * time.Millisecond)
+
+		// Display we finished the work.
+		fmt.Printf(&quot;Worker: %d : Completed %s\n&quot;, worker, task)
+	}
+}
+/*
+Worker: 4 : Started Task : 2
+Worker: 2 : Started Task : 1
+Worker: 3 : Started Task : 3
+Worker: 1 : Started Task : 4
+Worker: 2 : Completed Task : 1
+Worker: 2 : Started Task : 5
+Worker: 1 : Completed Task : 4
+Worker: 1 : Started Task : 6  
+Worker: 3 : Completed Task : 3
+Worker: 3 : Started Task : 7  
+Worker: 4 : Completed Task : 2
+Worker: 4 : Started Task : 8
+Worker: 4 : Completed Task : 8
+Worker: 4 : Started Task : 9  
+Worker: 3 : Completed Task : 7
+Worker: 3 : Started Task : 10 
+Worker: 2 : Completed Task : 5
+Worker: 2 : Shutting Down
+Worker: 1 : Completed Task : 6
+Worker: 1 : Shutting Down
+Worker: 3 : Completed Task : 10
+Worker: 3 : Shutting Down
+Worker: 4 : Completed Task : 9
+Worker: 4 : Shutting Down
+*/
+</code></pre>
+</li>
+</ol>
+<h2 id="第七章--并发模型">第七章 : 并发模型</h2>
+<h3 id="runner">runner</h3>
+<p>直接看代码, 要点都写在注释里面了</p>
+<p>Runner:</p>
+<pre><code class="language-go">package runner
+
+import (
+	&quot;errors&quot;
+	&quot;os&quot;
+	&quot;os/signal&quot;
+	&quot;time&quot;
+)
+
+// Runner 在给定的超时时间内执行一组任务 并且在操作系统发送中断信号的时结束这些任务
+type Runner struct {
+    /*
+    	用三个通道来辅助管理程序的生命周期
+    */
+	// interrupt 通道报告从操作系统发送的信号
+	interrupt chan os.Signal
+
+	// complete 通道报告处理任务已经完成, 并返回相应的错误类型
+	complete chan error
+
+	// timeout 报告处理任务已经超时
+	timeout &lt;-chan time.Time
+
+	//tasks 持有一组以索引顺序依次执行的函数
+	tasks []func(int)
+}
+
+var (
+	// ErrTimeout 超时时返回
+	ErrTimeout = errors.New(&quot;received timeout&quot;)
+	// ErrInterrupt 接收到操作系统的事件时返回
+	ErrInterrupt = errors.New(&quot;received interrupt&quot;)
+)
+
+// New 返回一个新的准备使用的Runner
+func New(d time.Duration) *Runner {
+	return &amp;Runner{
+        //有缓冲的通道, 容量为1, 保证通道至少能接收一个来自语言运行时的os.Signal值, 确保运行时发送的那个事件不会被阻塞
+		interrupt: make(chan os.Signal, 1),
+		complete:  make(chan error),
+        //d 为time.Duration, 在设定的时间到了之后会返回一个time.Time值被timeout通道接收
+		timeout:   time.After(d),
+	}
+}
+
+// Add 将一个任务附加到Runner上, 这个任务是一个接收一个int类型的ID作为参数的函数
+func (r *Runner) Add(tasks ...func(int)) {
+	r.tasks = append(r.tasks, tasks...)
+}
+
+// Start 执行所有任务并且监视通道事件
+func (r *Runner) Start() error {
+	// 我们希望接受所有中断信号
+	signal.Notify(r.interrupt, os.Interrupt)
+	// 用不同的goroutine执行不同的任务
+	go func() {
+		r.complete &lt;- r.run()
+	}()
+    //上面的程序在异步的跑的时候, 外部在检测程序是否正常运行结束或超时或中断了
+	select {
+	// 程序处理完的时候
+	case err := &lt;-r.complete:
+		return err
+	// 程序超时 这里是全部task运行时间
+	case &lt;-r.timeout:
+		return ErrTimeout
+	}
+}
+
+func (r *Runner) run() error {
+	for id, task := range r.tasks {
+		// 检测操作系统的中断信号
+		if r.gotInterrupt() {
+			return ErrInterrupt
+		}
+		//执行已注册的函数
+		task(id)
+	}
+    return nil
+}
+
+// gotInterrupt 验证是否接受到了中断信号
+func (r *Runner) gotInterrupt() bool {
+	select {
+	case &lt;-r.interrupt:
+		//当中断事件被触发时, 停止接受后续的任何信号
+		signal.Stop(r.interrupt)
+		return true
+    //在run里面每个函数开始处理的时候若没有中断信号, 那就把这个任务执行完
+	default:
+		return false
+	}
+
+}
+</code></pre>
+<p>main :</p>
+<pre><code class="language-go">package main
+
+import (
+	&quot;interview/runner&quot;
+	&quot;log&quot;
+	&quot;os&quot;
+	&quot;time&quot;
+)
+
+const timeout = 3 * time.Second
+
+func main() {
+	log.Println(&quot;Starting work.&quot;)
+	r := runner.New(timeout)
+	r.Add(createTask(), createTask(), createTask())
+
+	if err := r.Start(); err != nil {
+		switch err {
+		case runner.ErrTimeout:
+			log.Println(&quot;Terminating due to time out&quot;)
+			os.Exit(1)
+		case runner.ErrInterrupt:
+			log.Println(&quot;Terminating due to interrupt.&quot;)
+			os.Exit(2)
+		}
+	}
+	log.Println(&quot;Process ended.&quot;)
+}
+
+func createTask() func(int) {
+	return func(id int) {
+		log.Printf(&quot;Processor - Task #%d.&quot;, id)
+		//time.Duration 是time里面定一个的一个类型 type Duration int64
+		time.Sleep(time.Duration(id) * time.Second)
+	}
+}
+</code></pre>
+<pre><code class="language-go">/*
+output:
+	1. timeout = 3 * time.Second
+		2022/04/02 16:26:12 Starting work.
+        2022/04/02 16:26:12 Processor - Task #0.
+        2022/04/02 16:26:12 Processor - Task #1.
+        2022/04/02 16:26:13 Processor - Task #2.
+        2022/04/02 16:26:15 Terminating due to time out
+	2. timeout = 6 * timeSecond
+		2022/04/02 16:29:08 Starting work.
+        2022/04/02 16:29:08 Processor - Task #0.
+        2022/04/02 16:29:08 Processor - Task #1.
+        2022/04/02 16:29:09 Processor - Task #2.
+        2022/04/02 16:29:11 Process ended.
+*/
+</code></pre>
+<h3 id="pool">pool</h3>
+<h3 id="work">work</h3>
 
 </article>
 
@@ -520,7 +1320,33 @@ func main(){
             <li><a href="#映射map">映射map</a></li>
           </ul>
         </li>
-        <li><a href="#第五章-go语言的类型系统">第五章: Go语言的类型系统</a></li>
+        <li><a href="#第五章-go语言的类型系统">第五章: Go语言的类型系统</a>
+          <ul>
+            <li><a href="#接口">接口</a></li>
+            <li><a href="#嵌入类型">嵌入类型</a></li>
+          </ul>
+        </li>
+        <li><a href="#第六章-并发">第六章: 并发</a>
+          <ul>
+            <li><a href="#并发与并行">并发与并行</a></li>
+            <li><a href="#goroutine">goroutine</a></li>
+            <li><a href="#竞争状态">竞争状态</a></li>
+            <li><a href="#锁">锁</a>
+              <ul>
+                <li><a href="#原子函数">原子函数</a></li>
+                <li><a href="#互斥锁">互斥锁</a></li>
+              </ul>
+            </li>
+            <li><a href="#通道">通道</a></li>
+          </ul>
+        </li>
+        <li><a href="#第七章--并发模型">第七章 : 并发模型</a>
+          <ul>
+            <li><a href="#runner">runner</a></li>
+            <li><a href="#pool">pool</a></li>
+            <li><a href="#work">work</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
