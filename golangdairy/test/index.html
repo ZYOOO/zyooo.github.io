@@ -89,7 +89,7 @@
     },
     "headline": "《Go语言实战》读书笔记 | JoyBoy\u0027s blog","datePublished": "2022-03-28T22:27:47+08:00",
     "dateModified": "2022-03-28T22:27:47+08:00",
-    "wordCount":  2329 ,
+    "wordCount":  3304 ,
     "publisher": {
         "@type": "Person",
         "name": "ZhangYong",
@@ -237,7 +237,7 @@
   </div>
   <div class="me-6 my-2">
     <i class="fas fa-clock me-1"></i>
-    <span>11 min read</span>
+    <span>16 min read</span>
   </div>
 
   
@@ -1259,7 +1259,357 @@ output:
 */
 </code></pre>
 <h3 id="pool">pool</h3>
+<pre><code class="language-go">// Package pool 管理用户定义的一组资源
+package pool
+
+import (
+	&quot;errors&quot;
+	&quot;io&quot;
+	&quot;log&quot;
+	&quot;sync&quot;
+)
+
+// Pool 管理一组可以安全地在多个goroutine间共享的资源
+// 被管理的资源必须实现io.Closer接口
+type Pool struct {
+	// 互斥锁, 保证多个goroutine同时访问资源池时, 池内的数据是安全的
+	m         sync.Mutex
+	// 有缓冲通道创建的, 用来 保存 共享的资源, 以为是一个接口, 所以可以管理任意实现了io.Closer接口的资源类型
+	resources chan io.Closer
+	// 当池需要一个新资源的时候, 可以用下面这个函数去创建
+	factory   func() (io.Closer, error)
+	// 表示池子是否已经被关闭
+	closed    bool
+}
+
+// ErrPoolClosed 表示请求了一个已经关闭的池
+var ErrPoolClosed = errors.New(&quot;Pool has been closed.&quot;)
+
+// New 创建一个用来管理资源的池, 需要一个可以分配新资源的函数并规定池的大小
+func New(fn func() (io.Closer, error), size uint) (*Pool, error) {
+	if size &lt;= 0 {
+		return nil, errors.New(&quot;Size value too small.&quot;)
+	}
+
+	return &amp;Pool{
+		factory:   fn,
+		resources: make(chan io.Closer, size),
+	}, nil
+}
+
+// Acquire 从池中获取一个资源
+func (p *Pool) Acquire() (io.Closer, error) {
+	select {
+	// 检查是否有空闲的资源
+	case r, ok := &lt;-p.resources:
+		log.Println(&quot;Acquire:&quot;, &quot;Shared Resource&quot;)
+		if !ok {
+			return nil, ErrPoolClosed
+		}
+		return r, nil
+
+	// 因为没有空闲资源可用, 所以提供一个新资源
+	default:
+		log.Println(&quot;Acquire:&quot;, &quot;New Resource&quot;)
+		return p.factory()
+	}
+}
+
+// Release 将一个使用后的资源放回池里
+func (p *Pool) Release(r io.Closer) {
+	// 保证本操作和Close操作的安全
+	p.m.Lock()
+	defer p.m.Unlock()
+
+	// 如果池已被关闭, 销毁这个资源
+	if p.closed {
+		r.Close()
+		return
+	}
+
+	select {
+	// 试图将这个资源放入队列.
+	case p.resources &lt;- r:
+		log.Println(&quot;Release:&quot;, &quot;In Queue&quot;)
+
+	// 如果队列已满, 则关闭这个资源
+	default:
+		log.Println(&quot;Release:&quot;, &quot;Closing&quot;)
+		r.Close()
+	}
+}
+
+// Close 会让资源池停止工作, 并关闭所有现有的资源
+func (p *Pool) Close() {
+	// 保证本操作和Release操作的安全
+	p.m.Lock()
+	defer p.m.Unlock()
+
+	// 如果池已经被关闭, 什么都不做
+	if p.closed {
+		return
+	}
+
+	// 将池关闭
+	p.closed = true
+
+	// 在清空通道里的前先将通道关闭
+	// 如果不这样做会发生死锁, 因为下面range这个chan如果没关会一直读取零值
+	close(p.resources)
+
+	// 关闭资源(chan io.Closer)
+	for r := range p.resources {
+		r.Close()
+	}
+}
+</code></pre>
+<pre><code class="language-go">// This sample program demonstrates how to use the pool package
+// to share a simulated set of database connections.
+package main
+
+import (
+	&quot;io&quot;
+	&quot;log&quot;
+	&quot;math/rand&quot;
+	&quot;sync&quot;
+	&quot;sync/atomic&quot;
+	&quot;time&quot;
+
+	&quot;interview/pool&quot;
+)
+
+const (
+	maxGoroutines   = 5 // the number of routines to use.
+	pooledResources = 2  // number of resources in the pool
+)
+
+// dbConnection simulates a resource to share.
+type dbConnection struct {
+	ID int32
+}
+
+// Close implements the io.Closer interface so dbConnection
+// can be managed by the pool. Close performs any resource
+// release management.
+func (dbConn *dbConnection) Close() error {
+	log.Println(&quot;Close: Connection&quot;, dbConn.ID)
+	return nil
+}
+
+// idCounter provides support for giving each connection a unique id.
+var idCounter int32
+
+// createConnection is a factory method that will be called by
+// the pool when a new connection is needed.
+func createConnection() (io.Closer, error) {
+	id := atomic.AddInt32(&amp;idCounter, 1)
+	log.Println(&quot;Create: New Connection&quot;, id)
+
+	return &amp;dbConnection{id}, nil
+}
+
+// main is the entry point for all Go programs.
+func main() {
+	var wg sync.WaitGroup
+	wg.Add(maxGoroutines)
+
+	// Create the pool to manage our connections.
+	p, err := pool.New(createConnection, pooledResources)
+	if err != nil {
+		log.Println(err)
+	}
+
+	// 使用池里的连接来完成查询
+	for query := 0; query &lt; maxGoroutines; query++ {
+		// 每个goroutine都要自己复制一份要查询值的副本, 不然所有的查询会共享同一个查询变量
+		go func(q int) {
+			performQueries(q, p)
+			wg.Done()
+		}(query)
+	}
+
+	// Wait for the goroutines to finish.
+	wg.Wait()
+
+	// Close the pool.
+	log.Println(&quot;Shutdown Program.&quot;)
+	p.Close()
+}
+
+// performQueries tests the resource pool of connections.
+func performQueries(query int, p *pool.Pool) {
+	// Acquire a connection from the pool.
+	conn, err := p.Acquire()
+	if err != nil {
+		log.Println(err)
+		return
+	}
+
+	// Release the connection back to the pool.
+	defer p.Release(conn)
+
+	// Wait to simulate a query response.
+	time.Sleep(time.Duration(rand.Intn(1000)) * time.Millisecond)
+	log.Printf(&quot;Query: QID[%d] CID[%d]\n&quot;, query, conn.(*dbConnection).ID)
+}
+
+</code></pre>
+<pre><code class="language-go">/*
+output :
+	2022/04/02 20:21:10 Acquire: New Resource
+    2022/04/02 20:21:10 Acquire: New Resource
+    2022/04/02 20:21:10 Acquire: New Resource
+    2022/04/02 20:21:10 Acquire: New Resource
+    2022/04/02 20:21:10 Create: New Connection 2
+    2022/04/02 20:21:10 Create: New Connection 3
+    2022/04/02 20:21:10 Create: New Connection 4
+    2022/04/02 20:21:10 Create: New Connection 5
+    2022/04/02 20:21:10 Query: QID[3] CID[4]
+    2022/04/02 20:21:10 Release: In Queue
+    2022/04/02 20:21:10 Query: QID[2] CID[5]
+    2022/04/02 20:21:10 Release: In Queue
+    2022/04/02 20:21:10 Query: QID[4] CID[1]
+    2022/04/02 20:21:10 Release: Closing
+    2022/04/02 20:21:10 Close: Connection 1
+    2022/04/02 20:21:11 Query: QID[0] CID[3]
+    2022/04/02 20:21:11 Release: Closingn 1 
+    2022/04/02 20:21:11 Close: Connection 3
+    2022/04/02 20:21:11 Query: QID[1] CID[2]
+    2022/04/02 20:21:11 Release: Closing
+    2022/04/02 20:21:11 Close: Connection 2
+    2022/04/02 20:21:11 Shutdown Program.
+    2022/04/02 20:21:11 Close: Connection 4
+    2022/04/02 20:21:11 Close: Connection 5
+*/
+</code></pre>
 <h3 id="work">work</h3>
+<pre><code class="language-go">// Package work 管理着一个goroutine池来完成工作
+package work
+
+import &quot;sync&quot;
+
+// Worker 必须满足接口类型, 才能使用工作池
+type Worker interface {
+	Task()
+}
+
+// Pool 提供一个goroutine线程池, 这个池可以完成任何已提交的Worker任务
+type Pool struct {
+	work chan Worker
+	wg   sync.WaitGroup
+}
+
+// New 创建一个新工作池
+func New(maxGoroutines int) *Pool {
+	p := Pool{
+		work: make(chan Worker),
+	}
+
+	p.wg.Add(maxGoroutines)
+	for i := 0; i &lt; maxGoroutines; i++ {
+		go func() {
+			for w := range p.work {
+				w.Task()
+			}
+			p.wg.Done()
+		}()
+	}
+
+	return &amp;p
+}
+
+// Run submits work to the pool.
+func (p *Pool) Run(w Worker) {
+	p.work &lt;- w
+}
+
+// Shutdown waits for all the goroutines to shutdown.
+func (p *Pool) Shutdown() {
+	close(p.work)
+	p.wg.Wait()
+}
+
+</code></pre>
+<pre><code class="language-go">// This sample program demonstrates how to use the work package
+// to use a pool of goroutines to get work done.
+package main
+
+import (
+	&quot;log&quot;
+	&quot;sync&quot;
+	&quot;time&quot;
+
+	&quot;interview/work&quot;
+)
+
+// names provides a set of names to display.
+var names = []string{
+	&quot;steve&quot;,
+	&quot;bob&quot;,
+	&quot;mary&quot;,
+	&quot;therese&quot;,
+	&quot;jason&quot;,
+}
+
+// namePrinter provides special support for printing names.
+type namePrinter struct {
+	name string
+}
+
+// Task implements the Worker interface.
+func (m *namePrinter) Task() {
+	log.Println(m.name)
+	time.Sleep(time.Second)
+}
+
+// main is the entry point for all Go programs.
+func main() {
+	// Create a work pool with 2 goroutines.
+	maxGoroutines := 2
+	p := work.New(maxGoroutines)
+
+	var wg sync.WaitGroup
+	wg.Add(2 * len(names))
+
+	for i := 0; i &lt; maxGoroutines; i++ {
+		// Iterate(迭代) over the slice of names.
+		for _, name := range names {
+			// Create a namePrinter and provide the
+			// specific name.
+			np := namePrinter{
+				name: name,
+			}
+
+			go func() {
+				// Submit the task to be worked on. When RunTask
+				// returns we know it is being handled.
+				p.Run(&amp;np)
+				wg.Done()
+			}()
+		}
+	}
+
+	wg.Wait()
+
+	// Shutdown the work pool and wait for all existing work
+	// to be completed.
+	p.Shutdown()
+}
+
+</code></pre>
+<pre><code class="language-go">/*
+output: 
+    2022/04/02 20:26:10 steve
+    2022/04/02 20:26:11 therese
+    2022/04/02 20:26:11 steve
+    2022/04/02 20:26:12 jason
+    2022/04/02 20:26:12 bob
+    2022/04/02 20:26:13 mary
+    2022/04/02 20:26:13 therese
+    2022/04/02 20:26:14 mary
+    2022/04/02 20:26:14 jason
+*/
+</code></pre>
 
 </article>
 
