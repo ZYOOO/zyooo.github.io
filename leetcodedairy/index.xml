@@ -8,14 +8,14 @@
     <language>en</language>
     <copyright>&amp;copy; 2021 &lt;a href=&#34;https://www.wangchucheng.com/&#34;&gt;WANG Chucheng&lt;/a&gt; and &lt;a href=&#34;https://www.ruiqima.com/&#34;&gt;MA Ruiqi&lt;/a&gt;
 </copyright>
-    <lastBuildDate>Sat, 02 Apr 2022 07:50:01 +0800</lastBuildDate><atom:link href="https://zyooo.github.io/leetcodedairy/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 09 Apr 2022 07:50:01 +0800</lastBuildDate><atom:link href="https://zyooo.github.io/leetcodedairy/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>2022-04-02</title>
-      <link>https://zyooo.github.io/leetcodedairy/20220402/</link>
-      <pubDate>Sat, 02 Apr 2022 07:50:01 +0800</pubDate>
+      <title>2022-04-09</title>
+      <link>https://zyooo.github.io/leetcodedairy/20220409/</link>
+      <pubDate>Sat, 09 Apr 2022 07:50:01 +0800</pubDate>
       
-      <guid>https://zyooo.github.io/leetcodedairy/20220402/</guid>
-      <description></description>
+      <guid>https://zyooo.github.io/leetcodedairy/20220409/</guid>
+      <description>780.到达终点 hard 如果直接暴力求解的话会栈溢出， 并且正向运算的话情况太多了， 所以就用反向计算</description>
     </item>
     
     <item>
