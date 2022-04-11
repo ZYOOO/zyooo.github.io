@@ -8,7 +8,16 @@
     <language>en</language>
     <copyright>&amp;copy; 2021 &lt;a href=&#34;https://www.wangchucheng.com/&#34;&gt;WANG Chucheng&lt;/a&gt; and &lt;a href=&#34;https://www.ruiqima.com/&#34;&gt;MA Ruiqi&lt;/a&gt;
 </copyright>
-    <lastBuildDate>Fri, 01 Apr 2022 21:26:14 +0800</lastBuildDate><atom:link href="https://zyooo.github.io/note/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 10 Apr 2022 19:54:16 +0800</lastBuildDate><atom:link href="https://zyooo.github.io/note/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>B站计网学习笔记</title>
+      <link>https://zyooo.github.io/note/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</link>
+      <pubDate>Sun, 10 Apr 2022 19:54:16 +0800</pubDate>
+      
+      <guid>https://zyooo.github.io/note/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</guid>
+      <description>计算机网络 在B站上找了个计网的视频, 想再系统点的过一遍知识和做好相应的练习, 在此做做笔记, 方便查漏补缺.</description>
+    </item>
+    
     <item>
       <title>操作系统IO相关</title>
       <link>https://zyooo.github.io/note/os_io/</link>

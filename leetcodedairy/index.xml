@@ -8,7 +8,34 @@
     <language>en</language>
     <copyright>&amp;copy; 2021 &lt;a href=&#34;https://www.wangchucheng.com/&#34;&gt;WANG Chucheng&lt;/a&gt; and &lt;a href=&#34;https://www.ruiqima.com/&#34;&gt;MA Ruiqi&lt;/a&gt;
 </copyright>
-    <lastBuildDate>Sat, 09 Apr 2022 07:50:01 +0800</lastBuildDate><atom:link href="https://zyooo.github.io/leetcodedairy/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 11 Apr 2022 15:22:11 +0800</lastBuildDate><atom:link href="https://zyooo.github.io/leetcodedairy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>动态规划--回文问题</title>
+      <link>https://zyooo.github.io/leetcodedairy/dp%E5%9B%9E%E6%96%87/</link>
+      <pubDate>Mon, 11 Apr 2022 15:22:11 +0800</pubDate>
+      
+      <guid>https://zyooo.github.io/leetcodedairy/dp%E5%9B%9E%E6%96%87/</guid>
+      <description>动态规划&amp;ndash;回文问题 面对恐惧的最好方法就是战胜恐惧!</description>
+    </item>
+    
+    <item>
+      <title>动态规划--基础问题</title>
+      <link>https://zyooo.github.io/leetcodedairy/dp%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Mon, 11 Apr 2022 15:22:03 +0800</pubDate>
+      
+      <guid>https://zyooo.github.io/leetcodedairy/dp%E5%9F%BA%E7%A1%80/</guid>
+      <description>动态规划&amp;ndash;基础问题 重叠子问题 509.</description>
+    </item>
+    
+    <item>
+      <title>统计各位数字都不同的数字个数</title>
+      <link>https://zyooo.github.io/leetcodedairy/20220411/</link>
+      <pubDate>Mon, 11 Apr 2022 07:50:01 +0800</pubDate>
+      
+      <guid>https://zyooo.github.io/leetcodedairy/20220411/</guid>
+      <description>原题链接 : https://leetcode-cn.</description>
+    </item>
+    
     <item>
       <title>2022-04-09</title>
       <link>https://zyooo.github.io/leetcodedairy/20220409/</link>
